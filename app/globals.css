@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'tech';
+  src: url('fonts/ShareTechMono-Regular.ttf');
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+html {
+  background-color: black;
+  color: white;
+  font-family: 'tech', monospace;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+}
+
+button {
+  border: solid thin;
+  border-color: #e18583;
+  border-radius: 5px;
+  color: white;
+  width: 20%;
+  position: relative;
+  left: 5%;
+  bottom: 5%;
+}
+
+a {
+  text-align: left;
+  color: blue;
+}
+
+.radio {
+  appearance: none;
+
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+input:checked {
+  border: 8px solid white;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: black;
+  color: white;
+}
+
+.popup_button {
+  position: fixed;
+  width: 4%;
+  height: 4%;
+  top: 0;
+  left: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
