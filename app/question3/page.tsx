@@ -1,7 +1,6 @@
 'use client'
 
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
@@ -27,18 +26,18 @@ const ContractBuilder3 = () => {
   }
 
   return (
-    <div className="float-root text-start min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="grid grid-cols-2 p-7">
-        <div className="p-10">
+    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+        <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => router.push('/question1')}
-            className="text-xs text-gray-500 w-full border-0 relative text-start"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What type of splits contract would you like to create?
           </button>
           <button
             onClick={() => router.push('/question2')}
-            className="text-xs text-gray-500 w-full border-0 relative text-start"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What is the name of the song?
           </button>
