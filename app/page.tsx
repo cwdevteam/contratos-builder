@@ -9,7 +9,7 @@ interface PopupProps {
 
 const Popup = ({ onClose }: PopupProps) => {
   return (
-    <div className="popup flex flex-col">
+    <div className="popup flex flex-col p-4 sm:p-8 text-sm sm:text-base">
       <p>
         Self-publishing and self-distributing your music means that you, as an
         artist or as a part of a group of creatives, take full control over the
@@ -62,8 +62,11 @@ const Popup = ({ onClose }: PopupProps) => {
         how to handle these aspects, hire professionals or use online tools to
         assist you.
       </p>
-      <button onClick={onClose} className="popup_button">
-        x
+      <button
+        onClick={onClose}
+        className="popup_button text-white hover:text-gray-300"
+      >
+        &times;
       </button>
     </div>
   )
@@ -78,36 +81,41 @@ export default function Home() {
   }
 
   return (
-    <div className="float-root text-start min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-8 row-start-2 sm:items-start w-3/5 ">
-        <h3>
+    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+      <main className="flex flex-col gap-6 sm:gap-8">
+        <h3 className="text-xl sm:text-2xl font-bold">
           Welcome to the <b>MESA</b> music contract builder.
         </h3>
-        <p>
+        <p className="text-sm sm:text-base">
           Here are a series of questions to help you build an agreement for your
           music release. Just click the button to get started. To navigate back
           and change a previous answer, click on the previous question above
           (text in gray).
         </p>
-        <p>
+        <p className="text-sm sm:text-base">
           For the time being, this contract template is meant only for artists
           who:
         </p>
-        <ol>
+        <ol className="list-decimal pl-6 text-sm sm:text-base">
           <li>Are releasing a song digitally via DSPs</li>
           <li>Are publishing their song independently</li>
-          <li>Are distributing thejr master recording independently</li>
+          <li>Are distributing their master recording independently</li>
         </ol>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3">
+      <footer className="mt-8 flex flex-col gap-4">
         <a
-          className="items-center gap-2 hover:underline hover:underline-offset-4"
+          className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
           href="#"
           onClick={togglePopup}
         >
           If confused, read here
         </a>
-        <button onClick={() => router.push('/disclaimer')}>GET STARTED</button>
+        <button
+          onClick={() => router.push('/disclaimer')}
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        >
+          GET STARTED
+        </button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>
     </div>

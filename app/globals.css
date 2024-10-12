@@ -18,6 +18,21 @@
     --foreground: #ededed;
   }
 }
+
+main {
+  width: 100%;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  main {
+    width: 80%;
+    text-align: left;
+  }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 html {
   background-color: black;
@@ -33,10 +48,10 @@ button {
   border-color: #e18583;
   border-radius: 5px;
   color: white;
-  width: 20%;
-  position: relative;
-  left: 5%;
-  bottom: 5%;
+  width: auto;
+  padding: 0.5rem 1rem;
+  position: static;
+  margin-top: 1rem;
 }
 
 a {
@@ -74,14 +89,20 @@ input:checked {
   z-index: 1000;
   background-color: black;
   color: white;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
 .popup_button {
-  position: fixed;
-  width: 4%;
-  height: 4%;
-  top: 0;
-  left: 0;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 @layer utilities {

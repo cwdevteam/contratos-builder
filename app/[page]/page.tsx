@@ -62,10 +62,11 @@ const DynamicPage = () => {
   }
 
   return (
-    <div className="float-root text-start min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="grid grid-cols-2 p-7">
-        <div className="p-10">
-          <div>
+    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+        <div className="w-full sm:w-1/2 py-4 sm:py-10">
+          {/* Previous question buttons */}
+          <div className="mb-4">
             <button
               onClick={() => router.push('/question1')}
               className="text-xs text-gray-500 w-full border-0 relative text-start"
@@ -96,81 +97,83 @@ const DynamicPage = () => {
               </button>
             ))}
           </div>
-          <h2>Contributor {pageNumber}</h2>
-          <form className="flex flex-col">
-            <label className="text-xs pt-2 pb-2">Legal Name (First Last)</label>
-            <input
-              type="text"
-              onChange={handleNameChange}
-              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-1/2"
-              required
-            />
-
-            <label className="text-xs pt-2 pb-2">
-              Email (example@mesawallet.io)
-            </label>
-            <input
-              type="email"
-              onChange={handleEmailChange}
-              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-1/2"
-              required
-            />
-
-            <label className="text-xs pt-2 pb-2">Type of contributor</label>
-            <select
-              name="type"
-              id="cont"
-              className="bg-black w-1/2"
-              onChange={handleContributorChange}
-              required
-            >
-              <option value="blank"></option>
-              <option value="LYRIC">Lyrics</option>
-              <option value="MUSIC">Music</option>
-            </select>
-            <label className="text-xs pt-2 pb-2">Split (%)</label>
-            <input
-              type="number"
-              max="100"
-              onChange={handleSplitChange}
-              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-1/2"
-              required
-            />
+          <h2 className="text-lg sm:text-xl mb-4">Contributor {pageNumber}</h2>
+          <form className="flex flex-col gap-4">
+            <div>
+              <label className="text-xs sm:text-sm mb-2 block">Legal Name (First Last)</label>
+              <input
+                type="text"
+                onChange={handleNameChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-xs sm:text-sm mb-2 block">Email (example@mesawallet.io)</label>
+              <input
+                type="email"
+                onChange={handleEmailChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-xs sm:text-sm mb-2 block">Type of contributor</label>
+              <select
+                name="type"
+                id="cont"
+                className="bg-black w-full sm:w-1/2"
+                onChange={handleContributorChange}
+                required
+              >
+                <option value="blank"></option>
+                <option value="LYRIC">Lyrics</option>
+                <option value="MUSIC">Music</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-xs sm:text-sm mb-2 block">Split (%)</label>
+              <input
+                type="number"
+                max="100"
+                onChange={handleSplitChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                required
+              />
+            </div>
           </form>
         </div>
-        <div className=" p-8 py-1">
-          <p className="text-xs text-gray-500">
-            Your contract has yet to be completed. Continue to fill out the
-            decision tree.
+        <div className="w-full sm:w-1/2 p-4 sm:p-8">
+          <p className="text-xs sm:text-sm text-gray-500 mb-4">
+            Your contract has yet to be completed. Continue to fill out the decision tree.
           </p>
-          <h3>1.0 Music Work Identification</h3>
-          <p>
+          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Music Work Identification</h3>
+          <p className="text-sm sm:text-base mb-4">
             The parties acknowledge and accept their contribution to the
             authorship or composition of the musical work and agree to the
             distribution of copyright ownership as follows:
           </p>
-          <h3 className="pt-10">Collaborator {pageNumber}:</h3>
-          <p>
-            Legal Name:
-            <span className="text-red-500">{legalName}</span>
+          <h3 className="text-base sm:text-lg font-bold mb-2">Collaborator {pageNumber}:</h3>
+          <p className="text-sm sm:text-base">
+            Legal Name: <span className="text-red-500">{legalName}</span>
           </p>
-          <p>
-            Email Address:
-            <span className="text-red-500">{email}</span>
+          <p className="text-sm sm:text-base">
+            Email Address: <span className="text-red-500">{email}</span>
           </p>
-          <p>
-            Contribution:
-            <span className="text-red-500">{contributorType}</span>
+          <p className="text-sm sm:text-base">
+            Contribution: <span className="text-red-500">{contributorType}</span>
           </p>
-          <p>
-            Split (%):
-            <span className="text-red-500">{split}</span>
+          <p className="text-sm sm:text-base">
+            Split (%): <span className="text-red-500">{split}</span>
           </p>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3">
-        <p id="wrongSplits" className="text-red-500 text-lg"></p>
-        <button onClick={handleNextPage} className="border border-red">
+      <footer className="mt-8 flex flex-col gap-4">
+        <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
+        <button 
+          onClick={handleNextPage}
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        >
           SUBMIT
         </button>
       </footer>

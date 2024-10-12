@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
@@ -15,76 +14,54 @@ const Success = () => {
   }
 
   const viewContract = () => {}
-
   const downloadUnsigned = () => {}
-
   const sendContract = () => {}
+
   return (
-    <div className="float-root text-start min-h-screen pb-20 pt-5">
-      <main className="grid grid-cols-2">
-        <div className="">
-          <button
-            onClick={() => router.push('/question1')}
-            className="text-xs text-gray-500 w-full border-0 relative text-start"
-          >
-            What type of splits contract would you like to create?
-          </button>
-          <button
-            onClick={() => router.push('/question2')}
-            className="text-xs text-gray-500 w-full border-0 relative text-start"
-          >
-            What is the name of the song?
-          </button>
-          <button
-            onClick={() => router.push('/question3')}
-            className="text-xs text-gray-500 w-full border-0 relative text-start"
-          >
-            How many collaborators contributed to writing the song?
-          </button>
-
-          {Array.from({ length: pageCount }, (_, i) => (
+    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+        <div className="w-full sm:w-1/2 py-4 sm:py-10">
+          {/* Previous question buttons */}
+          <div className="mb-4">
             <button
-              key={i + 1}
-              onClick={() => goToPage(i + 1)}
-              className="text-xs text-gray-500 w-full border-0 relative text-start"
+              onClick={() => router.push('/question1')}
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
             >
-              Contributor {i + 1}
+              What type of splits contract would you like to create?
             </button>
-          ))}
-
-          <button
-            onClick={() => router.push('/question4')}
-            className="text-xs text-gray-500 w-full border-0 relative text-start"
-          >
-            Vote or designate admin?
-          </button>
-          <h1 className="p-4 w-4/5 p-7 text-xl text-center">
-            Congrats! You´re protecting your art.
+            {/* ... other buttons ... */}
+          </div>
+          <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
+            Congrats! You're protecting your art.
           </h1>
-          <h1 className="p-4 w-4/5 p-7 text-2xl font-bold text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
             DRAFT CONTRACT CREATED!
-          </h1>
-          <div className="flex flex-col pt-7">
-            <button onClick={viewContract} className="border border-red w-4/5">
+          </h2>
+          <div className="flex flex-col gap-4">
+            <button 
+              onClick={viewContract}
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+            >
               VIEW CONTRACT
             </button>
-            <br></br>
-            <button
+            <button 
               onClick={downloadUnsigned}
-              className="border border-red w-4/5"
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
               DOWNLOAD UNSIGNED VERSION
             </button>
-            <br></br>
-            <button onClick={sendContract} className="border border-red w-4/5">
+            <button 
+              onClick={sendContract}
+              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+            >
               SEND DOCUSIGN TO COLLABORATORS
             </button>
           </div>
         </div>
-        <div className=" p-8 py-1">
-          <p className="text-lg pt-20">Congrats! You´re protecting your art.</p>
-          <h4 className="pt-40 text-lg w-3/5">
-            Don´t forget to review it with your colleagues or with a lawyer,
+        <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
+          <p className="text-lg sm:text-xl mb-8">Congrats! You're protecting your art.</p>
+          <h4 className="text-base sm:text-lg">
+            Don't forget to review it with your colleagues or with a lawyer,
             customize it if needed and sign it when you are ready!
           </h4>
         </div>
