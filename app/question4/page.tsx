@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import useQuestion4 from '../store/useQuestion4'
 
 const {push} = useRouter()
 
@@ -45,6 +46,8 @@ const ContractBuilder4 = () => {
   const pageCount = Number(searchParams.get('pageCount'))
   const [selectedOption, setSelectedOption] = useState('')
 
+  const updateVoteSelection = useQuestion4((state) => state.updateVoteSelection);
+
   const goToPage = (page: number) => {
     push(`/${page}`)
   }
@@ -58,6 +61,7 @@ const ContractBuilder4 = () => {
   }
 
   const findNextPage = () => {
+    updateVoteSelection(selectedOption)
     if (selectedOption == 'VOTE') {
       push('/question5vote')
     } else {
