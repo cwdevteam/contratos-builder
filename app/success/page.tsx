@@ -86,7 +86,7 @@ const Success = () => {
             </button>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
-            Congrats! You`&apos`re protecting your art.
+            Congrats! You&apos;re protecting your art.
           </h1>
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
             DRAFT CONTRACT CREATED!
@@ -113,9 +113,9 @@ const Success = () => {
           </div>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
-          <p className="text-lg sm:text-xl mb-8">Congrats! You`&apos`re protecting your art.</p>
+          <p className="text-lg sm:text-xl mb-8">Congrats! You&apos;re protecting your art.</p>
           <h4 className="text-base sm:text-lg">
-            Don`&apos`t forget to review it with your colleagues or with a lawyer,
+            Don&apos;t forget to review it with your colleagues or with a lawyer,
             customize it if needed and sign it when you are ready!
           </h4>
         </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useQuestion4 from '../store/useQuestion4'
@@ -158,4 +158,10 @@ const ContractBuilder4 = () => {
   )
 }
 
-export default ContractBuilder4
+const WrappedContractBuilder4 = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ContractBuilder4 />
+  </Suspense>
+)
+
+export default WrappedContractBuilder4

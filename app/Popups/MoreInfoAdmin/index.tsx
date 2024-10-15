@@ -12,7 +12,7 @@ export const AdminInfo = () => {
       <p>
         In the context of music intellectual property (IP), an administrator is
         responsible for managing the rights and revenues associated with a
-        songwriter`&apos`s or composer`&apos`s music. This role typically
+        songwriter&apos;s or composer&apos;s music. This role typically
         involves overseeing various aspects of licensing, royalty collection,
         and ensuring proper copyright protection. Administrators often work with
         music publishers, but independent songwriters and artists can also hire
@@ -44,7 +44,7 @@ export const AdminInfo = () => {
         </li>
         <li>
           Rights Enforcement: They monitor the use of the music to make sure
-          it`&apos`s not being used without permission, and they may take legal
+          it&apos;s not being used without permission, and they may take legal
           action in cases of infringement or unauthorized use.
         </li>
         <li>
