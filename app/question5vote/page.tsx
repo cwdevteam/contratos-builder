@@ -4,14 +4,28 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import useQuestion5Vote from '../store/useQuestion5Vote'
 
 const ContractBuilder5Vote = () => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
+  const [percent, setPercent] = useState('');
+
+  const updatePercent = useQuestion5Vote((state) => state.updatePercent);
 
   const goToPage = (page: number) => {
     push(`/${page}`)
+  }
+
+
+  const handlePercentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPercent(event.target.value)
+  }
+
+  const handleSubmit = () => {
+    updatePercent(percent)
+    push('/success')
   }
 
   return (
@@ -62,6 +76,7 @@ const ContractBuilder5Vote = () => {
             <input
               type="text"
               className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/5"
+              onChange={handlePercentChange}
             />
           </form>
         </div>
@@ -89,7 +104,7 @@ const ContractBuilder5Vote = () => {
           Still not clear about voting? read here.
         </a>
         <button
-          onClick={() => push('/question4')}
+          onClick={handleSubmit}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
