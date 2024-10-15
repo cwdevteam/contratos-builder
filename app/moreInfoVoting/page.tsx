@@ -3,7 +3,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-export const VotingInfo = () => {
+const VotingInfo = () => {
   const { push } = useRouter()
 
   return (

@@ -3,7 +3,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-export const AdminInfo = () => {
+const AdminInfo = () => {
   const { push } = useRouter()
 
   return (
