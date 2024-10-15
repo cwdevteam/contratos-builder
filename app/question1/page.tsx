@@ -3,6 +3,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import useQuestion1 from '../store/useQuestion1'
 
 interface PopupProps {
   onClose: () => void
@@ -57,9 +58,20 @@ const ContractBuilder1 = () => {
   const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
+  const [selectedDate, setSelectedDate] = useState('')
+
+  const updateSplit = useQuestion1((state) => state.updateSplit);
+  const updateDate = useQuestion1((state) => state.updateDate);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(date)
+    setSelectedOption(event.target.value)
+    setSelectedDate(date)
+  }
+
+  const handleSubmit = () => {
+    updateSplit(selectedOption)
+    updateDate(selectedDate)
+    push('/question2')
   }
 
   const togglePopup = () => {
@@ -115,7 +127,7 @@ const ContractBuilder1 = () => {
           <p>
             This agreement is entered into on{' '}
             <span className="text-red-500">
-              {selectedOption ? selectedOption : ' '}
+              {selectedDate ? selectedDate : ' '}
             </span>
           </p>
         </div>
@@ -128,7 +140,7 @@ const ContractBuilder1 = () => {
         >
           If confused, read here
         </a>
-        <button onClick={() => push('/question2')}>SUBMIT</button>
+        <button onClick={handleSubmit}>SUBMIT</button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>
     </div>

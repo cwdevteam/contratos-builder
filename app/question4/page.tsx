@@ -3,14 +3,14 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-
-const {push} = useRouter()
+import useQuestion4 from '../store/useQuestion4'
 
 interface PopupProps {
   onClose: () => void
 }
 
 const Popup = ({ onClose }: PopupProps) => {
+  const {push} = useRouter()
   return (
     <div className="popup flex-col">
       <p>
@@ -40,10 +40,14 @@ const Popup = ({ onClose }: PopupProps) => {
 }
 
 const ContractBuilder4 = () => {
+  const {push} = useRouter()
+
   const [showPopup, setShowPopup] = useState(false)
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [selectedOption, setSelectedOption] = useState('')
+
+  const updateVoteSelection = useQuestion4((state) => state.updateVoteSelection);
 
   const goToPage = (page: number) => {
     push(`/${page}`)
@@ -55,9 +59,11 @@ const ContractBuilder4 = () => {
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value)
+    updateVoteSelection(selectedOption)
   }
 
   const findNextPage = () => {
+    
     if (selectedOption == 'VOTE') {
       push('/question5vote')
     } else {
@@ -71,19 +77,19 @@ const ContractBuilder4 = () => {
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push('/question1')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What type of splits contract would you like to create?
           </button>
           <button
             onClick={() => push('/question2')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
           >
             What is the name of the song?
           </button>
           <button
             onClick={() => push('/question3')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
           >
             How many collaborators contributed to writing the song?
           </button>

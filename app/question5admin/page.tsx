@@ -3,12 +3,15 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import useQuestion5Admin from '../store/useQuestion5Admin'
 
 const ContractBuilder5Admin = () => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [name, setSelectedOptionName] = useState('')
+
+  const updateAdminName = useQuestion5Admin((state) => state.updateAdminName);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionName(event.target.value)
@@ -18,25 +21,30 @@ const ContractBuilder5Admin = () => {
     push(`/${page}`)
   }
 
+  const handleSubmit = () => {
+    updateAdminName(name)
+    push('/success')
+  }
+
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push('/question1')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What type of splits contract would you like to create?
           </button>
           <button
             onClick={() => push('/question2')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?
           </button>
           <button
             onClick={() => push('/question3')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             How many collaborators contributed to writing the song?
           </button>
@@ -45,7 +53,7 @@ const ContractBuilder5Admin = () => {
             <button
               key={i + 1}
               onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
             >
               Contributor {i + 1}
             </button>
@@ -53,7 +61,7 @@ const ContractBuilder5Admin = () => {
 
           <button
             onClick={() => push('/question4')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             Vote or designate admin?
           </button>
@@ -92,7 +100,7 @@ const ContractBuilder5Admin = () => {
           Still not clear about designating an admin? read here.
         </a>
         <button
-          onClick={() => push('/question4')}
+          onClick={handleSubmit}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
