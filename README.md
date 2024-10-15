@@ -1,4 +1,4 @@
-This is the modular-contract-builder for Mesa. 
+This is the modular-contract-builder for Mesa using typescript and next.js
 
 Mobile first design based of figma - https://www.figma.com/design/gHXeJ4kbwBSnLYZwetPN2K/Untitled?node-id=0-1&node-type=canvas
 
