@@ -3,6 +3,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import useQuestion1 from '../store/useQuestion1'
 
 interface PopupProps {
   onClose: () => void
@@ -55,11 +56,21 @@ const Popup = ({ onClose }: PopupProps) => {
 
 const ContractBuilder1 = () => {
   const { push } = useRouter()
+  const updateSplit = useQuestion1((state) => state.updateSplit);
+  const updateDate = useQuestion1((state) => state.updateDate);
   const [showPopup, setShowPopup] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
+  const [selectedDate, setSelectedDate] = useState('')
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(date)
+    setSelectedOption(event.target.value)
+    setSelectedDate(date)
+  }
+
+  const handleSubmit = () => {
+    updateSplit(selectedOption)
+    updateDate(selectedDate)
+    push('/question2')
   }
 
   const togglePopup = () => {
@@ -128,7 +139,7 @@ const ContractBuilder1 = () => {
         >
           If confused, read here
         </a>
-        <button onClick={() => push('/question2')}>SUBMIT</button>
+        <button onClick={handleSubmit}>SUBMIT</button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>
     </div>
