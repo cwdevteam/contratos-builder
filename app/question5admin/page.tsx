@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import useQuestion5Admin from '../store/useQuestion5Admin'
 
 const ContractBuilder5Admin = () => {
   const { push } = useRouter()
@@ -10,12 +11,19 @@ const ContractBuilder5Admin = () => {
   const pageCount = Number(searchParams.get('pageCount'))
   const [name, setSelectedOptionName] = useState('')
 
+  const updateAdminName = useQuestion5Admin((state) => state.updateAdminName);
+
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionName(event.target.value)
   }
 
   const goToPage = (page: number) => {
     push(`/${page}`)
+  }
+
+  const handleSubmit = () => {
+    updateAdminName(name)
+    push('/success')
   }
 
   return (
@@ -92,7 +100,7 @@ const ContractBuilder5Admin = () => {
           Still not clear about designating an admin? read here.
         </a>
         <button
-          onClick={() => push('/question4')}
+          onClick={handleSubmit}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
