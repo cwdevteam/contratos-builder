@@ -3,9 +3,11 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import useQuestion3 from '../store/useQuestion3'
 
 const ContractBuilder3 = () => {
   const { push } = useRouter()
+  const updateContributorCount = useQuestion3((state) => state.updateContributorCount);
   const [pageCount, setPageCount] = useState<number | null>(null)
 
   const searchParams = useSearchParams()
@@ -16,6 +18,7 @@ const ContractBuilder3 = () => {
   ) => {
     const contributors = Number(event.target.value)
     setPageCount(contributors)!
+    updateContributorCount(contributors)
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,6 +26,7 @@ const ContractBuilder3 = () => {
     if (pageCount && pageCount > 0) {
       push(`/1?pageCount=${pageCount}`)
     }
+
   }
 
   return (
