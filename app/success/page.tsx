@@ -27,7 +27,7 @@ const Success = () => {
   const viewContract = () => {}
   const downloadUnsigned = () => {
 
-    let doc = new jsPDF();
+    const doc = new jsPDF();
 
     let y = 10;
     const lineheight = 10;
