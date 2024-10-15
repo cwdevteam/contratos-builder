@@ -45,7 +45,7 @@ const Popup = ({ onClose }: PopupProps) => {
       <p>
         Both rights are crucial for monetizing and legally protecting music. The
         copyright controls the use of a specific recording, while publishing
-        rights control the use of the song's composition.
+        rights control the use of the song`&apos`s composition.
       </p>
       <button onClick={onClose} className="popup_button">
         x
@@ -78,7 +78,7 @@ const ContractBuilder1 = () => {
     setShowPopup(!showPopup)
   }
 
-  let date = new Date().toLocaleDateString()
+  const date = new Date().toLocaleDateString()
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">

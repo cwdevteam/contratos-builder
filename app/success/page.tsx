@@ -16,7 +16,7 @@ const Success = () => {
   const { push } = useRouter()
 
   const split = useQuestion1((state) => state.split)
-  const date = useQuestion1((state) => state.date)
+  //const date = useQuestion1((state) => state.date)
   const song = useQuestion2((state) => state.song)
   const contributorCount = useQuestion3((state) => state.contributorCount)
   const voteSelection = useQuestion4((state) => state.voteSelection)
@@ -27,7 +27,7 @@ const Success = () => {
   const viewContract = () => {}
   const downloadUnsigned = () => {
 
-    var doc = new jsPDF();
+    let doc = new jsPDF();
 
     let y = 10;
     const lineheight = 10;
@@ -47,7 +47,7 @@ const Success = () => {
     y+=lineheight;
     
     //useDynamicPageStore
-    Object.keys(pages).forEach((id, index) => {
+    Object.keys(pages).forEach((id) => {
       const pageData = pages[Number(id)];
       doc.text(`Contributor ${id}`, 10, y);  // Add contributor number
       y+=lineheight;
@@ -86,7 +86,7 @@ const Success = () => {
             </button>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
-            Congrats! You're protecting your art.
+            Congrats! You`&apos`re protecting your art.
           </h1>
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
             DRAFT CONTRACT CREATED!
@@ -113,9 +113,9 @@ const Success = () => {
           </div>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
-          <p className="text-lg sm:text-xl mb-8">Congrats! You're protecting your art.</p>
+          <p className="text-lg sm:text-xl mb-8">Congrats! You`&apos`re protecting your art.</p>
           <h4 className="text-base sm:text-lg">
-            Don't forget to review it with your colleagues or with a lawyer,
+            Don`&apos`t forget to review it with your colleagues or with a lawyer,
             customize it if needed and sign it when you are ready!
           </h4>
         </div>

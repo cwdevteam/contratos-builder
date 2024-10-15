@@ -11,7 +11,7 @@ const ContractBuilder3 = () => {
   const [pageCount, setPageCount] = useState<number | null>(null)
 
   const searchParams = useSearchParams()
-  let song = searchParams.get('song')!
+  const song = searchParams.get('song')!
 
   const handleContributorsChange = (
     event: React.ChangeEvent<HTMLInputElement>,

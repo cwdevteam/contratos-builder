@@ -19,7 +19,7 @@ export const VotingInfo = () => {
           When multiple people own a piece of intellectual property (IP), such as
           a song, the governance of that IP—meaning how decisions are made and
           actions are taken—depends on the percentage of ownership that each party
-          holds. Here's a technical breakdown of how this works:
+          holds. Here`&apos`s a technical breakdown of how this works:
         </p>
         <ol className="list-decimal pl-5 space-y-2">
           <li>
@@ -72,13 +72,13 @@ export const VotingInfo = () => {
               </li>
               <li>
                 Third-Party Arbitration: A neutral third party may step in to
-                resolve disputes if the owners can't agree.
+                resolve disputes if the owners can`&apos`t agree.
               </li>
             </ul>
           </li>
         </ol>
         <p>
-          To avoid disputes, it's essential to establish a governance agreement
+          To avoid disputes, it`&apos`s essential to establish a governance agreement
           that clearly defines how business and administrative decisions will be
           handled and how revenue will be split.
         </p>
