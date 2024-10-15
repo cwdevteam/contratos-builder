@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import useQuestion2 from '../store/useQuestion2'
 
 interface PopupProps {
   onClose: () => void
@@ -28,11 +29,17 @@ const Popup = ({ onClose }: PopupProps) => {
 
 const ContractBuilder2 = () => {
   const { push } = useRouter()
+  const updateSong = useQuestion2((state) => state.updateSong);
   const [showPopup, setShowPopup] = useState(false)
   const [song, setSelectedOptionSong] = useState('')
 
   const handleSongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionSong(event.target.value)
+  }
+
+  const handleSubmit = () => {
+    updateSong(song)
+    push(`/question3?${query}`)
   }
 
   const query = new URLSearchParams({
@@ -73,7 +80,7 @@ const ContractBuilder2 = () => {
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <button
-          onClick={() => push(`/question3?${query}`)}
+          onClick={handleSubmit}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT

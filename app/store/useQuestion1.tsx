@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 
-// stores the type of split contract selected by the user
+// needs to store split type and date
 interface SplitsState {
   split: string;
   date: string;
