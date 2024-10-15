@@ -34,19 +34,19 @@ const ContractBuilder5Vote = () => {
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push('/question1')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What type of splits contract would you like to create?
           </button>
           <button
             onClick={() => push('/question2')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?
           </button>
           <button
             onClick={() => push('/question3')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             How many collaborators contributed to writing the song?
           </button>
@@ -55,7 +55,7 @@ const ContractBuilder5Vote = () => {
             <button
               key={i + 1}
               onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
             >
               Contributor {i + 1}
             </button>
@@ -63,7 +63,7 @@ const ContractBuilder5Vote = () => {
 
           <button
             onClick={() => push('/question4')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             Vote or designate admin?
           </button>

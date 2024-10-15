@@ -49,10 +49,10 @@ const ContractBuilder2 = () => {
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="w-full sm:w-1/2 py-4 sm:py-10">
+        <div className="w-full sm:w-1/2 py-4 sm:py-10 border-none">
           <button
             onClick={() => push('/question1')}
-            className="text-xs text-gray-500 w-full text-left mb-4"
+            className="text-xs text-gray-500 w-full text-left mb-4 border-none"
           >
             What type of splits contract would you like to create?
           </button>

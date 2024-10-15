@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter, useSearchParams, useParams } from 'next/navigation'
-import { useState } from 'react'
 import useDynamicPageStore from '../store/use[page]'
 
 const DynamicPage = () => {
@@ -13,58 +12,64 @@ const DynamicPage = () => {
   const pageCount = Number(searchParams.get('pageCount'))
   const lastSplit = Number(searchParams.get('split'))
 
-  const pageData = useDynamicPageStore((state) => state.pages[pageNumber as number] || {});
-  const setPageData = useDynamicPageStore((state) => state.setPageData);
+  // Get page data from the Zustand store
+  const pageData = useDynamicPageStore((state) => state.pages[pageNumber] || {});
 
-  const [legalName, setLegalName] = useState('')
-  const [email, setEmail] = useState('')
-  const [contributorType, setcontributorType] = useState('')
-  const [split, setSplit] = useState<number>()
+  // Local state for input fields
+  const [legalName, setLegalName] = useState(pageData.legalName || '');
+  const [email, setEmail] = useState(pageData.email || '');
+  const [contributorType, setContributorType] = useState(pageData.contributorType || '');
+  const [split, setSplit] = useState<number>(pageData.split || 0);
+  
+  const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
 
-  //for splits of other pages
-  const [splitTotal, setSplitTotal] = useState<number>()
-  let newSplit = 0
+  // Update Zustand store only if inputs change
+  useEffect(() => {
+    const data = {
+      legalName,
+      email,
+      contributorType,
+      split,
+    };
+    useDynamicPageStore.setState((state) => ({
+      pages: {
+        ...state.pages,
+        [pageNumber]: { ...state.pages[pageNumber], ...data },
+      },
+    }));
+  }, [legalName, email, contributorType, split, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLegalName(event.target.value)
-  }
+    setLegalName(event.target.value);
+  };
+
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value)
-  }
-  const handleContributorChange = (
-    event: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
-    setcontributorType(event.target.value)
-  }
+    setEmail(event.target.value);
+  };
+
+  const handleContributorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setContributorType(event.target.value);
+  };
+
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number(event.target.value) < 101 && Number(event.target.value) > 0) {
-      setSplit(Number(event.target.value))
+    const value = Number(event.target.value);
+    if (value < 101 && value > 0) {
+      setSplit(value);
+      setSplitTotal(value + lastSplit);
     } else {
-      setSplit(100)
+      setSplit(100);
     }
-    newSplit = Number(event.target.value)
-    setSplitTotal(newSplit + lastSplit)
-  }
+  };
 
   const handleNextPage = () => {
-    setPageData(pageNumber as number, { legalName, email, contributorType, split });
-    if (pageNumber >= pageCount && splitTotal != 100) {
+    if (pageNumber >= pageCount && splitTotal !== 100) {
       document.getElementById('wrongSplits')!.innerHTML =
-        'Splits need to add to 100% to be valid'
-      router.refresh()
+        'Splits need to add to 100% to be valid';
     } else {
-      if (pageNumber >= pageCount) {
-        router.push(`/question4`)
-      } else {
-        const nextPage = pageNumber + 1
-        router.push(`/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`)
-      }
+      const nextPage = pageNumber + 1;
+      router.push(pageNumber >= pageCount ? `/question4` : `/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
     }
-  }
-
-  const goToPage = (page: number) => {
-    router.push(`/${page}`)
-  }
+  };
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
@@ -74,20 +79,19 @@ const DynamicPage = () => {
           <div className="mb-4">
             <button
               onClick={() => router.push('/question1')}
-              className="text-xs text-gray-500 w-full border-0 relative text-start"
+              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
-              What type of splits contract would you like to create?{' '}
-              {splitTotal}
+              What type of splits contract would you like to create? {splitTotal}
             </button>
             <button
               onClick={() => router.push('/question2')}
-              className="text-xs text-gray-500 w-full border-0 relative text-start"
+              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               What is the name of the song?
             </button>
             <button
               onClick={() => router.push('/question3')}
-              className="text-xs text-gray-500 w-full border-0 relative text-start"
+              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               How many collaborators contributed to writing the song?
             </button>
@@ -95,8 +99,8 @@ const DynamicPage = () => {
             {Array.from({ length: pageNumber - 1 }, (_, i) => (
               <button
                 key={i + 1}
-                onClick={() => goToPage(i + 1)}
-                className="text-xs text-gray-500 w-full border-0 relative text-start"
+                onClick={() => router.push(`/${i + 1}`)}
+                className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
               >
                 Contributor {i + 1}
               </button>
@@ -108,6 +112,7 @@ const DynamicPage = () => {
               <label className="text-xs sm:text-sm mb-2 block">Legal Name (First Last)</label>
               <input
                 type="text"
+                value={legalName}
                 onChange={handleNameChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
                 required
@@ -117,6 +122,7 @@ const DynamicPage = () => {
               <label className="text-xs sm:text-sm mb-2 block">Email (example@mesawallet.io)</label>
               <input
                 type="email"
+                value={email}
                 onChange={handleEmailChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
                 required
@@ -127,6 +133,7 @@ const DynamicPage = () => {
               <select
                 name="type"
                 id="cont"
+                value={contributorType}
                 className="bg-black w-full sm:w-1/2"
                 onChange={handleContributorChange}
                 required
@@ -140,6 +147,7 @@ const DynamicPage = () => {
               <label className="text-xs sm:text-sm mb-2 block">Split (%)</label>
               <input
                 type="number"
+                value={split}
                 max="100"
                 onChange={handleSplitChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
@@ -177,13 +185,13 @@ const DynamicPage = () => {
         <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
         <button 
           onClick={handleNextPage}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className="bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
         >
-          SUBMIT
+          Next
         </button>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default DynamicPage
+export default DynamicPage;

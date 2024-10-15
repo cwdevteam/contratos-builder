@@ -94,6 +94,7 @@ input:checked {
 }
 
 .popup_button {
+  border: none;
   position: absolute;
   width: 2rem;
   height: 2rem;

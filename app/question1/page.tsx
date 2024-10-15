@@ -56,11 +56,12 @@ const Popup = ({ onClose }: PopupProps) => {
 
 const ContractBuilder1 = () => {
   const { push } = useRouter()
-  const updateSplit = useQuestion1((state) => state.updateSplit);
-  const updateDate = useQuestion1((state) => state.updateDate);
   const [showPopup, setShowPopup] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
   const [selectedDate, setSelectedDate] = useState('')
+
+  const updateSplit = useQuestion1((state) => state.updateSplit);
+  const updateDate = useQuestion1((state) => state.updateDate);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value)
@@ -126,7 +127,7 @@ const ContractBuilder1 = () => {
           <p>
             This agreement is entered into on{' '}
             <span className="text-red-500">
-              {selectedOption ? selectedOption : ' '}
+              {selectedDate ? selectedDate : ' '}
             </span>
           </p>
         </div>

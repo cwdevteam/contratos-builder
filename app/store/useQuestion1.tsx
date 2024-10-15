@@ -12,7 +12,7 @@ const useQuestion1 = create<SplitsState>((set) => ({
   split: "",
   date: "",
   updateSplit: (value) => set({ split: value }),
-  updateDate: () => set({ split: "" }),
+  updateDate: (value) => set({ split: value }),
 }));
 
 export default useQuestion1;
