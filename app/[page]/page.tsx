@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react'
 import { useRouter, useSearchParams, useParams } from 'next/navigation'
 import { useState } from 'react'
+import useDynamicPageStore from '../store/use[page]'
 
 const DynamicPage = () => {
   const router = useRouter()
@@ -11,6 +12,9 @@ const DynamicPage = () => {
   const pageNumber = Number(params.page)
   const pageCount = Number(searchParams.get('pageCount'))
   const lastSplit = Number(searchParams.get('split'))
+
+  const pageData = useDynamicPageStore((state) => state.pages[pageNumber as number] || {});
+  const setPageData = useDynamicPageStore((state) => state.setPageData);
 
   const [legalName, setLegalName] = useState('')
   const [email, setEmail] = useState('')
@@ -43,6 +47,7 @@ const DynamicPage = () => {
   }
 
   const handleNextPage = () => {
+    setPageData(pageNumber as number, { legalName, email, contributorType, split });
     if (pageNumber >= pageCount && splitTotal != 100) {
       document.getElementById('wrongSplits')!.innerHTML =
         'Splits need to add to 100% to be valid'
