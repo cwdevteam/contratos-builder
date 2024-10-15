@@ -73,7 +73,7 @@ const Popup = ({ onClose }: PopupProps) => {
 }
 
 export default function Home() {
-  const router = useRouter()
+  const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
 
   const togglePopup = () => {
@@ -111,7 +111,7 @@ export default function Home() {
           If confused, read here
         </a>
         <button
-          onClick={() => router.push('/disclaimer')}
+          onClick={() => push('/disclaimer')}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           GET STARTED

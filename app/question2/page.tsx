@@ -27,7 +27,7 @@ const Popup = ({ onClose }: PopupProps) => {
 }
 
 const ContractBuilder2 = () => {
-  const router = useRouter()
+  const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
   const [song, setSelectedOptionSong] = useState('')
 
@@ -44,7 +44,7 @@ const ContractBuilder2 = () => {
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
-            onClick={() => router.push('/question1')}
+            onClick={() => push('/question1')}
             className="text-xs text-gray-500 w-full text-left mb-4"
           >
             What type of splits contract would you like to create?
@@ -73,7 +73,7 @@ const ContractBuilder2 = () => {
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <button
-          onClick={() => router.push(`/question3?${query}`)}
+          onClick={() => push(`/question3?${query}`)}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT

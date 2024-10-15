@@ -5,13 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
 const Success = () => {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const pageCount = Number(searchParams.get('pageCount'))
-
-  const goToPage = (page: number) => {
-    router.push(`/${page}`)
-  }
+  const { push } = useRouter()
 
   const viewContract = () => {}
   const downloadUnsigned = () => {}
@@ -24,7 +18,7 @@ const Success = () => {
           {/* Previous question buttons */}
           <div className="mb-4">
             <button
-              onClick={() => router.push('/question1')}
+              onClick={() => push('/question1')}
               className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
             >
               What type of splits contract would you like to create?

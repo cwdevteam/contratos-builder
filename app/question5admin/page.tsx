@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
 const ContractBuilder5Admin = () => {
-  const router = useRouter()
+  const { push } = useRouter()
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [name, setSelectedOptionName] = useState('')
@@ -15,7 +15,7 @@ const ContractBuilder5Admin = () => {
   }
 
   const goToPage = (page: number) => {
-    router.push(`/${page}`)
+    push(`/${page}`)
   }
 
   return (
@@ -23,19 +23,19 @@ const ContractBuilder5Admin = () => {
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
-            onClick={() => router.push('/question1')}
+            onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => router.push('/question2')}
+            onClick={() => push('/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => router.push('/question3')}
+            onClick={() => push('/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             How many collaborators contributed to writing the song?
@@ -52,7 +52,7 @@ const ContractBuilder5Admin = () => {
           ))}
 
           <button
-            onClick={() => router.push('/question4')}
+            onClick={() => push('/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             Vote or designate admin?
@@ -87,12 +87,12 @@ const ContractBuilder5Admin = () => {
         <a
           className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
           href="#"
-          onClick={() => router.push('/moreInfoAdmin')}
+          onClick={() => push('/moreInfoAdmin')}
         >
           Still not clear about designating an admin? read here.
         </a>
         <button
-          onClick={() => router.push('/question4')}
+          onClick={() => push('/question4')}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT

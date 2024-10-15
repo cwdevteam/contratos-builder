@@ -4,7 +4,7 @@ import React from 'react';
 import {useRouter} from 'next/navigation'
 
 const Disclaimer = () => {
-  const router = useRouter();
+  const { push } = useRouter();
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
@@ -18,7 +18,7 @@ const Disclaimer = () => {
             <br /><br />
             This draft is limited to the general principles of copyright law. If you are interested in learning more about how the MESA system can help you, please get in touch at contact@mesawallet.io.</span>
         </p>
-        <button onClick={() => router.push('/question1')} className="float-right">Proceed -&gt;</button>
+        <button onClick={() => push('/question1')} className="float-right">Proceed -&gt;</button>
       </main>
     </div>
     

@@ -4,12 +4,13 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
+const {push} = useRouter()
+
 interface PopupProps {
   onClose: () => void
 }
 
 const Popup = ({ onClose }: PopupProps) => {
-  const router = useRouter()
   return (
     <div className="popup flex-col">
       <p>
@@ -21,13 +22,13 @@ const Popup = ({ onClose }: PopupProps) => {
       </p>
       <a
         className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => router.push('/moreInfoVoting')}
+        onClick={() => push('/moreInfoVoting')}
       >
         Still not clear about voting? read here.
       </a>
       <a
         className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => router.push('/moreInfoAdmin')}
+        onClick={() => push('/moreInfoAdmin')}
       >
         Still not clear about designating an admin? read here.
       </a>
@@ -39,14 +40,13 @@ const Popup = ({ onClose }: PopupProps) => {
 }
 
 const ContractBuilder4 = () => {
-  const router = useRouter()
   const [showPopup, setShowPopup] = useState(false)
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [selectedOption, setSelectedOption] = useState('')
 
   const goToPage = (page: number) => {
-    router.push(`/${page}`)
+    push(`/${page}`)
   }
 
   const togglePopup = () => {
@@ -59,9 +59,9 @@ const ContractBuilder4 = () => {
 
   const findNextPage = () => {
     if (selectedOption == 'VOTE') {
-      router.push('/question5vote')
+      push('/question5vote')
     } else {
-      router.push('question5admin')
+      push('question5admin')
     }
   }
 
@@ -70,19 +70,19 @@ const ContractBuilder4 = () => {
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
-            onClick={() => router.push('/question1')}
+            onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => router.push('/question2')}
+            onClick={() => push('/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => router.push('/question3')}
+            onClick={() => push('/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4"
           >
             How many collaborators contributed to writing the song?

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 
 const ContractBuilder3 = () => {
-  const router = useRouter()
+  const { push } = useRouter()
   const [pageCount, setPageCount] = useState<number | null>(null)
 
   const searchParams = useSearchParams()
@@ -21,7 +21,7 @@ const ContractBuilder3 = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (pageCount && pageCount > 0) {
-      router.push(`/1?pageCount=${pageCount}`)
+      push(`/1?pageCount=${pageCount}`)
     }
   }
 
@@ -30,13 +30,13 @@ const ContractBuilder3 = () => {
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
-            onClick={() => router.push('/question1')}
+            onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => router.push('/question2')}
+            onClick={() => push('/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
           >
             What is the name of the song?

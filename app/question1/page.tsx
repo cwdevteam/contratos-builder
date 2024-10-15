@@ -54,7 +54,7 @@ const Popup = ({ onClose }: PopupProps) => {
 }
 
 const ContractBuilder1 = () => {
-  const router = useRouter()
+  const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
 
@@ -128,7 +128,7 @@ const ContractBuilder1 = () => {
         >
           If confused, read here
         </a>
-        <button onClick={() => router.push('/question2')}>SUBMIT</button>
+        <button onClick={() => push('/question2')}>SUBMIT</button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>
     </div>
