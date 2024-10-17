@@ -66,18 +66,21 @@ const ContractBuilder1 = () => {
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.id)
     setSelectedDate(date)
+    const value = event.target.id
+    console.log(value)
+    console.log(selectedDate)
   }
 
   const handleSubmit = () => {
     updateSplit(selectedOption)
     updateDate(selectedDate)
-    if(selectedOption == "Song Writing,"){
+    if(selectedOption == "song_writing"){
       push('/musical_work/question2')
     }
-    else if (selectedOption == "Master Recording,"){
-      push('master_recording/question2')
+    else if (selectedOption == "master_recording"){
+      push('master/question2')
     }
-    else if (selectedOption == "Song writing and Master Recording,"){
+    else if (selectedOption == "both"){
       push('both/question2')
     }
     
@@ -101,7 +104,7 @@ const ContractBuilder1 = () => {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id="Song Writing,"
+                id="song_writing"
                 required
               />
               SONG WRITING
@@ -112,7 +115,7 @@ const ContractBuilder1 = () => {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id="Master Recording,"
+                id="master_recording"
               />
               MASTER RECORDING
             </label>
@@ -122,7 +125,7 @@ const ContractBuilder1 = () => {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id="Song writing and Master Recording,"
+                id="both"
               />
               BOTH
             </label>
@@ -134,7 +137,7 @@ const ContractBuilder1 = () => {
             decision tree.
           </p>
           <p>
-            Copyright ownership agreement for { selectedOption} joint work.
+            Copyright ownership agreement for Music Composition, joint work.
           </p>
           <p>
             This agreement is entered into on{' '}
