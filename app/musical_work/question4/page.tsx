@@ -148,7 +148,7 @@ const ContractBuilder4 = () => {
         </a>
         <button 
           onClick={findNextPage}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
         </button>

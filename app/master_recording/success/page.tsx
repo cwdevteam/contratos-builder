@@ -94,19 +94,19 @@ const Success = () => {
           <div className="flex flex-col gap-4">
             <button 
               onClick={viewContract}
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+              className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
               VIEW CONTRACT
             </button>
             <button 
               onClick={downloadUnsigned}
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+              className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
               DOWNLOAD UNSIGNED VERSION
             </button>
             <button 
               onClick={sendContract}
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+              className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
               SEND DOCUSIGN TO COLLABORATORS
             </button>

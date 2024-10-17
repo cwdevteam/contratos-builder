@@ -112,7 +112,7 @@ export default function Home() {
         </a>
         <button
           onClick={() => push('/disclaimer')}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           GET STARTED
         </button>

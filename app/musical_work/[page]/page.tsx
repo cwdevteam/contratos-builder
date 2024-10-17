@@ -185,7 +185,7 @@ const DynamicPage = () => {
         <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
         <button 
           onClick={handleNextPage}
-          className="bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
+          className=" text-white py-2 px-4 rounded-lg w-full"
         >
           Next
         </button>
