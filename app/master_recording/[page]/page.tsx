@@ -53,7 +53,7 @@ const DynamicPage = () => {
 
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
-    if ((value < 101 && value > 0) && value != null) {
+    if ((value < 101 && value > 0) && value !=null) {
       setSplit(value);
       setSplitTotal(value + lastSplit);
     }
@@ -65,7 +65,7 @@ const DynamicPage = () => {
         'Splits need to add to 100% to be valid';
     } else {
       const nextPage = pageNumber + 1;
-      router.push(pageNumber >= pageCount ? `/musical_work/question4` : `/musical_work/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
+      router.push(pageNumber >= pageCount ? `/master_recording/question4` : `/master_recording/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
     }
   };
 
@@ -82,13 +82,13 @@ const DynamicPage = () => {
               What type of splits contract would you like to create?
             </button>
             <button
-              onClick={() => router.push('/musical_work/question2')}
+              onClick={() => router.push('/master_recording/question2')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               What is the name of the song?
             </button>
             <button
-              onClick={() => router.push('/musical_work/question3')}
+              onClick={() => router.push('/master_recording/question3')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               How many collaborators contributed to writing the song?
@@ -97,7 +97,7 @@ const DynamicPage = () => {
             {Array.from({ length: pageNumber - 1 }, (_, i) => (
               <button
                 key={i + 1}
-                onClick={() => router.push(`/musical_work/${i + 1}?pageCount=${pageCount}`)}
+                onClick={() => router.push(`/master_recording/${i + 1}?pageCount=${pageCount}`)}
                 className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
               >
                 Contributor {i + 1}
@@ -157,11 +157,11 @@ const DynamicPage = () => {
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
             Your contract has yet to be completed. Continue to fill out the decision tree.
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Music Work Identification</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Master Recording Identification</h3>
           <p className="text-sm sm:text-base mb-4">
             The parties acknowledge and accept their contribution to the
-            authorship or composition of the musical work and agree to the
-            distribution of copyright ownership as follows:
+            recording of the song and agree to the
+            distribution of copyright for the recording recording as follows:
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">Collaborator {pageNumber}:</h3>
           <p className="text-sm sm:text-base">
@@ -182,7 +182,7 @@ const DynamicPage = () => {
         <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
         <button 
           onClick={handleNextPage}
-          className=" text-white py-2 px-4 rounded-lg w-full"
+          className="text-white py-2 px-4 rounded-lg w-full"
         >
           Next
         </button>

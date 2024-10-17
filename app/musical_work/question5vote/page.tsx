@@ -15,7 +15,7 @@ const ContractBuilder5Vote = () => {
   const updatePercent = useQuestion5Vote((state) => state.updatePercent);
 
   const goToPage = (page: number) => {
-    push(`musical_work/${page}`)
+    push(`/musical_work/${page}`)
   }
 
 
@@ -105,7 +105,7 @@ const ContractBuilder5Vote = () => {
         </a>
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
         </button>

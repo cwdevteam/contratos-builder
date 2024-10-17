@@ -1,29 +1,31 @@
 'use client'
 
-import React, { Suspense, useState } from 'react'
+import React from 'react'
+import { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-import useQuestion5Admin from '../../store/useQuestion5Admin'
+import useQuestion5Vote from '../../store/useQuestion5Vote'
 
-const ContractBuilder5Admin = () => {
+const ContractBuilder5Vote = () => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
-  const [name, setSelectedOptionName] = useState('')
+  const [percent, setPercent] = useState('');
 
-  const updateAdminName = useQuestion5Admin((state) => state.updateAdminName);
-
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOptionName(event.target.value)
-  }
+  const updatePercent = useQuestion5Vote((state) => state.updatePercent);
 
   const goToPage = (page: number) => {
-    push(`musical_work/${page}`)
+    push(`/master_recording/${page}`)
+  }
+
+
+  const handlePercentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPercent(event.target.value)
   }
 
   const handleSubmit = () => {
-    updateAdminName(name)
-    push('/musical_work/success')
+    updatePercent(percent)
+    push('/master_recording/success')
   }
 
   return (
@@ -37,13 +39,13 @@ const ContractBuilder5Admin = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/musical_work/question2')}
+            onClick={() => push('/master_recording/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => push('/musical_work/question3')}
+            onClick={() => push('/master_recording/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             How many collaborators contributed to writing the song?
@@ -60,23 +62,21 @@ const ContractBuilder5Admin = () => {
           ))}
 
           <button
-            onClick={() => push('/musical_work/question4')}
+            onClick={() => push('/master_recording/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             Vote or designate admin?
           </button>
 
           <h1 className="text-lg sm:text-xl mb-4">
-            What is the name(s) of the designated administrator?
+            What percentage of ownership of the songwriting agreement is necessary to make business decisions about the song composition?
           </h1>
           <form className="flex flex-col">
-            <label className="text-xs sm:text-sm mb-2">
-              Legal Name (First Last) | Separate names by commas
-            </label>
+            <label className="text-xs sm:text-sm mb-2">(%)</label>
             <input
               type="text"
-              onChange={handleNameChange}
-              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-4/5"
+              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/5"
+              onChange={handlePercentChange}
             />
           </form>
         </div>
@@ -84,24 +84,28 @@ const ContractBuilder5Admin = () => {
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
             Your contract has yet to be completed. Continue to fill out the decision tree.
           </p>
-          <h4 className="text-base sm:text-lg font-bold mb-2">4.0 Designation of an administrator</h4>
-          <p className="text-xs sm:text-sm">
-            By means of the present contract, the parties recognize, accept, and declare that they designate{' '}
-            <span className="text-red-500 font-bold">{name}</span> as the representative in charge of making the decisions related to the commercial exploitation of the musical work. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with publishing companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
+          <h4 className="text-base sm:text-lg font-bold mb-2">2.0 Rights and Duties of the Parties</h4>
+          <p className="text-xs sm:text-sm mb-4">
+            None of the parties may perform legally relevant acts on the musical work without the written authorization of the 51% of the ownership, such as but not limited to the following:
           </p>
+          <ol className="list-decimal pl-5 text-xs sm:text-sm">
+            <li>Grant exclusive licenses for the use of the Musical Work.</li>
+            <li>Edit, alter or modify the musical work, especially the contributions of the other parties, in uses or sound recordings other than the one produced under this agreement unless authorized verbally or in writing by the co-author.</li>
+            <li>Exploiting the name of other parties in a manner that suggests approval or endorsement of a third-party product or service other than the musical work itself.</li>
+          </ol>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <a
           className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
           href="#"
-          onClick={() => push('/moreInfoAdmin')}
+          onClick={() => push('/moreInfoVoting')}
         >
-          Still not clear about designating an admin? read here.
+          Still not clear about voting? read here.
         </a>
         <button
           onClick={handleSubmit}
-          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
         </button>
@@ -110,10 +114,10 @@ const ContractBuilder5Admin = () => {
   )
 }
 
-const WrappedContractBuilder5Admin = () => (
+const WrappedContractBuilder5Vote = () => (
   <Suspense fallback={<div>Loading...</div>}>
-    <ContractBuilder5Admin />
+    <ContractBuilder5Vote />
   </Suspense>
 )
 
-export default WrappedContractBuilder5Admin
+export default WrappedContractBuilder5Vote

@@ -18,12 +18,12 @@ const ContractBuilder5Admin = () => {
   }
 
   const goToPage = (page: number) => {
-    push(`musical_work/${page}`)
+    push(`master_recording/${page}`)
   }
 
   const handleSubmit = () => {
     updateAdminName(name)
-    push('/musical_work/success')
+    push('/master_recording/success')
   }
 
   return (
@@ -37,13 +37,13 @@ const ContractBuilder5Admin = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/musical_work/question2')}
+            onClick={() => push('/master_recording/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => push('/musical_work/question3')}
+            onClick={() => push('/master_recording/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             How many collaborators contributed to writing the song?
@@ -60,7 +60,7 @@ const ContractBuilder5Admin = () => {
           ))}
 
           <button
-            onClick={() => push('/musical_work/question4')}
+            onClick={() => push('/master_recording/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             Vote or designate admin?
@@ -87,7 +87,7 @@ const ContractBuilder5Admin = () => {
           <h4 className="text-base sm:text-lg font-bold mb-2">4.0 Designation of an administrator</h4>
           <p className="text-xs sm:text-sm">
             By means of the present contract, the parties recognize, accept, and declare that they designate{' '}
-            <span className="text-red-500 font-bold">{name}</span> as the representative in charge of making the decisions related to the commercial exploitation of the musical work. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with publishing companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
+            <span className="text-red-500 font-bold">{name}</span> as the representative in charge of making the decisions related to the commercial exploitation of the Master recording agreement. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work and the recording, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
           </p>
         </div>
       </main>
@@ -101,7 +101,7 @@ const ContractBuilder5Admin = () => {
         </a>
         <button
           onClick={handleSubmit}
-          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
           SUBMIT
         </button>
