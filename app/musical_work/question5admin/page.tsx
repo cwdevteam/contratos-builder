@@ -95,7 +95,7 @@ const ContractBuilder5Admin = () => {
         <a
           className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
           href="#"
-          onClick={() => push('/moreInfoAdmin')}
+          onClick={() => push('/popups/moreInfoAdmin')}
         >
           Still not clear about designating an admin? read here.
         </a>
