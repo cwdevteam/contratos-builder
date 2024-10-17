@@ -99,7 +99,7 @@ const ContractBuilder5Vote = () => {
         <a
           className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
           href="#"
-          onClick={() => push('/moreInfoVoting')}
+          onClick={() => push('/popups/moreInfoVoting')}
         >
           Still not clear about voting? read here.
         </a>

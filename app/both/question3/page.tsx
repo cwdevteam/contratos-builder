@@ -11,7 +11,8 @@ const ContractBuilder3 = () => {
   const [pageCount, setPageCount] = useState<number | null>(null)
 
   const searchParams = useSearchParams()
-  const song = searchParams.get('recording')!
+  const song = searchParams.get('song')!
+  const recording = searchParams.get('recording')!
 
   const handleContributorsChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -24,7 +25,7 @@ const ContractBuilder3 = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (pageCount && pageCount > 0) {
-      push(`/master_recording/1?pageCount=${pageCount}`)
+      push(`/both/1?pageCount=${pageCount}`)
     }
 
   }
@@ -40,7 +41,7 @@ const ContractBuilder3 = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/master_recording/question2')}
+            onClick={() => push('/both/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
             What is the name of the song?
@@ -67,6 +68,13 @@ const ContractBuilder3 = () => {
             The contracting parties have collaborated in the authorship and
             composition of the musical work titled{' '}
             <span className="text-red-500">{song}</span>
+          </p>
+          <br/>
+          <h3>1.0 Master Recording Identification</h3>
+          <p>
+          The contracting parties have collaborated in the recording and 
+          production of the sound recording titled{' '}
+            <span className="text-red-500">{recording}</span>
           </p>
         </div>
       </main>

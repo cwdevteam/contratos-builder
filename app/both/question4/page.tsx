@@ -65,9 +65,9 @@ const ContractBuilder4 = () => {
   const findNextPage = () => {
     
     if (selectedOption == 'VOTE') {
-      push('/master_recording/question5vote')
+      push('/both/question5vote')
     } else {
-      push('/master_recording/question5admin')
+      push('/both/question5admin')
     }
   }
 
@@ -82,13 +82,13 @@ const ContractBuilder4 = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/master_recording/question2')}
+            onClick={() => push('/both/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => push('/master_recording/question3')}
+            onClick={() => push('/both/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
           >
             How many collaborators contributed to writing the song?

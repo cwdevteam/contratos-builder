@@ -22,13 +22,13 @@ const Popup = ({ onClose }: PopupProps) => {
       </p>
       <a
         className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push('/moreInfoVoting')}
+        onClick={() => push('/popups/moreInfoVoting')}
       >
         Still not clear about voting? read here.
       </a>
       <a
         className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push('/moreInfoAdmin')}
+        onClick={() => push('/popups/moreInfoAdmin')}
       >
         Still not clear about designating an admin? read here.
       </a>
