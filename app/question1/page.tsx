@@ -78,7 +78,7 @@ const ContractBuilder1 = () => {
       push('/musical_work/question2')
     }
     else if (selectedOption == "master_recording"){
-      push('master/question2')
+      push('master_recording/question2')
     }
     else if (selectedOption == "both"){
       push('both/question2')

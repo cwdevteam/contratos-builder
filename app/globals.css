@@ -87,7 +87,7 @@ input:checked {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  background-color: black;
+
   color: white;
   padding: 1rem;
   overflow-y: auto;

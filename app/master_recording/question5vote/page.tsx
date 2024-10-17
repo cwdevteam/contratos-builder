@@ -15,7 +15,7 @@ const ContractBuilder5Vote = () => {
   const updatePercent = useQuestion5Vote((state) => state.updatePercent);
 
   const goToPage = (page: number) => {
-    push(`/musical_work/${page}`)
+    push(`/master_recording/${page}`)
   }
 
 
@@ -25,7 +25,7 @@ const ContractBuilder5Vote = () => {
 
   const handleSubmit = () => {
     updatePercent(percent)
-    push('/musical_work/success')
+    push('/master_recording/success')
   }
 
   return (
@@ -39,13 +39,13 @@ const ContractBuilder5Vote = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/musical_work/question2')}
+            onClick={() => push('/master_recording/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => push('/musical_work/question3')}
+            onClick={() => push('/master_recording/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             How many collaborators contributed to writing the song?
@@ -62,7 +62,7 @@ const ContractBuilder5Vote = () => {
           ))}
 
           <button
-            onClick={() => push('/musical_work/question4')}
+            onClick={() => push('/master_recording/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             Vote or designate admin?
