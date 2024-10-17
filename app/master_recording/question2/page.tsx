@@ -29,7 +29,7 @@ const Popup = ({ onClose }: PopupProps) => {
 
 const ContractBuilder2 = () => {
   const { push } = useRouter()
-  const updateSong = useQuestion2((state) => state.updateSong);
+  const updateRecording = useQuestion2((state) => state.updateRecording);
   const [showPopup, setShowPopup] = useState(false)
   const [recording, setRecording] = useState('')
 
@@ -38,7 +38,7 @@ const ContractBuilder2 = () => {
   }
 
   const handleSubmit = () => {
-    updateSong(recording)
+    updateRecording(recording)
     push(`/master_recording/question3?${query}`)
   }
 

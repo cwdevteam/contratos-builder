@@ -30,6 +30,7 @@ const Popup = ({ onClose }: PopupProps) => {
 const ContractBuilder2 = () => {
   const { push } = useRouter()
   const updateSong = useQuestion2((state) => state.updateSong);
+  const updateRecording = useQuestion2((state) => state.updateRecording);
   const [showPopup, setShowPopup] = useState(false)
   const [song, setSelectedOptionSong] = useState('')
   const [recording, setRecording] = useState('')
@@ -44,10 +45,12 @@ const ContractBuilder2 = () => {
 
   const handleSubmit = () => {
     updateSong(song)
-    push(`/master_recording/question3?${query}`)
+    updateRecording(recording)
+    push(`/both/question3?${query}`)
   }
 
   const query = new URLSearchParams({
+    song,
     recording,
   }).toString()
 

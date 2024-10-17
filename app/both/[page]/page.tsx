@@ -65,7 +65,7 @@ const DynamicPage = () => {
         'Splits need to add to 100% to be valid';
     } else {
       const nextPage = pageNumber + 1;
-      router.push(pageNumber >= pageCount ? `/master_recording/question4` : `/master_recording/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
+      router.push(pageNumber >= pageCount ? `/both/question4` : `/both/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
     }
   };
 
@@ -82,13 +82,13 @@ const DynamicPage = () => {
               What type of splits contract would you like to create?
             </button>
             <button
-              onClick={() => router.push('/master_recording/question2')}
+              onClick={() => router.push('/both/question2')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               What is the name of the song?
             </button>
             <button
-              onClick={() => router.push('/master_recording/question3')}
+              onClick={() => router.push('/both/question3')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               How many collaborators contributed to writing the song?
@@ -97,7 +97,7 @@ const DynamicPage = () => {
             {Array.from({ length: pageNumber - 1 }, (_, i) => (
               <button
                 key={i + 1}
-                onClick={() => router.push(`/master_recording/${i + 1}?pageCount=${pageCount}`)}
+                onClick={() => router.push(`/both/${i + 1}?pageCount=${pageCount}`)}
                 className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
               >
                 Contributor {i + 1}
@@ -157,11 +157,9 @@ const DynamicPage = () => {
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
             Your contract has yet to be completed. Continue to fill out the decision tree.
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Master Recording Identification</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Music Work and Master Recording  Identification</h3>
           <p className="text-sm sm:text-base mb-4">
-            The parties acknowledge and accept their contribution to the
-            recording of the song and agree to the
-            distribution of copyright for the recording recording as follows:
+          The parties acknowledge and accept their contribution to the authorship or composition of the musical work and the production of the sound recording, and agree to the distribution of both rights as follows:
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">Collaborator {pageNumber}:</h3>
           <p className="text-sm sm:text-base">

@@ -18,12 +18,12 @@ const ContractBuilder5Admin = () => {
   }
 
   const goToPage = (page: number) => {
-    push(`master_recording/${page}`)
+    push(`both/${page}`)
   }
 
   const handleSubmit = () => {
     updateAdminName(name)
-    push('/master_recording/success')
+    push('/both/success')
   }
 
   return (
@@ -37,13 +37,13 @@ const ContractBuilder5Admin = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/master_recording/question2')}
+            onClick={() => push('/both/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => push('/master_recording/question3')}
+            onClick={() => push('/both/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             How many collaborators contributed to writing the song?
@@ -60,7 +60,7 @@ const ContractBuilder5Admin = () => {
           ))}
 
           <button
-            onClick={() => push('/master_recording/question4')}
+            onClick={() => push('/both/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             Vote or designate admin?
