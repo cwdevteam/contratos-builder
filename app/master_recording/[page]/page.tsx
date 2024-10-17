@@ -56,8 +56,6 @@ const DynamicPage = () => {
     if (value < 101 && value > 0) {
       setSplit(value);
       setSplitTotal(value + lastSplit);
-    } else {
-      setSplit(100);
     }
   };
 
