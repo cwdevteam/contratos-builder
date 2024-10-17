@@ -6,5 +6,5 @@ Walks musicians through process of creating a splits contract. Asks users differ
 
 Uses zustand for lightweight state management. Stores values throughout pages, accesses them in the success page, and adds them to downloadable pdf using jsPDF.
 
-Next steps 10/16/24: https://mesa-contract-builder.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
-Finish 2 other tracks
+Next steps 10/17/24: https://mesa-contract-builder.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
+Get 6 contract downloads based on doc files
