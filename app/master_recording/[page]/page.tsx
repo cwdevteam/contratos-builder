@@ -157,11 +157,11 @@ const DynamicPage = () => {
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
             Your contract has yet to be completed. Continue to fill out the decision tree.
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Music Work Identification</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Master Recording Identification</h3>
           <p className="text-sm sm:text-base mb-4">
             The parties acknowledge and accept their contribution to the
-            authorship or composition of the musical work and agree to the
-            distribution of copyright ownership as follows:
+            recording of the song and agree to the
+            distribution of copyright for the recording recording as follows:
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">Collaborator {pageNumber}:</h3>
           <p className="text-sm sm:text-base">

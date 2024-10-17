@@ -87,7 +87,7 @@ const ContractBuilder5Admin = () => {
           <h4 className="text-base sm:text-lg font-bold mb-2">4.0 Designation of an administrator</h4>
           <p className="text-xs sm:text-sm">
             By means of the present contract, the parties recognize, accept, and declare that they designate{' '}
-            <span className="text-red-500 font-bold">{name}</span> as the representative in charge of making the decisions related to the commercial exploitation of the musical work. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with publishing companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
+            <span className="text-red-500 font-bold">{name}</span> as the representative in charge of making the decisions related to the commercial exploitation of the Master recording agreement. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work and the recording, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
           </p>
         </div>
       </main>
