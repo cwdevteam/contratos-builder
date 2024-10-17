@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useRouter, useSearchParams, useParams } from 'next/navigation'
-import useDynamicPageStore from '../store/use[page]'
+import useDynamicPageStore from '../../store/use[page]'
 
 const DynamicPage = () => {
   const router = useRouter()
@@ -67,7 +67,7 @@ const DynamicPage = () => {
         'Splits need to add to 100% to be valid';
     } else {
       const nextPage = pageNumber + 1;
-      router.push(pageNumber >= pageCount ? `/question4` : `/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
+      router.push(pageNumber >= pageCount ? `/musical_work/question4` : `/musical_work/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
     }
   };
 
@@ -81,16 +81,16 @@ const DynamicPage = () => {
               onClick={() => router.push('/question1')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
-              What type of splits contract would you like to create? {splitTotal}
+              What type of splits contract would you like to create?
             </button>
             <button
-              onClick={() => router.push('/question2')}
+              onClick={() => router.push('/musical_work/question2')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               What is the name of the song?
             </button>
             <button
-              onClick={() => router.push('/question3')}
+              onClick={() => router.push('/musical_work/question3')}
               className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
             >
               How many collaborators contributed to writing the song?
@@ -99,7 +99,7 @@ const DynamicPage = () => {
             {Array.from({ length: pageNumber - 1 }, (_, i) => (
               <button
                 key={i + 1}
-                onClick={() => router.push(`/${i + 1}`)}
+                onClick={() => router.push(`/musical_work/${i + 1}`)}
                 className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
               >
                 Contributor {i + 1}

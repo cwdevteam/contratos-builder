@@ -64,14 +64,26 @@ const ContractBuilder1 = () => {
   const updateDate = useQuestion1((state) => state.updateDate);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value)
+    setSelectedOption(event.target.id)
     setSelectedDate(date)
+    const value = event.target.id
+    console.log(value)
+    console.log(selectedDate)
   }
 
   const handleSubmit = () => {
     updateSplit(selectedOption)
     updateDate(selectedDate)
-    push('/question2')
+    if(selectedOption == "song_writing"){
+      push('/musical_work/question2')
+    }
+    else if (selectedOption == "master_recording"){
+      push('master/question2')
+    }
+    else if (selectedOption == "both"){
+      push('both/question2')
+    }
+    
   }
 
   const togglePopup = () => {
@@ -92,6 +104,7 @@ const ContractBuilder1 = () => {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
+                id="song_writing"
                 required
               />
               SONG WRITING
@@ -102,6 +115,7 @@ const ContractBuilder1 = () => {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
+                id="master_recording"
               />
               MASTER RECORDING
             </label>
@@ -111,6 +125,7 @@ const ContractBuilder1 = () => {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
+                id="both"
               />
               BOTH
             </label>

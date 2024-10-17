@@ -4,12 +4,12 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 
 const AdminInfo = () => {
-  const { push } = useRouter()
+  const { back } = useRouter()
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col">
       <button 
-        onClick={() => push(`/question4`)}
+        onClick={() => back()}
         className="self-end bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors mb-4"
       >
         Close

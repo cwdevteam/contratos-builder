@@ -4,13 +4,13 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { jsPDF } from 'jspdf';
 
-import useQuestion1 from '../store/useQuestion1';
-import useQuestion2 from '../store/useQuestion2';
-import useQuestion3 from '../store/useQuestion3';
-import useQuestion4 from '../store/useQuestion4';
-import useDynamicPageStore from '../store/use[page]';
-import useQuestion5Admin from '../store/useQuestion5Admin';
-import useQuestion5Vote from '../store/useQuestion5Vote';
+import useQuestion1 from '../../store/useQuestion1';
+import useQuestion2 from '../../store/useQuestion2';
+import useQuestion3 from '../../store/useQuestion3';
+import useQuestion4 from '../../store/useQuestion4';
+import useDynamicPageStore from '../../store/use[page]';
+import useQuestion5Admin from '../../store/useQuestion5Admin';
+import useQuestion5Vote from '../../store/useQuestion5Vote';
 
 const Success = () => {
   const { push } = useRouter()

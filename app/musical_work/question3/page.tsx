@@ -3,7 +3,7 @@
 import React, { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-import useQuestion3 from '../store/useQuestion3'
+import useQuestion3 from '../../store/useQuestion3'
 
 const ContractBuilder3 = () => {
   const { push } = useRouter()
@@ -24,7 +24,7 @@ const ContractBuilder3 = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (pageCount && pageCount > 0) {
-      push(`/1?pageCount=${pageCount}`)
+      push(`/musical_work/1?pageCount=${pageCount}`)
     }
 
   }
@@ -40,7 +40,7 @@ const ContractBuilder3 = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/question2')}
+            onClick={() => push('/musical_work/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
             What is the name of the song?

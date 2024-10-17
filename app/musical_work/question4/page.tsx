@@ -3,7 +3,7 @@
 import React, { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-import useQuestion4 from '../store/useQuestion4'
+import useQuestion4 from '../../store/useQuestion4'
 
 interface PopupProps {
   onClose: () => void
@@ -65,9 +65,9 @@ const ContractBuilder4 = () => {
   const findNextPage = () => {
     
     if (selectedOption == 'VOTE') {
-      push('/question5vote')
+      push('/musical_work/question5vote')
     } else {
-      push('question5admin')
+      push('/musical_work/question5admin')
     }
   }
 
@@ -82,13 +82,13 @@ const ContractBuilder4 = () => {
             What type of splits contract would you like to create?
           </button>
           <button
-            onClick={() => push('/question2')}
+            onClick={() => push('/musical_work/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
           >
             What is the name of the song?
           </button>
           <button
-            onClick={() => push('/question3')}
+            onClick={() => push('/musical_work/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
           >
             How many collaborators contributed to writing the song?

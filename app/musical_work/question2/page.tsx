@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import useQuestion2 from '../store/useQuestion2'
+import useQuestion2 from '../../store/useQuestion2'
 
 interface PopupProps {
   onClose: () => void
@@ -39,7 +39,7 @@ const ContractBuilder2 = () => {
 
   const handleSubmit = () => {
     updateSong(song)
-    push(`/question3?${query}`)
+    push(`/musical_work/question3?${query}`)
   }
 
   const query = new URLSearchParams({
