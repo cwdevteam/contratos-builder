@@ -35,17 +35,17 @@ const ContractBuilder3 = () => {
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push('/question1')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
             What type of splits contract would you like to create?
           </button>
           <button
             onClick={() => push('/master_recording/question2')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
             What is the name of the song?
           </button>
-          <p>How many collaborators contributed to writing the song?</p>
+          <p>How many collaborators own a percentage of the master recording?</p>
           <form className="flex flex-col">
             <input
               type="number"

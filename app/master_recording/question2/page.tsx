@@ -48,7 +48,7 @@ const ContractBuilder2 = () => {
   }
 
   const query = new URLSearchParams({
-    song,
+    recording,
   }).toString()
 
   return (

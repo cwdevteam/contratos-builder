@@ -97,7 +97,7 @@ const DynamicPage = () => {
             {Array.from({ length: pageNumber - 1 }, (_, i) => (
               <button
                 key={i + 1}
-                onClick={() => router.push(`/musical_work/${i + 1}`)}
+                onClick={() => router.push(`/musical_work/${i + 1}?pageCount=${pageCount}`)}
                 className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
               >
                 Contributor {i + 1}
