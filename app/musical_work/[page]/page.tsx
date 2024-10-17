@@ -53,11 +53,9 @@ const DynamicPage = () => {
 
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
-    if (value < 101 && value > 0) {
+    if ((value < 101 && value > 0) && value != null) {
       setSplit(value);
       setSplitTotal(value + lastSplit);
-    } else {
-      setSplit(100);
     }
   };
 
@@ -147,7 +145,6 @@ const DynamicPage = () => {
               <label className="text-xs sm:text-sm mb-2 block">Split (%)</label>
               <input
                 type="number"
-                value={split}
                 max="100"
                 onChange={handleSplitChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
