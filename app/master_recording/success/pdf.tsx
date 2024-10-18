@@ -2,7 +2,7 @@ import { jsPDF } from 'jspdf';
 
 import useQuestion1 from '../../store/useQuestion1';
 import useQuestion2 from '../../store/useQuestion2';
-import useQuestion3 from '../../store/useQuestion3';
+//import useQuestion3 from '../../store/useQuestion3'; //NOT USED
 import useQuestion4 from '../../store/useQuestion4';
 import useDynamicPageStore from '../../store/use[page]';
 import useQuestion5Admin from '../../store/useQuestion5Admin';
@@ -23,7 +23,6 @@ const PDF = () => {
     const date = useQuestion1((state) => state.split)
     const song = useQuestion2((state) => state.song)
     const recording = useQuestion2((state) => state.recording)
-    const contributorCount = useQuestion3((state) => state.contributorCount)
     const voteSelection = useQuestion4((state) => state.voteSelection)
     const pages = useDynamicPageStore((state) => state.pages);
     const adminName = useQuestion5Admin((state) => state.adminName)

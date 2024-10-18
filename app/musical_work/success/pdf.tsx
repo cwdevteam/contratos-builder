@@ -2,7 +2,7 @@ import { jsPDF } from 'jspdf';
 
 import useQuestion1 from '../../store/useQuestion1';
 import useQuestion2 from '../../store/useQuestion2';
-import useQuestion3 from '../../store/useQuestion3';
+//import useQuestion3 from '../../store/useQuestion3'; //NOT USED
 import useQuestion4 from '../../store/useQuestion4';
 import useDynamicPageStore from '../../store/use[page]';
 import useQuestion5Admin from '../../store/useQuestion5Admin';
@@ -22,8 +22,6 @@ const PDF = () => {
 
     const date = useQuestion1((state) => state.split)
     const song = useQuestion2((state) => state.song)
-    const recording = useQuestion2((state) => state.recording)
-    const contributorCount = useQuestion3((state) => state.contributorCount)
     const voteSelection = useQuestion4((state) => state.voteSelection)
     const pages = useDynamicPageStore((state) => state.pages);
     const adminName = useQuestion5Admin((state) => state.adminName)
@@ -63,18 +61,6 @@ const PDF = () => {
     doc.text(split3,x,y)
     y+=10
 
-    doc.setFont('Palatino Linotype', 'bold')
-    const line4 = `2.0     Identification of Master Recording`
-    x = getX(line4);
-    doc.text(line4,x,y)
-    y+=10
-
-    doc.setFont('Palatino Linotype', 'normal')
-    const line5 = `The contracting parties have collaborated in the recording and production of the Master Recording titled ${recording}, which fixes a performance of the Musical Work identified in clause 1 of this agreement.`
-    const split5 = doc.splitTextToSize(line5,doc.internal.pageSize.getWidth()*.6)
-    doc.text(split5,x/2,y)
-    y+=10
-
     const line6 = `The parties acknowledge and accept their contribution to the recording and production of the Master Recording and agree to the distribution of ownership as follows:`
     const split6 = doc.splitTextToSize(line6,doc.internal.pageSize.getWidth()*.6)
     doc.text(split6,x/2,y+10)
@@ -104,7 +90,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype', 'bold')
     doc.setFontSize(11);
-    const line7 = `3.0     Rights and duties of the parties.`
+    const line7 = `2.0     Rights and duties of the parties.`
     x = getX(line7);
     doc.text(line7,x/2,y)
 
@@ -163,7 +149,7 @@ const PDF = () => {
     
     doc.setFont('Palatino Linotype', 'bold')
     doc.setFontSize(11);
-    const line15 = `4.0     Distribution and monetization of works`
+    const line15 = `3.0     Distribution and monetization of works`
     x = getX(line15);
     doc.text(line15,x/2,y)
     y+=10
@@ -192,7 +178,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line19 = `5.0     Credits`
+    const line19 = `4.0     Credits`
     doc.text(line19,x/2,y)
     y+=10
 
@@ -205,7 +191,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line21 = `6.0     License for artists`
+    const line21 = `5.0     License for artists`
     doc.text(line21,x/2,y)
     y+=10
 
@@ -218,7 +204,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line23 = `7.0     Accounting`
+    const line23 = `6.0     Accounting`
     doc.text(line23,x/2,y)
     y+=10
 
@@ -231,7 +217,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line25 = `8.0     Full capacity and indemnity against third parties.`
+    const line25 = `7.0     Full capacity and indemnity against third parties.`
     doc.text(line25,x/2,y)
     y+=10
 
@@ -256,7 +242,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line29 = `9.0     Full autonomy and no employment relationship.`
+    const line29 = `8.0     Full autonomy and no employment relationship.`
     doc.text(line29,x/2,y)
     y+=10
 
@@ -272,7 +258,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line31 = `10.0     Right of first refusal.`
+    const line31 = `9.0     Right of first refusal.`
     doc.text(line31,x/2,y)
     y+=10
 
@@ -285,7 +271,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line33 = `11.0     Notices.`
+    const line33 = `10.0     Notices.`
     doc.text(line33,x/2,y)
     y+=10
 
@@ -298,7 +284,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line35 = `12.0     Dispute settlement.`
+    const line35 = `11.0     Dispute settlement.`
     doc.text(line35,x/2,y)
     y+=10
 
@@ -327,6 +313,9 @@ const PDF = () => {
     y+=5;
     doc.setFont('Palatino Linotype','normal')
     doc.text(`Legal Name:`, x, y);
+    doc.line(x+20,y,x+150,y);
+    y+=5;
+    doc.text(`Artistic Name:`, x, y);
     doc.line(x+20,y,x+150,y);
     y+=5;
     doc.text(`Home address:`, x, y);
