@@ -109,37 +109,33 @@ const PDF = () => {
 
     //different section based on vote or admin
     if(voteSelection == "VOTE"){
-        const line10 = `None of the parties may perform legally relevant acts on the Master Recording without the written authorization of the ${percent}% of the ownership, such as but not limited to the following:`
+        const line10 = `The parties co-owning the Musical Work shall refrain from performing legally relevant acts without the written authorization of the ${percent}% of the ownership interest, such as but not limited to the following.`
         const split10 = doc.splitTextToSize(line10,doc.internal.pageSize.getWidth()*.6)
         doc.text('c.',x/2,y+10)
         doc.text(split10,(x/2)+10,y+10)
         y+=15
 
-        const line11 = `Exploiting the musical performance of the other contributions in a manner different from that set in the Master copy.`
+        const line11 = `Authorizing derivative works, granting licenses, or licensing different kinds of uses.`
         const split11 = doc.splitTextToSize(line11,doc.internal.pageSize.getWidth()*.6)
         doc.text('i.',(x/2)+10,y+10)
         doc.text(split11,(x/2)+20,y+10)
         y+=10
     
-        const line12 = `Edit, alter, or modify the performance of the parts, except for formatting purposes.`
+        const line12 = `Edit, alter or modify the Musical Work, especially the contributions of the other parties, in uses or sound recordings other than the one produced under this agreement, unless authorized verbally or in writing by the co-author.`
         const split12 = doc.splitTextToSize(line12,doc.internal.pageSize.getWidth()*.6)
         doc.text('ii.',(x/2)+10,y+10)
         doc.text(split12,(x/2)+20,y+10)
         y+=10
     
-        const line13 = `Commercially exploiting the Master Recording in a manner that directly or indirectly suggests approval or endorsement of a product or service other than the sound recording itself.`
+        const line13 = `Exploiting the name of other parties in a manner that suggests approval or endorsement of a third-party product or service other than the Musical Work itself.`
         const split13 = doc.splitTextToSize(line13,doc.internal.pageSize.getWidth()*.6)
         doc.text('iii.',(x/2)+10,y+10)
         doc.text(split13,(x/2)+20,y+10)
         y+=15
     
-        const line14 = `Grant exclusive or non-exclusive licenses on the Master Recording to third parties.`
-        const split14 = doc.splitTextToSize(line14,doc.internal.pageSize.getWidth()*.6)
-        doc.text('iv.',(x/2)+10,y+10)
-        doc.text(split14,(x/2)+20,y+10)
-        y+=35
     }else{
-        const line10 = `By means of the present contract, the parties recognize, accept, and declare that they designate ${adminName} as the representative in charge of making the decisions related to the commercial exploitation of the Master Recording. The designated person will make their best effort to achieve the greatest commercial benefit of the works which includes but is not limited to: offering licenses to the market, working with publishing companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the Master Recording and the recording, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.`
+        const line10 = `By means of the present contract, the parties recognize, accept, and declare that they designate ${adminName} as the representative in charge of making the decisions related to the commercial exploitation of the Musical Work. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses, working with publishing companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the Musical Work and the recording; they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
+`
         const split10 = doc.splitTextToSize(line10,doc.internal.pageSize.getWidth()*.6)
         doc.text('c.',x/2,y+10)
         doc.text(split10,(x/2)+10,y+10)
