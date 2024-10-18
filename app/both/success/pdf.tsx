@@ -2,7 +2,7 @@ import { jsPDF } from 'jspdf';
 
 import useQuestion1 from '../../store/useQuestion1';
 import useQuestion2 from '../../store/useQuestion2';
-import useQuestion3 from '../../store/useQuestion3';
+//import useQuestion3 from '../../store/useQuestion3'; //NOT USED
 import useQuestion4 from '../../store/useQuestion4';
 import useDynamicPageStore from '../../store/use[page]';
 import useQuestion5Admin from '../../store/useQuestion5Admin';
@@ -23,7 +23,6 @@ const PDF = () => {
     const date = useQuestion1((state) => state.split)
     const song = useQuestion2((state) => state.song)
     const recording = useQuestion2((state) => state.recording)
-    const contributorCount = useQuestion3((state) => state.contributorCount)
     const voteSelection = useQuestion4((state) => state.voteSelection)
     const pages = useDynamicPageStore((state) => state.pages);
     const adminName = useQuestion5Admin((state) => state.adminName)
@@ -63,6 +62,33 @@ const PDF = () => {
     doc.text(split3,x,y)
     y+=10
 
+    const line3_5 = `The parties acknowledge and accept their contribution to the recording and production of the Master Recording and agree to the distribution of ownership as follows:`
+    const split3_5 = doc.splitTextToSize(line3_5,doc.internal.pageSize.getWidth()*.6)
+    doc.text(split3_5,x/2,y+10)
+    y+=30
+
+    //list collaborator info
+    Object.keys(pages).forEach((id) => {
+        const pageData = pages[Number(id)];
+        doc.setFont('Palatino Linotype','bold')
+        doc.text(`Collaborator ${id}`, x, y);
+        y+=5;
+        doc.setFont('Palatino Linotype','normal')
+        doc.text(`Legal Name: ${pageData.legalName}`, x, y);
+        y+=5;
+        doc.text(`Email: ${pageData.email}`, x, y);
+        y+=5;
+        doc.text(`Contribution: ${pageData.contributorType}`, x, y);
+        y+=5;
+        doc.text(`Ownership Percentage: ${pageData.split}%`, x, y);
+        y+=15
+        });
+    
+    if(y>200){
+        doc.addPage();
+        y=30;
+    }
+
     doc.setFont('Palatino Linotype', 'bold')
     const line4 = `2.0     Identification of Master Recording`
     x = getX(line4);
@@ -79,8 +105,6 @@ const PDF = () => {
     const split6 = doc.splitTextToSize(line6,doc.internal.pageSize.getWidth()*.6)
     doc.text(split6,x/2,y+10)
     y+=30
-    
-     
         
     //useDynamicPageStore
     Object.keys(pages).forEach((id) => {

@@ -59,11 +59,11 @@ const ContractBuilder4 = () => {
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value)
-    updateVoteSelection(selectedOption)
+    
   }
 
   const findNextPage = () => {
-    
+    updateVoteSelection(selectedOption)
     if (selectedOption == 'VOTE') {
       push('/both/question5vote')
     } else {
