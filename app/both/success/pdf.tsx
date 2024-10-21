@@ -50,19 +50,19 @@ const PDF = () => {
     const title = 'Copyright Ownership Agreement for Master Recording';
     x = getX(title);
     doc.text(title, x, y);
-    y = getY(y,10);
+    y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
     doc.setFontSize(11);
-    const line1 = `This agreement is entered into on ${date}  between the following parties:`
-    x = getX(line1);
+    const line1 = `This agreement is entered into on ${date} between the following parties:`
+    x = 50;
     doc.text(line1,x,y)
-    y = y = getY(y,10)
+    y = y = getY(y,30)
 
     doc.setFont('Palatino Linotype', 'bold')
     const line2 = `1.0     Musical Work Identification`
     x = getX(line2);
-    doc.text(line2,x,y)
+    doc.text(line2,x/2,y)
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
@@ -74,7 +74,7 @@ const PDF = () => {
 
     const line3_5 = `The parties acknowledge and accept their contribution to the recording and production of the Master Recording and agree to the distribution of ownership as follows:`
     const split3_5 = doc.splitTextToSize(line3_5,doc.internal.pageSize.getWidth()*.6)
-    doc.text(split3_5,x/2,y+10)
+    doc.text(split3_5,x,y+10)
     y = getY(y,30)
 
     //list collaborator info
@@ -99,7 +99,7 @@ const PDF = () => {
     doc.setFont('Palatino Linotype', 'bold')
     const line4 = `2.0     Identification of Master Recording`
     x = getX(line4);
-    doc.text(line4,x,y)
+    doc.text(line4,x/2,y)
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
