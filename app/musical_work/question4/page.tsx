@@ -65,7 +65,7 @@ const ContractBuilder4 = () => {
     updateVoteSelection(selectedOption)
     if (selectedOption == 'VOTE') {
       push('/musical_work/question5vote')
-    } else {
+    } else if (selectedOption == "ADMIN"){
       push('/musical_work/question5admin')
     }
   }

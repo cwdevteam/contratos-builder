@@ -64,8 +64,10 @@ const DynamicPage = () => {
       document.getElementById('wrongSplits')!.innerHTML =
         'Splits need to add to 100% to be valid';
     } else {
-      const nextPage = pageNumber + 1;
-      router.push(pageNumber >= pageCount ? `/both/question4` : `/both/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
+      if(legalName !='' && email != '' && contributorType != '' && split != 0){
+        const nextPage = pageNumber + 1;
+        router.push(pageNumber >= pageCount ? `/both/question4` : `/both/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
+      }
     }
   };
 
@@ -139,6 +141,7 @@ const DynamicPage = () => {
                 <option value="blank"></option>
                 <option value="LYRIC">Lyrics</option>
                 <option value="MUSIC">Music</option>
+                <option value="BOTH">BOTH</option>
               </select>
             </div>
             <div>

@@ -23,7 +23,9 @@ const ContractBuilder5Admin = () => {
 
   const handleSubmit = () => {
     updateAdminName(name)
-    push('/musical_work/success')
+    if(name != ''){
+      push('/musical_work/success')
+    }
   }
 
   return (
