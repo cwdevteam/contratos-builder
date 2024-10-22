@@ -21,7 +21,7 @@ const getX = (text: string) =>{
 
 const PDF = () => {
 
-    const date = useQuestion1((state) => state.split)
+    const date = useQuestion1((state) => state.date)
     const song = useQuestion2((state) => state.song)
     const recording = useQuestion2((state) => state.recording)
     const voteSelection = useQuestion4((state) => state.voteSelection)
@@ -33,7 +33,7 @@ const PDF = () => {
         const doc = new jsPDF();
 
     const getY = (y: number,inc:number) =>{
-        if(y>230){//new page is needed
+        if(y>220){//new page is needed
             doc.addPage();
             return 30;
         }else{//need to increment y
@@ -228,13 +228,13 @@ const PDF = () => {
         const split11 = doc.splitTextToSize(line11,doc.internal.pageSize.getWidth()*.6)
         doc.text('d.',x/2,y+10)
         doc.text(split11,(x/2)+10,y+10)
-        y = getY(y,30)
+        y = getY(y,40)
 
         const line12 = `By means of the present contract, the parties recognize, accept, and declare that they designate ${adminName} as the representative in charge of making the decisions related to the commercial exploitation of the Master Recording. The designated person will make their best effort to achieve the greatest commercial benefit of the works which includes but is not limited to: offering licenses, working with publishing companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the Master Recording and the recording, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.`
         const split12 = doc.splitTextToSize(line12,doc.internal.pageSize.getWidth()*.6)
         doc.text('e.',x/2,y+10)
         doc.text(split12,(x/2)+10,y+10)
-        y = getY(y,30)
+        y = getY(y,60)
     }
     
     

@@ -20,7 +20,7 @@ const getX = (text: string) =>{
 
 const PDF = () => {
 
-    const date = useQuestion1((state) => state.split)
+    const date = useQuestion1((state) => state.date)
     const song = useQuestion2((state) => state.song)
     const voteSelection = useQuestion4((state) => state.voteSelection)
     const pages = useDynamicPageStore((state) => state.pages);
