@@ -139,8 +139,8 @@ const DynamicPage = () => {
                 required
               >
                 <option value="blank"></option>
-                <option value="LYRIC">Lyrics</option>
-                <option value="MUSIC">Music</option>
+                <option value="Lyrics">Lyrics</option>
+                <option value="Music">Music</option>
                 <option value="Music and Lyrics">Both</option>
               </select>
             </div>
