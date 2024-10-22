@@ -78,6 +78,7 @@ const PDF = () => {
      
         
     //useDynamicPageStore
+    x/=2;
     Object.keys(pages).forEach((id) => {
     const pageData = pages[Number(id)];
     doc.setFont('Palatino Linotype','bold')

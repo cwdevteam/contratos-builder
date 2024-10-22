@@ -89,7 +89,7 @@ const PDF = () => {
     y = getY(y,30)
     
      
-        
+    x/=2;
     //useDynamicPageStore
     Object.keys(pages).forEach((id) => {
     const pageData = pages[Number(id)];

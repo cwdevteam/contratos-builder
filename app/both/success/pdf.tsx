@@ -78,6 +78,7 @@ const PDF = () => {
     y = getY(y,30)
 
     //list collaborator info
+    x/=2;
     Object.keys(pages).forEach((id) => {
         const pageData = pages[Number(id)];
         doc.setFont('Palatino Linotype','bold')
