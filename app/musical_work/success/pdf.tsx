@@ -58,7 +58,7 @@ const PDF = () => {
     y = getY(y,30)
 
     doc.setFont('Palatino Linotype', 'bold')
-    const line2 = `1.0     Musical Work Identification`
+    const line2 = `1.     Musical Work Identification`
     x = getX(line2);
     doc.text(line2,x/2,y)
     y = getY(y,10)
@@ -96,7 +96,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype', 'bold')
     doc.setFontSize(11);
-    const line7 = `2.0     Rights and duties of the parties.`
+    const line7 = `2.     Rights and duties of the parties.`
     x = getX(line7);
     doc.text(line7,x/2,y)
 
@@ -151,7 +151,7 @@ const PDF = () => {
     
     doc.setFont('Palatino Linotype', 'bold')
     doc.setFontSize(11);
-    const line15 = `3.0     Distribution and monetization of works`
+    const line15 = `3.     Distribution and monetization of works`
     x = getX(line15);
     doc.text(line15,x/2,y)
     y = getY(y,10)
@@ -169,7 +169,7 @@ const PDF = () => {
     doc.text(split17,(x/2)+10,y)
     y = getY(y,40)
  
-    const line18 = `The parties agree that they will seek a distributor who will professionally and responsibly collect royalties for commercial exploitation of the Master Recording in the respective known and unknown uses. Such a distributor will pay each copyright owner in the proportions agreed upon in clause 2 of this contract. In the event that the works have not been distributed with an aggregator that offers the service of direct payments to each of the copyright owners, the party that receives any sum of money for royalties belonging to another of the parties, must pay them within 14 days in the respective bank account.`
+    const line18 = `In the event that any of the parties receives money from any third party attributable to the commercial exploitation of the Musical Work, such as synchronization licenses, or of any other type, the party receiving the money shall pay to the other parties the royalties corresponding to the pro rata of its participation in the copyright ownership, no later than fourteen days after receiving the money. `
     const split18 = doc.splitTextToSize(line18,doc.internal.pageSize.getWidth()*.6)
     doc.text('c.',(x/2),y)
     doc.text(split18,(x/2)+10,y)
@@ -177,7 +177,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line19 = `4.0     Credits`
+    const line19 = `4.     Credits`
     doc.text(line19,x/2,y)
     y = getY(y,10)
 
@@ -190,7 +190,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line21 = `5.0     License for artists`
+    const line21 = `5.     License for artists`
     doc.text(line21,x/2,y)
     y = getY(y,10)
 
@@ -203,7 +203,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line23 = `6.0     Accounting`
+    const line23 = `6.     Accounting`
     doc.text(line23,x/2,y)
     y = getY(y,10)
 
@@ -216,7 +216,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line25 = `7.0     Full capacity and indemnity against third parties.`
+    const line25 = `7.     Full capacity and indemnity against third parties.`
     doc.text(line25,x/2,y)
     y = getY(y,10)
 
@@ -241,7 +241,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line29 = `8.0     Full autonomy and no employment relationship.`
+    const line29 = `8.     Full autonomy and no employment relationship.`
     doc.text(line29,x/2,y)
     y = getY(y,10)
 
@@ -254,7 +254,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line31 = `9.0     Right of first refusal.`
+    const line31 = `9.     Right of first refusal.`
     doc.text(line31,x/2,y)
     y = getY(y,10)
 
@@ -267,7 +267,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line33 = `10.0     Notices.`
+    const line33 = `10.     Notices.`
     doc.text(line33,x/2,y)
     y = getY(y,10)
 
@@ -280,7 +280,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype','bold')
     doc.setFontSize(11);
-    const line35 = `11.0     Dispute settlement.`
+    const line35 = `11.     Dispute settlement.`
     doc.text(line35,x/2,y)
     y = getY(y,10)
 
