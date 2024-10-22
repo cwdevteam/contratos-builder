@@ -46,7 +46,9 @@ const ContractBuilder2 = () => {
   const handleSubmit = () => {
     updateSong(song)
     updateRecording(recording)
-    push(`/both/question3?${query}`)
+    if(song != '' && recording != ''){
+      push(`/master_recording/question3?${query}`)
+    }
   }
 
   const query = new URLSearchParams({

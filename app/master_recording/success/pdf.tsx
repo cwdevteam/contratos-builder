@@ -20,7 +20,7 @@ const getX = (text: string) =>{
 
 const PDF = () => {
 
-    const date = useQuestion1((state) => state.split)
+    const date = useQuestion1((state) => state.date)
     const song = useQuestion2((state) => state.song)
     const recording = useQuestion2((state) => state.recording)
     const voteSelection = useQuestion4((state) => state.voteSelection)
@@ -49,19 +49,19 @@ const PDF = () => {
     const title = 'Copyright Ownership Agreement for Master Recording';
     x = getX(title);
     doc.text(title, x, y);
-    y = getY(y,10);
+    y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
     doc.setFontSize(11);
     const line1 = `This agreement is entered into on ${date}  between the following parties:`
-    x = getX(line1);
+    x = 50;
     doc.text(line1,x,y)
-    y = getY(y,10)
+    y = getY(y,30)
 
     doc.setFont('Palatino Linotype', 'bold')
     const line2 = `1.0     Musical Work Identification`
     x = getX(line2);
-    doc.text(line2,x,y)
+    doc.text(line2,x/2,y)
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
@@ -74,7 +74,7 @@ const PDF = () => {
     doc.setFont('Palatino Linotype', 'bold')
     const line4 = `2.0     Identification of Master Recording`
     x = getX(line4);
-    doc.text(line4,x,y)
+    doc.text(line4,x/2,y)
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')

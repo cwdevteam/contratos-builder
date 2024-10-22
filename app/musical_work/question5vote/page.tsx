@@ -25,7 +25,9 @@ const ContractBuilder5Vote = () => {
 
   const handleSubmit = () => {
     updatePercent(percent)
-    push('/musical_work/success')
+    if (percent != ''){
+      push('/musical_work/success')
+    }
   }
 
   return (

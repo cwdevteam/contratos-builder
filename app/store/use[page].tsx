@@ -1,4 +1,5 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 // needs to store legalName, email, contributorType, and split %
 interface PageData {
@@ -14,15 +15,22 @@ interface DynamicPageState {
   setPageData: (id: number, data: Partial<PageData>) => void; // Action to update data for a specific page
 }
 
-const useDynamicPageStore = create<DynamicPageState>((set) => ({
-  pages: {}, // Initial state: an empty object to store page data
-  setPageData: (id, data) =>
-    set((state) => ({
-      pages: {
-        ...state.pages,
-        [id]: { ...state.pages[id], ...data },
-      },
-    })),
-}));
+const useDynamicPageStore = create<DynamicPageState>()(
+  persist(
+    (set) => ({
+      pages: {}, // Initial state: an empty object to store page data
+      setPageData: (id, data) =>
+        set((state) => ({
+          pages: {
+            ...state.pages,
+            [id]: { ...state.pages[id], ...data },
+          },
+        })),
+    }),
+    {
+      name: 'dynamic-pages-storage', // A unique name for the localStorage key
+    }
+  )
+);
 
 export default useDynamicPageStore;
