@@ -10,3 +10,5 @@ Next steps 10/22/24: https://mesa-contract-builder.atlassian.net/jira/software/p
 implement view contract
 implement sendContract
 store in SQL?
+
+current issue: need to refresh storage for contributors
