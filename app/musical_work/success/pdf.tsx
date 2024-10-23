@@ -76,7 +76,6 @@ const PDF = () => {
     y = getY(y,30)
     
      
-    let contributorCount = 0;
     //useDynamicPageStore
     x = 25;
     Object.keys(pages).forEach((id) => {
@@ -94,7 +93,6 @@ const PDF = () => {
     y = getY(y,5)
     doc.text(`Ownership Percentage: ${pageData.split}%`, x, y);
     y = getY(y,15)
-    contributorCount+=1;
     }
     });
 
