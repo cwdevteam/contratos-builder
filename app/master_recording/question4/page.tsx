@@ -76,19 +76,19 @@ const ContractBuilder4 = () => {
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push('/question1')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
             What type of splits contract would you like to create?
           </button>
           <button
             onClick={() => push('/master_recording/question2')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0"
           >
             What is the name of the song?
           </button>
           <button
             onClick={() => push('/master_recording/question3')}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0"
           >
             How many collaborators contributed to writing the song?
           </button>
@@ -97,13 +97,13 @@ const ContractBuilder4 = () => {
             <button
               key={i + 1}
               onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2"
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
             >
               Contributor {i + 1}
             </button>
           ))}
 
-          <h4 className="text-sm sm:text-base mb-4">
+          <h4 className="text-sm sm:text-base mb-4 pt-5">
             Would you like to vote when making business decisions or designate an administrator?
           </h4>
           <form className="flex flex-col gap-2">

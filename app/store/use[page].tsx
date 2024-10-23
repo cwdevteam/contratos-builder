@@ -13,6 +13,7 @@ interface PageData {
 interface DynamicPageState {
   pages: { [id: number]: PageData }; // data is keyed by page id
   setPageData: (id: number, data: Partial<PageData>) => void; // Action to update data for a specific page
+  resetPages: (startFromPage: number) => void;
 }
 
 const useDynamicPageStore = create<DynamicPageState>()(
@@ -26,9 +27,27 @@ const useDynamicPageStore = create<DynamicPageState>()(
             [id]: { ...state.pages[id], ...data },
           },
         })),
+      // Function to reset pages starting from a specific page
+      resetPages: (startFromPage) =>
+        set((state) => {
+          const updatedPages = { ...state.pages };
+
+          Object.keys(updatedPages).forEach((key) => {
+            const pageId = parseInt(key);
+            if (pageId >= startFromPage) {
+              updatedPages[pageId] = {
+                legalName: "",
+                email: "",
+                contributorType: "",
+                split: 0,
+              };
+            }
+          });
+          return { pages: updatedPages };
+        }),
     }),
     {
-      name: 'dynamic-pages-storage', // A unique name for the localStorage key
+      name: 'dynamic-pages-storage', 
     }
   )
 );

@@ -69,7 +69,7 @@ const PDF = () => {
     const split3 = doc.splitTextToSize(line3,doc.internal.pageSize.getWidth()*.6)
     x = getX(line3);
     doc.text(split3,x,y)
-    y = getY(y,10)
+    y = getY(y,20)
 
     doc.setFont('Palatino Linotype', 'bold')
     const line4 = `2.     Identification of Master Recording`
@@ -89,10 +89,11 @@ const PDF = () => {
     y = getY(y,30)
     
      
-    x/=2;
     //useDynamicPageStore
+    x = 25;
     Object.keys(pages).forEach((id) => {
     const pageData = pages[Number(id)];
+    if(pageData.legalName!=''){
     doc.setFont('Palatino Linotype','bold')
     doc.text(`Collaborator ${id}`, x, y);
     y = getY(y,5)
@@ -105,6 +106,7 @@ const PDF = () => {
     y = getY(y,5)
     doc.text(`Ownership Percentage: ${pageData.split}%`, x, y);
     y = getY(y,15)
+    }
     });
 
     doc.setFont('Palatino Linotype', 'bold')
@@ -318,6 +320,8 @@ const PDF = () => {
     y = getY(y,15);
     x/=2;
     Object.keys(pages).forEach((id) => {
+    const pageData = pages[Number(id)];
+    if(pageData.legalName!=''){
     doc.setFont('Palatino Linotype','bold')
     doc.text(`Collaborator ${id}`, x, y);
     y = getY(y,5)
@@ -333,6 +337,7 @@ const PDF = () => {
     doc.text(`Date:`, x+85, y);
     doc.line(x+95,y,x+130,y);
     y = getY(y,15)
+    }
     });
 
     doc.save('unsignedContract.pdf');

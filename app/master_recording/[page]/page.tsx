@@ -20,8 +20,13 @@ const DynamicPage = () => {
   const [email, setEmail] = useState(pageData.email || '');
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
-  
   const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
+
+  const resetPages = useDynamicPageStore((state) => state.resetPages);
+
+  useEffect(() => {
+    resetPages(pageNumber); // Reset all stored info 
+  }, [pageNumber,resetPages]);
 
   // Update Zustand store only if inputs change
   useEffect(() => {
@@ -66,7 +71,7 @@ const DynamicPage = () => {
     } else {
       if(legalName !='' && email != '' && contributorType != '' && split != 0){
         const nextPage = pageNumber + 1;
-        router.push(pageNumber >= pageCount ? `/master_recording/question4` : `/master_recording/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
+        router.push(pageNumber >= pageCount ? `/master_recording/question4?pageCount=${pageCount}` : `/master_recording/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
       }
       }
   };
