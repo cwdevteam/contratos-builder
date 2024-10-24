@@ -172,7 +172,7 @@ const PDF = () => {
         const split12_5 = doc.splitTextToSize(line12_5,doc.internal.pageSize.getWidth()*.6)
         doc.text('ii.',(x/2)+10,y+10)
         doc.text(split12_5,(x/2)+20,y+10)
-        y = getY(y,10)
+        y = getY(y,15)
     
         const line13_5 = `Commercially exploiting the Musical Work in a manner that directly or indirectly suggests approval or endorsement of a product or service other than the Musical Work itself.`
         const split13_5 = doc.splitTextToSize(line13_5,doc.internal.pageSize.getWidth()*.6)
