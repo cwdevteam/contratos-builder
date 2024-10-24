@@ -90,7 +90,7 @@ const PDF = () => {
     
      
     //useDynamicPageStore
-    x = 25;
+    x = 30;
     Object.keys(pages).forEach((id) => {
     const pageData = pages[Number(id)];
     if(pageData.legalName!=''){

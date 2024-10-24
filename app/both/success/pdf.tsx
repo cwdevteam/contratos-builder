@@ -78,7 +78,7 @@ const PDF = () => {
     y = getY(y,30)
 
     //list collaborator info
-    x = 25;
+    x = 30;
     Object.keys(pages).forEach((id) => {
         const pageData = pages[Number(id)];
         if(pageData.legalName!=''){
