@@ -199,7 +199,7 @@ const DynamicPage = () => {
             Email Address: <span className="text-red-500">{email}</span>
           </p>
           <p className="text-sm sm:text-base">
-            Contribution: <span className="text-red-500">{contributorType} and {masterContributorType}</span>
+            Contribution: <span className="text-red-500">{contributorType}, {masterContributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
             Split (%): <span className="text-red-500">{split}</span>
