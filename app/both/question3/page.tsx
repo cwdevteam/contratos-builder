@@ -46,7 +46,7 @@ const ContractBuilder3 = () => {
           >
             What is the name of the song?
           </button>
-          <p>How many collaborators own a percentage of the master recording?</p>
+          <p>How many collaborators own a percentage of the joint work?</p>
           <form className="flex flex-col">
             <input
               type="number"

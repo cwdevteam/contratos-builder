@@ -143,10 +143,10 @@ const DynamicPage = () => {
                 onChange={handleContributorChange}
                 required
               >
-                <option value="blank"></option>
-                <option value="Lyrics">Lyrics</option>
-                <option value="Music">Music</option>
-                <option value="Music and Lyrics">Both</option>
+                <option value="Artist">Artist</option>
+                <option value="Producer">Producer</option>
+                <option value="Executive Producer">Executive Producer</option>
+                <option value="Engineer">Engineer</option>
               </select>
             </div>
             <div>
