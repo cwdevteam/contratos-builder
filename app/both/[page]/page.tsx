@@ -19,6 +19,7 @@ const DynamicPage = () => {
   const [legalName, setLegalName] = useState(pageData.legalName || '');
   const [email, setEmail] = useState(pageData.email || '');
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
+  const [masterContributorType, setMasterContributorType] = useState(pageData.masterContributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
   const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
 
@@ -34,6 +35,7 @@ const DynamicPage = () => {
       legalName,
       email,
       contributorType,
+      masterContributorType,
       split,
     };
     useDynamicPageStore.setState((state) => ({
@@ -56,6 +58,10 @@ const DynamicPage = () => {
     setContributorType(event.target.value);
   };
 
+  const handleMasterContributorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMasterContributorType(event.target.value);
+  };
+
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
     if ((value < 101 && value > 0) && value !=null) {
@@ -69,7 +75,7 @@ const DynamicPage = () => {
       document.getElementById('wrongSplits')!.innerHTML =
         'Splits need to add to 100% to be valid';
     } else {
-      if(legalName !='' && email != '' && contributorType != '' && split != 0){
+      if(legalName !='' && email != '' && contributorType != '' && split != 0 && masterContributorType != ''){
         const nextPage = pageNumber + 1;
         router.push(pageNumber >= pageCount ? `/both/question4?pageCount=${pageCount}` : `/both/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`);
       }
@@ -134,7 +140,7 @@ const DynamicPage = () => {
               />
             </div>
             <div>
-              <label className="text-xs sm:text-sm mb-2 block">Type of contributor</label>
+              <label className="text-xs sm:text-sm mb-2 block">Type of songwriting contribution</label>
               <select
                 name="type"
                 id="cont"
@@ -143,18 +149,26 @@ const DynamicPage = () => {
                 onChange={handleContributorChange}
                 required
               >
-                <option value="blank"></option>
-                <optgroup label="Musical Works">
+                  <option value="blank"></option>
                   <option value="Lyrics">Lyrics</option>
                   <option value="Music">Music</option>
                   <option value="Music and Lyrics">Both</option>
-                </optgroup>
-                <optgroup label="Master Recording">
+              </select>
+
+              <label className="text-xs sm:text-sm mb-2 block">Type of master recording contribution</label>
+              <select
+                name="type"
+                id="cont"
+                value={masterContributorType}
+                className="bg-black w-full sm:w-1/2"
+                onChange={handleMasterContributorChange}
+                required
+              >
+                  <option value="blank"></option>
                   <option value="Artist">Artist</option>
                   <option value="Producer">Producer</option>
                   <option value="Executive Producer">Executive Producer</option>
                   <option value="Engineer">Engineer</option>
-                </optgroup>
               </select>
             </div>
             <div>

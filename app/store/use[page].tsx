@@ -5,7 +5,8 @@ import { persist } from 'zustand/middleware';
 interface PageData {
   legalName: string;
   email: string;
-  contributorType: string;
+  contributorType: string;//songwriting contribution
+  masterContributorType: string;//master recording contribution
   split: number;
 }
 
@@ -39,6 +40,7 @@ const useDynamicPageStore = create<DynamicPageState>()(
                 legalName: "",
                 email: "",
                 contributorType: "",
+                masterContributorType: "",
                 split: 0,
               };
             }

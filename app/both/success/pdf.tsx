@@ -90,7 +90,7 @@ const PDF = () => {
         y = getY(y,5)
         doc.text(`Email: ${pageData.email}`, x, y);
         y = getY(y,5)
-        doc.text(`Contribution: ${pageData.contributorType}`, x, y);
+        doc.text(`Contribution: ${pageData.contributorType} and ${pageData.masterContributorType}`, x, y);
         y = getY(y,5)
         doc.text(`Ownership Percentage: ${pageData.split}%`, x, y);
         y = getY(y,15)
