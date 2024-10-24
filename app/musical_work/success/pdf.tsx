@@ -64,7 +64,7 @@ const PDF = () => {
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
-    const line3 = `The contracting parties will perform and fixate a performance of the song or Musical Work titled ${song}. `
+    const line3 = `The contracting parties have collaborated in the authorship and composition of the Musical Work titled ${song}. `
     const split3 = doc.splitTextToSize(line3,doc.internal.pageSize.getWidth()*.6)
     x = getX(line3);
     doc.text(split3,x,y)

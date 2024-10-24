@@ -46,7 +46,7 @@ const PDF = () => {
     doc.setFont('Palatino Linotype', 'bold');
     doc.setFontSize(15);
   
-    const title = 'Copyright Ownership Agreement for Master Recording';
+    const title = 'Copyright Ownership Agreement for Master Recording made as a joint work.';
     x = getX(title);
     doc.text(title, x, y);
     y = getY(y,30);
@@ -188,7 +188,7 @@ const PDF = () => {
     doc.text(split17,(x/2)+10,y)
     y = getY(y,40)
  
-    const line18 = `In the event that any of the parties receives money from any third party attributable to the commercial exploitation of the Musical Work, such as synchronization licenses, or of any other type, the party receiving the money shall pay to the other parties the royalties corresponding to the pro rata of its participation in the copyright ownership, no later than fourteen days after receiving the money.`
+    const line18 = `In the event that any of the parties receives money from any third party attributable to the commercial exploitation of the Master Recording, such as synchronization licenses, or of any other type, the party receiving the money shall pay to the other parties the royalties corresponding to the pro rata of its participation in the copyright ownership, no later than fourteen days after receiving the money. `
     const split18 = doc.splitTextToSize(line18,doc.internal.pageSize.getWidth()*.6)
     doc.text('c.',(x/2),y)
     doc.text(split18,(x/2)+10,y)
