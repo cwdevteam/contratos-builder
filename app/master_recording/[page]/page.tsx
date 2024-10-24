@@ -141,7 +141,6 @@ const DynamicPage = () => {
                 value={contributorType}
                 className="bg-black w-full sm:w-1/2"
                 onChange={handleContributorChange}
-                required
               >
                 <option value="Artist">Artist</option>
                 <option value="Producer">Producer</option>
