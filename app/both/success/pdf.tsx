@@ -366,7 +366,7 @@ const PDF = () => {
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
-    const line34 = `The parties will be notified of any decision, controversy, negotiation or relevant matter related to this contract, via email or certified physical mail at the physical and electronic addresses that appear at the bottom of their signature. `
+    const line34 = `The parties will be notified of any decision, controversy, negotiation or relevant matter related to this contract, via email at the electronic address that appears at the bottom of their signature. `
     const split34 = doc.splitTextToSize(line34,doc.internal.pageSize.getWidth()*.6)
     doc.text('a.',(x/2),y)
     doc.text(split34,(x/2)+10,y)
@@ -403,9 +403,6 @@ const PDF = () => {
     doc.setFont('Palatino Linotype','normal')
     doc.text(`Legal Name:`, x, y);
     doc.line(x+20,y,x+150,y);
-    y = getY(y,5)
-    doc.text(`Home address:`, x, y);
-    doc.line(x+25,y,x+100,y);
     y = getY(y,5)
     doc.text(`Signature:`, x, y);
     doc.line(x+20,y,x+80,y);
