@@ -56,7 +56,7 @@ const PDF = () => {
     const line1 = `This agreement is entered into on ${date}  between the following parties:`
     x = 50;
     doc.text(line1,x,y)
-    y = getY(y,30)
+    y = getY(y,15)
 
     doc.setFont('Palatino Linotype', 'bold')
     const line2 = `1.     Musical Work Identification`
@@ -69,7 +69,7 @@ const PDF = () => {
     const split3 = doc.splitTextToSize(line3,doc.internal.pageSize.getWidth()*.6)
     x = getX(line3);
     doc.text(split3,x,y)
-    y = getY(y,20)
+    y = getY(y,15)
 
     doc.setFont('Palatino Linotype', 'bold')
     const line4 = `2.     Identification of Master Recording`
