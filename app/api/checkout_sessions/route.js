@@ -15,8 +15,8 @@ export async function POST() {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/?success=true`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/?canceled=true`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment/?success=true`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment/?success=false`,
     });
 
     return NextResponse.json({ url: session.url });

@@ -13,8 +13,6 @@ const Success = () => {
   const router = useRouter()
 
   const downloadUnsigned = PDF()
-  const sendContract = () => {}
-
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -66,20 +64,11 @@ const Success = () => {
               DOWNLOAD UNSIGNED VERSION
             </button>
             <button 
-              onClick={sendContract}
+              onClick={handleCheckout}
               className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
               SEND DOCUSIGN TO COLLABORATORS
             </button>
-
-
-            <button 
-              onClick={handleCheckout}
-              className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
-            >
-              Checkout
-            </button>
-
 
           </div>
         </div>
