@@ -15,7 +15,9 @@
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.26.2",
-    "zustand": "^5.0.0"
+    "zustand": "^5.0.0",
+    "@stripe/stripe-js": "^1.20.0",
+    "stripe": "^8.210.0"
   },
   "devDependencies": {
     "@types/node": "^20",
