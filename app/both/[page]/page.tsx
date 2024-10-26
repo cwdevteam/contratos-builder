@@ -44,7 +44,7 @@ const DynamicPage = () => {
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, pageNumber]);
+  }, [legalName, email, contributorType, masterContributorType, split, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
