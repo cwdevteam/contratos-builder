@@ -9,15 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.35.1",
+    "@stripe/stripe-js": "^1.20.0",
     "jspdf": "^2.5.2",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.26.2",
-    "zustand": "^5.0.0",
-    "@stripe/stripe-js": "^1.20.0",
-    "stripe": "^8.210.0"
+    "stripe": "^8.210.0",
+    "zustand": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
