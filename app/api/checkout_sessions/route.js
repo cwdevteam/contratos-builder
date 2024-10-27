@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-8-16', // Use the latest API version
+  apiVersion: '2023-10-16', // Use the latest API version
 });
 
 export async function POST() {
@@ -10,7 +10,7 @@ export async function POST() {
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          price: 'price_1QEEGFF4VcgmIzyg00nXRRFO',
+          price: 'price_1Q7k2dJzP6LFx0SkjIkdtZEC',
           quantity: 1,
         },
       ],
