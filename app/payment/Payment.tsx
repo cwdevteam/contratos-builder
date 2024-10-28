@@ -13,7 +13,7 @@ const Payment = () => {
 
   const [message, setMessage] = useState('');
 
-  const router = useRouter();
+  const { push } = useRouter();
 
   useEffect(() => {
     if (paid === 'true') {
@@ -28,8 +28,12 @@ const Payment = () => {
       <main>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
           <p className="text-lg sm:text-xl mb-8">Congrats! You&apos;re protecting your art.</p>
-          <button onClick={() => router.push('/question1')} className="text-xs text-gray-500 w-full border-0 relative text-start border-none">
+          <button onClick={() => push('/question1')} className="text-xs text-gray-500 w-full border-0 relative text-start border-none">
             Back to the start
+          </button>
+          <p>this is testing the text between the buttons</p>
+          <button>
+            Nothing
           </button>
           <div className="text-base sm:text-lg">
             {message}
