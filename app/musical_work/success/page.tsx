@@ -67,7 +67,7 @@ const Success = () => {
               Pay with card
             </button>
             <Checkout productId='my-product-id' > 
-              <CheckoutButton coinbaseBranded/> // set coinbaseBranded for branding
+              <CheckoutButton coinbaseBranded/>
               <CheckoutStatus />
             </Checkout>
             <div id="payment_option">
