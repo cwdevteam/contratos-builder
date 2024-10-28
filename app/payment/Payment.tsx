@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import useDynamicPageStore from '../store/use[page]';
+import { useRouter } from 'next/navigation';
 
 const Payment = () => {
   const query = useSearchParams();
@@ -11,6 +12,8 @@ const Payment = () => {
   const emails = Object.keys(pages).map((id) => pages[Number(id)].email);
 
   const [message, setMessage] = useState('');
+
+  const router = useRouter();
 
   useEffect(() => {
     if (paid === 'true') {
@@ -25,6 +28,9 @@ const Payment = () => {
       <main>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
           <p className="text-lg sm:text-xl mb-8">Congrats! You&apos;re protecting your art.</p>
+          <button onClick={() => router.push('/question1')} className="text-xs text-gray-500 w-full border-0 relative text-start border-none">
+            Back to the start
+          </button>
           <div className="text-base sm:text-lg">
             {message}
           </div>

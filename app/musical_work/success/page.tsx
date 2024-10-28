@@ -4,6 +4,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import PDF from './pdf'
 import { loadStripe } from '@stripe/stripe-js';
+import { Checkout, CheckoutButton, CheckoutStatus } from '@coinbase/onchainkit/checkout';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -25,8 +26,6 @@ const Success = () => {
       console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
     }
   }, []);
-
-
 
   const handleCheckout = async () => {
     const response = await fetch('/api/checkout_sessions', {
@@ -63,12 +62,22 @@ const Success = () => {
             >
               DOWNLOAD UNSIGNED VERSION
             </button>
+            <h2>SEND DOCUSIGN TO COLLABORATORS</h2>
             <button 
               onClick={handleCheckout}
               className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
-              SEND DOCUSIGN TO COLLABORATORS
+              Pay with card
             </button>
+            <button 
+              onClick={handleCheckout}
+              className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+            >
+              Pay with crypto
+            </button>
+            <div id="payment_option">
+
+            </div>
 
           </div>
         </div>
