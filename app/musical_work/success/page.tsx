@@ -6,8 +6,6 @@ import PDF from './pdf'
 import { loadStripe } from '@stripe/stripe-js';
 import { Checkout, CheckoutButton, CheckoutStatus } from '@coinbase/onchainkit/checkout';
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const Success = () => {
@@ -16,7 +14,6 @@ const Success = () => {
   const downloadUnsigned = PDF()
 
   React.useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {
       console.log('Order placed! You will receive an email confirmation.');
