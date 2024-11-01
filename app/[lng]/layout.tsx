@@ -3,6 +3,12 @@ import localFont from 'next/font/local'
 import './globals.css'
 import Image from 'next/image'
 import mesaImage from './public/images/mesa_logo.png'
+import { dir } from 'i18next'
+import { languages } from '../i18n/settings'
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }))
+}
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -20,13 +26,18 @@ export const metadata: Metadata = {
   description: 'create music splits contracts',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+  params,
+}: {
+  children: React.ReactNode;
+  params: {
+    lng: string;
+  };
+}) {
+  const { lng } = await params
   return (
-    <html lang="en">
+    <html lang={lng} dir={dir(lng)}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
