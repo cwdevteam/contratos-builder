@@ -1,0 +1,11 @@
+{
+    "p1": "¿Que tipo de contrato de splits queres crear?",
+    "li1": "COMPOSICION",
+    "li2": "MASTER",
+    "li3": "AMBOS",
+    "p2": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
+    "p3": "Acuerdo de Propiedad de Derechos de Autor para Composición Musical, realizada como obra conjunta.",
+    "p4": "Este contrato enstá siendo redactado el",
+    "if-confused": "Si necesitas ayúda, presiona aquí.",
+    "submit": "Enviar"
+  }

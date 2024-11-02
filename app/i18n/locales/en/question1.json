@@ -1,0 +1,11 @@
+{
+    "p1": "What type of splits contract would you like to create?",
+    "li1": "SONG WRITING",
+    "li2": "MASTER RECORDING",
+    "li3": "BOTH",
+    "p2": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+    "p3": "Copyright ownership agreement for {{ selectedOption }} joint work.",
+    "p4": "This agreement is entered into on",
+    "if-confused": "If confused, read here",
+    "submit": "Submit"
+  }

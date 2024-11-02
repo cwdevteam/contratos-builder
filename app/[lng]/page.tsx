@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Trans } from 'react-i18next/TransWithoutContext'
+//import { Trans } from 'react-i18next/TransWithoutContext'
 import { languages, fallbackLng } from '../i18n/settings'
-//import { useTranslation } from '../i18n'
+import { useTranslation } from '../i18n/client'
 
 interface PopupProps {
   onClose: () => void
@@ -91,6 +91,8 @@ export default function Home({ params }: {
     setShowPopup(!showPopup)
   }
 
+  const { t } = useTranslation(lng)
+
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
@@ -125,7 +127,7 @@ export default function Home({ params }: {
           onClick={() => push(`/${lng}/popups/disclaimer`)}
           className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          GET STARTED
+          {t('get-started')}
         </button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>

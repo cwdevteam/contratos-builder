@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useQuestion1 from '../store/useQuestion1'
+import { useTranslation } from '@/app/i18n/client'
 
 interface PopupProps {
   onClose: () => void
@@ -54,7 +55,11 @@ const Popup = ({ onClose }: PopupProps) => {
   )
 }
 
-const ContractBuilder1 = () => {
+function ContractBuilder1({ params }: {
+  params: {
+    lng: string;
+  };
+}) {
   const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
@@ -92,11 +97,14 @@ const ContractBuilder1 = () => {
 
   const date = new Date().toLocaleDateString()
 
+  let {lng} = params
+  const { t } = useTranslation(lng, 'question1')
+
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <p className="text-sm sm:text-base mb-4">What type of splits contract would you like to create?</p>
+          <p className="text-sm sm:text-base mb-4">{t('p1')}</p>
           <form className="flex flex-col gap-2">
             <label>
               <input
@@ -107,7 +115,7 @@ const ContractBuilder1 = () => {
                 id="Song Writing,"
                 required
               />
-              SONG WRITING
+              {t('li1')}
             </label>
             <label>
               <input
@@ -117,7 +125,7 @@ const ContractBuilder1 = () => {
                 className="radio"
                 id="Master Recording,"
               />
-              MASTER RECORDING
+              {t('li2')}
             </label>
             <label>
               <input
@@ -127,20 +135,19 @@ const ContractBuilder1 = () => {
                 className="radio"
                 id="Song Composition and Master Recording,"
               />
-              BOTH
+              {t('li3')}
             </label>
           </form>
         </div>
         <div className=" p-8">
-          <p className="text-xs">
-            Your contract has yet to be completed. Continue to fill out the
-            decision tree.
+          <p className="text-xs pb-5 text-gray-500">
+            {t('p2')}
+          </p>
+          <p className='p-5 pl-0'>
+            {t('p3', {selectedOption: selectedOption})}
           </p>
           <p>
-            Copyright ownership agreement for { selectedOption } joint work.
-          </p>
-          <p>
-            This agreement is entered into on{' '}
+            {t('p4')}{' '}
             <span className="text-red-500">
               {selectedDate ? selectedDate : ' '}
             </span>
@@ -153,9 +160,9 @@ const ContractBuilder1 = () => {
           href="#"
           onClick={togglePopup}
         >
-          If confused, read here
+          {t('if-confused')}
         </a>
-        <button onClick={handleSubmit}>SUBMIT</button>
+        <button onClick={handleSubmit}>{t('submit')}</button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>
     </div>
