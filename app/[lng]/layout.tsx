@@ -5,6 +5,9 @@ import Image from 'next/image'
 import mesaImage from './public/images/mesa_logo.png'
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
+import { Trans } from 'react-i18next/TransWithoutContext'
+import Link from 'next/link'
+import { headers } from 'next/headers';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -36,6 +39,7 @@ export default async function RootLayout({
   };
 }) {
   const { lng } = await params
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <body
@@ -52,6 +56,21 @@ export default async function RootLayout({
           <p className="float-left">
             <b> mesa</b>
           </p>
+          <span  className="text-blue-400 flex float-none place-content-center">
+          <Trans i18nKey="languageSwitcher">
+            <strong>{lng}</strong> ,{' '}
+          </Trans>
+          {languages.filter((l) => lng !== l).map((l, index) => {
+        return (
+          <span key={l}>
+            {index > 0 && (' or ')}
+            <Link href={`/${l}`}>
+              {l}
+            </Link>
+          </span>
+        )
+        })}
+        </span>
           <div className="float-right text-xs">
             <p className="text-2xl font-black">MUSIC SPLITS</p>
             Contract Builder
