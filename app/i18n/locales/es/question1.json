@@ -7,5 +7,14 @@
     "p3": "Acuerdo de Propiedad de Derechos de Autor para Composición Musical, realizada como obra conjunta.",
     "p4": "Este contrato enstá siendo redactado el",
     "if-confused": "Si necesitas ayúda, presiona aquí.",
-    "submit": "Enviar"
+    "submit": "Enviar",
+
+    "popups":{
+      "1": "IEn la industria musical, existen dos tipos principales de obras: Composiciones Musicales y Grabaciones de Sonido. Estos dos tipos de obras tienen sus propios derechos de autor.",
+      "2": "Derechos de Autor en la Composición Musical (Derechos de Publicación o Derechos de Composición):",
+      "3": " Se refieren a la \"canción\" o la composición subyacente: la letra y la melodía de una canción, independientemente de una grabación en particular. Estos derechos se dividen entre el compositor (o autor) y el editor musical. El editor gestiona la composición del autor otorgando licencias para su uso, recaudando regalías y asegurando que se le dé el debido crédito. Los componentes clave de los derechos de publicación incluyen los derechos de ejecución, derechos mecánicos y derechos de sincronización (para uso en películas, televisión, etc.).",
+      "4": "Derechos de Autor en las Grabaciones de Sonido (Derechos de MASTER):",
+      "5": " Se refieren a la propiedad de una grabación particular de una interpretación de una canción. Quien posee los derechos de master controla el uso, distribución, reproducción y ejecución de esa grabación específica. Estos derechos suelen pertenecer a la discográfica o al artista que financió la producción de la grabación, aunque pueden ser vendidos o licenciados. Ambos derechos son cruciales para monetizar y proteger legalmente la música. Los derechos de autor controlan el uso de una grabación específica, mientras que los derechos de publicación controlan el uso de la composición de la canción.",
+      "6": ""
+    }
   }
