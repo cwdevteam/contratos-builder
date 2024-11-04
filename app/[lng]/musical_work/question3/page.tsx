@@ -86,10 +86,17 @@ const ContractBuilder3 = ({ params }: {
 }
 
 
-const WrappedContractBuilder3 = () => (
+const WrappedContractBuilder3 = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const {lng} = params
+  return(
   <Suspense fallback={<div>Loading...</div>}>
-    <ContractBuilder3 params={{ lng: 'en' }} />
+    <ContractBuilder3 params={{ lng: lng }} />
   </Suspense>
 )
+}
 
 export default WrappedContractBuilder3
