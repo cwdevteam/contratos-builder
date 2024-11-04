@@ -3,22 +3,22 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useQuestion2 from '../../store/useQuestion2'
+import { useTranslation } from '@/app/i18n/client'
 
 interface PopupProps {
   onClose: () => void
+  params: {
+    lng: string;
+  };
 }
 
-const Popup = ({ onClose }: PopupProps) => {
+const Popup = ({ onClose, params }: PopupProps) => {
+  const {lng} = params
+  const {t} = useTranslation(lng, 'master/question2');
   return (
     <div className="popup flex-col">
       <p>
-        Specifying the name of a song or musical work in contracts, particularly
-        when a master recording is also involved, is crucial for ensuring
-        clarity and preventing confusion. Multiple versions of a song, such as
-        remixes, live performances, or covers, can exist, and without clear
-        identification, it may lead to disputes over royalties, rights, and
-        ownership. By defining the exact version, the contract ensures proper
-        royalty allocation and protects the rights of creators and performers.
+        {t('popups.1')}
       </p>
       <button onClick={onClose} className="popup_button">
         x
@@ -27,13 +27,19 @@ const Popup = ({ onClose }: PopupProps) => {
   )
 }
 
-const ContractBuilder2 = () => {
+const ContractBuilder2 = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
   const { push } = useRouter()
   const updateSong = useQuestion2((state) => state.updateSong);
   const updateRecording = useQuestion2((state) => state.updateRecording);
   const [showPopup, setShowPopup] = useState(false)
   const [song, setSelectedOptionSong] = useState('')
   const [recording, setRecording] = useState('')
+  const {lng} = params
+  const {t} = useTranslation(lng, 'master/question2');
 
   const handleSongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionSong(event.target.value)
@@ -64,12 +70,12 @@ const ContractBuilder2 = () => {
             onClick={() => push('/question1')}
             className="text-xs text-gray-500 w-full text-left mb-4 border-none"
           >
-            What type of splits contract would you like to create?
+            {t('back1')}
           </button>
-          <p className="text-sm sm:text-base mb-4">What is the name of the song and its recorded version?</p>
+          <p className="text-sm sm:text-base mb-4">{t('p1')}</p>
           <form className="flex flex-col">
             <label className = "text-xs text-gray-500 w-full text-left mb-4 border-none py-0">
-              Song Composition
+            {t('label1')}
             </label>
             <input
               type="text"
@@ -79,7 +85,7 @@ const ContractBuilder2 = () => {
               required
             />
             <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0 pt-5 ">
-              Recorded Version
+            {t('label2')}
             </label>
             <input
               type="text"
@@ -93,19 +99,20 @@ const ContractBuilder2 = () => {
 
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
-            Your contract has yet to be completed. Continue to fill out the decision tree.
+          {t('p2')}
           </p>
 
-          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Music Work Identification</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">{t('h3')}</h3>
           <p className="text-sm sm:text-base">
-            The contracting parties have collaborated in the authorship and composition of the musical work titled{' '}
+            {t('p3')}{' '}
             <span className="text-red-500">{song ? song : ' '}</span>
           </p>
           <br/>
-          <h3 className="text-base sm:text-lg font-bold mb-2">1.0 Master Recording Identification</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">{t('h32')}</h3>
           <p className="text-sm sm:text-base">
-            The contracting parties have collaborated in the recording and production of the sound recording work titled{' '}
+            {t('p4')}{' '}
             <span className="text-red-500">{recording ? recording : ' '}</span>
+            {t('p5')}
           </p>
         </div>
       </main>
@@ -114,9 +121,9 @@ const ContractBuilder2 = () => {
           onClick={handleSubmit}
           className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          SUBMIT
+          {t('submit')}
         </button>
-        {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+        {showPopup && <Popup onClose={() => setShowPopup(false)} params={{lng:lng}}/>}
       </footer>
     </div>
   )
