@@ -5,14 +5,20 @@ import { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useQuestion5Vote from '../../store/useQuestion5Vote'
+import { useTranslation } from '@/app/i18n/client'
 
-const ContractBuilder5Vote = () => {
+const ContractBuilder5Vote = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [percent, setPercent] = useState('');
-
   const updatePercent = useQuestion5Vote((state) => state.updatePercent);
+  const {lng} = params
+  const { t } = useTranslation(lng, 'master/question5vote')
 
   const goToPage = (page: number) => {
     push(`/master_recording/${page}`)
@@ -38,19 +44,19 @@ const ContractBuilder5Vote = () => {
             onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            What type of splits contract would you like to create?
+            {t('back1')}
           </button>
           <button
             onClick={() => push('/master_recording/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            What is the name of the song?
+            {t('back2')}
           </button>
           <button
             onClick={() => push('/master_recording/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            How many collaborators contributed to writing the song?
+            {t('back3')}
           </button>
 
           {Array.from({ length: pageCount }, (_, i) => (
@@ -59,7 +65,7 @@ const ContractBuilder5Vote = () => {
               onClick={() => goToPage(i + 1)}
               className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
             >
-              Contributor {i + 1}
+              {t('contributor')} {i + 1}
             </button>
           ))}
 
@@ -67,11 +73,11 @@ const ContractBuilder5Vote = () => {
             onClick={() => push('/master_recording/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            Vote or designate admin?
+            {t('back4')}
           </button>
 
           <h1 className="text-lg sm:text-xl mb-4">
-            What percentage of ownership of the songwriting agreement is necessary to make business decisions about the song composition?
+            {t('percent')}
           </h1>
           <form className="flex flex-col">
             <label className="text-xs sm:text-sm mb-2">(%)</label>
@@ -84,16 +90,19 @@ const ContractBuilder5Vote = () => {
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
-            Your contract has yet to be completed. Continue to fill out the decision tree.
+            {t('p1')}
           </p>
-          <h4 className="text-base sm:text-lg font-bold mb-2">2.0 Rights and Duties of the Parties</h4>
+          <h4 className="text-base sm:text-lg font-bold mb-2">{t('2.0')}</h4>
           <p className="text-xs sm:text-sm mb-4">
-            None of the parties may perform legally relevant acts on the musical work without the written authorization of the 51% of the ownership, such as but not limited to the following:
+          {t('p2')}{' '}
+          <span className="text-red-500">{percent ? percent : ' '}%</span>
+          {t('p3')}
           </p>
           <ol className="list-decimal pl-5 text-xs sm:text-sm">
-            <li>Grant exclusive licenses for the use of the Musical Work.</li>
-            <li>Edit, alter or modify the musical work, especially the contributions of the other parties, in uses or sound recordings other than the one produced under this agreement unless authorized verbally or in writing by the co-author.</li>
-            <li>Exploiting the name of other parties in a manner that suggests approval or endorsement of a third-party product or service other than the musical work itself.</li>
+            <li>{t('li1')}</li>
+            <li>{t('li2')}</li>
+            <li>{t('li3')}</li>
+            <li>{t('li4')}</li>
           </ol>
         </div>
       </main>
@@ -103,23 +112,29 @@ const ContractBuilder5Vote = () => {
           href="#"
           onClick={() => push('/popups/moreInfoVoting')}
         >
-          Still not clear about voting? read here.
+          {t('confused')}
         </a>
         <button
           onClick={handleSubmit}
           className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          SUBMIT
+          {t('submit')}
         </button>
       </footer>
     </div>
   )
 }
 
-const WrappedContractBuilder5Vote = () => (
+const WrappedContractBuilder5Vote = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const {lng} = params
+  return (
   <Suspense fallback={<div>Loading...</div>}>
-    <ContractBuilder5Vote />
+    <ContractBuilder5Vote params={{lng:lng}}/>
   </Suspense>
-)
+)}
 
 export default WrappedContractBuilder5Vote
