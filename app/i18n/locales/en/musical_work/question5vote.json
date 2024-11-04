@@ -1,0 +1,17 @@
+{
+    "back1": "What type of splits contract would you like to create?",
+    "back2": "What is the name of the song?",
+    "back3":"How many collaborators contributed to writing the song?",
+    "contributor": "Contributor",
+    "back4": "Vote or designate admin?",
+    "percent":"What percentage of ownership of the songwriting agreement is necessary to make business decisions about the song composition?",
+    "p1":"Your contract has yet to be completed. Continue to fill out the decision tree.",
+    "2.0":"2.0 Rights and Duties of the Parties",
+    "p2":"None of the parties may perform legally relevant acts on the musical work without the written authorization of the ",
+    "p3":" of the ownership, such as but not limited to the following:",
+    "li1":"Grant exclusive licenses for the use of the Musical Work.",
+    "li2":"Edit, alter or modify the musical work, especially the contributions of the other parties, in uses or sound recordings other than the one produced under this agreement unless authorized verbally or in writing by the co-author.",
+    "li3":"Exploiting the name of other parties in a manner that suggests approval or endorsement of a third-party product or service other than the musical work itself.",
+    "confused":"Still not clear about voting? read here.",
+    "submit": "SUBMIT"
+  }

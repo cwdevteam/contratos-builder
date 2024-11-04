@@ -4,14 +4,20 @@ import React, { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useQuestion5Admin from '../../store/useQuestion5Admin'
+import { useTranslation } from '@/app/i18n/client'
 
-const ContractBuilder5Admin = () => {
+const ContractBuilder5Admin = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [name, setSelectedOptionName] = useState('')
-
   const updateAdminName = useQuestion5Admin((state) => state.updateAdminName);
+  const {lng} = params
+  const { t } = useTranslation(lng, 'master/question5admin')
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionName(event.target.value)
@@ -36,19 +42,19 @@ const ContractBuilder5Admin = () => {
             onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            What type of splits contract would you like to create?
+            {t('back1')}
           </button>
           <button
             onClick={() => push('/master_recording/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            What is the name of the song?
+            {t('back2')}
           </button>
           <button
             onClick={() => push('/master_recording/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            How many collaborators contributed to writing the song?
+            {t('back3')}
           </button>
 
           {Array.from({ length: pageCount }, (_, i) => (
@@ -57,7 +63,7 @@ const ContractBuilder5Admin = () => {
               onClick={() => goToPage(i + 1)}
               className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
             >
-              Contributor {i + 1}
+              {t('contributor')} {i + 1}
             </button>
           ))}
 
@@ -65,15 +71,15 @@ const ContractBuilder5Admin = () => {
             onClick={() => push('/master_recording/question4')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
           >
-            Vote or designate admin?
+            {t('back4')}
           </button>
 
           <h1 className="text-lg sm:text-xl mb-4">
-            What is the name(s) of the designated administrator?
+          {t('name')}
           </h1>
           <form className="flex flex-col">
             <label className="text-xs sm:text-sm mb-2">
-              Legal Name (First Last) | Separate names by commas
+            {t('name-list')}
             </label>
             <input
               type="text"
@@ -84,12 +90,12 @@ const ContractBuilder5Admin = () => {
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
-            Your contract has yet to be completed. Continue to fill out the decision tree.
+          {t('p1')}
           </p>
-          <h4 className="text-base sm:text-lg font-bold mb-2">4.0 Designation of an administrator</h4>
+          <h4 className="text-base sm:text-lg font-bold mb-2">{t('4.0')}</h4>
           <p className="text-xs sm:text-sm">
-            By means of the present contract, the parties recognize, accept, and declare that they designate{' '}
-            <span className="text-red-500 font-bold">{name}</span> as the representative in charge of making the decisions related to the commercial exploitation of the Master recording agreement. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work and the recording, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.
+            {t('p2')}{' '}
+            <span className="text-red-500 font-bold">{name}</span>{t('p3')}
           </p>
         </div>
       </main>
@@ -99,23 +105,29 @@ const ContractBuilder5Admin = () => {
           href="#"
           onClick={() => push('/popups/moreInfoAdmin')}
         >
-          Still not clear about designating an admin? read here.
+          {t('confused')}
         </a>
         <button
           onClick={handleSubmit}
           className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          SUBMIT
+          {t('submit')}
         </button>
       </footer>
     </div>
   )
 }
 
-const WrappedContractBuilder5Admin = () => (
+const WrappedContractBuilder5Admin = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const {lng} = params
+  return(
   <Suspense fallback={<div>Loading...</div>}>
-    <ContractBuilder5Admin />
+    <ContractBuilder5Admin params={{lng:lng}}/>
   </Suspense>
-)
+)}
 
 export default WrappedContractBuilder5Admin
