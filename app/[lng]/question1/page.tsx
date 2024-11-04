@@ -4,48 +4,40 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useQuestion1 from '../store/useQuestion1'
+import { useTranslation } from '@/app/i18n/client'
 
 interface PopupProps {
-  onClose: () => void
+  onClose: () => void;
+  params: {
+    lng: string;
+  };
 }
 
-const Popup = ({ onClose }: PopupProps) => {
+const Popup = ({ onClose, params }: PopupProps) => {
+  const { lng } = params;
+  const { t } = useTranslation(lng, 'question1');
   return (
     <div className="popup flex-col">
-      <p>
-        In music industry, there are two primary types of works: Musical
-        Compositions and Sound Recordings These two kinds of works have their
-        own copyright.
+      <p className="py-5">
+        {t('popups.1')}
       </p>
       <ol>
-        <li>
-          1.{' '}
+        <li className="py-5">
+          {' '}
           <b>
-            Copyright in Musical Composition (Publishing Rights or Composition
-            Rights):
+            {t('popups.2')}
           </b>{' '}
-          Relate to the “song” or underlying composition—the lyrics and melody
-          of a song, independent of any particular recording. These rights are
-          divided between the songwriter (or composer) and the music publisher.
-          The publisher manages the songwriter’s composition by licensing it for
-          use, collecting royalties, and ensuring it is properly credited. The
-          key components of publishing rights include performance rights,
-          mechanical rights, and synchronization rights (for use in films, TV,
-          etc.).
+          {t('popups.3')}
         </li>
-        <li>
-          2. <b>Copyright in Sound Recordings (MASTER Rights):</b> Pertains to
-          the ownership of a particular recording of a performance of a song.
-          Whoever owns the master rights controls the use, distribution,
-          reproduction, and performance of that specific recording. These rights
-          typically belong to the record label or the artist who financed the
-          production of the recording, though they can be sold or licensed.
+        <li className="py-5">
+          <b>{t('popups.4')}</b>
         </li>
       </ol>
       <p>
-        Both rights are crucial for monetizing and legally protecting music. The
-        copyright controls the use of a specific recording, while publishing
-        rights control the use of the song&apos;s composition.
+        {t('popups.5')}
+      </p>
+      <p className="pt-5">
+        {t('popups.6')}
       </p>
       <button onClick={onClose} className="popup_button">
         x
@@ -54,7 +46,11 @@ const Popup = ({ onClose }: PopupProps) => {
   )
 }
 
-const ContractBuilder1 = () => {
+function ContractBuilder1({ params }: {
+  params: {
+    lng: string;
+  };
+}) {
   const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
@@ -92,11 +88,14 @@ const ContractBuilder1 = () => {
 
   const date = new Date().toLocaleDateString()
 
+  const {lng} = params
+  const { t } = useTranslation(lng, 'question1')
+
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <p className="text-sm sm:text-base mb-4">What type of splits contract would you like to create?</p>
+          <p className="text-sm sm:text-base mb-4">{t('p1')}</p>
           <form className="flex flex-col gap-2">
             <label>
               <input
@@ -107,7 +106,7 @@ const ContractBuilder1 = () => {
                 id="Song Writing,"
                 required
               />
-              SONG WRITING
+              {t('li1')}
             </label>
             <label>
               <input
@@ -117,7 +116,7 @@ const ContractBuilder1 = () => {
                 className="radio"
                 id="Master Recording,"
               />
-              MASTER RECORDING
+              {t('li2')}
             </label>
             <label>
               <input
@@ -127,20 +126,19 @@ const ContractBuilder1 = () => {
                 className="radio"
                 id="Song Composition and Master Recording,"
               />
-              BOTH
+              {t('li3')}
             </label>
           </form>
         </div>
         <div className=" p-8">
-          <p className="text-xs">
-            Your contract has yet to be completed. Continue to fill out the
-            decision tree.
+          <p className="text-xs pb-5 text-gray-500">
+            {t('p2')}
+          </p>
+          <p className='p-5 pl-0'>
+            {t('p3', {selectedOption: selectedOption})}
           </p>
           <p>
-            Copyright ownership agreement for { selectedOption } joint work.
-          </p>
-          <p>
-            This agreement is entered into on{' '}
+            {t('p4')}{' '}
             <span className="text-red-500">
               {selectedDate ? selectedDate : ' '}
             </span>
@@ -153,10 +151,10 @@ const ContractBuilder1 = () => {
           href="#"
           onClick={togglePopup}
         >
-          If confused, read here
+          {t('if-confused')}
         </a>
-        <button onClick={handleSubmit}>SUBMIT</button>
-        {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+        <button onClick={handleSubmit}>{t('submit')}</button>
+        {showPopup && <Popup onClose={() => setShowPopup(false)} params={{lng:lng}} />}
       </footer>
     </div>
   )

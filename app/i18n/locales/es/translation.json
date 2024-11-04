@@ -1,0 +1,26 @@
+
+{
+    "h3": " Welcome to the <b>MESA</b> music contract builder.",
+    "intro": "Here are a series of questions to help you build an agreement for your music release. Just click the button to get started. To navigate back and change a previous answer, click on the previous question above (text in gray).",
+    "li-title": "For the time being, this contract template is meant only for artists who:",
+    "li1": "Are releasing a song digitally via DSPs",
+    "li2": "Are publishing their song independently",
+    "li3": "Are distributing their master recording independently",
+    "to-popup": "If confused, read here",
+    "get-started": "GET STARTED, (this is spanish translation)",
+    
+    "popup": {
+      "1": "Self-publishing and self-distributing your music means that you, as an artist or as a part of a group of creatives, take full control over the song writing, production, release, and distribution of your work without relying on traditional publishers or music labels. Here&apos;s a technical breakdown of what that entails:",
+      "2": "1. Self-Publishing",
+      "3": "What is Publishing?",
+      "4": "Publishing refers to the rights management of your music. When you write or compose a song, you own the copyright to that piece of music. Copyright ensures that you are paid when your music is used commercially, such as when it is streamed, played on the radio, or used in TV or film.",
+      "5": "2. Self-Distribution",
+      "6": "What is Distribution?",
+      "7": "Distribution is the process of getting your recorded music onto various platforms, both digital (streaming services, downloads) physical (CDs, vinyl, etc.), or in NFT format.",
+      "8": "3. Legal Responsibilities",
+      "9": "Contracts & Licensing: As a self-published and self-distributed artist, you must be familiar with basic music contracts, licensing agreements, and intellectual property laws.",
+      "10": "Copyright Registration: Although you automatically own the copyright to your music upon creation, registering it with the U.S. Copyright Office (or the equivalent in your country) provides additional legal protection.",
+      "11": "Summary",
+      "12": "By self-publishing and self-distributing, you keep all the creative and financial control over your music but take on the added responsibility of managing rights, royalties, promotion, distribution logistics and financial distribution. You need to be well-organized and either learn how to handle these aspects, hire professionals or use online tools to assist you."
+    }
+  }

@@ -1,7 +1,10 @@
-'use client'
+"use client"
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+//import { Trans } from 'react-i18next/TransWithoutContext'
+import { languages, fallbackLng } from '../i18n/settings'
+import { useTranslation } from '../i18n/client'
 
 interface PopupProps {
   onClose: () => void
@@ -72,13 +75,23 @@ const Popup = ({ onClose }: PopupProps) => {
   )
 }
 
-export default function Home() {
+export default function Home({ params }: {
+  params: {
+    lng: string;
+  };
+}) {
+  let { lng } =  params
+  if (languages.indexOf(lng) < 0) lng = fallbackLng
+  //const { t } = useTranslation(lng)
+
   const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
 
   const togglePopup = () => {
     setShowPopup(!showPopup)
   }
+
+  const { t } = useTranslation(lng)
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
@@ -111,10 +124,10 @@ export default function Home() {
           If confused, read here
         </a>
         <button
-          onClick={() => push('/popups/disclaimer')}
+          onClick={() => push(`/${lng}/popups/disclaimer`)}
           className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          GET STARTED
+          {t('get-started')}
         </button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} />}
       </footer>
