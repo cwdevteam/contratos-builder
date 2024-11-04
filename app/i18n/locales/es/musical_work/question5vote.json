@@ -6,9 +6,12 @@
     "back4": "¿Designar administrador o votar?",
     "percent":"¿Cuál es el nombre(s) del administrador designado?",
     "p1":"Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
-    "4.0":"4. Designación de Administrador",
-    "p2":"Mediante el presente contrato, las partes reconocen, aceptan y declaran que designan a ",
-    "p3":" como el representante encargado de tomar decisiones relacionadas con la explotación comercial de la Obra Musical. La persona designada hará su mejor esfuerzo para lograr el mayor beneficio comercial de la obra, lo cual incluye, pero no se limita a: ofrecer licencias, trabajar con editoriales, distribuidores musicales, discográficas o para sincronizaciones. El representante NO está autorizado para vender o disponer de la propiedad de derechos de autor de la Obra Musical y la grabación; solo puede ofrecer licencias de uso. La venta de derechos de autor es una facultad exclusiva de cada propietario.",
-    "confused":"Si aún no entiendes lo que signifíca designar un administrador, lee aquí",
+    "2.0":"2.0 Derechos y deberes de las partes",
+    "p2":"Ninguna de las partes puede tomar acciones legales relevantes acerca de la composición musical sin la autorización escrita  por parte del ",
+    "p3":", de la propiedad, tales como pero no limitados a:",
+    "li1":"Autorizar licencias de uso de la Obra Musical",
+    "li2":"Editar, alterar o modificar la obra musical, especialmente las contribuciones de las otras partes, en uso o para grabaciones sonoras distintas de la producida en virtud de este acuerdo a menos que los coautores lo autorizen verbalmente o por escrito.",
+    "li3":"Explotar el nombre de otras partes de una manera que sugiera aprobación o respaldo de un producto o servicio de terceros que no sea la Obra Musical misma.",
+    "confused":"Si no sabes lo que esto implica, lee aquí",
     "submit": "ENVIAR"
   }
