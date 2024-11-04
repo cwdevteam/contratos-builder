@@ -17,7 +17,7 @@ const ContractBuilder5Admin = ({ params }: {
   const [name, setSelectedOptionName] = useState('')
   const updateAdminName = useQuestion5Admin((state) => state.updateAdminName);
   const {lng} = params
-  const { t } = useTranslation(lng, 'master/dynamic')
+  const { t } = useTranslation(lng, 'master/question5admin')
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionName(event.target.value)
