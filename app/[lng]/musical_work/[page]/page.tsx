@@ -183,7 +183,7 @@ const DynamicPage = ({ params }: {
             {t("email2")}: <span className="text-red-500">{email}</span>
           </p>
           <p className="text-sm sm:text-base">
-            {t("contributor2")}: <span className="text-red-500">{contributorType}</span>
+            {t("contribution2")}: <span className="text-red-500">{contributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
             {t('split2')}: <span className="text-red-500">{split}</span>
