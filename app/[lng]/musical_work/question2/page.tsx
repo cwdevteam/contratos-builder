@@ -5,13 +5,6 @@ import { useRouter } from 'next/navigation'
 import useQuestion2 from '../../store/useQuestion2'
 import { useTranslation } from '@/app/i18n/client'
 
-interface PopupProps {
-  onClose: () => void;
-  params:{
-    lng:string;
-  }
-}
-
 const ContractBuilder2 = ({ params }: {
   params: {
     lng: string;
@@ -37,7 +30,7 @@ const ContractBuilder2 = ({ params }: {
     song,
   }).toString()
 
-  let {lng} = params
+  const {lng} = params
   const { t } = useTranslation(lng, 'musical_work/question2')
 
   return (

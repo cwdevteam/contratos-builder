@@ -7,7 +7,6 @@ import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import { Trans } from 'react-i18next/TransWithoutContext'
 import Link from 'next/link'
-import { headers } from 'next/headers';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))

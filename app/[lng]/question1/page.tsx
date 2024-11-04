@@ -88,7 +88,7 @@ function ContractBuilder1({ params }: {
 
   const date = new Date().toLocaleDateString()
 
-  let {lng} = params
+  const {lng} = params
   const { t } = useTranslation(lng, 'question1')
 
   return (

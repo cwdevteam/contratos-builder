@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useQuestion3 from '../../store/useQuestion3'
@@ -34,7 +34,7 @@ const ContractBuilder3 = ({ params }: {
 
   }
 
-  let {lng} = params
+  const {lng} = params
   const { t } = useTranslation(lng, 'musical_work/question3')
 
   return (
