@@ -7,16 +7,17 @@
     "name": "Nombre Legal (Nombre y Apellido)",
     "email": "Email (ejemplo@mesawallet.io)",
     "type":"Tipo de contribución",
-    "lyrics":"Letra",
-    "music":"Musica",
-    "both":"Ambos",
+    "artist":"Artista",
+    "producer":"Productor",
+    "exec":"Productor Ejecutivo",
+    "engineer":"Ingeniero",
     "split":"Split (%)",
     "p1":"Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
-    "p2":"1.0 Identificación de la Obra Musical",
-    "p3": "Las partes reconocen y aceptan su contribución a la autoría o composición de la Obra Musical y acuerdan la distribución de la propiedad de derechos de autor como se indica a continuación:",
+    "p2":"1.0 Identificación Grabación Master",
+    "p3": "Las partes contratantes han colaborado en la grabación y producción de la Grabación Maestra titulada {{title}} , que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
     "name2":"Nombre Legal",
     "email2":"Email",
     "contribution2":"Contribución",
     "split2":"Porcentaje de propiedad",
-    "next": "Next"
+    "next": "ENVIAR"
   }
