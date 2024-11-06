@@ -4,8 +4,13 @@ import React, { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useQuestion3 from '../../store/useQuestion3'
+import { useTranslation } from '@/app/i18n/client'
 
-const ContractBuilder3 = () => {
+const ContractBuilder3 = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
   const { push } = useRouter()
   const updateContributorCount = useQuestion3((state) => state.updateContributorCount);
   const [pageCount, setPageCount] = useState<number | null>(null)
@@ -13,6 +18,9 @@ const ContractBuilder3 = () => {
   const searchParams = useSearchParams()
   const song = searchParams.get('song')!
   const recording = searchParams.get('recording')!
+
+  const {lng} = params
+  const {t} = useTranslation(lng, 'both/question3');
 
   const handleContributorsChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -38,15 +46,15 @@ const ContractBuilder3 = () => {
             onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
-            What type of splits contract would you like to create?
+            {t('back1')}
           </button>
           <button
             onClick={() => push('/both/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
-            What is the name of the song?
+            {t('back2')}
           </button>
-          <p>How many collaborators own a percentage of the joint work?</p>
+          <p>{t('p1')}</p>
           <form className="flex flex-col">
             <input
               type="number"
@@ -60,37 +68,40 @@ const ContractBuilder3 = () => {
         </div>
         <div className=" p-8 py-1">
           <p className="text-xs text-gray-500">
-            Your contract has yet to be completed. Continue to fill out the
-            decision tree.
+          {t('p2')}
           </p>
-          <h3>1.0 Music Work Identification</h3>
+          <h3>{t('h3')}</h3>
           <p>
-            The contracting parties have collaborated in the authorship and
-            composition of the musical work titled{' '}
+          {t('p3')}{' '}
             <span className="text-red-500">{song}</span>
           </p>
           <br/>
-          <h3>1.0 Master Recording Identification</h3>
+          <h3>{t('h32')}</h3>
           <p>
-          The contracting parties have collaborated in the recording and 
-          production of the sound recording titled{' '}
+          {t('p4')}{' '}{t('p5')}
             <span className="text-red-500">{recording}</span>
           </p>
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
         <button onClick={handleSubmit} className="border border-red">
-          SUBMIT
+        {t('submit')}
         </button>
       </footer>
     </div>
   )
 }
 
-const WrappedContractBuilder3 = () => (
+const WrappedContractBuilder3 = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
+const {lng} = params
+  return(
   <Suspense fallback={<div>Loading...</div>}>
-    <ContractBuilder3 />
+    <ContractBuilder3 params={{lng:lng}}/>
   </Suspense>
-)
+)}
 
 export default WrappedContractBuilder3
