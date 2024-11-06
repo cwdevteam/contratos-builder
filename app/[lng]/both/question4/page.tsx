@@ -4,33 +4,35 @@ import React, { Suspense, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useQuestion4 from '../../store/useQuestion4'
+import { useTranslation } from '@/app/i18n/client'
 
 interface PopupProps {
   onClose: () => void
+  params: {
+    lng: string;
+  };
 }
 
-const Popup = ({ onClose }: PopupProps) => {
+const Popup = ({ onClose, params }: PopupProps) => {
   const {push} = useRouter()
+  const {lng} = params
+  const {t} = useTranslation(lng, 'master/question4');
   return (
     <div className="popup flex-col">
       <p>
-        Voting ensures that each business decision is consulted with all of the
-        copyright owners. Designating an administrator ensures faster decision
-        making, but less consultation with copyright owners. However,
-        administrators also have responsibilities and a duty to properly
-        represent the interests of the copyright owners.
+      {t('popups.1')}
       </p>
       <a
         className="items-center gap-2 hover:underline hover:underline-offset-4"
         onClick={() => push('/popups/moreInfoVoting')}
       >
-        Still not clear about voting? read here.
+        {t('popups.2')}
       </a>
       <a
         className="items-center gap-2 hover:underline hover:underline-offset-4"
         onClick={() => push('/popups/moreInfoAdmin')}
       >
-        Still not clear about designating an admin? read here.
+        {t('popups.3')}
       </a>
       <button onClick={onClose} className="popup_button">
         x
@@ -39,13 +41,19 @@ const Popup = ({ onClose }: PopupProps) => {
   )
 }
 
-const ContractBuilder4 = () => {
+const ContractBuilder4 = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
   const {push} = useRouter()
 
   const [showPopup, setShowPopup] = useState(false)
   const searchParams = useSearchParams()
   const pageCount = Number(searchParams.get('pageCount'))
   const [selectedOption, setSelectedOption] = useState('')
+  const {lng} = params
+  const {t} = useTranslation(lng, 'both/question4');
 
   const updateVoteSelection = useQuestion4((state) => state.updateVoteSelection);
 
@@ -79,19 +87,19 @@ const ContractBuilder4 = () => {
             onClick={() => push('/question1')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
           >
-            What type of splits contract would you like to create?
+            {t('back1')}
           </button>
           <button
             onClick={() => push('/both/question2')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0"
           >
-            What is the name of the song?
+            {t('back2')}
           </button>
           <button
             onClick={() => push('/both/question3')}
             className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0"
           >
-            How many collaborators contributed to writing the song?
+            {t('back3')}
           </button>
 
           {Array.from({ length: pageCount }, (_, i) => (
@@ -100,12 +108,12 @@ const ContractBuilder4 = () => {
               onClick={() => goToPage(i + 1)}
               className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
             >
-              Contributor {i + 1}
+              {t('contributor')} {i + 1}
             </button>
           ))}
 
           <h4 className="text-sm sm:text-base mb-4 pt-5">
-            Would you like to vote when making business decisions or designate an administrator?
+          {t('question')}
           </h4>
           <form className="flex flex-col gap-2">
             <label className="flex items-center">
@@ -117,7 +125,7 @@ const ContractBuilder4 = () => {
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">VOTE</span>
+              <span className="text-sm sm:text-base">{t('vote')}</span>
             </label>
             <label className="flex items-center">
               <input
@@ -128,13 +136,13 @@ const ContractBuilder4 = () => {
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">DESIGNATE ADMIN</span>
+              <span className="text-sm sm:text-base">{t('admin')}</span>
             </label>
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
-            Your contract has yet to be completed. Continue to fill out the decision tree.
+          {t('p1')}
           </p>
         </div>
       </main>
@@ -144,24 +152,30 @@ const ContractBuilder4 = () => {
           href="#"
           onClick={togglePopup}
         >
-          Confused with this bit too? read here.
+          {t('confused')}
         </a>
         <button 
           onClick={findNextPage}
           className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
         >
-          SUBMIT
+          {t('submit')}
         </button>
-        {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+        {showPopup && <Popup onClose={() => setShowPopup(false)} params={{lng:lng}}/>}
       </footer>
     </div>
   )
 }
 
-const WrappedContractBuilder4 = () => (
+const WrappedContractBuilder4 = ({ params }: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const {lng} = params
+  return(
   <Suspense fallback={<div>Loading...</div>}>
-    <ContractBuilder4 />
+    <ContractBuilder4 params={{lng:lng}}/>
   </Suspense>
-)
+)}
 
 export default WrappedContractBuilder4
