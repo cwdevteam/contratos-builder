@@ -21,9 +21,9 @@
     "p3": "Las partes han colaborado en la composicion, la grabación y producción de la canción y acuerdan la distribución de su propiedad así:",
     "name2":"Nombre Legal",
     "email2":"Email",
-    "contribution2":"Contribución a composición",
+    "contribution":"Contribución a composición",
     "split2":"Porcentaje de propiedad",
-    "contribution3":"Rol en la grabación y producción",
+    "contribution2":"Rol en la grabación y producción",
     "split3":"Porcentaje de producción",
     "next": "ENVIAR"
   }

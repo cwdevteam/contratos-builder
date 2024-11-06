@@ -199,22 +199,22 @@ const DynamicPage = ({ params }: {
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">{t('contributor')} {pageNumber}:</h3>
           <p className="text-sm sm:text-base">
-          {t('name2')} <span className="text-red-500">{legalName}</span>
+          {t('name2')}: <span className="text-red-500">{legalName}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('email2')} <span className="text-red-500">{email}</span>
+          {t('email2')}: <span className="text-red-500">{email}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('contribution')} <span className="text-red-500">{contributorType}, {masterContributorType}</span>
+          {t('contribution')}: <span className="text-red-500">{contributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-            {t('split2')}<span className="text-red-500">{split}</span>
+            {t('split2')}:<span className="text-red-500">{split}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('contribution2')} <span className="text-red-500">{contributorType}, {masterContributorType}</span>
+          {t('contribution2')}: <span className="text-red-500"> {masterContributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-            {t('split3')} <span className="text-red-500">{split}</span>
+            {t('split3')}: <span className="text-red-500">{split}</span>
           </p>
         </div>
       </main>
