@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter, useSearchParams, useParams } from 'next/navigation'
 import useDynamicPageStore from '../../store/use[page]'
-import useQuestion2 from '../../store/useQuestion2';
 import { useTranslation } from '@/app/i18n/client'
 
 const DynamicPage = ({ params }: {
@@ -17,7 +16,6 @@ const DynamicPage = ({ params }: {
   const pageNumber = Number(useParams1.page)
   const pageCount = Number(searchParams.get('pageCount'))
   const lastSplit = Number(searchParams.get('split'))
-  const recording = useQuestion2((state) => state.recording)
 
   // Get page data from the Zustand store
   const pageData = useDynamicPageStore((state) => state.pages[pageNumber] || {});
@@ -31,7 +29,7 @@ const DynamicPage = ({ params }: {
   const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const {lng} = params
-  const { t } = useTranslation(lng, 'master/dynamic')
+  const { t } = useTranslation(lng, 'both/dynamic')
 
   useEffect(() => {
     resetPages(pageNumber); // Reset all stored info 
