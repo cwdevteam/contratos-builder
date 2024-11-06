@@ -16,7 +16,7 @@ interface PopupProps {
 const Popup = ({ onClose, params }: PopupProps) => {
   const {push} = useRouter()
   const {lng} = params
-  const {t} = useTranslation(lng, 'master/question4');
+  const {t} = useTranslation(lng, 'both/question4');
   return (
     <div className="popup flex-col">
       <p>
