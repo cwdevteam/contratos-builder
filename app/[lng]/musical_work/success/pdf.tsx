@@ -7,6 +7,7 @@ import useQuestion4 from '../../store/useQuestion4';
 import useDynamicPageStore from '../../store/use[page]';
 import useQuestion5Admin from '../../store/useQuestion5Admin';
 import useQuestion5Vote from '../../store/useQuestion5Vote';
+import { useTranslation } from 'react-i18next'
 
 const getX = (text: string) =>{
     let x = 0;
@@ -26,6 +27,7 @@ const PDF = () => {
     const pages = useDynamicPageStore((state) => state.pages);
     const adminName = useQuestion5Admin((state) => state.adminName)
     const percent = useQuestion5Vote((state) => state.percent)
+    const {t} = useTranslation('musical_work/pdf')
 
     const generatePDF = () =>{
         const doc = new jsPDF();
@@ -45,20 +47,20 @@ const PDF = () => {
     doc.setFont('Palatino Linotype', 'bold');
     doc.setFontSize(15);
   
-    const title = 'Copyright Ownership Agreement for music composition, made as a joint work.';
+    const title = t('1');
     x = getX(title);
     doc.text(title, x, y);
     y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
     doc.setFontSize(11);
-    const line1 = `This agreement is entered into on ${date}  between the following parties:`
+    const line1 = t('2',{date});
     x = 50;
     doc.text(line1,x,y)
     y = getY(y,15)
 
     doc.setFont('Palatino Linotype', 'bold')
-    const line2 = `1.     Musical Work Identification`
+    const line2 = t('3')
     x = getX(line2);
     doc.text(line2,x/2,y)
     y = getY(y,10)
