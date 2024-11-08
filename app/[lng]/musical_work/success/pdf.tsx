@@ -87,17 +87,17 @@ const PDF = () => {
     doc.text(t('6', {id}), x, y);
     y = getY(y,5)
     doc.setFont('Palatino Linotype','normal')
-    let name = pageData.legalName
+    const name = pageData.legalName
     doc.text(t('7',{name}) , x, y);
     y = getY(y,5)
     doc.text(t('8'), x, y);
     y = getY(y,5)
     doc.text(t('9'), x, y);
     y = getY(y,5)
-    let contributorType = pageData.contributorType
+    const contributorType = pageData.contributorType
     doc.text(t('10',{contributorType}), x, y);
     y = getY(y,5)
-    let split = pageData.split
+    const split = pageData.split
     doc.text(t('11',{split}), x, y);
     y = getY(y,15)
     }
@@ -315,7 +315,7 @@ const PDF = () => {
     doc.text(t('6',{id}), x, y);
     y = getY(y,5)
     doc.setFont('Palatino Linotype','normal')
-    let name = pageData.legalName
+    const name = pageData.legalName
     doc.text(t('7',{name}), x, y);
     doc.line(x+20,y,x+150,y);
     y = getY(y,5)
