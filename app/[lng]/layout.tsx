@@ -43,9 +43,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="h-1/5 text-2xl">
+        <header className="flex items-center justify-between h-20 px-4">
+          <div className="flex items-center space-x-2">
           <Image
-            className="float-left"
             src={mesaImage}
             width={50}
             height={50}
@@ -54,15 +54,16 @@ export default async function RootLayout({
           <p className="float-left">
             <b> mesa</b>
           </p>
-          <div className="text-center">
+          </div>
+          <div>
         <LanguageSwitcher/>
         </div>
-          <div className="float-right text-xs">
+          <div className="text-right text-xs">
             <p className="text-2xl font-black">MUSIC SPLITS</p>
             Contract Builder
           </div>
-          <hr className="w-screen" />
         </header>
+        <hr className="w-full absolute " />
         {children}
       </body>
     </html>
