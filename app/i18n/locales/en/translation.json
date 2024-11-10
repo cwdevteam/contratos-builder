@@ -1,14 +1,15 @@
 {
-    "h3": " Welcome to the <b>MESA</b> music contract builder.",
+    "h3": "Welcome to the MESA music contract builder.",
     "intro": "Here are a series of questions to help you build an agreement for your music release. Just click the button to get started. To navigate back and change a previous answer, click on the previous question above (text in gray).",
     "li-title": "For the time being, this contract template is meant only for artists who:",
     "li1": "Are releasing a song digitally via DSPs",
     "li2": "Are publishing their song independently",
     "li3": "Are distributing their master recording independently",
-    "to-popup": "If confused, read here",
+    "li4":"",
+    "confused": "If confused, read here",
     "get-started": "GET STARTED",
     
-    "popup": {
+    "popups": {
       "1": "Self-publishing and self-distributing your music means that you, as an artist or as a part of a group of creatives, take full control over the song writing, production, release, and distribution of your work without relying on traditional publishers or music labels. Here’s a technical breakdown of what that entails:",
       "2": "1. Self-Publishing",
       "3": "What is Publishing?",
