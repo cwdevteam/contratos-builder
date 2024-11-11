@@ -56,7 +56,7 @@ const PDF = () => {
 
     doc.setFont('Palatino Linotype', 'normal')
     doc.setFontSize(11);
-    const line1 = t('2')
+    const line1 = t('2', {date})
     x = 50;
     doc.text(line1,x,y)
     y = y = getY(y,15)
@@ -68,7 +68,7 @@ const PDF = () => {
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
-    const line3 = t('4')
+    const line3 = t('4',{song})
     const split3 = doc.splitTextToSize(line3,doc.internal.pageSize.getWidth()*.6)
     x = getX(line3);
     doc.text(split3,x,y)
@@ -112,7 +112,7 @@ const PDF = () => {
     y = getY(y,10)
 
     doc.setFont('Palatino Linotype', 'normal')
-    const line5 = t('4b')
+    const line5 = t('4b',{recording})
     const split5 = doc.splitTextToSize(line5,doc.internal.pageSize.getWidth()*.6)
     doc.text(split5,x/2,y)
     y = getY(y,10)
@@ -233,7 +233,7 @@ const PDF = () => {
         y = getY(y,30)
 
     }else{
-        const line10 = t('19a')
+        const line10 = t('19a', {adminName})
         const split10 = doc.splitTextToSize(line10,doc.internal.pageSize.getWidth()*.6)
         doc.text('c.',x/2,y+10)
         doc.text(split10,(x/2)+10,y+10)
@@ -245,7 +245,7 @@ const PDF = () => {
         doc.text(split11,(x/2)+10,y+10)
         y = getY(y,40)
 
-        const line12 = t('19c')
+        const line12 = t('19c', {adminName})
         const split12 = doc.splitTextToSize(line12,doc.internal.pageSize.getWidth()*.6)
         doc.text('e.',x/2,y+10)
         doc.text(split12,(x/2)+10,y+10)
