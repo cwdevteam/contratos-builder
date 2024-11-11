@@ -338,7 +338,7 @@ const PDF = () => {
     y = getY(y,5)
     doc.text(t('44'), x, y);
     doc.line(x+30,y,x+80,y);
-    doc.text(t('45'), x+85, y);
+    doc.text(t('45', {date}), x+85, y);
     doc.line(x+95,y,x+130,y);
     y = getY(y,15)
     }
