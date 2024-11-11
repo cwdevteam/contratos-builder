@@ -317,10 +317,10 @@ const PDF = () => {
     doc.setFont('Palatino Linotype','normal')
     const name = pageData.legalName
     doc.text(t('7',{name}), x, y);
-    doc.line(x+20,y,x+150,y);
+    doc.line(x+30,y,x+150,y);
     y = getY(y,5)
     doc.text(t('8'), x, y);
-    doc.line(x+20,y,x+150,y);
+    doc.line(x+30,y,x+150,y);
     y = getY(y,5)
     doc.text(t('44'), x, y);
     doc.line(x+20,y,x+80,y);
