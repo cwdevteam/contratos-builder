@@ -20,7 +20,7 @@ const Popup = ({ onClose, params }: PopupProps) => {
       <p>
         {t('popups.1')}
       </p>
-      <ol>
+      <ul>
         <li>
         {t('popups.2')}
           <br />
@@ -44,7 +44,7 @@ const Popup = ({ onClose, params }: PopupProps) => {
           {t('popups.10')}
           <br />
         </li>
-      </ol>
+      </ul>
       {t('popups.11')}
       <br />
       <p>
