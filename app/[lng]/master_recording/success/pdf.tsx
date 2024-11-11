@@ -136,7 +136,7 @@ const PDF = () => {
 
     //different section based on vote or admin
     if(voteSelection == "VOTE"){
-        const line10 = t('15')
+        const line10 = t('15', {percent})
         const split10 = doc.splitTextToSize(line10,doc.internal.pageSize.getWidth()*.6)
         doc.text('c.',x/2,y+10)
         doc.text(split10,(x/2)+10,y+10)
@@ -166,7 +166,7 @@ const PDF = () => {
         doc.text(split14,(x/2)+20,y+10)
         y = getY(y,35)
     }else{
-        const line10 = t('19')
+        const line10 = t('19',{adminName})
         const split10 = doc.splitTextToSize(line10,doc.internal.pageSize.getWidth()*.6)
         doc.text('c.',x/2,y+10)
         doc.text(split10,(x/2)+10,y+10)
