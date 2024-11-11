@@ -2,68 +2,53 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-//import { Trans } from 'react-i18next/TransWithoutContext'
 import { languages, fallbackLng } from '../i18n/settings'
 import { useTranslation } from '../i18n/client'
 
 interface PopupProps {
   onClose: () => void
+  params: {
+    lng: string;
+  };
 }
 
-const Popup = ({ onClose }: PopupProps) => {
+const Popup = ({ onClose, params }: PopupProps) => {
+  const { lng } = params;
+  const { t } = useTranslation(lng);
   return (
     <div className="popup flex flex-col p-4 sm:p-8 text-sm sm:text-base">
       <p>
-        Self-publishing and self-distributing your music means that you, as an
-        artist or as a part of a group of creatives, take full control over the
-        song writing, production, release, and distribution of your work without
-        relying on traditional publishers or music labels. Here’s a technical
-        breakdown of what that entails:
+        {t('popups.1')}
       </p>
-      <ol>
+      <ul>
         <li>
-          1. Self-Publishing
+        {t('popups.2')}
           <br />
-          What is Publishing?
+          {t('popups.3')}
           <br />
-          Publishing refers to the rights management of your music. When you
-          write or compose a song, you own the copyright to that piece of music.
-          Copyright ensures that you are paid when your music is used
-          commercially, such as when it is streamed, played on the radio, or
-          used in TV or film.
+          {t('popups.4')}
         </li>
         <li>
-          2. Self-Distribution
+        {t('popups.5')}
           <br />
-          What is Distribution?
+          {t('popups.6')}
           <br />
-          Distribution is the process of getting your recorded music onto
-          various platforms, both digital (streaming services, downloads)
-          physical (CDs, vinyl, etc.), or in NFT format.
+          {t('popups.7')}
         </li>
+        <br />
         <li>
-          3. Legal Responsibilities
+        {t('popups.8')}
           <br />
-          Contracts & Licensing: As a self-published and self-distributed
-          artist, you must be familiar with basic music contracts, licensing
-          agreements, and intellectual property laws.
+          {t('popups.9')}
           <br />
-          Copyright Registration: Although you automatically own the copyright
-          to your music upon creation, registering it with the U.S. Copyright
-          Office (or the equivalent in your country) provides additional legal
-          protection.
+          {t('popups.10')}
           <br />
         </li>
-      </ol>
-      Summary
+      </ul>
+      {t('popups.11')}
       <br />
       <p>
-        By self-publishing and self-distributing, you keep all the creative and
-        financial control over your music but take on the added responsibility
-        of managing rights, royalties, promotion, distribution logistics and
-        financial distribution. You need to be well-organized and either learn
-        how to handle these aspects, hire professionals or use online tools to
-        assist you.
+      {t('popups.12')}
       </p>
       <button
         onClick={onClose}
@@ -97,22 +82,20 @@ export default function Home({ params }: {
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
         <h3 className="text-xl sm:text-2xl font-bold">
-          Welcome to the <b>MESA</b> music contract builder.
+          <b>{t('h3')}</b>
+         
         </h3>
         <p className="text-sm sm:text-base">
-          Here are a series of questions to help you build an agreement for your
-          music release. Just click the button to get started. To navigate back
-          and change a previous answer, click on the previous question above
-          (text in gray).
+          {t('intro')}
         </p>
         <p className="text-sm sm:text-base">
-          For the time being, this contract template is meant only for artists
-          who:
+          {t('li-title')}
         </p>
         <ol className="list-decimal pl-6 text-sm sm:text-base">
-          <li>Are releasing a song digitally via DSPs</li>
-          <li>Are publishing their song independently</li>
-          <li>Are distributing their master recording independently</li>
+          <li>{t('li1')}</li>
+          <li>{t('li2')}</li>
+          <li>{t('li3')}</li>
+          <li>{t('li4')}</li>
         </ol>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
@@ -121,15 +104,15 @@ export default function Home({ params }: {
           href="#"
           onClick={togglePopup}
         >
-          If confused, read here
+          {t('confused')}
         </a>
         <button
           onClick={() => push(`/${lng}/popups/disclaimer`)}
-          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
         >
           {t('get-started')}
         </button>
-        {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+        {showPopup && <Popup onClose={() => setShowPopup(false)} params={{lng:lng}} />}
       </footer>
     </div>
   )
