@@ -67,7 +67,7 @@ export default function Home({ params }: {
 }) {
   let { lng } =  params
   if (languages.indexOf(lng) < 0) lng = fallbackLng
-  //const { t } = useTranslation(lng)
+
 
   const { push } = useRouter()
   const [showPopup, setShowPopup] = useState(false)
@@ -77,6 +77,10 @@ export default function Home({ params }: {
   }
 
   const { t } = useTranslation(lng)
+
+  if(lng=='es'){
+    document.getElementById('li4')!.innerHTML="<li>"+t('li4')+"</li>"
+  }
 
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
@@ -95,7 +99,7 @@ export default function Home({ params }: {
           <li>{t('li1')}</li>
           <li>{t('li2')}</li>
           <li>{t('li3')}</li>
-          <li>{t('li4')}</li>
+          <span id='li4'></span>
         </ol>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
