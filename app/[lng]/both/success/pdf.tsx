@@ -272,7 +272,7 @@ const PDF = () => {
     const split17 = doc.splitTextToSize(line17,doc.internal.pageSize.getWidth()*.6)
     doc.text('b.',(x/2),y)
     doc.text(split17,(x/2)+10,y)
-    y = getY(y,40)
+    y = getY(y,50)
  
     const line18 = t('23')
     const split18 = doc.splitTextToSize(line18,doc.internal.pageSize.getWidth()*.6)
