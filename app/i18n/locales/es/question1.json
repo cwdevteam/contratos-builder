@@ -4,13 +4,16 @@
     "li2": "MASTER",
     "li3": "AMBOS",
     "p2": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
-    "p3": "Acuerdo de Propiedad de Derechos de Autor para Composición Musical, realizada como obra conjunta.",
+    "p3": "Acuerdo de Propiedad de Derechos de Autor para {{selectedOption}} realizada como obra conjunta.",
     "p4": "Este contrato enstá siendo redactado el",
     "if-confused": "Si necesitas ayúda, presiona aquí.",
     "submit": "Enviar",
+    "id1":"Composicion Musical,",
+    "id2":"Grabacion Master,",
+    "id3":"Composicion Musical y Grabacion Master,",
 
     "popups":{
-      "1": "IEn la industria musical, existen dos tipos principales de obras: Composiciones Musicales y Grabaciones de Sonido. Estos dos tipos de obras tienen sus propios derechos de autor.",
+      "1": "En la industria musical, existen dos tipos principales de obras: Composiciones Musicales y Grabaciones de Sonido. Estos dos tipos de obras tienen sus propios derechos de autor.",
       "2": "Derechos de Autor en la Composición Musical (Derechos de Publicación o Derechos de Composición):",
       "3": " Se refieren a la \"canción\" o la composición subyacente: la letra y la melodía de una canción, independientemente de una grabación en particular. Estos derechos se dividen entre el compositor (o autor) y el editor musical. El editor gestiona la composición del autor otorgando licencias para su uso, recaudando regalías y asegurando que se le dé el debido crédito. Los componentes clave de los derechos de publicación incluyen los derechos de ejecución, derechos mecánicos y derechos de sincronización (para uso en películas, televisión, etc.).",
       "4": "Derechos de Autor en las Grabaciones de Sonido (Derechos de MASTER):",
