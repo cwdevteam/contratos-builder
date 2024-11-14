@@ -150,10 +150,10 @@ const DynamicPage = ({ params }: {
                 className="bg-black w-full sm:w-1/2"
                 onChange={handleContributorChange}
               >
-                <option value="Artist">{t('artist')}</option>
-                <option value="Producer">{t('producer')}</option>
-                <option value="Executive Producer">{t('exec')}</option>
-                <option value="Engineer">{t('engineer')}</option>
+                <option value={t('artist')}>{t('artist')}</option>
+                <option value={t('producer')}>{t('producer')}</option>
+                <option value={t('exec')}>{t('exec')}</option>
+                <option value={t('engineer')}>{t('engineer')}</option>
               </select>
             </div>
             <div>

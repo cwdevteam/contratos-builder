@@ -78,10 +78,6 @@ export default function Home({ params }: {
 
   const { t } = useTranslation(lng)
 
-  if(lng=='es'){
-    document.getElementById('li4')!.innerHTML="<li>"+t('li4')+"</li>"
-  }
-
   return (
     <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
@@ -118,6 +114,11 @@ export default function Home({ params }: {
         </button>
         {showPopup && <Popup onClose={() => setShowPopup(false)} params={{lng:lng}} />}
       </footer>
+      <script>
+      if(lng=='es'){
+        document.getElementById('li4')!.innerHTML="<li>"+t('li4')+"</li>"
+      }
+      </script>
     </div>
   )
 }
