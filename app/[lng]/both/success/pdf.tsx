@@ -49,9 +49,10 @@ const PDF = () => {
     doc.setFont('Palatino Linotype', 'bold');
     doc.setFontSize(15);
   
-    const title = t('1')
-    x = getX(title);
-    doc.text(title, x, y);
+    const title = t('1');
+    const splitTitle = doc.splitTextToSize(title,doc.internal.pageSize.getWidth()*.6)
+    x = getX(splitTitle);
+    doc.text(splitTitle, x, y);
     y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
@@ -134,7 +135,7 @@ const PDF = () => {
         doc.text(t('7',{name}), x, y);
         y = getY(y,5)
         const email = pageData.email
-        doc.text(t('8',{email}), x, y);
+        doc.text(t('9',{email}), x, y);
         y = getY(y,5)
         const contributorType = pageData.contributorType
         doc.text(t('10',{contributorType}), x, y);

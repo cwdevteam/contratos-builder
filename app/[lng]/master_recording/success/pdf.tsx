@@ -48,9 +48,10 @@ const PDF = () => {
     doc.setFont('Palatino Linotype', 'bold');
     doc.setFontSize(15);
   
-    const title = t('1')
-    x = getX(title);
-    doc.text(title, x, y);
+    const title = t('1');
+    const splitTitle = doc.splitTextToSize(title,doc.internal.pageSize.getWidth()*.6)
+    x = getX(splitTitle);
+    doc.text(splitTitle, x, y);
     y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
