@@ -149,10 +149,10 @@ const DynamicPage = ({ params }: {
                 onChange={handleContributorChange}
                 required
               >
-                <option value="blank"></option>
-                <option value="Lyrics">{t('lyrics')}</option>
-                <option value="Music">{t('music')}</option>
-                <option value="Music and Lyrics">{t('both')}</option>
+                <option value=""></option>
+                <option value={t('lyrics')}>{t('lyrics')}</option>
+                <option value={t('music')}>{t('music')}</option>
+                <option value={t('both2')}>{t('both')}</option>
               </select>
             </div>
             <div>
@@ -175,7 +175,7 @@ const DynamicPage = ({ params }: {
           <p className="text-sm sm:text-base mb-4">
             {t("p3")}
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">Collaborator {pageNumber}:</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">{t('contributor')} {pageNumber}:</h3>
           <p className="text-sm sm:text-base">
             {t('name2')}: <span className="text-red-500">{legalName}</span>
           </p>

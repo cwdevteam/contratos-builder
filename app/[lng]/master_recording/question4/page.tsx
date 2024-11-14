@@ -57,7 +57,7 @@ const ContractBuilder4 = ({ params }: {
   const {t} = useTranslation(lng, 'master/question4');
 
   const goToPage = (page: number) => {
-    push(`/${page}`)
+    push(`/master_recording/${page}`)
   }
 
   const togglePopup = () => {

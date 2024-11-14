@@ -48,8 +48,9 @@ const PDF = () => {
     doc.setFontSize(15);
   
     const title = t('1');
+    const splitTitle = doc.splitTextToSize(title,doc.internal.pageSize.getWidth()*.6)
     x = getX(title);
-    doc.text(title, x, y);
+    doc.text(splitTitle, x, y);
     y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
@@ -90,9 +91,8 @@ const PDF = () => {
     const name = pageData.legalName
     doc.text(t('7',{name}) , x, y);
     y = getY(y,5)
-    doc.text(t('8'), x, y);
-    y = getY(y,5)
-    doc.text(t('9'), x, y);
+    const email = pageData.email
+    doc.text(t('9', {email}), x, y);
     y = getY(y,5)
     const contributorType = pageData.contributorType
     doc.text(t('10',{contributorType}), x, y);
@@ -175,7 +175,7 @@ const PDF = () => {
     const split17 = doc.splitTextToSize(line17,doc.internal.pageSize.getWidth()*.6)
     doc.text('b.',(x/2),y)
     doc.text(split17,(x/2)+10,y)
-    y = getY(y,40)
+    y = getY(y,50)
  
     const line18 = t('23')
     const split18 = doc.splitTextToSize(line18,doc.internal.pageSize.getWidth()*.6)
@@ -317,10 +317,10 @@ const PDF = () => {
     doc.setFont('Palatino Linotype','normal')
     const name = pageData.legalName
     doc.text(t('7',{name}), x, y);
-    doc.line(x+20,y,x+150,y);
+    doc.line(x+30,y,x+150,y);
     y = getY(y,5)
     doc.text(t('8'), x, y);
-    doc.line(x+20,y,x+150,y);
+    doc.line(x+30,y,x+150,y);
     y = getY(y,5)
     doc.text(t('44'), x, y);
     doc.line(x+20,y,x+80,y);

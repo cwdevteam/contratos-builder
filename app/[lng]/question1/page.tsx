@@ -70,13 +70,13 @@ function ContractBuilder1({ params }: {
   const handleSubmit = () => {
     updateSplit(selectedOption)
     updateDate(selectedDate)
-    if(selectedOption == "Song Writing,"){
+    if(selectedOption == t('id1')){
       push('/musical_work/question2')
     }
-    else if (selectedOption == "Master Recording,"){
+    else if (selectedOption == t('id2')){
       push('master_recording/question2')
     }
-    else if (selectedOption == "Song Composition and Master Recording,"){
+    else if (selectedOption == t('id3')){
       push('both/question2')
     }
     
@@ -103,7 +103,7 @@ function ContractBuilder1({ params }: {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id="Song Writing,"
+                id={t('id1')}
                 required
               />
               {t('li1')}
@@ -114,7 +114,7 @@ function ContractBuilder1({ params }: {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id="Master Recording,"
+                id={t('id2')}
               />
               {t('li2')}
             </label>
@@ -124,7 +124,7 @@ function ContractBuilder1({ params }: {
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id="Song Composition and Master Recording,"
+                id={t('id3')}
               />
               {t('li3')}
             </label>
