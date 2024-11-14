@@ -149,7 +149,7 @@ const DynamicPage = ({ params }: {
                 onChange={handleContributorChange}
                 required
               >
-                <option value="blank"></option>
+                <option value=""></option>
                 <option value={t('lyrics')}>{t('lyrics')}</option>
                 <option value={t('music')}>{t('music')}</option>
                 <option value={t('both2')}>{t('both')}</option>
