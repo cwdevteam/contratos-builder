@@ -34,7 +34,7 @@ const ContractBuilder2 = ({ params }: {
   const { t } = useTranslation(lng, 'musical_work/question2')
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+    <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10 border-none">
           <button
@@ -68,7 +68,7 @@ const ContractBuilder2 = ({ params }: {
       <footer className="mt-8 flex flex-col gap-4">
         <button
           onClick={handleSubmit}
-          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
         >
           {t('submit')}
         </button>

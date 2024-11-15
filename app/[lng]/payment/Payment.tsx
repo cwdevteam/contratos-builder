@@ -21,7 +21,7 @@ const Payment = () => {
   }, [paid, emails]);
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+    <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
           <p className="text-lg sm:text-xl mb-8">Congrats! You’re protecting your art.</p>
