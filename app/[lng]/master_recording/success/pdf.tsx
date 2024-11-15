@@ -107,8 +107,8 @@ const PDF = () => {
     const email = pageData.email
     doc.text(t('9',{email}), x, y);
     y = getY(y,5)
-    const contribution = pageData.contributorType
-    doc.text(t('10',{contribution}), x, y);
+    const contributorType = pageData.contributorType
+    doc.text(t('10',{contributorType}), x, y);
     y = getY(y,5)
     const split = pageData.split
     doc.text(t('11',{split}), x, y);

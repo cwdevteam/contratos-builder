@@ -124,6 +124,7 @@ const PDF = () => {
     y = getY(y,30)
         
     //useDynamicPageStore
+    x=x/2
     Object.keys(pages).forEach((id) => {
         const pageData = pages[Number(id)];
         if(pageData.legalName!=''){
