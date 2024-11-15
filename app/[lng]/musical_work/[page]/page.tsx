@@ -83,7 +83,7 @@ const DynamicPage = ({ params }: {
   };
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+    <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           {/* Previous question buttons */}

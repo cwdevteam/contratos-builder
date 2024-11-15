@@ -78,7 +78,7 @@ const ContractBuilder4 = ({ params }: {
   }
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+    <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
@@ -154,7 +154,7 @@ const ContractBuilder4 = ({ params }: {
         </a>
         <button 
           onClick={findNextPage}
-          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
         >
           {t('submit')}
         </button>

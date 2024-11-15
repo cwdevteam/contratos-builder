@@ -87,7 +87,7 @@ export default function Home({ params }: {
   
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+    <div className="p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
         <h3 className="text-xl sm:text-2xl font-bold">
           <b>{t('h3')}</b>
@@ -116,7 +116,7 @@ export default function Home({ params }: {
         </a>
         <button
           onClick={() => push(`/${lng}/popups/disclaimer`)}
-          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
+          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/4"
         >
           {t('get-started')}
         </button>

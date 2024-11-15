@@ -14,7 +14,7 @@ const Disclaimer = ({ params }: {
   const { push } = useRouter();
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col justify-between">
+    <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
         <p className="text-sm sm:text-base space-y-4">
           <span className="block">

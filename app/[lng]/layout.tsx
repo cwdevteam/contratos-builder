@@ -6,7 +6,7 @@ import mesaImage from './public/images/mesa_logo.png'
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import LanguageSwitcher from '../components/LanguageSwitcher'
-import   { useTranslation }  from '../i18n'
+
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -38,7 +38,7 @@ export default async function RootLayout({
   };
 }) {
   const { lng } = await params
-  const {t} = await useTranslation(lng)
+  //const {t} = await useTranslation(lng)
 
   return (
     <html lang={lng} dir={dir(lng)}>
@@ -62,10 +62,10 @@ export default async function RootLayout({
         </div>
           <div className="text-right text-xs">
             <p className="text-2xl font-black">MUSIC SPLITS</p>
-            {t('contract-builder')}
+            {/* {t('contract-builder')} */}
           </div>
         </header>
-        <hr className="w-full absolute " />
+        <hr className="w-full absolute" />
         {children}
       </body>
     </html>

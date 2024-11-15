@@ -14,7 +14,7 @@ const VotingInfo = ({params}:{
   const{t} = useTranslation(lng,'popups/moreInfoVoting')
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 flex flex-col">
+    <div className=" p-4 sm:p-8 flex flex-col">
       <button 
         onClick={() => back()}
         className="self-end  text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors mb-4"
