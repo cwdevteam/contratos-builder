@@ -39,8 +39,7 @@ const Success = ({ params }: {
     const response = await fetch(`../api/checkout_sessions`, {
       method: 'POST',
     });
-    const data = await response.text();
-    console.log("data"+data)
+    const data = await response.json();
     if (data.url) {
       router.push(data.url);
     }
