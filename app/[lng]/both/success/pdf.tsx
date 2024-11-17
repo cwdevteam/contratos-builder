@@ -52,6 +52,7 @@ const PDF = () => {
     const title = t('1');
     const splitTitle = doc.splitTextToSize(title,doc.internal.pageSize.getWidth()*.6)
     x = getX(title);
+    x/=2
     doc.text(splitTitle, x, y);
     y = getY(y,30);
 
