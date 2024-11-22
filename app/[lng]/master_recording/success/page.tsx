@@ -35,7 +35,7 @@ const Success = ({ params }: {
 
 
   const handleCheckout = async () => {
-    const response = await fetch('../api/checkout_sessions', {
+    const response = await fetch(`../api/checkout_sessions`, {
       method: 'POST',
     });
     const data = await response.json();

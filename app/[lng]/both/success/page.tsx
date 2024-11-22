@@ -18,7 +18,7 @@ const Success = ({ params }: {
   const router = useRouter()
   const downloadUnsigned = PDF()
   const {lng} = params
-  const { t } = useTranslation(lng, 'master/success')
+  const { t } = useTranslation(lng, 'both/success')
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -35,7 +35,7 @@ const Success = ({ params }: {
 
 
   const handleCheckout = async () => {
-    const response = await fetch('../api/checkout_sessions', {
+    const response = await fetch(`../api/checkout_sessions`, {
       method: 'POST',
     });
     const data = await response.json();
