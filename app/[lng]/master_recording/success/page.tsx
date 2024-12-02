@@ -67,7 +67,7 @@ const Success = ({ params }: {
               onClick={downloadUnsigned}
               className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
-             test {t('download-unsigned')}
+              {t('download-unsigned')}
             </button>
             <button 
               onClick={handleCheckout}
