@@ -35,7 +35,7 @@ const Success = ({ params }: {
 
 
   const handleCheckout = async () => {
-    const response = await fetch(`/../api/checkout_sessions`, {
+    const response = await fetch(`../api/checkout_sessions`, {
       method: 'POST',
     });
     const data = await response.json();
@@ -67,7 +67,7 @@ const Success = ({ params }: {
               onClick={downloadUnsigned}
               className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
             >
-              {t('download-unsigned')}
+             test {t('download-unsigned')}
             </button>
             <button 
               onClick={handleCheckout}
