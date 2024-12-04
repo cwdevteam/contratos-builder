@@ -179,21 +179,21 @@ const DynamicPage = ({ params }: {
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">{t('collaborator')} {pageNumber}:</h3>
           <p className="text-sm sm:text-base">
-          {t('name2')}: <span className="text-red-500">{legalName}</span>
+          {t('name2')}: <span className="text-red-500 text-lg">{legalName}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('email2')}: <span className="text-red-500">{email}</span>
+          {t('email2')}: <span className="text-red-500 text-lg">{email}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('contribution2')}: <span className="text-red-500">{contributorType}</span>
+          {t('contribution2')}: <span className="text-red-500 text-lg">{contributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('split')}: <span className="text-red-500">{split}</span>
+          {t('split')}: <span className="text-red-500 text-lg">{split}</span>
           </p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
-        <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
+        <p id="wrongSplits" className="text-red-500 text-lg text-sm sm:text-base"></p>
         <button 
           onClick={handleNextPage}
           className="text-white py-2 px-4 rounded-lg w-full"

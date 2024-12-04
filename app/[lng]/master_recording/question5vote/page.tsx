@@ -95,7 +95,7 @@ const ContractBuilder5Vote = ({ params }: {
           <h4 className="text-base sm:text-lg font-bold mb-2">{t('2.0')}</h4>
           <p className="text-xs sm:text-sm mb-4">
           {t('p2')}{' '}
-          <span className="text-red-500">{percent ? percent : ' '}%</span>
+          <span className="text-red-500 text-lg">{percent ? percent : ' '}%</span>
           {t('p3')}
           </p>
           <ol className="list-decimal pl-5 text-xs sm:text-sm">

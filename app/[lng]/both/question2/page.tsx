@@ -105,13 +105,13 @@ const ContractBuilder2 = ({ params }: {
           <h3 className="text-base sm:text-lg font-bold mb-2">{t('h3')}</h3>
           <p className="text-sm sm:text-base">
           {t('p3')}{' '}
-            <span className="text-red-500">{song ? song : ' '}</span>
+            <span className="text-red-500 text-lg">{song ? song : ' '}</span>
           </p>
           <br/>
           <h3 className="text-base sm:text-lg font-bold mb-2">{t('h32')}</h3>
           <p className="text-sm sm:text-base">
           {t('p4')}{' '}
-            <span className="text-red-500">{recording ? recording : ' '}</span>
+            <span className="text-red-500 text-lg">{recording ? recording : ' '}</span>
           </p>
         </div>
       </main>

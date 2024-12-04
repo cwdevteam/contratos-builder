@@ -73,13 +73,13 @@ const ContractBuilder3 = ({ params }: {
           <h3>{t('h3')}</h3>
           <p>
           {t('p3')}{' '}
-            <span className="text-red-500">{song}</span>
+            <span className="text-red-500 text-lg">{song}</span>
           </p>
           <br/>
           <h3>{t('h32')}</h3>
           <p>
           {t('p4')}{' '}{t('p5')}
-            <span className="text-red-500">{recording}</span>
+            <span className="text-red-500 text-lg">{recording}</span>
           </p>
         </div>
       </main>

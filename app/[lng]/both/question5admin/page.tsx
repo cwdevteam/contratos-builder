@@ -95,7 +95,7 @@ const ContractBuilder5Admin = ({ params }: {
           <h4 className="text-base sm:text-lg font-bold mb-2">{t('4.0')}</h4>
           <p className="text-xs sm:text-sm">
           {t('p2')}{' '}
-            <span className="text-red-500 font-bold">{name}</span>{t('p3')}
+            <span className="text-red-500 text-lg font-bold">{name}</span>{t('p3')}
           </p>
         </div>
       </main>

@@ -61,7 +61,7 @@ const ContractBuilder2 = ({ params }: {
           <h3 className="text-base font-bold mb-2">{t('h3')}</h3>
           <p className="text-sm sm:text-base">
             {t('p3')}{' '}
-            <span className="text-red-500">{song ? song : ' '}</span>
+            <span className="text-red-500 text-lg">{song ? song : ' '}</span>
           </p>
         </div>
       </main>
