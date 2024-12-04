@@ -66,13 +66,13 @@ const Success = ({ params }: {
           <div className="flex flex-col gap-4">
             <button 
               onClick={downloadUnsigned}
-              className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+              className=" text-white py-2 px-4 rounded  transition-colors"
             >
               {t('download-unsigned')}
             </button>
             <button 
               onClick={handleCheckout}
-              className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+              className=" text-white py-2 px-4 rounded  transition-colors"
             >
               {t('send-docusign')}
             </button>

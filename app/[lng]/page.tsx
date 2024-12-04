@@ -116,7 +116,7 @@ export default function Home({ params }: {
         </a>
         <button
           onClick={() => push(`/${lng}/popups/disclaimer`)}
-          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/4"
+          className="text-white py-2 px-4 rounded  transition-colors w-1/4"
         >
           {t('get-started')}
         </button>
