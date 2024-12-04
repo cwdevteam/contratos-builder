@@ -185,6 +185,7 @@ const DynamicPage = ({ params }: {
                 type="number"
                 max="100"
                 placeholder={String(split)}
+                value={split}
                 onChange={handleSplitChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
                 required
