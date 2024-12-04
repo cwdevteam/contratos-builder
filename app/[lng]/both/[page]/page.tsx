@@ -70,14 +70,14 @@ const DynamicPage = ({ params }: {
 
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
-    if ((value < 101 && value > 0) && value !=null) {
+    if ((value < 101 && value >= 0) && value !=null) {
       setSplit(value);
       setSplitTotal(value + lastSplit);
     }
   };
 
   const handleNextPage = () => {
-    if (pageNumber >= pageCount && splitTotal !== 100) {
+    if (pageNumber == pageCount && splitTotal !== 100) {
       document.getElementById('wrongSplits')!.innerHTML =
         'Splits need to add to 100% to be valid';
     } else {
