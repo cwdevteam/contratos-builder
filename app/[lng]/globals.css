@@ -74,7 +74,7 @@ a {
   top: 4px;
 }
 
-input {
+input:checked {
   border: 8px solid white;
 }
 
