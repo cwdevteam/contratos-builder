@@ -107,6 +107,12 @@ input {
   cursor: pointer;
 }
 
+select{
+  border:solid thin;
+  border-color: white;
+  border-radius: 2%;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

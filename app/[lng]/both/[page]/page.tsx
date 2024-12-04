@@ -129,6 +129,7 @@ const DynamicPage = ({ params }: {
               <label className="text-xs sm:text-sm mb-2 block">{t('name')}</label>
               <input
                 type="text"
+                placeholder={legalName}
                 value={legalName}
                 onChange={handleNameChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
@@ -139,6 +140,7 @@ const DynamicPage = ({ params }: {
               <label className="text-xs sm:text-sm mb-2 block">{t('email')}</label>
               <input
                 type="email"
+                placeholder={email}
                 value={email}
                 onChange={handleEmailChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
@@ -182,6 +184,7 @@ const DynamicPage = ({ params }: {
               <input
                 type="number"
                 max="100"
+                placeholder={String(split)}
                 onChange={handleSplitChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
                 required
