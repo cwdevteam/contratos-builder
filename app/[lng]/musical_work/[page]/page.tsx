@@ -49,7 +49,6 @@ const DynamicPage = ({ params }: {
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-    handleSplitChange
   }, [legalName, email, contributorType, split, splitTotal, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
