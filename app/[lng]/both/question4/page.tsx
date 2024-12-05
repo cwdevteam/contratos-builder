@@ -58,7 +58,7 @@ const ContractBuilder4 = ({ params }: {
   const updateVoteSelection = useQuestion4((state) => state.updateVoteSelection);
 
   const goToPage = (page: number) => {
-    push(`/both/${page}`)
+    push(`/both/${page}?pageCount=${pageCount}`)
   }
 
   const togglePopup = () => {

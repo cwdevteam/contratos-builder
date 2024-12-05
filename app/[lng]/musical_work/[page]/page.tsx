@@ -25,14 +25,14 @@ const DynamicPage = ({ params }: {
   const [email, setEmail] = useState(pageData.email || '');
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
-  const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
-  const resetPages = useDynamicPageStore((state) => state.resetPages);
+  const [splitTotal, setSplitTotal] = useState<number>(pageData.splitTotal || 0);
+  //const resetPages = useDynamicPageStore((state) => state.resetPages);
   const {lng} = params
   const { t } = useTranslation(lng, 'musical_work/dynamic')
 
-  useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info 
-  }, [pageNumber,resetPages]);
+  // useEffect(() => {
+  //   resetPages(pageNumber); // Reset all stored info 
+  // }, [pageNumber,resetPages]);
 
   // Update Zustand store only if inputs change
   useEffect(() => {
@@ -41,6 +41,7 @@ const DynamicPage = ({ params }: {
       email,
       contributorType,
       split,
+      splitTotal,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -48,7 +49,8 @@ const DynamicPage = ({ params }: {
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, pageNumber]);
+    handleSplitChange
+  }, [legalName, email, contributorType, split, splitTotal, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);

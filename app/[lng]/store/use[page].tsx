@@ -8,6 +8,7 @@ interface PageData {
   contributorType: string;//songwriting contribution
   masterContributorType: string;//master recording contribution
   split: number;
+  splitTotal: number;
 }
 
 // storing over dynamic pages dynamic pages
@@ -42,6 +43,7 @@ const useDynamicPageStore = create<DynamicPageState>()(
                 contributorType: "",
                 masterContributorType: "",
                 split: 0,
+                splitTotal: 0,
               };
             }
           });

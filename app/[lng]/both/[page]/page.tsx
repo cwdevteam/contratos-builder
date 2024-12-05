@@ -26,14 +26,14 @@ const DynamicPage = ({ params }: {
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
   const [masterContributorType, setMasterContributorType] = useState(pageData.masterContributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
-  const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
-  const resetPages = useDynamicPageStore((state) => state.resetPages);
+  const [splitTotal, setSplitTotal] = useState<number>(pageData.splitTotal || 0);
+  //const resetPages = useDynamicPageStore((state) => state.resetPages);
   const {lng} = params
   const { t } = useTranslation(lng, 'both/dynamic')
 
-  useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info 
-  }, [pageNumber,resetPages]);
+  // useEffect(() => {
+  //   resetPages(pageNumber); // Reset all stored info 
+  // }, [pageNumber,resetPages]);
 
   // Update Zustand store only if inputs change
   useEffect(() => {
@@ -43,6 +43,7 @@ const DynamicPage = ({ params }: {
       contributorType,
       masterContributorType,
       split,
+      splitTotal,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -50,7 +51,8 @@ const DynamicPage = ({ params }: {
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, masterContributorType, split, pageNumber]);
+    handleSplitChange
+  }, [legalName, email, contributorType, masterContributorType, split, splitTotal, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -77,7 +79,7 @@ const DynamicPage = ({ params }: {
   };
 
   const handleNextPage = () => {
-    if (pageNumber == pageCount && splitTotal !== 100) {
+    if (pageNumber >= pageCount && splitTotal !== 100) {
       document.getElementById('wrongSplits')!.innerHTML =
         'Splits need to add to 100% to be valid';
     } else {
@@ -163,7 +165,7 @@ const DynamicPage = ({ params }: {
                   <option value={t('both2')}>{t('both')}</option>
               </select>
 
-              <label className="text-xs sm:text-sm mb-2 block">{t('type2')}n</label>
+              <label className="text-xs sm:text-sm mb-2 block">{t('type2')}</label>
               <select
                 name="type"
                 id="cont"
@@ -197,7 +199,7 @@ const DynamicPage = ({ params }: {
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
           {t('p1')}
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">{t('type')}p2</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">{t('type')}</h3>
           <p className="text-sm sm:text-base mb-4">
           {t('p3')}
           </p>
