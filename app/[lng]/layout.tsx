@@ -44,6 +44,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lng} dir={dir(lng)}>
+    <SpeedInsights/>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
