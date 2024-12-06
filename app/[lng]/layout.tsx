@@ -7,6 +7,7 @@ import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import LanguageSwitcher from '../components/LanguageSwitcher'
 import { useTranslation } from '../i18n'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
