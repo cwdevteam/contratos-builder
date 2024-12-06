@@ -45,8 +45,6 @@ export default async function RootLayout({
 
   return (
     <html lang={lng} dir={dir(lng)}>
-    <SpeedInsights/>
-    <Analytics/>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -72,6 +70,8 @@ export default async function RootLayout({
         </header>
         <hr className="w-full absolute" />
         {children}
+        <SpeedInsights/>
+        <Analytics/>
       </body>
     </html>
   )
