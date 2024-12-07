@@ -366,7 +366,7 @@ const PDF = (isClicked:boolean) => {
                 .insert([
                     {
                         id: userId,  // Store userId
-                        download_clicked: isClicked,
+                        //download_clicked: isClicked,
                         ipfs_cid: cid, // Store CID
                     },
                 ]);
