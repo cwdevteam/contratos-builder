@@ -7,7 +7,7 @@
     "6":"Collaborator {{id}}",
     "7":"Legal Name: {{name}}",
     "8":"Artistic Name:",
-    "9":"Home Address:",
+    "9":"Email Address: {{email}}",
     "10":"Contribution (Lyrics, music, or both): {{contributorType}}",
     "11":"Ownership Percentage: {{split}}%",
     "12":"2.     Rights and duties of the parties.",

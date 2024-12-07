@@ -61,14 +61,14 @@ const ContractBuilder2 = ({ params }: {
           <h3 className="text-base font-bold mb-2">{t('h3')}</h3>
           <p className="text-sm sm:text-base">
             {t('p3')}{' '}
-            <span className="text-red-500">{song ? song : ' '}</span>
+            <span className="text-red-500 text-lg">{song ? song : ' '}</span>
           </p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <button
           onClick={handleSubmit}
-          className=" text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
+          className=" text-white py-2 px-4 rounded  transition-colors w-1/5"
         >
           {t('submit')}
         </button>

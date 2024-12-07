@@ -26,14 +26,14 @@ const DynamicPage = ({ params }: {
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
   const [masterContributorType, setMasterContributorType] = useState(pageData.masterContributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
-  const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
-  const resetPages = useDynamicPageStore((state) => state.resetPages);
+  const [splitTotal, setSplitTotal] = useState<number>(pageData.splitTotal || 0);
+  //const resetPages = useDynamicPageStore((state) => state.resetPages);
   const {lng} = params
   const { t } = useTranslation(lng, 'both/dynamic')
 
-  useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info 
-  }, [pageNumber,resetPages]);
+  // useEffect(() => {
+  //   resetPages(pageNumber); // Reset all stored info 
+  // }, [pageNumber,resetPages]);
 
   // Update Zustand store only if inputs change
   useEffect(() => {
@@ -43,6 +43,7 @@ const DynamicPage = ({ params }: {
       contributorType,
       masterContributorType,
       split,
+      splitTotal,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -50,7 +51,7 @@ const DynamicPage = ({ params }: {
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, masterContributorType, split, pageNumber]);
+  }, [legalName, email, contributorType, masterContributorType, split, splitTotal, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -70,7 +71,7 @@ const DynamicPage = ({ params }: {
 
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
-    if ((value < 101 && value > 0) && value !=null) {
+    if ((value < 101 && value >= 0) && value !=null) {
       setSplit(value);
       setSplitTotal(value + lastSplit);
     }
@@ -129,6 +130,7 @@ const DynamicPage = ({ params }: {
               <label className="text-xs sm:text-sm mb-2 block">{t('name')}</label>
               <input
                 type="text"
+                placeholder={legalName}
                 value={legalName}
                 onChange={handleNameChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
@@ -139,6 +141,7 @@ const DynamicPage = ({ params }: {
               <label className="text-xs sm:text-sm mb-2 block">{t('email')}</label>
               <input
                 type="email"
+                placeholder={email}
                 value={email}
                 onChange={handleEmailChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
@@ -161,7 +164,7 @@ const DynamicPage = ({ params }: {
                   <option value={t('both2')}>{t('both')}</option>
               </select>
 
-              <label className="text-xs sm:text-sm mb-2 block">{t('type2')}n</label>
+              <label className="text-xs sm:text-sm mb-2 block">{t('type2')}</label>
               <select
                 name="type"
                 id="cont"
@@ -182,6 +185,8 @@ const DynamicPage = ({ params }: {
               <input
                 type="number"
                 max="100"
+                placeholder={String(split)}
+                value={split}
                 onChange={handleSplitChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
                 required
@@ -193,33 +198,33 @@ const DynamicPage = ({ params }: {
           <p className="text-xs sm:text-sm text-gray-500 mb-4">
           {t('p1')}
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">{t('type')}p2</h3>
+          <h3 className="text-base sm:text-lg font-bold mb-2">{t('type')}</h3>
           <p className="text-sm sm:text-base mb-4">
           {t('p3')}
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">{t('contributor')} {pageNumber}:</h3>
           <p className="text-sm sm:text-base">
-          {t('name2')}: <span className="text-red-500">{legalName}</span>
+          {t('name2')}: <span className="text-red-500 text-lg">{legalName}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('email2')}: <span className="text-red-500">{email}</span>
+          {t('email2')}: <span className="text-red-500 text-lg">{email}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('contribution')}: <span className="text-red-500">{contributorType}</span>
+          {t('contribution')}: <span className="text-red-500 text-lg">{contributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-            {t('split2')}:<span className="text-red-500">{split}</span>
+            {t('split2')}:<span className="text-red-500 text-lg">{split}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('contribution2')}: <span className="text-red-500"> {masterContributorType}</span>
+          {t('contribution2')}: <span className="text-red-500 text-lg"> {masterContributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-            {t('split3')}: <span className="text-red-500">{split}</span>
+            {t('split3')}: <span className="text-red-500 text-lg">{split}</span>
           </p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
-        <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
+        <p id="wrongSplits" className="text-red-500 text-lg text-sm sm:text-base"></p>
         <button 
           onClick={handleNextPage}
           className="text-white py-2 px-4 rounded-lg w-full"

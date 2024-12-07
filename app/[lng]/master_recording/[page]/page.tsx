@@ -27,14 +27,14 @@ const DynamicPage = ({ params }: {
   const [email, setEmail] = useState(pageData.email || '');
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
-  const [splitTotal, setSplitTotal] = useState<number>(lastSplit || 0);
-  const resetPages = useDynamicPageStore((state) => state.resetPages);
+  const [splitTotal, setSplitTotal] = useState<number>(pageData.splitTotal || 0);
+  //const resetPages = useDynamicPageStore((state) => state.resetPages);
   const {lng} = params
   const { t } = useTranslation(lng, 'master/dynamic')
 
-  useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info 
-  }, [pageNumber,resetPages]);
+  // useEffect(() => {
+  //   resetPages(pageNumber); // Reset all stored info 
+  // }, [pageNumber,resetPages]);
 
   // Update Zustand store only if inputs change
   useEffect(() => {
@@ -43,6 +43,7 @@ const DynamicPage = ({ params }: {
       email,
       contributorType,
       split,
+      splitTotal,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -50,7 +51,7 @@ const DynamicPage = ({ params }: {
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, pageNumber]);
+  }, [legalName, email, contributorType, split, splitTotal, pageNumber]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -179,21 +180,21 @@ const DynamicPage = ({ params }: {
           </p>
           <h3 className="text-base sm:text-lg font-bold mb-2">{t('collaborator')} {pageNumber}:</h3>
           <p className="text-sm sm:text-base">
-          {t('name2')}: <span className="text-red-500">{legalName}</span>
+          {t('name2')}: <span className="text-red-500 text-lg">{legalName}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('email2')}: <span className="text-red-500">{email}</span>
+          {t('email2')}: <span className="text-red-500 text-lg">{email}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('contribution2')}: <span className="text-red-500">{contributorType}</span>
+          {t('contribution2')}: <span className="text-red-500 text-lg">{contributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-          {t('split')}: <span className="text-red-500">{split}</span>
+          {t('split')}: <span className="text-red-500 text-lg">{split}</span>
           </p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
-        <p id="wrongSplits" className="text-red-500 text-sm sm:text-base"></p>
+        <p id="wrongSplits" className="text-red-500 text-lg text-sm sm:text-base"></p>
         <button 
           onClick={handleNextPage}
           className="text-white py-2 px-4 rounded-lg w-full"

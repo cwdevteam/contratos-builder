@@ -58,7 +58,7 @@ const ContractBuilder4 = ({ params }: {
   const updateVoteSelection = useQuestion4((state) => state.updateVoteSelection);
 
   const goToPage = (page: number) => {
-    push(`/both/${page}`)
+    push(`/both/${page}?pageCount=${pageCount}`)
   }
 
   const togglePopup = () => {
@@ -156,7 +156,7 @@ const ContractBuilder4 = ({ params }: {
         </a>
         <button 
           onClick={findNextPage}
-          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
+          className="text-white py-2 px-4 rounded  transition-colors w-1/5"
         >
           {t('submit')}
         </button>

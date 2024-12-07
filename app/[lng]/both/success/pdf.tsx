@@ -8,6 +8,8 @@ import useDynamicPageStore from '../../store/use[page]';
 import useQuestion5Admin from '../../store/useQuestion5Admin';
 import useQuestion5Vote from '../../store/useQuestion5Vote';
 import { useTranslation } from 'react-i18next'
+import { supabase } from '../../../lib/supabaseClient';
+import { v4 as uuidv4 } from 'uuid';
 
 const getX = (text: string) =>{
     let x = 0;
@@ -20,7 +22,7 @@ const getX = (text: string) =>{
 
 
 
-const PDF = () => {
+const PDF = (isClicked:boolean) => {
 
     const date = useQuestion1((state) => state.date)
     const song = useQuestion2((state) => state.song)
@@ -31,7 +33,7 @@ const PDF = () => {
     const percent = useQuestion5Vote((state) => state.percent)
     const {t} = useTranslation('both/pdf')
 
-    const generatePDF = () =>{
+    const generatePDF = async () =>{
         const doc = new jsPDF();
 
     const getY = (y: number,inc:number) =>{
@@ -53,7 +55,7 @@ const PDF = () => {
     const splitTitle = doc.splitTextToSize(title,doc.internal.pageSize.getWidth()*.6)
     x = getX(title);
     x/=2
-    doc.text(splitTitle, x, y);
+    doc.text(splitTitle, 50, y);
     y = getY(y,30);
 
     doc.setFont('Palatino Linotype', 'normal')
@@ -426,7 +428,59 @@ const PDF = () => {
     }
     });
 
+    const pdfBlob = doc.output("blob");
     doc.save('unsignedContract.pdf');
+    
+
+    const JWT = process.env.PINATA_JWT;
+
+    async function pinFileToIPFS() {
+        try {
+            const blob = new Blob([pdfBlob], { type: "application/pdf" });
+            const file = new File([blob], "contract.txt");
+            const data = new FormData();
+            data.append("file", file);
+    
+            const request = await fetch(
+                "https://api.pinata.cloud/pinning/pinFileToIPFS",
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${JWT}`,
+                    },
+                    body: data,
+                }
+            );
+    
+            const response = await request.json();
+            console.log(response);
+            console.log(response.IpfsHash);
+    
+            const cid = response.IpfsHash;  // Get the CID from the response
+            const userId = uuidv4(); // Generate UUID here
+    
+            // Now post the userId and CID to Supabase
+            const { data: supabaseData, error } = await supabase
+                .from('contracts') // Replace with your actual table name
+                .insert([
+                    {
+                        id: userId,  // Store userId
+                        download_clicked: isClicked,
+                        ipfs_cid: cid, // Store CID
+                    },
+                ]);
+    
+            if (error) {
+                console.error('Error storing data in Supabase:', error);
+            } else {
+                console.log('Data stored in Supabase:', supabaseData);
+            }
+    
+        } catch (error) {
+            console.error('Error during IPFS file pinning or Supabase storage:', error);
+        }
+    }
+    await pinFileToIPFS();
     }
     
 

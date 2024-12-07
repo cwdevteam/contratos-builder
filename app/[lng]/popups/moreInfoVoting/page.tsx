@@ -17,7 +17,7 @@ const VotingInfo = ({params}:{
     <div className=" p-4 sm:p-8 flex flex-col">
       <button 
         onClick={() => back()}
-        className="self-end  text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors mb-4"
+        className="self-end  text-white py-2 px-4 rounded  transition-colors mb-4"
       >
         x
       </button>

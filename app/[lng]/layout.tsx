@@ -7,6 +7,8 @@ import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import LanguageSwitcher from '../components/LanguageSwitcher'
 import { useTranslation } from '../i18n'
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }))
@@ -68,6 +70,8 @@ export default async function RootLayout({
         </header>
         <hr className="w-full absolute" />
         {children}
+        <SpeedInsights/>
+        <Analytics/>
       </body>
     </html>
   )

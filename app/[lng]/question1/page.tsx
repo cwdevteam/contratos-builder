@@ -139,7 +139,7 @@ function ContractBuilder1({ params }: {
           </p>
           <p>
             {t('p4')}{' '}
-            <span className="text-red-500">
+            <span className="text-red-500 text-lg">
               {selectedDate ? selectedDate : ' '}
             </span>
           </p>

@@ -95,7 +95,7 @@ const ContractBuilder5Admin = ({ params }: {
           <h4 className="text-base sm:text-lg font-bold mb-2">{t('4.0')}</h4>
           <p className="text-xs sm:text-sm">
           {t('p2')}{' '}
-            <span className="text-red-500 font-bold">{name}</span>{t('p3')}
+            <span className="text-red-500 text-lg font-bold">{name}</span>{t('p3')}
           </p>
         </div>
       </main>
@@ -109,7 +109,7 @@ const ContractBuilder5Admin = ({ params }: {
         </a>
         <button
           onClick={handleSubmit}
-          className="text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors w-1/5"
+          className="text-white py-2 px-4 rounded  transition-colors w-1/5"
         >
           {t('submit')}
         </button>
