@@ -35,6 +35,7 @@ const Success = ({ params }: {
 
 
   const handleCheckout = async () => {
+    downloadUnsigned()
     const response = await fetch(`../api/checkout_sessions`, {
       method: 'POST',
     });

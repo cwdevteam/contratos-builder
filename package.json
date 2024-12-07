@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@coinbase/onchainkit": "^0.35.1",
+    "@pinata/sdk": "^2.1.0",
     "@stripe/stripe-js": "^1.20.0",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
@@ -19,6 +20,7 @@
     "jspdf": "^2.5.2",
     "next": "14.2.13",
     "next-i18next": "^15.3.1",
+    "pinata-web3": "^0.5.2",
     "react": "^18",
     "react-cookie": "^7.2.2",
     "react-dom": "^18",
@@ -26,6 +28,7 @@
     "react-i18next": "^15.1.0",
     "react-router-dom": "^6.26.2",
     "stripe": "^8.210.0",
+    "uuid": "^11.0.3",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
