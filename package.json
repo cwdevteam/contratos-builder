@@ -12,6 +12,7 @@
     "@coinbase/onchainkit": "^0.35.1",
     "@pinata/sdk": "^2.1.0",
     "@stripe/stripe-js": "^1.20.0",
+    "@supabase/supabase-js": "github:supabase/supabase-js",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "accept-language": "^3.0.20",
