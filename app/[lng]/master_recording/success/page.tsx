@@ -16,7 +16,8 @@ const Success = ({ params }: {
   };
 }) => {
   const router = useRouter()
-  const downloadUnsigned = PDF()
+  const downloadUnsignedTrue = PDF(true)
+  const downloadUnsignedFalse = PDF(false)
   const {lng} = params
   const { t } = useTranslation(lng, 'master/success')
 
@@ -35,7 +36,7 @@ const Success = ({ params }: {
 
 
   const handleCheckout = async () => {
-    downloadUnsigned()
+    downloadUnsignedTrue()
     const response = await fetch(`../api/checkout_sessions`, {
       method: 'POST',
     });
@@ -65,7 +66,7 @@ const Success = ({ params }: {
           </h2>
           <div className="flex flex-col gap-4">
             <button 
-              onClick={downloadUnsigned}
+              onClick={downloadUnsignedFalse}
               className=" text-white py-2 px-4 rounded  transition-colors"
             >
               {t('download-unsigned')}

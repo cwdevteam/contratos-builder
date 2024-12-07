@@ -22,7 +22,7 @@ const getX = (text: string) =>{
 }
 
 
-const PDF = () => {
+const PDF = (isClicked:boolean) => {
 
     const date = useQuestion1((state) => state.date)
     const song = useQuestion2((state) => state.song)
@@ -366,6 +366,7 @@ const PDF = () => {
                 .insert([
                     {
                         id: userId,  // Store userId
+                        download_clicked: isClicked,
                         ipfs_cid: cid, // Store CID
                     },
                 ]);
