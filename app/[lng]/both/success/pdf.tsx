@@ -432,7 +432,7 @@ const PDF = (isClicked:boolean) => {
     doc.save('unsignedContract.pdf');
     
 
-    const JWT = process.env.PINATA_JWT;
+    const JWT = process.env.NEXT_PRIVATE_PINATA_JWT;
 
     async function pinFileToIPFS() {
         try {
