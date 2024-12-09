@@ -15,6 +15,7 @@ export function middleware(req: NextRequest) {
   if (req.cookies.has(cookieName)) lng = acceptLanguage.get(req.cookies.get(cookieName)?.value)
   if (!lng) lng = acceptLanguage.get(req.headers.get('Accept-Language'))
   if (!lng) lng = fallbackLng
+  lng = fallbackLng // set lng to spanish by default
 
   // Redirect if lng in path is not supported
   if (

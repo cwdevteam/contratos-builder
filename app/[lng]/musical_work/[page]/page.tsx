@@ -26,13 +26,13 @@ const DynamicPage = ({ params }: {
   const [contributorType, setContributorType] = useState(pageData.contributorType || '');
   const [split, setSplit] = useState<number>(pageData.split || 0);
   const [splitTotal, setSplitTotal] = useState<number>(pageData.splitTotal || 0);
-  //const resetPages = useDynamicPageStore((state) => state.resetPages);
+  const resetPages = useDynamicPageStore((state) => state.resetPages);
   const {lng} = params
   const { t } = useTranslation(lng, 'musical_work/dynamic')
 
-  // useEffect(() => {
-  //   resetPages(pageNumber); // Reset all stored info 
-  // }, [pageNumber,resetPages]);
+  useEffect(() => {
+    resetPages(pageNumber); // Reset all stored info 
+  }, [pageNumber,resetPages]);
 
   // Update Zustand store only if inputs change
   useEffect(() => {
