@@ -1,44 +1,48 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
-import PDF from './pdf'
-import { loadStripe } from '@stripe/stripe-js';
-import { useTranslation } from '@/app/i18n/client'
+import React from "react";
+import { useRouter } from "next/navigation";
+import PDF from "./pdf";
+import { loadStripe } from "@stripe/stripe-js";
+import { useTranslation } from "@/app/i18n/client";
+import useQuestion1 from "../../store/useQuestion1";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-const Success = ({ params }: {
+const Success = ({
+  params,
+}: {
   params: {
     lng: string;
   };
 }) => {
-  const router = useRouter()
-  const downloadUnsignedTrue = PDF(true)
-  const downloadUnsignedFalse = PDF(false)
-  const {lng} = params
-  const { t } = useTranslation(lng, 'both/success')
+  const router = useRouter();
+  const downloadUnsignedTrue = PDF(true);
+  const downloadUnsignedFalse = PDF(false);
+  const cid = useQuestion1((state) => state.cid);
+  const { lng } = params;
+  const { t } = useTranslation(lng, "both/success");
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
-    if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
+    if (query.get("success")) {
+      console.log("Order placed! You will receive an email confirmation.");
     }
 
-    if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+    if (query.get("canceled")) {
+      console.log(
+        "Order canceled -- continue to shop around and checkout when you’re ready."
+      );
     }
   }, []);
 
-
-
   const handleCheckout = async () => {
-    downloadUnsignedTrue()
+    downloadUnsignedTrue();
     const response = await fetch(`../api/checkout_sessions`, {
-      method: 'POST',
+      method: "POST",
     });
     const data = await response.json();
     if (data.url) {
@@ -52,42 +56,43 @@ const Success = ({ params }: {
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <div className="mb-4">
             <button
-              onClick={() => router.push('/question1')}
+              onClick={() => router.push("/question1")}
               className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
             >
-              {t('back1')}
+              {t("back1")}
             </button>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
-          {t('congrats')}
+            {t("congrats")}
           </h1>
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
-          {t('draft-created')}
+            {t("draft-created")}
           </h2>
           <div className="flex flex-col gap-4">
-            <button 
+            <button
               onClick={downloadUnsignedFalse}
               className=" text-white py-2 px-4 rounded  transition-colors"
             >
-              {t('download-unsigned')}
+              {t("download-unsigned")}
             </button>
-            <button 
+            <button
               onClick={handleCheckout}
               className=" text-white py-2 px-4 rounded  transition-colors"
             >
-              {t('send-docusign')}
+              {t("send-docusign")}
             </button>
+            <a id="ipfs" className="text-white">
+              {cid}
+            </a>
           </div>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
-          <p className="text-lg sm:text-xl mb-8">{t('congrats')}</p>
-          <h4 className="text-base sm:text-lg">
-          {t('lawyer')}
-          </h4>
+          <p className="text-lg sm:text-xl mb-8">{t("congrats")}</p>
+          <h4 className="text-base sm:text-lg">{t("lawyer")}</h4>
         </div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Success
+export default Success;
