@@ -21,7 +21,8 @@ const Success = ({
   const router = useRouter();
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
-  const cid = useQuestion1((state) => state.cid);
+  let cid = "https://mesa.mypinata.cloud/ipfs/";
+  cid += useQuestion1((state) => state.cid);
   const { lng } = params;
   const { t } = useTranslation(lng, "both/success");
 
