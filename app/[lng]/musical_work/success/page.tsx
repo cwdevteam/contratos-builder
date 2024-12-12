@@ -22,8 +22,7 @@ const Success = ({
 
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
-  let cid = "https://mesa.mypinata.cloud/ipfs/";
-  cid += useQuestion1((state) => state.cid);
+  let cid = useQuestion1((state) => state.cid);
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/success");
 
@@ -41,8 +40,14 @@ const Success = ({
     }
   }, []);
 
+  const handleFreeDownload = () => {
+    downloadUnsignedFalse();
+    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+  };
+
   const handleCheckout = async () => {
     downloadUnsignedTrue();
+    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     const response = await fetch(`../api/checkout_sessions`, {
       method: "POST",
     });
@@ -72,7 +77,7 @@ const Success = ({
           </h2>
           <div className="flex flex-col gap-4">
             <button
-              onClick={downloadUnsignedFalse}
+              onClick={handleFreeDownload}
               className=" text-white py-2 px-4 rounded  transition-colors"
             >
               {t("download-unsigned")}
