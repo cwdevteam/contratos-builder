@@ -158,7 +158,7 @@ const PDF = (isClicked: boolean) => {
         const email = pageData.email;
         doc.text(t("9", { email }), x, y);
         y = getY(y, 5);
-        const contributorType = pageData.contributorType;
+        const contributorType = pageData.masterContributorType;
         doc.text(t("10", { contributorType }), x, y);
         y = getY(y, 5);
         const split = pageData.split;
