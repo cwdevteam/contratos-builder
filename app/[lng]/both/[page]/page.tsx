@@ -18,6 +18,7 @@ const DynamicPage = ({
   const pageNumber = Number(useParams1.page);
   const pageCount = Number(searchParams.get("pageCount"));
   const lastSplit = Number(searchParams.get("split"));
+  const estimated_split = (100 / pageCount).toFixed(2);
 
   // Get page data from the Zustand store
   const pageData = useDynamicPageStore(
@@ -95,12 +96,20 @@ const DynamicPage = ({
     const value = Number(event.target.value);
     setSplit(value);
     setSplitTotal(value + lastSplit);
+    if (value >= 0) {
+      document.getElementById("split2")!.innerHTML = String(value);
+      document.getElementById("split3")!.innerHTML = String(value);
+    }
   };
 
   const handleNextPage = () => {
     if (pageNumber >= pageCount && splitTotal !== 100) {
+      const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        "Splits need to add to 100% to be valid";
+        "Splits need to add to 100% to be valid. You need " +
+        splitNeeded +
+        " instead of " +
+        split;
     } else {
       if (
         legalName != "" &&
@@ -228,7 +237,7 @@ const DynamicPage = ({
               <input
                 type="number"
                 max="100"
-                placeholder="50"
+                placeholder={String(estimated_split)}
                 onChange={handleSplitChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
                 required
@@ -255,7 +264,8 @@ const DynamicPage = ({
             <span className="text-red-500 text-lg">{contributorType}</span>
           </p>
           <p className="text-sm sm:text-base">
-            {t("split2")}:<span className="text-red-500 text-lg">{split}</span>
+            {t("split2")}:
+            <span className="text-red-500 text-lg" id="split2"></span>
           </p>
           <p className="text-sm sm:text-base">
             {t("contribution2")}:{" "}
@@ -265,7 +275,8 @@ const DynamicPage = ({
             </span>
           </p>
           <p className="text-sm sm:text-base">
-            {t("split3")}: <span className="text-red-500 text-lg">{split}</span>
+            {t("split3")}:{" "}
+            <span className="text-red-500 text-lg" id="split3"></span>
           </p>
         </div>
       </main>
