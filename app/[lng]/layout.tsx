@@ -1,34 +1,23 @@
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import './globals.css'
-import Image from 'next/image'
-import mesaImage from './public/images/mesa_logo.png'
-import { dir } from 'i18next'
-import { languages } from '../i18n/settings'
-import LanguageSwitcher from '../components/LanguageSwitcher'
-import { useTranslation } from '../i18n'
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
+import Image from "next/image";
+import mesaImage from "./public/images/mesa_logo.png";
+import { dir } from "i18next";
+import { languages } from "../i18n/settings";
+import LanguageSwitcher from "../components/LanguageSwitcher";
+import { useTranslation } from "../i18n";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }))
+  return languages.map((lng) => ({ lng }));
 }
-
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-})
 
 export const metadata: Metadata = {
-  title: 'Mesa contract builder',
-  description: 'create music splits contracts',
-}
+  title: "Mesa contract builder",
+  description: "create music splits contracts",
+};
 
 export default async function RootLayout({
   children,
@@ -39,40 +28,32 @@ export default async function RootLayout({
     lng: string;
   };
 }) {
-  const { lng } = await params// eslint-disable-line react-hooks/rules-of-hooks
-  const {t} = await useTranslation(lng)// eslint-disable-line react-hooks/rules-of-hooks
-
+  const { lng } = await params; // eslint-disable-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(lng); // eslint-disable-line react-hooks/rules-of-hooks
 
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <header className="flex items-center justify-between h-20 px-4">
           <div className="flex items-center space-x-2">
-          <Image
-            src={mesaImage}
-            width={50}
-            height={50}
-            alt="M"
-          ></Image>
-          <p className="float-left">
-            <b> mesa</b>
-          </p>
+            <Image src={mesaImage} width={190} height={60} alt="M"></Image>
+            <p className="float-left text-[32px]"></p>
           </div>
           <div>
-        <LanguageSwitcher/>
-        </div>
-          <div className="text-right text-xs">
-            <p className="text-2xl font-black">MUSIC SPLITS</p>
-            {t('contract-builder')}
+            <LanguageSwitcher />
+          </div>
+          <div className="text-right text-xs w-[17rem]">
+            <p className="text-2xl font-black font-rubik">MUSIC SPLITS</p>
+            <div className="font-share text-center">
+              {t("contract-builder")}
+            </div>
           </div>
         </header>
         <hr className="w-full absolute" />
         {children}
-        <SpeedInsights/>
-        <Analytics/>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
-  )
+  );
 }

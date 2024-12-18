@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'tech';
-  src: url('fonts/ShareTechMono-Regular.ttf');
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -33,31 +28,32 @@ main {
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+/* @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"); */
+
+@import url("./fonts.css");
 html {
   background-color: black;
   color: white;
-  font-family: 'tech', monospace;
+  font-family: "share", monospace;
   font-weight: 400;
   font-style: normal;
   text-align: left;
 }
 
 button {
-  border: solid thin;
-  border-color: #e18583;
-  border-radius: 5px;
-  color: white;
-  width: auto;
-  padding: 0.5rem 1rem;
-  position: static;
-  margin-top: 1rem;
-  background-color: transparent;
+  display: block;
+  border: 2px solid rgba(225, 133, 131, 1);
+  font-family: "RubikMonoOne", sans-serif;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  margin-top: 2.5rem;
+  text-align: center;
 }
 
 a {
   text-align: left;
-  color: blue;
+  color: rgba(49, 103, 180, 1);
 }
 
 .radio {
@@ -107,8 +103,8 @@ input:checked {
   cursor: pointer;
 }
 
-select{
-  border:solid thin;
+select {
+  border: solid thin;
   border-color: white;
   border-radius: 2%;
 }

@@ -1,28 +1,29 @@
-
 {
-    "h3": "Bienvenido al constructor de contratos de MESA",
-    "intro": "Aquí hay una serie de preguntas que le ayudarán a llegar a un acuerdo para el lanzamiento de su música. Simplemente haga clic en el botón para comenzar. Para retroceder y cambiar una respuesta anterior, haga clic en la pregunta anterior arriba (texto en gris).",
-    "li-title": "Por el momento, este modelo de contrato está destinado únicamente a artistas que:",
-    "li1": "Están lanzando una canción digitalmente a través de DSP.",
-    "li2": "Están publicando su canción de forma independiente.",
-    "li3": "Están distribuyendo la grabación Master de forma independiente.",
-    "li4":"La participantes del split de composicion y el de master deben ser los mismos.",
-    "confused": "Si estás confundido , lee aqui",
-    "get-started": "EMPEZAR",
-    "contract-builder":"Constructor de contratos",
-    
-    "popups": {
-      "1": "Publicar y Distribuir tu música significa que tú, como artista o como parte de un grupo de creativos, tomas control total sobre la composición, producción, lanzamiento y distribución de tu trabajo sin depender de editores o música tradicionales o sellos. Aquí hay un desglose técnico de lo que eso implica:",
-      "2": "",
-      "3": "1.¿Qué es publicación o Publishing?",
-      "4": "Publishing se refiere a la gestión de derechos de tu música. Cuando escribes o compones una canción, eres propietario de los derechos de autor de esa pieza musical. Los derechos de autor garantizan que se te pague cuando tu música se use comercialmente, como cuando se transmite, se reproduce en la radio o se usa en televisión o películas.",
-      "5": "",
-      "6": "2. ¿Qué es la distribución?",
-      "7": "La distribución es el proceso de hacer llegar tu música grabada a diversas plataformas, tanto digitales (servicios de streaming, descargas) físicas (CD, vinilos, etc.) como en formato NFT.",
-      "8": "3. Responsabilidades legales",
-      "9": "Contratos y licencias: como artista que publica y distribuye por sí mismo, debe estar familiarizado con los contratos musicales básicos, los acuerdos de licencia y las leyes de propiedad intelectual.",
-      "10": "Registro de derechos de autor: aunque usted automáticamente posee los derechos de autor de su música al momento de su creación, registrarla en la Oficina de derechos de autor de EE. UU. (o el equivalente en su país) brinda protección legal adicional.",
-      "11": "Resumen",
-      "12": "Al auto publicar y distribuir, usted mantiene todo el control creativo y financiero sobre su música, pero asume la responsabilidad adicional de administrar los derechos, las regalías, la promoción, la logística de distribución y la distribución financiera. Debe estar bien organizado y aprender a manejar estos aspectos, contratar profesionales o utilizar herramientas en línea."
-    }
+  "h3-1": "Bienvenido al constructor de contratos de ",
+  "mesa": "MESA",
+  "h3-2": " ",
+  "intro": "Aquí hay una serie de preguntas que le ayudarán a llegar a un acuerdo para el lanzamiento de su música. Simplemente haga clic en el botón para comenzar. Para retroceder y cambiar una respuesta anterior, haga clic en la pregunta anterior arriba (texto en gris).",
+  "li-title": "Por el momento, este modelo de contrato está destinado únicamente a artistas que:",
+  "li1": "Están lanzando una canción digitalmente a través de DSP.",
+  "li2": "Están publicando su canción de forma independiente.",
+  "li3": "Están distribuyendo la grabación Master de forma independiente.",
+  "li4": "La participantes del split de composicion y el de master deben ser los mismos.",
+  "confused": "Si estás confundido, lee aqui",
+  "get-started": "EMPEZAR",
+  "contract-builder": "Constructor de contratos",
+
+  "popups": {
+    "1": "Publicar y Distribuir tu música significa que tú, como artista o como parte de un grupo de creativos, tomas control total sobre la composición, producción, lanzamiento y distribución de tu trabajo sin depender de editores o música tradicionales o sellos. Aquí hay un desglose técnico de lo que eso implica:",
+    "2": "",
+    "3": "1.¿Qué es publicación o Publishing?",
+    "4": "Publishing se refiere a la gestión de derechos de tu música. Cuando escribes o compones una canción, eres propietario de los derechos de autor de esa pieza musical. Los derechos de autor garantizan que se te pague cuando tu música se use comercialmente, como cuando se transmite, se reproduce en la radio o se usa en televisión o películas.",
+    "5": "",
+    "6": "2. ¿Qué es la distribución?",
+    "7": "La distribución es el proceso de hacer llegar tu música grabada a diversas plataformas, tanto digitales (servicios de streaming, descargas) físicas (CD, vinilos, etc.) como en formato NFT.",
+    "8": "3. Responsabilidades legales",
+    "9": "Contratos y licencias: como artista que publica y distribuye por sí mismo, debe estar familiarizado con los contratos musicales básicos, los acuerdos de licencia y las leyes de propiedad intelectual.",
+    "10": "Registro de derechos de autor: aunque usted automáticamente posee los derechos de autor de su música al momento de su creación, registrarla en la Oficina de derechos de autor de EE. UU. (o el equivalente en su país) brinda protección legal adicional.",
+    "11": "Resumen",
+    "12": "Al auto publicar y distribuir, usted mantiene todo el control creativo y financiero sobre su música, pero asume la responsabilidad adicional de administrar los derechos, las regalías, la promoción, la logística de distribución y la distribución financiera. Debe estar bien organizado y aprender a manejar estos aspectos, contratar profesionales o utilizar herramientas en línea."
   }
+}

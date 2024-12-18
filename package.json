@@ -19,7 +19,7 @@
     "i18next": "^23.11.5",
     "i18next-resources-to-backend": "^1.2.1",
     "jspdf": "^2.5.2",
-    "next": "14.2.13",
+    "next": "^14.2.20",
     "next-i18next": "^15.3.1",
     "pinata-web3": "^0.5.2",
     "react": "^18",
