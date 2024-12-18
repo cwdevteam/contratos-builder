@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
 import mesaImage from "./public/images/mesa_logo.png";
