@@ -18,7 +18,6 @@ const DynamicPage = ({
   const pageNumber = Number(useParams1.page);
   const pageCount = Number(searchParams.get("pageCount"));
   const lastSplit = Number(searchParams.get("split"));
-  const estimated_split = (100 / pageCount).toFixed(2);
 
   // Get page data from the Zustand store
   const pageData = useDynamicPageStore(
@@ -208,7 +207,7 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full\ p-4 sm:p-8">
+        <div className="w-full p-4 sm:p-8">
           <p className="sm:text-sm text-gray-500 mb-4 font-roboto_thin">
             {t("p1")}
           </p>
@@ -246,7 +245,7 @@ const DynamicPage = ({
         ></p>
         <button
           onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-1/5 absolute left-20 bottom-20"
+          className="text-white py-2 px-4 rounded  transition-colors w-fit absolute left-20 bottom-20"
         >
           {t("next")}
         </button>

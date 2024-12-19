@@ -31,7 +31,7 @@ const Disclaimer = ({
         </p>
         <button
           onClick={() => push("/question1")}
-          className="w-1/5 bg-[#232323]/[.7] border-[#828282]/[.7]"
+          className="w-fit bg-[#232323]/[.7] border-[#828282]/[.7]"
         >
           {t("4")}
         </button>

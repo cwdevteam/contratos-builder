@@ -143,7 +143,7 @@ function ContractBuilder1({
         >
           {t("if-confused")}
         </a>
-        <button onClick={handleSubmit} className=" w-1/5">
+        <button onClick={handleSubmit} className=" w-fit">
           {t("submit")}
         </button>
         {showPopup && (

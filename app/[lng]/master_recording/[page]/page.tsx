@@ -20,7 +20,6 @@ const DynamicPage = ({
   const pageCount = Number(searchParams.get("pageCount"));
   const lastSplit = Number(searchParams.get("split"));
   const recording = useQuestion2((state) => state.recording);
-  const estimated_split = (100 / pageCount).toFixed(2);
 
   // Get page data from the Zustand store
   const pageData = useDynamicPageStore(
@@ -113,25 +112,25 @@ const DynamicPage = ({
 
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="w-full sm:w-1/2 py-4 sm:py-10">
+      <main className="flex flex-col sm:flex-row pl-10 pt-10">
+        <div className="w-full">
           {/* Previous question buttons */}
           <div className="mb-4">
             <button
               onClick={() => router.push("/question1")}
-              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
+              className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
             >
               {t("back1")}
             </button>
             <button
               onClick={() => router.push("/master_recording/question2")}
-              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
+              className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
             >
               {t("back2")}
             </button>
             <button
               onClick={() => router.push("/master_recording/question3")}
-              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
+              className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
             >
               {t("back3")}
             </button>
@@ -144,107 +143,108 @@ const DynamicPage = ({
                     `/master_recording/${i + 1}?pageCount=${pageCount}`
                   )
                 }
-                className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
+                className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
               >
                 {t("contributor")} {i + 1}
               </button>
             ))}
           </div>
-          <h2 className="text-lg sm:text-xl mb-4">
+          <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-xs sm:text-sm mb-2 block">
+              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                 {t("name")}
               </label>
               <input
                 type="text"
                 value={legalName}
                 onChange={handleNameChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
                 required
               />
             </div>
             <div>
-              <label className="text-xs sm:text-sm mb-2 block">
+              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                 {t("email")}
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
                 required
               />
             </div>
-            <div>
-              <label className="text-xs sm:text-sm mb-2 block">
-                {t("type")}
-              </label>
-              <select
-                name="type"
-                id="cont"
-                value={contributorType}
-                className="bg-black w-full sm:w-1/2"
-                onChange={handleContributorChange}
-              >
-                <option value=""></option>
-                <option value={t("artist")}>{t("artist")}</option>
-                <option value={t("producer")}>{t("producer")}</option>
-                <option value={t("exec")}>{t("exec")}</option>
-                <option value={t("engineer")}>{t("engineer")}</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-xs sm:text-sm mb-2 block">
-                {t("split")}
-              </label>
-              <input
-                type="number"
-                max="100"
-                placeholder={String(estimated_split)}
-                onChange={handleSplitChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
-                required
-              />
+            <div className="flex flex-row">
+              <div>
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                  {t("type")}
+                </label>
+                <select
+                  name="type"
+                  id="cont"
+                  value={contributorType}
+                  className="bg-black p-2 size-10 w-full font-rubik"
+                  onChange={handleContributorChange}
+                >
+                  <option value=""></option>
+                  <option value={t("artist")}>{t("artist")}</option>
+                  <option value={t("producer")}>{t("producer")}</option>
+                  <option value={t("exec")}>{t("exec")}</option>
+                  <option value={t("engineer")}>{t("engineer")}</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                  {t("split")}
+                </label>
+                <input
+                  type="number"
+                  max="100"
+                  onChange={handleSplitChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
             </div>
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4">{t("p1")}</p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">{t("p2")}</h3>
-          <p className="text-sm sm:text-base mb-4">
+          <p className="sm:text-sm text-gray-500 mb-4 font-roboto_thin">
+            {t("p1")}
+          </p>
+          <h3 className="text-base mb-2 font-roboto_bold">{t("p2")}</h3>
+          <p className="text-sm sm:text-base mb-4 font-roboto_light">
             {t("p3", { title: recording })}
           </p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">
+          <h3 className="text-base mb-2 font-roboto_bold">
             {t("collaborator")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base">
+          <p className="text-sm sm:text-base mb-4 font-roboto_light">
             {t("name2")}:{" "}
-            <span className="text-red-500 text-lg">{legalName}</span>
+            <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base">
-            {t("email2")}: <span className="text-red-500 text-lg">{email}</span>
+          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+            {t("email2")}:{" "}
+            <span className="text-[#AC4444] font-rubik">{email}</span>
           </p>
-          <p className="text-sm sm:text-base">
+          <p className="text-sm sm:text-base mb-4 font-roboto_light">
             {t("contribution2")}:{" "}
-            <span className="text-red-500 text-lg">{contributorType}</span>
+            <span className="text-[#AC4444] font-rubik">{contributorType}</span>
           </p>
-          <p className="text-sm sm:text-base">
+          <p className="text-sm sm:text-base mb-4 font-roboto_light">
             {t("split")}:{" "}
-            <span className="text-red-500 text-lg" id="split"></span>
+            <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
-        <p
-          id="wrongSplits"
-          className="text-red-500 text-lg text-sm sm:text-base"
-        ></p>
+        <p id="wrongSplits" className="text-[#AC4444] font-rubik"></p>
         <button
           onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded-lg w-full"
+          className="text-white py-2 px-4 rounded  transition-colors w-fit absolute left-20 bottom-20"
         >
           {t("next")}
         </button>
