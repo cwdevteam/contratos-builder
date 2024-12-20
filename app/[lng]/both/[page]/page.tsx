@@ -196,8 +196,8 @@ const DynamicPage = ({
               />
             </div>
             <div className="flex flex-row">
-              <div>
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <div className="w-fit">
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   {t("type")}
                 </label>
                 <select
@@ -214,8 +214,8 @@ const DynamicPage = ({
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
               </div>
-              <div>
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <div className="w-fit">
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   {t("type2")}
                 </label>
                 <select
@@ -233,15 +233,15 @@ const DynamicPage = ({
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
               </div>
-              <div>
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <div className="w-fit">
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   Split (%)
                 </label>
                 <input
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2 p-2"
                   required
                 />
               </div>
