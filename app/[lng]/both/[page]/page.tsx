@@ -204,7 +204,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-full font-rubik"
+                  className="bg-black p-2 size-10 w-fit font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
@@ -213,7 +213,8 @@ const DynamicPage = ({
                   <option value={t("music")}>{t("music")}</option>
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
-
+              </div>
+              <div>
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("type2")}
                 </label>
@@ -221,7 +222,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={masterContributorType}
-                  className="bg-black w-full sm:w-1/2"
+                  className="bg-black w-fit size-10 sm:w-1/2"
                   onChange={handleMasterContributorChange}
                   required
                 >

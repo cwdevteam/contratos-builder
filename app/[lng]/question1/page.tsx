@@ -44,9 +44,11 @@ function ContractBuilder1({
     lng: string;
   };
 }) {
+  const { lng } = params;
+  const { t } = useTranslation(lng, "question1");
   const { push } = useRouter();
   const [showPopup, setShowPopup] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(t("li1"));
   const [selectedDate, setSelectedDate] = useState("");
 
   const updateSplit = useQuestion1((state) => state.updateSplit);
@@ -77,9 +79,6 @@ function ContractBuilder1({
   };
 
   const date = new Date().toLocaleDateString();
-
-  const { lng } = params;
-  const { t } = useTranslation(lng, "question1");
 
   return (
     <div className="sm:p-8 flex flex-col justify-between">
