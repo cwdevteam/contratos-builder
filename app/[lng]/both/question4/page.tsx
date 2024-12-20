@@ -86,19 +86,19 @@ const ContractBuilder4 = ({
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push("/question1")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0 font-share"
           >
             {t("back1")}
           </button>
           <button
             onClick={() => push("/both/question2")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0 font-share"
           >
             {t("back2")}
           </button>
           <button
             onClick={() => push("/both/question3")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0 font-share"
           >
             {t("back3")}
           </button>
@@ -107,15 +107,15 @@ const ContractBuilder4 = ({
             <button
               key={i + 1}
               onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0"
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0 font-share"
             >
               {t("contributor")} {i + 1}
             </button>
           ))}
 
-          <h4 className="text-sm sm:text-base mb-4 pt-5">{t("question")}</h4>
+          <h4 className="mb-4 pt-5 font-share font-[2rem]">{t("question")}</h4>
           <form className="flex flex-col gap-2">
-            <label className="flex items-center">
+            <label className="flex items-center font-rubik">
               <input
                 type="radio"
                 name="type"
@@ -126,7 +126,7 @@ const ContractBuilder4 = ({
               />
               <span className="text-sm sm:text-base">{t("vote")}</span>
             </label>
-            <label className="flex items-center">
+            <label className="flex items-center font-rubik">
               <input
                 type="radio"
                 name="type"
@@ -140,12 +140,14 @@ const ContractBuilder4 = ({
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4">{t("p1")}</p>
+          <p className="text-gray-500 mb-4 font-roboto_light pt-20">
+            {t("p1")}
+          </p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <a
-          className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
+          className="underline underline-offset-4 text-sm sm:text-base text-[#3167B4];"
           href="#"
           onClick={togglePopup}
         >
