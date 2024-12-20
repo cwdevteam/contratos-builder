@@ -43,19 +43,19 @@ const ContractBuilder5Vote = ({
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <button
             onClick={() => push("/question1")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
           >
             {t("back1")}
           </button>
           <button
             onClick={() => push("/master_recording/question2")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
           >
             {t("back2")}
           </button>
           <button
             onClick={() => push("/master_recording/question3")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
           >
             {t("back3")}
           </button>
@@ -64,7 +64,7 @@ const ContractBuilder5Vote = ({
             <button
               key={i + 1}
               onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
             >
               {t("contributor")} {i + 1}
             </button>
@@ -72,27 +72,33 @@ const ContractBuilder5Vote = ({
 
           <button
             onClick={() => push("/master_recording/question4")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
           >
             {t("back4")}
           </button>
 
-          <h1 className="text-lg sm:text-xl mb-4">{t("percent")}</h1>
+          <h1 className="text-lg sm:text-xl mb-4 font-share w-4/5 pt-5">
+            {t("percent")}
+          </h1>
           <form className="flex flex-col">
             <label className="text-xs sm:text-sm mb-2">(%)</label>
             <input
               type="text"
-              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-fit"
+              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white  w-1/5 p-2 font-rubik"
               onChange={handlePercentChange}
             />
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4">{t("p1")}</p>
-          <h4 className="text-base sm:text-lg font-bold mb-2">{t("2.0")}</h4>
-          <p className="text-xs sm:text-sm mb-4">
+          <p className="text-gray-500 mb-4 pt-20 font-roboto_light">
+            {t("p1")}
+          </p>
+          <h4 className="text-base sm:text-lg font-bold mb-2 pt-5 font-roboto_bold">
+            {t("2.0")}
+          </h4>
+          <p className="text-xs sm:text-sm mb-4 font-roboto_thin">
             {t("p2")}{" "}
-            <span className="text-red-500 text-lg">
+            <span className="text-[#AC4444] font-rubik">
               {percent ? percent : " "}%
             </span>
             {t("p3")}
@@ -107,7 +113,7 @@ const ContractBuilder5Vote = ({
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <a
-          className="text-blue-500 hover:underline hover:underline-offset-4 text-sm sm:text-base"
+          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
           href="#"
           onClick={() => push("/popups/moreInfoVoting")}
         >
