@@ -196,7 +196,7 @@ const DynamicPage = ({
               />
             </div>
             <div className="flex flex-row">
-              <div className="w-fit">
+              <div className="w-2/5">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   {t("type")}
                 </label>
@@ -204,7 +204,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-fit font-rubik"
+                  className="bg-black p-2 size-10 w-[95%] font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
@@ -214,7 +214,7 @@ const DynamicPage = ({
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
               </div>
-              <div className="w-fit">
+              <div className="w-2/5">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   {t("type2")}
                 </label>
@@ -222,7 +222,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={masterContributorType}
-                  className="bg-black w-fit size-10 sm:w-1/2"
+                  className="bg-black w-fit size-10 w-[95%] font-rubik"
                   onChange={handleMasterContributorChange}
                   required
                 >
@@ -233,7 +233,7 @@ const DynamicPage = ({
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
               </div>
-              <div className="w-fit">
+              <div className="w-1/5">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   Split (%)
                 </label>
