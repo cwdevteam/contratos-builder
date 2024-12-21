@@ -245,7 +245,7 @@ const DynamicPage = ({
         ></p>
         <button
           onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit absolute left-20 bottom-20"
+          className="text-white py-2 px-4 rounded  transition-colors w-fit relative"
         >
           {t("next")}
         </button>

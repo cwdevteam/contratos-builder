@@ -85,7 +85,7 @@ export default function Home({
   }, []);
 
   return (
-    <div className="flex flex-col items-center md:items-start pl-10 pt-20  p-2 w-3/5">
+    <div className="flex flex-col items-center md:items-start pl-10 pt-20  p-2 w-full sm:w-3/5">
       <section className="w-full flex flex-col gap-5">
         <p className="md:text-[32px] text-[20px] font-share tracking-[-0.05rem] text-start">
           {t("h3-1")}

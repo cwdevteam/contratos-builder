@@ -130,7 +130,7 @@ const ContractBuilder2 = ({
       <footer className="mt-8 flex flex-col gap-4">
         <button
           onClick={handleSubmit}
-          className=" text-white py-2 px-4 rounded  transition-colors w-fit absolute left-12 bottom-20"
+          className=" text-white py-2 px-4 rounded  transition-colors w-fit relative"
         >
           {t("submit")}
         </button>
