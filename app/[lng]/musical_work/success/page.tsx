@@ -64,27 +64,27 @@ const Success = ({
           <div className="mb-4">
             <button
               onClick={() => router.push("/question1")}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none"
+              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
             >
               {t("back1")}
             </button>
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center">
+          <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center font-share p-0">
             {t("congrats")}
           </h1>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center font-rubik p-0">
             {t("draft-created")}
           </h2>
           <div className="flex flex-col gap-4">
             <button
               onClick={handleFreeDownload}
-              className=" text-white py-2 px-4 rounded  transition-colors"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
             >
               {t("download-unsigned")}
             </button>
             <button
               onClick={handleCheckout}
-              className=" text-white py-2 px-4 rounded  transition-colors"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
             >
               {t("send-docusign")}
             </button>
@@ -93,9 +93,9 @@ const Success = ({
             </a>
           </div>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
-          <p className="text-lg sm:text-xl mb-8">{t("congrats")}</p>
-          <h4 className="text-base sm:text-lg">{t("lawyer")}</h4>
+        <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center font-share p-0">
+          <p className="text-lg sm:text-xl mb-8 font-share">{t("congrats")}</p>
+          <h4 className="text-base sm:text-lg font-share">{t("lawyer")}</h4>
         </div>
       </main>
     </div>
