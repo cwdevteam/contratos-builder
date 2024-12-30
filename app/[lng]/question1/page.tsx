@@ -116,6 +116,13 @@ function ContractBuilder1({
                 id={t("id3")}
               />
               {t("li3")}
+              <a
+                className="items-center gap-2 underline underline-offset-4"
+                href="#"
+                onClick={() => push("/popups/bothDisclaimer")}
+              >
+                {t("read-more")}
+              </a>
             </label>
           </form>
         </div>
