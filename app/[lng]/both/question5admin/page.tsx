@@ -40,42 +40,6 @@ const ContractBuilder5Admin = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <button
-            onClick={() => push("/question1")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
-          >
-            {t("back1")}
-          </button>
-          <button
-            onClick={() => push("/both/question2")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
-          >
-            {t("back2")}
-          </button>
-          <button
-            onClick={() => push("/both/question3")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
-          >
-            {t("back3")}
-          </button>
-
-          {Array.from({ length: pageCount }, (_, i) => (
-            <button
-              key={i + 1}
-              onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
-            >
-              {t("contributor")} {i + 1}
-            </button>
-          ))}
-
-          <button
-            onClick={() => push("/both/question4")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
-          >
-            {t("back4")}
-          </button>
-
           <h1 className="text-lg sm:text-xl mb-4 font-share py-5">
             {t("name")}
           </h1>
@@ -113,12 +77,14 @@ const ContractBuilder5Admin = ({
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
-        <button
-          onClick={handleSubmit}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit"
-        >
-          {t("submit")}
-        </button>
+        <div className="inline-flex gap-20">
+          <button onClick={() => push("/both/question4")} className=" w-fit">
+            {t("back")}
+          </button>
+          <button onClick={handleSubmit} className=" w-fit">
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );

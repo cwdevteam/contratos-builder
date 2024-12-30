@@ -84,35 +84,6 @@ const ContractBuilder4 = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <button
-            onClick={() => push("/question1")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0 font-share"
-          >
-            {t("back1")}
-          </button>
-          <button
-            onClick={() => push("/musical_work/question2")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0 font-share"
-          >
-            {t("back2")}
-          </button>
-          <button
-            onClick={() => push("/musical_work/question3")}
-            className="text-xs sm:text-sm text-gray-500 w-full text-left mb-4 border-none p-0 font-share"
-          >
-            {t("back3")}
-          </button>
-
-          {Array.from({ length: pageCount }, (_, i) => (
-            <button
-              key={i + 1}
-              onClick={() => goToPage(i + 1)}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none p-0 font-share"
-            >
-              {t("contributor")} {i + 1}
-            </button>
-          ))}
-
           <h4 className="mb-4 pt-5 font-share text-[1.5rem]">
             {t("question")}
           </h4>
@@ -153,12 +124,17 @@ const ContractBuilder4 = ({
         >
           {t("confused")}
         </a>
-        <button
-          onClick={findNextPage}
-          className=" text-white py-2 px-4 rounded  transition-colors w-fit"
-        >
-          {t("submit")}
-        </button>
+        <div className="inline-flex gap-20">
+          <button
+            onClick={() => push(`/musical_work/question3`)}
+            className=" w-fit"
+          >
+            {t("back")}
+          </button>
+          <button onClick={findNextPage} className=" w-fit">
+            {t("submit")}
+          </button>
+        </div>
         {showPopup && (
           <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
         )}

@@ -45,18 +45,6 @@ const ContractBuilder3 = ({
     <div className=" flex flex-col justify-between pl-5">
       <main className="flex flex-col sm:flex-row">
         <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm pt-20">
-          <button
-            onClick={() => push("/question1")}
-            className="border-none font-share py-0"
-          >
-            {t("back1")}
-          </button>
-          <button
-            onClick={() => push("/both/question2")}
-            className="border-none font-share py-0"
-          >
-            {t("back2")}
-          </button>
           <p className="pl-5 text-[#FFFFFF] text-[1.5rem] pt-5">{t("p1")}</p>
           <form className="flex flex-col pl-5 pt-5">
             <input
@@ -91,12 +79,14 @@ const ContractBuilder3 = ({
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
-        <button
-          onClick={handleSubmit}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit relative"
-        >
-          {t("submit")}
-        </button>
+        <div className="inline-flex gap-20">
+          <button onClick={() => push("/both/question2")} className=" w-fit">
+            {t("back")}
+          </button>
+          <button onClick={handleSubmit} className=" w-fit">
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );

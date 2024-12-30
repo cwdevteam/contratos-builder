@@ -70,7 +70,7 @@ function ContractBuilder1({
     } else if (selectedOption == t("id2")) {
       push("master_recording/question2");
     } else if (selectedOption == t("id3")) {
-      push("both/disclaimer");
+      push("both/question2");
     }
   };
 
@@ -150,7 +150,7 @@ function ContractBuilder1({
           {t("if-confused")}
         </a>
         <div className="inline-flex gap-20">
-          <button onClick={handleSubmit} className=" w-fit">
+          <button onClick={() => push("/")} className=" w-fit">
             {t("back")}
           </button>
           <button onClick={handleSubmit} className=" w-fit">

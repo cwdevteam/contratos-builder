@@ -61,14 +61,6 @@ const Success = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <div className="mb-4">
-            <button
-              onClick={() => router.push("/question1")}
-              className="text-xs sm:text-sm text-gray-500 w-full text-left mb-2 border-none font-share p-0"
-            >
-              {t("back1")}
-            </button>
-          </div>
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center font-share p-0">
             {t("congrats")}
           </h1>

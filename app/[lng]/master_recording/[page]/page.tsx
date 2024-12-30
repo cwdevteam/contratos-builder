@@ -114,41 +114,6 @@ const DynamicPage = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row pl-10 pt-10">
         <div className="w-full">
-          {/* Previous question buttons */}
-          <div className="mb-4">
-            <button
-              onClick={() => router.push("/question1")}
-              className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
-            >
-              {t("back1")}
-            </button>
-            <button
-              onClick={() => router.push("/master_recording/question2")}
-              className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
-            >
-              {t("back2")}
-            </button>
-            <button
-              onClick={() => router.push("/master_recording/question3")}
-              className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
-            >
-              {t("back3")}
-            </button>
-
-            {Array.from({ length: pageNumber - 1 }, (_, i) => (
-              <button
-                key={i + 1}
-                onClick={() =>
-                  router.push(
-                    `/master_recording/${i + 1}?pageCount=${pageCount}`
-                  )
-                }
-                className="text-sm text-[#696969] w-full text-start border-none p-0 font-share"
-              >
-                {t("contributor")} {i + 1}
-              </button>
-            ))}
-          </div>
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
           </h2>
