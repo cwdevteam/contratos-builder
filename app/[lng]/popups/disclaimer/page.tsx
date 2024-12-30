@@ -18,7 +18,7 @@ const Disclaimer = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
-        <p className="text-sm sm:text-base space-y-4">
+        <p className="text-sm sm:text-base space-y-4 font-roboto">
           <span className="block">
             {t("1")}
             <br />
