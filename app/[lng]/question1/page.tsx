@@ -117,7 +117,7 @@ function ContractBuilder1({
               />
               {t("li3")}
               <a
-                className="items-center gap-2 underline underline-offset-4"
+                className="items-center gap-2 underline underline-offset-4 font-share"
                 href="#"
                 onClick={() => push("/popups/bothDisclaimer")}
               >
