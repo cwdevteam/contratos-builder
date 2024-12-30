@@ -70,7 +70,7 @@ function ContractBuilder1({
     } else if (selectedOption == t("id2")) {
       push("master_recording/question2");
     } else if (selectedOption == t("id3")) {
-      push("both/question2");
+      push("both/disclaimer");
     }
   };
 
