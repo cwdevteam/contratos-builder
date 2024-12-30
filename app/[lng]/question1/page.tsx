@@ -149,9 +149,14 @@ function ContractBuilder1({
         >
           {t("if-confused")}
         </a>
-        <button onClick={handleSubmit} className=" w-fit">
-          {t("submit")}
-        </button>
+        <div className="inline-flex gap-20">
+          <button onClick={handleSubmit} className=" w-fit">
+            {t("back")}
+          </button>
+          <button onClick={handleSubmit} className=" w-fit">
+            {t("submit")}
+          </button>
+        </div>
         {showPopup && (
           <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
         )}

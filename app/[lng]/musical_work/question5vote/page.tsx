@@ -118,12 +118,14 @@ const ContractBuilder5Vote = ({
         >
           {t("confused")}
         </a>
-        <button
-          onClick={handleSubmit}
-          className=" text-white py-2 px-4 rounded  transition-colors w-fit"
-        >
-          {t("submit")}
-        </button>
+        <div className="inline-flex gap-20">
+          <button onClick={handleSubmit} className=" w-fit">
+            {t("back")}
+          </button>
+          <button onClick={handleSubmit} className=" w-fit">
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );
