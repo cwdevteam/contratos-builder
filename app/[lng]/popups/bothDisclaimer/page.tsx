@@ -18,7 +18,10 @@ const Disclaimer = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
-        <button onClick={() => push("/question1")} className="relative">
+        <button
+          onClick={() => push("/question1")}
+          className="relative border-none"
+        >
           x
         </button>
         <p className="text-sm sm:text-base space-y-4 font-roboto">
