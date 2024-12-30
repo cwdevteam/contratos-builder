@@ -18,6 +18,9 @@ const Disclaimer = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
+        <button onClick={() => push("/question1")} className="popup_button">
+          x
+        </button>
         <p className="text-sm sm:text-base space-y-4 font-roboto">
           {t("1")}
           <br />
@@ -68,12 +71,12 @@ const Disclaimer = ({
           {t("17")}
           <br />
         </p>
-        <button
+        {/* <button
           onClick={() => push("/both/question2")}
           className="w-fit bg-[#232323]/[.7] border-[#828282]/[.7]"
         >
           {t("18")}
-        </button>
+        </button> */}
       </main>
     </div>
   );
