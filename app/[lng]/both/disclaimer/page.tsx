@@ -25,18 +25,54 @@ const Disclaimer = ({
           <br />
           {t("3")}
           <br />
-          <ol>
+          <ol className="list-decimal list-inside">
             <li>
               {t("4")}
+              <br />
               <span>{t("5")}</span>
             </li>
+            <li>
+              {t("6")}
+              <br />
+              <span>{t("7")}</span>
+            </li>
           </ol>
+          {t("8")}
+          <br />
+          {t("9")}
+          <br />
+          <ul className="list-disc list-inside">
+            <li>
+              {t("10")}
+              <br />
+            </li>
+            <li>
+              {t("11")}
+              <br />
+            </li>
+            <li>
+              {t("12")}
+              <br />
+            </li>
+            <li>
+              {t("13")}
+              <br />
+            </li>
+          </ul>
+          {t("14")}
+          <br />
+          {t("15")}
+          <br />
+          {t("16")}
+          <br />
+          {t("17")}
+          <br />
         </p>
         <button
           onClick={() => push("/both/question2")}
           className="w-fit bg-[#232323]/[.7] border-[#828282]/[.7]"
         >
-          {t("4")}
+          {t("18")}
         </button>
       </main>
     </div>
