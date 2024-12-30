@@ -3,7 +3,6 @@
 import React from "react";
 import { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import useQuestion5Vote from "../../store/useQuestion5Vote";
 import { useTranslation } from "@/app/i18n/client";
 
@@ -15,16 +14,10 @@ const ContractBuilder5Vote = ({
   };
 }) => {
   const { push } = useRouter();
-  const searchParams = useSearchParams();
-  const pageCount = Number(searchParams.get("pageCount"));
   const [percent, setPercent] = useState("");
   const updatePercent = useQuestion5Vote((state) => state.updatePercent);
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/question5vote");
-
-  const goToPage = (page: number) => {
-    push(`/musical_work/${page}`);
-  };
 
   const handlePercentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPercent(event.target.value);

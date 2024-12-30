@@ -2,7 +2,6 @@
 
 import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import useQuestion5Admin from "../../store/useQuestion5Admin";
 import { useTranslation } from "@/app/i18n/client";
 
@@ -14,8 +13,6 @@ const ContractBuilder5Admin = ({
   };
 }) => {
   const { push } = useRouter();
-  const searchParams = useSearchParams();
-  const pageCount = Number(searchParams.get("pageCount"));
   const [name, setSelectedOptionName] = useState("");
   const updateAdminName = useQuestion5Admin((state) => state.updateAdminName);
   const { lng } = params;
@@ -23,10 +20,6 @@ const ContractBuilder5Admin = ({
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionName(event.target.value);
-  };
-
-  const goToPage = (page: number) => {
-    push(`both/${page}`);
   };
 
   const handleSubmit = () => {

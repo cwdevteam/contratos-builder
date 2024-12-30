@@ -2,7 +2,6 @@
 
 import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import useQuestion4 from "../../store/useQuestion4";
 import { useTranslation } from "@/app/i18n/client";
 
@@ -49,18 +48,12 @@ const ContractBuilder4 = ({
   const { push } = useRouter();
 
   const [showPopup, setShowPopup] = useState(false);
-  const searchParams = useSearchParams();
-  const pageCount = Number(searchParams.get("pageCount"));
   const [selectedOption, setSelectedOption] = useState("");
   const updateVoteSelection = useQuestion4(
     (state) => state.updateVoteSelection
   );
   const { lng } = params;
   const { t } = useTranslation(lng, "master/question4");
-
-  const goToPage = (page: number) => {
-    push(`/master_recording/${page}?pageCount=${pageCount}`);
-  };
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
