@@ -185,7 +185,7 @@ const DynamicPage = ({
             {t("p3", { title: recording })}
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">
-            {t("collaborator")} {pageNumber}:
+            {t("contributor")} {pageNumber}:
           </h3>
           <p className="text-sm sm:text-base mb-4 font-roboto_light">
             {t("name2")}:{" "}
