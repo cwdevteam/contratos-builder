@@ -71,10 +71,16 @@ const ContractBuilder5Admin = ({
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <div className="inline-flex gap-20">
-          <button onClick={() => push("/both/question4")} className=" w-fit">
+          <button
+            onClick={() => push("/both/question4")}
+            className=" w-fit sm:bg-black bg-[#AC444475]"
+          >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit">
+          <button
+            onClick={handleSubmit}
+            className=" w-fit sm:bg-black bg-[#AC444475]"
+          >
             {t("submit")}
           </button>
         </div>

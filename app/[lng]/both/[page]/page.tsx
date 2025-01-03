@@ -259,7 +259,7 @@ const DynamicPage = ({
         <p id="wrongSplits" className="text-[#AC4444] font-rubik"></p>
         <button
           onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit relative"
+          className="text-white py-2 px-4 rounded  transition-colors w-fit relative sm:bg-black bg-[#AC444475]"
         >
           {t("submit")}
         </button>

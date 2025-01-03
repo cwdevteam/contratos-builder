@@ -118,10 +118,16 @@ const ContractBuilder4 = ({
           {t("confused")}
         </a>
         <div className="inline-flex gap-20">
-          <button onClick={() => push("/both/question3")} className=" w-fit">
+          <button
+            onClick={() => push("/both/question3")}
+            className=" w-fit sm:bg-black bg-[#AC444475]"
+          >
             {t("back")}
           </button>
-          <button onClick={findNextPage} className=" w-fit">
+          <button
+            onClick={findNextPage}
+            className=" w-fit sm:bg-black bg-[#AC444475]"
+          >
             {t("submit")}
           </button>
         </div>

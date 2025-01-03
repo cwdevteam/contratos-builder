@@ -80,10 +80,16 @@ const ContractBuilder3 = ({
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
         <div className="inline-flex gap-20">
-          <button onClick={() => push("/both/question2")} className=" w-fit">
+          <button
+            onClick={() => push("/both/question2")}
+            className=" w-fit sm:bg-black bg-[#AC444475]"
+          >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit">
+          <button
+            onClick={handleSubmit}
+            className=" w-fit sm:bg-black bg-[#AC444475]"
+          >
             {t("submit")}
           </button>
         </div>
