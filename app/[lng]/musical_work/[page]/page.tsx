@@ -214,7 +214,7 @@ const DynamicPage = ({
           onClick={handleNextPage}
           className="text-white py-2 px-4 rounded  transition-colors w-fit relative"
         >
-          {t("next")}
+          {t("submit")}
         </button>
       </footer>
     </div>
