@@ -160,7 +160,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="pl-10">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share flex flex-row">
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
                 <input

@@ -161,7 +161,7 @@ const DynamicPage = ({
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
               </div>
-              <div>
+              <div className="pl-10">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
