@@ -33,23 +33,21 @@ export default async function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <body>
-        <header className="flex items-center justify-between h-20 px-4">
-          <div className="flex items-center space-x-2">
+        <header className="flex flex-col sm:flex-row items-center justify-between h-20 px-4 sm:mb-0 mb-5">
+          <div className="order-2 sm:order-1 flex items-center space-x-2 flex-col sm:flex-row">
             <Image src={mesaImage} width={190} height={60} alt="M"></Image>
-            <p className="float-left text-[32px]"></p>
+            <p className="text-[32px]"></p>
           </div>
-          <div>
+          <div className="order-3 sm:order-2">
             <LanguageSwitcher />
           </div>
-          <div className="text-right text-xs w-[17rem]">
+          <div className="order-1 sm:order-3 text-center sm:text-right text-xs w-full sm:w-[17rem]">
             <p className="text-2xl font-black font-rubik">MUSIC SPLITS</p>
-            <div className="font-share text-center">
-              {t("contract-builder")}
-            </div>
+            <div className="font-share">{t("contract-builder")}</div>
           </div>
         </header>
-        <hr className="w-full absolute" />
-        {children}
+        <hr className="w-full" />
+        <div className="pt-10">{children}</div>
         <SpeedInsights />
         <Analytics />
       </body>
