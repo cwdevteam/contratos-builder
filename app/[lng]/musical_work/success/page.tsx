@@ -7,7 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "@/app/i18n/client";
 import useQuestion1 from "../../store/useQuestion1";
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
