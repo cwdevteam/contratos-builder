@@ -48,6 +48,7 @@ const Success = ({
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
   let cid = useQuestion1((state) => state.cid);
+  const songName = useQuestion2((state) => state.song);
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/success");
 
@@ -66,14 +67,12 @@ const Success = ({
   }, []);
 
   const handleFreeDownload = () => {
-    const songName = useQuestion2((state) => state.song);
     downloadUnsignedFalse();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     sendEmail(songName);
   };
 
   const handleCheckout = async () => {
-    const songName = useQuestion2((state) => state.song);
     downloadUnsignedTrue();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     const response = await fetch(`../api/checkout_sessions`, {
