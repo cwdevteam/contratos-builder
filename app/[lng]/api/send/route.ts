@@ -3,9 +3,9 @@ import { Resend } from "resend";
 import useQuestion2 from "../../store/useQuestion2";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const song = useQuestion2((state) => state.song);
 
 export async function POST() {
-  const song = useQuestion2((state) => state.song);
   const toEmails = [
     "nick@mesawallet.io",
     "thomas@mesawallet.io",

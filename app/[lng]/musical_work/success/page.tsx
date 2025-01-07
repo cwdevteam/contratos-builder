@@ -14,8 +14,9 @@ import useQuestion2 from "../../store/useQuestion2";
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
+const songName = useQuestion2((state) => state.song);
+
 const sendEmail = async () => {
-  const songName = useQuestion2((state) => state.song);
   try {
     const response = await fetch("/api/send", {
       method: "POST",
@@ -24,6 +25,13 @@ const sendEmail = async () => {
       },
       body: JSON.stringify({ songName: songName }),
     });
+    if (!response.ok) {
+      console.error("Error sending email:", response.statusText);
+      return NextResponse.json(
+        { error: "Error sending email" },
+        { status: 500 }
+      );
+    }
   } catch (error) {
     console.error("Error sending email:", error);
     return NextResponse.json({ error: "Error sending email" }, { status: 500 });
