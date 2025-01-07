@@ -29,6 +29,7 @@
     "react-hook-form": "^7.53.0",
     "react-i18next": "^15.1.0",
     "react-router-dom": "^6.26.2",
+    "resend": "^4.0.1",
     "stripe": "^8.210.0",
     "uuid": "^11.0.3",
     "zustand": "^5.0.0"

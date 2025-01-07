@@ -7,9 +7,28 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "@/app/i18n/client";
 import useQuestion1 from "../../store/useQuestion1";
 
+import { NextRequest, NextResponse } from "next/server";
+import useQuestion2 from "../../store/useQuestion2";
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+
+const sendEmail = async () => {
+  const songName = useQuestion2((state) => state.song);
+  try {
+    const response = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ songName: songName }),
+    });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    return NextResponse.json({ error: "Error sending email" }, { status: 500 });
+  }
+};
 
 const Success = ({
   params,
@@ -43,6 +62,7 @@ const Success = ({
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+    sendEmail();
   };
 
   const handleCheckout = async () => {
@@ -55,6 +75,7 @@ const Success = ({
     if (data.url) {
       router.push(data.url);
     }
+    sendEmail();
   };
 
   return (
