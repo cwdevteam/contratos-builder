@@ -14,9 +14,7 @@ import useQuestion2 from "../../store/useQuestion2";
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-const songName = useQuestion2((state) => state.song);
-
-const sendEmail = async () => {
+const sendEmail = async (songName: string) => {
   try {
     const response = await fetch("/api/send", {
       method: "POST",
@@ -68,12 +66,14 @@ const Success = ({
   }, []);
 
   const handleFreeDownload = () => {
+    const songName = useQuestion2((state) => state.song);
     downloadUnsignedFalse();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
-    sendEmail();
+    sendEmail(songName);
   };
 
   const handleCheckout = async () => {
+    const songName = useQuestion2((state) => state.song);
     downloadUnsignedTrue();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     const response = await fetch(`../api/checkout_sessions`, {
@@ -83,7 +83,7 @@ const Success = ({
     if (data.url) {
       router.push(data.url);
     }
-    sendEmail();
+    sendEmail(songName);
   };
 
   return (
