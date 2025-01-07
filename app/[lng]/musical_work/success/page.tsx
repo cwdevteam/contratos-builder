@@ -14,7 +14,7 @@ import useQuestion2 from "../../store/useQuestion2";
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-const sendEmail = async ({ songName }: { songName: string }) => {
+const sendEmail = async (songName: string) => {
   try {
     const response = await fetch("/api/send", {
       method: "POST",
@@ -69,7 +69,7 @@ const Success = ({
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
-    sendEmail({ songName });
+    sendEmail(songName);
   };
 
   const handleCheckout = async () => {
@@ -82,7 +82,7 @@ const Success = ({
     if (data.url) {
       router.push(data.url);
     }
-    sendEmail({ songName });
+    sendEmail(songName);
   };
 
   return (
