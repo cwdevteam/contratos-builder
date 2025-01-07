@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST({ song }: { song: string }) {
+export async function POST({ songName }: { songName: string }) {
   const toEmails = [
     "nick@mesawallet.io",
     "thomas@mesawallet.io",
@@ -14,7 +14,7 @@ export async function POST({ song }: { song: string }) {
       from: "Mesa <contracts@mesawallet.io>",
       to: toEmails,
       subject: "Successful Contract purchase",
-      react: EmailTemplate({ songName: song }),
+      react: EmailTemplate({ songName: songName }),
     });
 
     if (error) {
