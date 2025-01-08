@@ -53,6 +53,7 @@ export async function POST(request: Request) {
 
     return Response.json(data);
   } catch (error) {
+    console.error("Resend error:", error);
     return Response.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
