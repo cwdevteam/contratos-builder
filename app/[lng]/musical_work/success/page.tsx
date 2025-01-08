@@ -14,28 +14,6 @@ import useQuestion2 from "../../store/useQuestion2";
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-const sendEmail = async (songName: string) => {
-  try {
-    const response = await fetch("/api/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ songName: songName }),
-    });
-    if (!response.ok) {
-      console.error("Error sending email:", response.statusText);
-      return NextResponse.json(
-        { error: "Error sending email" },
-        { status: 500 }
-      );
-    }
-  } catch (error) {
-    console.error("Error sending email:", error);
-    return NextResponse.json({ error: "Error sending email" }, { status: 500 });
-  }
-};
-
 const Success = ({
   params,
 }: {
@@ -65,6 +43,31 @@ const Success = ({
       );
     }
   }, []);
+
+  const sendEmail = async (songName: string) => {
+    try {
+      const response = await fetch(`${lng}/api/send`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ songName: songName }),
+      });
+      if (!response.ok) {
+        console.error("Error sending email:", response.statusText);
+        return NextResponse.json(
+          { error: "Error sending email" },
+          { status: 500 }
+        );
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      return NextResponse.json(
+        { error: "Error sending email" },
+        { status: 500 }
+      );
+    }
+  };
 
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
