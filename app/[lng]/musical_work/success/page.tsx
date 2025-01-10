@@ -76,7 +76,6 @@ const Success = ({
   };
 
   const handleCheckout = async () => {
-    downloadUnsignedTrue();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     const response = await fetch(`../api/checkout_sessions`, {
       method: "POST",
@@ -86,6 +85,7 @@ const Success = ({
       router.push(data.url);
     }
     sendEmail(songName);
+    downloadUnsignedTrue();
   };
 
   return (
