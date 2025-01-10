@@ -5,37 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useQuestion1 from "../store/useQuestion1";
 import { useTranslation } from "@/app/i18n/client";
-
-interface PopupProps {
-  onClose: () => void;
-  params: {
-    lng: string;
-  };
-}
-
-const Popup = ({ onClose, params }: PopupProps) => {
-  const { lng } = params;
-  const { t } = useTranslation(lng, "question1");
-  return (
-    <div className="popup flex-col">
-      <p className="py-5">{t("popups.1")}</p>
-      <ol>
-        <li className="py-5">
-          {" "}
-          <b>{t("popups.2")}</b> {t("popups.3")}
-        </li>
-        <li className="py-5">
-          <b>{t("popups.4")}</b>
-        </li>
-      </ol>
-      <p>{t("popups.5")}</p>
-      <p className="pt-5">{t("popups.6")}</p>
-      <button onClick={onClose} className="popup_button">
-        x
-      </button>
-    </div>
-  );
-};
+import Popup from "reactjs-popup";
 
 function ContractBuilder1({
   params,
@@ -47,7 +17,8 @@ function ContractBuilder1({
   const { lng } = params;
   const { t } = useTranslation(lng, "question1");
   const { push } = useRouter();
-  const [showPopup, setShowPopup] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const [selectedOption, setSelectedOption] = useState(t("li1"));
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -72,10 +43,6 @@ function ContractBuilder1({
     } else if (selectedOption == t("id3")) {
       push("both/question2");
     }
-  };
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
   };
 
   const date = new Date().toLocaleDateString();
@@ -116,13 +83,92 @@ function ContractBuilder1({
                 id={t("id3")}
               />
               {t("li3")}
-              <a
-                className="items-center gap-2 underline underline-offset-4 font-share"
-                href="#"
-                onClick={() => push("/popups/bothDisclaimer")}
-              >
-                {t("read-more")}
-              </a>
+
+              {!isOpen2 && (
+                <Popup
+                  trigger={
+                    <a className="items-center gap-2 underline underline-offset-4 font-share">
+                      {t("read-more")}
+                    </a>
+                  }
+                  position="right center"
+                  modal
+                  nested
+                  className="popup"
+                  closeOnDocumentClick
+                >
+                  <div
+                    className="modal border-2 border-white"
+                    style={{ height: "60vh", overflowY: "scroll" }}
+                  >
+                    <div className=" p-4 sm:p-8 flex flex-col justify-between">
+                      <main className="flex flex-col gap-6 sm:gap-8">
+                        <p className="text-sm sm:text-base space-y-4 font-roboto">
+                          {t("1")}
+                          <br />
+                          {t("2")}
+                          <br />
+                          {t("3")}
+                          <br />
+                          <ol className="list-decimal list-inside">
+                            <li>
+                              {t("4")}
+                              <br />
+                              <span>{t("5")}</span>
+                            </li>
+                            <li>
+                              {t("6")}
+                              <br />
+                              <span>{t("7")}</span>
+                            </li>
+                          </ol>
+                          {t("8")}
+                          <br />
+                          {t("9")}
+                          <br />
+                          <ul className="list-disc list-inside">
+                            <li>
+                              {t("10")}
+                              <br />
+                            </li>
+                            <li>
+                              {t("11")}
+                              <br />
+                            </li>
+                            <li>
+                              {t("12")}
+                              <br />
+                            </li>
+                            <li>
+                              {t("13")}
+                              <br />
+                            </li>
+                          </ul>
+                          {t("14")}
+                          <br />
+                          {t("15")}
+                          <br />
+                          {t("16")}
+                          <br />
+                          {t("17")}
+                          <br />
+                        </p>
+                        <button
+                          onClick={() => {
+                            setIsOpen2(true);
+                            setTimeout(() => {
+                              setIsOpen2(false);
+                            }, 200);
+                          }}
+                          className="popup_button text-white hover:text-gray-300"
+                        >
+                          &times;
+                        </button>
+                      </main>
+                    </div>
+                  </div>
+                </Popup>
+              )}
             </label>
           </form>
         </div>
@@ -142,13 +188,50 @@ function ContractBuilder1({
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
-        <a
-          className="items-center gap-2 underline underline-offset-4"
-          href="#"
-          onClick={togglePopup}
-        >
-          {t("if-confused")}
-        </a>
+        {!isOpen && (
+          <Popup
+            trigger={
+              <a className="items-center gap-2 underline underline-offset-4">
+                {t("if-confused")}
+              </a>
+            }
+            position="right center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{ height: "60vh", overflowY: "scroll" }}
+            >
+              <p className="py-5">{t("popups.1")}</p>
+              <ol>
+                <li className="py-5">
+                  {" "}
+                  <b>{t("popups.2")}</b> {t("popups.3")}
+                </li>
+                <li className="py-5">
+                  <b>{t("popups.4")}</b>
+                </li>
+              </ol>
+              <p>{t("popups.5")}</p>
+              <p className="pt-5">{t("popups.6")}</p>
+              <button
+                onClick={() => {
+                  setIsOpen(true);
+                  setTimeout(() => {
+                    setIsOpen(false);
+                  }, 200);
+                }}
+                className="popup_button text-white hover:text-gray-300"
+              >
+                &times;
+              </button>
+            </div>
+          </Popup>
+        )}
+
         <div className="inline-flex gap-20">
           <button
             onClick={() => push("/")}
@@ -163,9 +246,6 @@ function ContractBuilder1({
             {t("submit")}
           </button>
         </div>
-        {showPopup && (
-          <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
-        )}
       </footer>
     </div>
   );

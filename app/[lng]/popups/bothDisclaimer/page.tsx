@@ -74,12 +74,6 @@ const Disclaimer = ({
           {t("17")}
           <br />
         </p>
-        {/* <button
-          onClick={() => push("/both/question2")}
-          className="w-fit bg-[#232323]/[.7] border-[#828282]/[.7]"
-        >
-          {t("18")}
-        </button> */}
       </main>
     </div>
   );

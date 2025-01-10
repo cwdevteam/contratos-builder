@@ -4,39 +4,7 @@ import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import useQuestion4 from "../../store/useQuestion4";
 import { useTranslation } from "@/app/i18n/client";
-
-interface PopupProps {
-  onClose: () => void;
-  params: {
-    lng: string;
-  };
-}
-
-const Popup = ({ onClose, params }: PopupProps) => {
-  const { push } = useRouter();
-  const { lng } = params;
-  const { t } = useTranslation(lng, "musical_work/question4");
-  return (
-    <div className="popup flex-col">
-      <p>{t("popups.1")}</p>
-      <a
-        className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push("/popups/moreInfoVoting")}
-      >
-        {t("popups.2")}
-      </a>
-      <a
-        className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push("/popups/moreInfoAdmin")}
-      >
-        {t("popups.3")}
-      </a>
-      <button onClick={onClose} className="popup_button">
-        x
-      </button>
-    </div>
-  );
-};
+import Popup from "reactjs-popup";
 
 const ContractBuilder4 = ({
   params,
@@ -47,7 +15,7 @@ const ContractBuilder4 = ({
 }) => {
   const { push } = useRouter();
 
-  const [showPopup, setShowPopup] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/question4");
@@ -55,10 +23,6 @@ const ContractBuilder4 = ({
   const updateVoteSelection = useQuestion4(
     (state) => state.updateVoteSelection
   );
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
@@ -110,13 +74,52 @@ const ContractBuilder4 = ({
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
-        <a
-          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
-          href="#"
-          onClick={togglePopup}
-        >
-          {t("confused")}
-        </a>
+        {!isOpen && (
+          <Popup
+            trigger={
+              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base">
+                {t("confused")}
+              </a>
+            }
+            position="right center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{ height: "60vh", overflowY: "scroll" }}
+            >
+              <p>{t("popups.1")}</p>
+              <br />
+              <a
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                onClick={() => push("/popups/moreInfoVoting")}
+              >
+                {t("popups.2")}
+              </a>
+              <br />
+              <a
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                onClick={() => push("/popups/moreInfoAdmin")}
+              >
+                {t("popups.3")}
+              </a>
+              <button
+                onClick={() => {
+                  setIsOpen(true);
+                  setTimeout(() => {
+                    setIsOpen(false);
+                  }, 200);
+                }}
+                className="popup_button text-white hover:text-gray-300"
+              >
+                &times;
+              </button>
+            </div>
+          </Popup>
+        )}
         <div className="inline-flex gap-20">
           <button
             onClick={() => push(`/musical_work/question3`)}
@@ -131,9 +134,6 @@ const ContractBuilder4 = ({
             {t("submit")}
           </button>
         </div>
-        {showPopup && (
-          <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
-        )}
       </footer>
     </div>
   );

@@ -5,26 +5,6 @@ import { useRouter } from "next/navigation";
 import useQuestion2 from "../../store/useQuestion2";
 import { useTranslation } from "@/app/i18n/client";
 
-interface PopupProps {
-  onClose: () => void;
-  params: {
-    lng: string;
-  };
-}
-
-const Popup = ({ onClose, params }: PopupProps) => {
-  const { lng } = params;
-  const { t } = useTranslation(lng, "both/question2");
-  return (
-    <div className="popup flex-col">
-      <p>{t("popups.1")}</p>
-      <button onClick={onClose} className="popup_button">
-        x
-      </button>
-    </div>
-  );
-};
-
 const ContractBuilder2 = ({
   params,
 }: {
@@ -35,7 +15,6 @@ const ContractBuilder2 = ({
   const { push } = useRouter();
   const updateSong = useQuestion2((state) => state.updateSong);
   const updateRecording = useQuestion2((state) => state.updateRecording);
-  const [showPopup, setShowPopup] = useState(false);
   const [song, setSelectedOptionSong] = useState("");
   const [recording, setRecording] = useState("");
   const { lng } = params;
@@ -134,9 +113,6 @@ const ContractBuilder2 = ({
             {t("submit")}
           </button>
         </div>
-        {showPopup && (
-          <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
-        )}
       </footer>
     </div>
   );

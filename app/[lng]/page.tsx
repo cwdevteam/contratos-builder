@@ -4,60 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { languages, fallbackLng } from "../i18n/settings";
 import { useTranslation } from "../i18n/client";
-
-interface PopupProps {
-  onClose: () => void;
-  params: {
-    lng: string;
-  };
-}
-
-const Popup = ({ onClose, params }: PopupProps) => {
-  const { lng } = params;
-  const { t } = useTranslation(lng);
-  return (
-    <div className="popup flex flex-col p-4 sm:p-8 text-sm sm:text-base">
-      <p>{t("popups.1")}</p>
-      <ul>
-        <li>
-          {t("popups.2")}
-          <br />
-          {t("popups.3")}
-          <br />
-          {t("popups.4")}
-        </li>
-        <br />
-        <li>
-          {t("popups.5")}
-          <br />
-          {t("popups.6")}
-          <br />
-          {t("popups.7")}
-        </li>
-        <br />
-        <li>
-          {t("popups.8")}
-          <br />
-          <ol className="list-disc pl-5">
-            <li>{t("popups.9")}</li>
-            <br />
-            <li>{t("popups.10")}</li>
-          </ol>
-          <br />
-        </li>
-      </ul>
-      {t("popups.11")}
-      <br />
-      <p>{t("popups.12")}</p>
-      <button
-        onClick={onClose}
-        className="popup_button text-white hover:text-gray-300"
-      >
-        &times;
-      </button>
-    </div>
-  );
-};
+import Popup from "reactjs-popup";
 
 export default function Home({
   params,
@@ -68,15 +15,9 @@ export default function Home({
 }) {
   let { lng } = params;
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
-
   const { push } = useRouter();
-  const [showPopup, setShowPopup] = useState(false);
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
-
   const { t } = useTranslation(lng);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (lng == "es") {
@@ -105,19 +46,72 @@ export default function Home({
         </ol>
       </section>
       <footer className="mt-8 flex flex-col gap-4 text-start pt-4">
-        <a
-          className="font-share text-2xl text-link max-w-fit underline text-start"
-          href="#"
-          onClick={togglePopup}
-        >
-          {t("confused")}
-        </a>
+        {!isOpen && (
+          <Popup
+            trigger={
+              <a className="font-share text-2xl text-link max-w-fit underline text-start">
+                {t("confused")}
+              </a>
+            }
+            position="right center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{ height: "60vh", overflowY: "scroll" }}
+            >
+              <p>{t("popups.1")}</p>
+              <ul>
+                <li>
+                  {t("popups.2")}
+                  <br />
+                  {t("popups.3")}
+                  <br />
+                  {t("popups.4")}
+                </li>
+                <br />
+                <li>
+                  {t("popups.5")}
+                  <br />
+                  {t("popups.6")}
+                  <br />
+                  {t("popups.7")}
+                </li>
+                <br />
+                <li>
+                  {t("popups.8")}
+                  <br />
+                  <ol className="list-disc pl-5">
+                    <li>{t("popups.9")}</li>
+                    <br />
+                    <li>{t("popups.10")}</li>
+                  </ol>
+                  <br />
+                </li>
+              </ul>
+              {t("popups.11")}
+              <br />
+              <p>{t("popups.12")}</p>
+              <button
+                onClick={() => {
+                  setIsOpen(true);
+                  setTimeout(() => {
+                    setIsOpen(false);
+                  }, 200);
+                }}
+                className="popup_button text-white hover:text-gray-300"
+              >
+                &times;
+              </button>
+            </div>
+          </Popup>
+        )}
         <button onClick={() => push(`/${lng}/popups/disclaimer`)}>
           {t("get-started")}
         </button>
-        {showPopup && (
-          <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
-        )}
       </footer>
     </div>
   );
