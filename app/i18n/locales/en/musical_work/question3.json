@@ -1,9 +1,10 @@
 {
-    "back1": "What type of splits contract would you like to create?",
-    "back2": "What is the name of the song?",
-    "p1": "How many collaborators contributed to writing the song?",
-    "p2": "Your contract has yet to be completed. Continue to fill out the decision tree.",
-    "h3": "1.0 Music Work Identification",
-    "p3": "The contracting parties have collaborated in the authorship and composition of the musical work titled",
-    "submit": "Submit"
-  }
+  "back1": "What type of splits contract would you like to create?",
+  "back2": "What is the name of the song?",
+  "p1": "How many collaborators contributed to writing the song?",
+  "p2": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "h3": "1.0 Music Work Identification",
+  "p3": "The contracting parties have collaborated in the authorship and composition of the musical work titled",
+  "back": "Back",
+  "submit": "Submit"
+}

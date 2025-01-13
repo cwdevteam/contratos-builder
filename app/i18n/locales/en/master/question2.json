@@ -1,17 +1,18 @@
 {
-    "back1": "What type of splits contract would you like to create?",
-    "p1": "What is the name of the song and its recorded version?",
-    "label1":"Song Composition",
-    "label2":"Recorded Version",
-    "p2": "Your contract has yet to be completed. Continue to fill out the decision tree.",
-    "h3": "1.0 Music Work Identification",
-    "p3": "The contracting parties have collaborated in the authorship and composition of the musical work titled",
-    "h32":"1.0 Master Recording  Identification",
-    "p4":"The contracting parties have collaborated in the recording and production of the sound recording titled",
-    "p5":"",
-    "submit": "Submit",
+  "back1": "What type of splits contract would you like to create?",
+  "p1": "What is the name of the song and its recorded version?",
+  "label1": "Song Composition",
+  "label2": "Recorded Version",
+  "p2": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "h3": "1.0 Music Work Identification",
+  "p3": "The contracting parties have collaborated in the authorship and composition of the musical work titled",
+  "h32": "1.0 Master Recording  Identification",
+  "p4": "The contracting parties have collaborated in the recording and production of the sound recording titled",
+  "p5": "",
+  "submit": "Submit",
+  "back": "Back",
 
-    "popups":{
-      "1":"Specifying the name of a song or musical work in contracts, particularly when a master recording is also involved, is crucial for ensuring clarity and preventing confusion. Multiple versions of a song, such as remixes, live performances, or covers, can exist, and without clear identification, it may lead to disputes over royalties, rights, and ownership. By defining the exact version, the contract ensures proper royalty allocation and protects the rights of creators and performers."
-    }
+  "popups": {
+    "1": "Specifying the name of a song or musical work in contracts, particularly when a master recording is also involved, is crucial for ensuring clarity and preventing confusion. Multiple versions of a song, such as remixes, live performances, or covers, can exist, and without clear identification, it may lead to disputes over royalties, rights, and ownership. By defining the exact version, the contract ensures proper royalty allocation and protects the rights of creators and performers."
   }
+}
