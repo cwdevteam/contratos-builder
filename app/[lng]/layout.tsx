@@ -38,9 +38,7 @@ export default async function RootLayout({
             <Image src={mesaImage} width={190} height={60} alt="M"></Image>
             <p className="text-[32px]"></p>
           </div>
-          <div className="order-3 sm:order-2">
-            <LanguageSwitcher />
-          </div>
+          <div className="order-3 sm:order-2">{/* <LanguageSwitcher /> */}</div>
           <div className="order-1 sm:order-3 text-center sm:text-right text-xs w-full sm:w-[17rem]">
             <p className="text-2xl font-black font-rubik">MUSIC SPLITS</p>
             <div className="font-share">{t("contract-builder")}</div>
