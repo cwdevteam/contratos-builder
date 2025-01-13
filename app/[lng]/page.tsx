@@ -18,6 +18,7 @@ export default function Home({
   const { push } = useRouter();
   const { t } = useTranslation(lng);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   useEffect(() => {
     if (lng == "es") {
@@ -109,9 +110,93 @@ export default function Home({
             </div>
           </Popup>
         )}
-        <button onClick={() => push(`/${lng}/popups/disclaimer`)}>
-          {t("get-started")}
-        </button>
+        {!isOpen2 && (
+          <Popup
+            trigger={<button>{t("get-started")}</button>}
+            position="right center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{ height: "60vh", overflowY: "scroll" }}
+            >
+              <div className=" p-4 sm:p-8 flex flex-col justify-between">
+                <main className="flex flex-col gap-6 sm:gap-8">
+                  <button
+                    onClick={() => {
+                      setIsOpen2(true);
+                      setTimeout(() => {
+                        setIsOpen2(false);
+                      }, 200);
+                    }}
+                    className="popup_button text-white hover:text-gray-300"
+                  >
+                    &times;
+                  </button>
+                  <p className="text-sm sm:text-base space-y-4 font-roboto">
+                    {t("1")}
+                    <br />
+                    {t("2")}
+                    <br />
+                    {t("3")}
+                    <br />
+                    <ol className="list-decimal list-inside">
+                      <li>
+                        {t("4")}
+                        <br />
+                        <span>{t("5")}</span>
+                      </li>
+                      <li>
+                        {t("6")}
+                        <br />
+                        <span>{t("7")}</span>
+                      </li>
+                    </ol>
+                    {t("8")}
+                    <br />
+                    {t("9")}
+                    <br />
+                    <ul className="list-disc list-inside">
+                      <li>
+                        {t("10")}
+                        <br />
+                      </li>
+                      <li>
+                        {t("11")}
+                        <br />
+                      </li>
+                      <li>
+                        {t("12")}
+                        <br />
+                      </li>
+                      <li>
+                        {t("13")}
+                        <br />
+                      </li>
+                    </ul>
+                    {t("14")}
+                    <br />
+                    {t("15")}
+                    <br />
+                    {t("16")}
+                    <br />
+                    {t("17")}
+                    <br />
+                    <button
+                      onClick={() => push(`/${lng}/question1`)}
+                      className=""
+                    >
+                      {t("get-started")}
+                    </button>
+                  </p>
+                </main>
+              </div>
+            </div>
+          </Popup>
+        )}
       </footer>
     </div>
   );
