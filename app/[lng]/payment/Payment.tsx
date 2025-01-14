@@ -29,7 +29,7 @@ const Payment = ({
 
   useEffect(() => {
     if (paid === "true") {
-      setMessage(t("1") + emails.join(", "));
+      setMessage(t("1"));
     } else {
       setMessage(t("2"));
     }
