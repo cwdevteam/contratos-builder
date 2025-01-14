@@ -17,13 +17,13 @@ const Payment = ({
   const query = useSearchParams();
   const paid = query.get("success");
   const pages = useDynamicPageStore((state) => state.pages);
-  console.log("pages:", pages);
+  //console.log("pages:", pages);
   const emails = Object.keys(pages).map((id) => {
     const email = pages[Number(id)]?.email;
-    console.log(`id: ${id}, email: ${email}`);
+    //console.log(`id: ${id}, email: ${email}`);
     return email;
   });
-  console.log("emails:", emails);
+  //console.log("emails:", emails);
 
   const [message, setMessage] = useState("");
 
