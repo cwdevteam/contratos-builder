@@ -1,4 +1,4 @@
-// pages/chat.tsx
+"use client";
 import { CdpAgentkit } from "@coinbase/cdp-agentkit-core";
 import { CdpToolkit } from "@coinbase/cdp-langchain";
 import { HumanMessage } from "@langchain/core/messages";
