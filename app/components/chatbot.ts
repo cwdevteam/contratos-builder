@@ -130,7 +130,9 @@ export async function initializeAgent() {
  */
 // eslint-disable-next-line
 export async function runAutonomousMode(
+  // eslint-disable-next-line
   agent: any,
+  // eslint-disable-next-line
   config: any,
   interval = 10
 ) {
