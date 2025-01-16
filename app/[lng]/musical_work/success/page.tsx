@@ -10,39 +10,9 @@ import useQuestion1 from "../../store/useQuestion1";
 import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
 
-import { initializeAgent, runChatMode } from "@/app/components/chatbot";
-import { HumanMessage } from "@langchain/core/messages";
-
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-
-const handleChat = async () => {
-  const { agent, config } = await initializeAgent();
-  try {
-    if (agent && config) {
-      await runChatMode(agent, config);
-      const userInput = "Hello, please give me wallet details"; // Replace with user input
-      const stream = await agent.stream(
-        { messages: [new HumanMessage(userInput)] },
-        config
-      );
-      // Process the response from the chatbot stream
-      for await (const chunk of stream) {
-        if ("agent" in chunk) {
-          console.log(chunk.agent.messages[0].content);
-        } else if ("tools" in chunk) {
-          console.log(chunk.tools.messages[0].content);
-        }
-        // ... display the chatbot response in your UI
-      }
-    } else {
-      console.error("Agent not initialized");
-    }
-  } catch (error) {
-    console.error("Error during chat interaction:", error);
-  }
-};
 
 const Success = ({
   params,
@@ -117,7 +87,6 @@ const Success = ({
     sendEmail(songName);
     downloadUnsignedTrue();
   };
-  handleChat();
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
