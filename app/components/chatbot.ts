@@ -5,19 +5,10 @@ import { MemorySaver } from "@langchain/langgraph";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { ChatOpenAI } from "@langchain/openai";
 import * as dotenv from "dotenv";
-// import * as fs from "fs";
-// import * as readline from "readline";
+import * as fs from "fs";
+import * as readline from "readline";
 
 dotenv.config();
-
-let fs: typeof import("fs") | undefined;
-let readline: typeof import("readline") | undefined;
-
-if (typeof window === "undefined") {
-  // Only import 'fs' and 'readline' in a Node.js environment
-  fs = require("fs");
-  readline = require("readline");
-}
 
 /**
  * Validates that required environment variables are set
