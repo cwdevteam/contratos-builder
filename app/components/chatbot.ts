@@ -7,10 +7,19 @@ import { MemorySaver } from "@langchain/langgraph";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { ChatOpenAI } from "@langchain/openai";
 import * as dotenv from "dotenv";
-import * as fs from "fs";
-import * as readline from "readline";
+// import * as fs from "fs";
+// import * as readline from "readline";
 
 dotenv.config();
+
+let fs: typeof import("fs") | undefined;
+let readline: typeof import("readline") | undefined;
+
+if (typeof window === "undefined") {
+  // Only import 'fs' and 'readline' in a Node.js environment
+  fs = require("fs");
+  readline = require("readline");
+}
 
 /**
  * Validates that required environment variables are set
@@ -72,12 +81,12 @@ export async function initializeAgent() {
     let walletDataStr: string | null = null;
 
     //so a new wallet is created each time
-    fs.unlinkSync(WALLET_DATA_FILE);
+    fs!.unlinkSync(WALLET_DATA_FILE);
 
     // Read existing wallet data if available
-    if (fs.existsSync(WALLET_DATA_FILE)) {
+    if (fs!.existsSync(WALLET_DATA_FILE)) {
       try {
-        walletDataStr = fs.readFileSync(WALLET_DATA_FILE, "utf8");
+        walletDataStr = fs!.readFileSync(WALLET_DATA_FILE, "utf8");
       } catch (error) {
         console.error("Error reading wallet data:", error);
         // Continue without wallet data
@@ -114,7 +123,7 @@ export async function initializeAgent() {
 
     // Save wallet data
     const exportedWallet = await agentkit.exportWallet();
-    fs.writeFileSync(WALLET_DATA_FILE, exportedWallet);
+    fs!.writeFileSync(WALLET_DATA_FILE, exportedWallet);
 
     return { agent, config: agentConfig };
   } catch (error) {
@@ -178,7 +187,7 @@ export async function runAutonomousMode(
 export async function runChatMode(agent: any, config: any) {
   console.log("Starting chat mode... Type 'exit' to end.");
 
-  const rl = readline.createInterface({
+  const rl = readline!.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
@@ -224,7 +233,7 @@ export async function runChatMode(agent: any, config: any) {
  * @returns Selected mode
  */
 async function chooseMode(): Promise<"chat" | "auto"> {
-  const rl = readline.createInterface({
+  const rl = readline!.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
