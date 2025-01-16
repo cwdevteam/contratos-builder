@@ -17,7 +17,7 @@ const Payment = ({
   const query = useSearchParams();
   const paid = query.get("success");
   const pages = useDynamicPageStore((state) => state.pages);
-  var emails: string[] = [];
+  let emails: string[] = [];
   Object.keys(pages).map((id) => {
     const email = pages[Number(id)]?.email;
     emails.push(email);
