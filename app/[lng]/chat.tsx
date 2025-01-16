@@ -14,7 +14,9 @@ dotenv.config();
 const WALLET_DATA_FILE = "wallet_data.txt";
 
 const ChatPage = () => {
+  // eslint-disable-next-line
   const [agent, setAgent] = useState<any>(null);
+  // eslint-disable-next-line
   const [messages, setMessages] = useState<any[]>([]);
   const [userInput, setUserInput] = useState("");
 
@@ -122,11 +124,16 @@ const ChatPage = () => {
     <div>
       <h1>Chatbot</h1>
       <div>
-        {messages.map((message: any, index: number) => (
-          <div key={index}>
-            <strong>{message.role}:</strong> {message.content}
-          </div>
-        ))}
+        {messages.map(
+          (
+            message: any, // eslint-disable-line
+            index: number
+          ) => (
+            <div key={index}>
+              <strong>{message.role}:</strong> {message.content}
+            </div>
+          )
+        )}
       </div>
       <form onSubmit={handleSubmit}>
         <input type="text" value={userInput} onChange={handleInputChange} />
