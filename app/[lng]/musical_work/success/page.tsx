@@ -10,6 +10,8 @@ import useQuestion1 from "../../store/useQuestion1";
 import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
 
+import HandleChat from "@/app/components/HandleChat";
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
@@ -120,6 +122,7 @@ const Success = ({
           <p className="text-lg sm:text-xl mb-8 font-share">{t("congrats")}</p>
           <h4 className="text-base sm:text-lg font-share">{t("lawyer")}</h4>
         </div>
+        <HandleChat />
       </main>
     </div>
   );

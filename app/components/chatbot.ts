@@ -59,7 +59,7 @@ const WALLET_DATA_FILE = "wallet_data.txt";
  *
  * @returns Agent executor and config
  */
-async function initializeAgent() {
+export async function initializeAgent() {
   try {
     // Initialize LLM with xAI configuration
     const llm = new ChatOpenAI({
@@ -129,7 +129,11 @@ async function initializeAgent() {
  * @param interval - Time interval between actions in seconds
  */
 // eslint-disable-next-line
-async function runAutonomousMode(agent: any, config: any, interval = 10) {
+export async function runAutonomousMode(
+  agent: any,
+  config: any,
+  interval = 10
+) {
   console.log("Starting autonomous mode...");
 
   while (true) {
@@ -169,7 +173,7 @@ async function runAutonomousMode(agent: any, config: any, interval = 10) {
  * @param config - Agent configuration
  */
 // eslint-disable-next-line
-async function runChatMode(agent: any, config: any) {
+export async function runChatMode(agent: any, config: any) {
   console.log("Starting chat mode... Type 'exit' to end.");
 
   const rl = readline.createInterface({
