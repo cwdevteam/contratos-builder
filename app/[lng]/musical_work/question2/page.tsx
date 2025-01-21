@@ -50,13 +50,13 @@ const ContractBuilder2 = ({
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 pt-20">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4 font-roboto_light">
+          <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p2")}
           </p>
           <h3 className="text-base font-bold mb-2 font-roboto_bold">
             {t("h3")}
           </h3>
-          <p className="text-sm sm:text-base font-roboto">
+          <p className="text-sm sm:text-base font-share">
             {t("p3")}{" "}
             <span className="text-[#AC4444] font-rubik">
               {song ? song : " "}
