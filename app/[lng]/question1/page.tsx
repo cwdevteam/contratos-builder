@@ -36,11 +36,11 @@ function ContractBuilder1({
   const handleSubmit = () => {
     updateSplit(selectedOption);
     updateDate(selectedDate);
-    if (selectedOption == t("id1")) {
+    if (selectedOption == t("li1")) {
       push("/musical_work/question2");
-    } else if (selectedOption == t("id2")) {
+    } else if (selectedOption == t("li2")) {
       push("master_recording/question2");
-    } else if (selectedOption == t("id3")) {
+    } else if (selectedOption == t("li3")) {
       push("both/question2");
     }
   };
@@ -51,7 +51,7 @@ function ContractBuilder1({
     <div className="sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row sm:gap-8 pt-10">
         <div className="sm:w-1/2 py-4 sm:py-10">
-          <p className=" mb-4 font-share text-[1.5rem] w-3/5">{t("p1")}</p>
+          <p className=" mb-4 font-share text-[1.5rem] w-full">{t("p1")}</p>
           <form className="flex flex-col font-rubik items-start">
             <label className="p-2">
               <input
@@ -59,8 +59,9 @@ function ContractBuilder1({
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id={t("id1")}
+                id={t("li1")}
                 required
+                //defaultChecked
               />
               {t("li1")}
             </label>
@@ -70,7 +71,7 @@ function ContractBuilder1({
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id={t("id2")}
+                id={t("li2")}
               />
               {t("li2")}
             </label>
@@ -80,7 +81,7 @@ function ContractBuilder1({
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id={t("id3")}
+                id={t("li3")}
               />
               {t("li3")}
 
@@ -173,7 +174,7 @@ function ContractBuilder1({
           </form>
         </div>
         <div className=" p-8 font-roboto_bold">
-          <p className="text-small pb-5 text-gray-500 font-roboto_light">
+          <p className="text-[0px] sm:text-[16px] pb-5 text-gray-500 font-roboto_light ">
             {t("p2")}
           </p>
           <p className="p-5 pl-0">
@@ -191,7 +192,7 @@ function ContractBuilder1({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="items-center gap-2 underline underline-offset-4 mx-auto">
+              <a className="items-center gap-2 underline underline-offset-4 mx-auto sm:mx-0">
                 {t("if-confused")}
               </a>
             }

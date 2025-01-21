@@ -53,7 +53,7 @@ export default async function RootLayout({
           width={95}
           height={30}
           alt="M"
-          className="mx-auto"
+          className="mx-auto mt-10"
         ></Image>
       </body>
     </html>

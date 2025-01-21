@@ -90,6 +90,7 @@ a {
 
   position: relative;
   top: 4px;
+  border-radius: 0;
 }
 
 input:checked {
