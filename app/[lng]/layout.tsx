@@ -48,6 +48,13 @@ export default async function RootLayout({
         <div className="pt-5">{children}</div>
         <SpeedInsights />
         <Analytics />
+        <Image
+          src={mesaImage}
+          width={95}
+          height={30}
+          alt="M"
+          className="mx-auto"
+        ></Image>
       </body>
     </html>
   );

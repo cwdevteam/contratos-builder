@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { languages, fallbackLng } from "../i18n/settings";
 import { useTranslation } from "../i18n/client";
@@ -57,7 +57,12 @@ export default function Home({
           >
             <div
               className="modal border-2 border-white"
-              style={{ height: "60vh", overflowY: "scroll" }}
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
             >
               <div className=" p-4 sm:p-8 flex flex-col justify-between">
                 <main className="flex flex-col gap-6 sm:gap-8">
@@ -79,18 +84,19 @@ export default function Home({
                     <br />
                     {t("3")}
                     <br />
-                    <ol className="list-decimal list-inside">
-                      <li>
+                    <ol className="list-decimal list-inside pl-4">
+                      <li className="pl-2">
                         {t("4")}
                         <br />
                         <span>{t("5")}</span>
                       </li>
-                      <li>
+                      <li className="pl-2">
                         {t("6")}
                         <br />
                         <span>{t("7")}</span>
                       </li>
                     </ol>
+                    <br />
                     {t("8")}
                     <br />
                     {t("9")}
@@ -99,17 +105,21 @@ export default function Home({
                       <li>
                         {t("10")}
                         <br />
+                        <br />
                       </li>
                       <li>
                         {t("11")}
+                        <br />
                         <br />
                       </li>
                       <li>
                         {t("12")}
                         <br />
+                        <br />
                       </li>
                       <li>
                         {t("13")}
+                        <br />
                         <br />
                       </li>
                     </ul>
