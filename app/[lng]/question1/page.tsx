@@ -234,16 +234,10 @@ function ContractBuilder1({
         )}
 
         <div className="inline-flex gap-20">
-          <button
-            onClick={() => push("/")}
-            className=" w-fit  sm:bg-black bg-[#AC444475]"
-          >
+          <button onClick={() => push("/")} className=" w-fit  bg-[#AC444475]">
             {t("back")}
           </button>
-          <button
-            onClick={handleSubmit}
-            className=" w-fit  sm:bg-black bg-[#AC444475]"
-          >
+          <button onClick={handleSubmit} className=" w-fit  bg-[#AC444475]">
             {t("submit")}
           </button>
         </div>

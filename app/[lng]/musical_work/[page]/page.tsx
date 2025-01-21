@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
+import useQuestion2 from "../../store/useQuestion2";
 import useDynamicPageStore from "../../store/use[page]";
 import { useTranslation } from "@/app/i18n/client";
 
@@ -18,6 +19,7 @@ const DynamicPage = ({
   const pageNumber = Number(useParams1.page);
   const pageCount = Number(searchParams.get("pageCount"));
   const lastSplit = Number(searchParams.get("split"));
+  const song = useQuestion2((state) => state.song);
 
   // Get page data from the Zustand store
   const pageData = useDynamicPageStore(
@@ -109,8 +111,8 @@ const DynamicPage = ({
   };
 
   return (
-    <div className=" p-4 sm:p-8 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pl-10 pt-10">
+    <div className="flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row pt-10">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
@@ -124,7 +126,7 @@ const DynamicPage = ({
                 type="text"
                 value={legalName}
                 onChange={handleNameChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
@@ -136,12 +138,12 @@ const DynamicPage = ({
                 type="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
             <div className="flex flex-row">
-              <div>
+              <div className="w-full sm:w-[38.5%]">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("type")}
                 </label>
@@ -159,7 +161,7 @@ const DynamicPage = ({
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
               </div>
-              <div className="pl-10">
+              <div className="">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
@@ -167,20 +169,21 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-1/2 p-2 font-rubik"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
                   required
                 />
               </div>
             </div>
           </form>
         </div>
-        <div className="w-full p-4 sm:p-8">
-          <p className="sm:text-sm text-gray-500 mb-4 font-roboto_thin">
+        <div className="w-full">
+          <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">{t("p2")}</h3>
           <p className="text-sm sm:text-base mb-4 font-roboto_light">
             {t("p3")}
+            <span className="text-[#AC4444] font-rubik"> {song}</span>
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">
             {t("contributor")} {pageNumber}:
@@ -212,7 +215,7 @@ const DynamicPage = ({
         ></p>
         <button
           onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit relative sm:bg-black bg-[#AC444475]"
+          className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
         >
           {t("submit")}
         </button>

@@ -120,14 +120,11 @@ const ContractBuilder4 = ({
         <div className="inline-flex gap-20">
           <button
             onClick={() => push("/both/question3")}
-            className=" w-fit sm:bg-black bg-[#AC444475]"
+            className=" w-fit bg-[#AC444475]"
           >
             {t("back")}
           </button>
-          <button
-            onClick={findNextPage}
-            className=" w-fit sm:bg-black bg-[#AC444475]"
-          >
+          <button onClick={findNextPage} className=" w-fit bg-[#AC444475]">
             {t("submit")}
           </button>
         </div>
