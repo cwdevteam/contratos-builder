@@ -44,21 +44,12 @@ const ContractBuilder5Admin = ({
               className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-4/5 p-2 font-rubik"
             />
           </form>
-          <div className="pt-10 w-4/5">
-            <a
-              className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
-              href="#"
-              onClick={() => push("/popups/moreInfoAdmin")}
-            >
-              {t("confused")}
-            </a>
-          </div>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 font-roboto_light pt-20">
+          <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
-          <h4 className="text-base sm:text-lg font-bold mb-2 font-roboto_bold">
+          <h4 className="text-base sm:text-lg font-bold mb-2 font-roboto_bold ">
             {t("4.0")}
           </h4>
           <p className="text-xs sm:text-sm font-roboto_thin w-4/5 pt-5">
@@ -68,6 +59,15 @@ const ContractBuilder5Admin = ({
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
+        <div className="pt-10 w-4/5 mx-auto sm:mx-0">
+          <a
+            className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
+            href="#"
+            onClick={() => push("/popups/moreInfoAdmin")}
+          >
+            {t("confused")}
+          </a>
+        </div>
         <div className="inline-flex gap-20">
           <button
             onClick={() => push("/musical_work/question4")}
