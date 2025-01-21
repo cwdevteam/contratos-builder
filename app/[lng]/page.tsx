@@ -40,11 +40,11 @@ export default function Home({
         </ol>
       </section>
       <footer className="mt-8 flex flex-col gap-4 text-start pt-4">
-        <p className="font-rubik text-black text-outline-red text-center text-[35px] sm:text-[0px]">
-          Controla tu
+        <p className="font-rubik text-black text-outline-red text-center text-[35px] sm:text-[0px] px-0">
+          {t("control")}
         </p>
         <span className="text-white font-rubik text-center text-[35px] sm:text-[0px]">
-          musica
+          {t("music")}
         </span>
         {!isOpen2 && (
           <Popup
@@ -131,12 +131,14 @@ export default function Home({
                     <br />
                     {t("17")}
                     <br />
-                    <button
-                      onClick={() => push(`/${lng}/question1`)}
-                      className=""
-                    >
-                      {t("get-started")}
-                    </button>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => push(`/${lng}/question1`)}
+                        className="border-none bg-[#82828270]"
+                      >
+                        {t("proceed")}&rarr;
+                      </button>
+                    </div>
                   </p>
                 </main>
               </div>
