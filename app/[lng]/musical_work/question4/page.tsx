@@ -34,6 +34,8 @@ const ContractBuilder4 = ({
       push("/musical_work/question5vote");
     } else if (selectedOption == "ADMIN") {
       push("/musical_work/question5admin");
+    } else if (selectedOption == "SKIP") {
+      push("/musical_work/success");
     }
   };
 
@@ -67,17 +69,28 @@ const ContractBuilder4 = ({
               />
               <span className="text-sm sm:text-base">{t("admin")}</span>
             </label>
+            <label className="flex items-center font-rubik">
+              <input
+                type="radio"
+                name="type"
+                className="radio mr-2"
+                value="SKIP"
+                onChange={handleRadioChange}
+                required
+              />
+              <span className="text-sm sm:text-base">{t("skip")}</span>
+            </label>
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4  font-share pt-20">{t("p1")}</p>
+          <p className="text-gray-500 mb-4  font-share">{t("p1")}</p>
         </div>
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         {!isOpen && (
           <Popup
             trigger={
-              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base">
+              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base m-auto sm:m-0 pb-10">
                 {t("confused")}
               </a>
             }
