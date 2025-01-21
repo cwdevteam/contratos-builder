@@ -29,6 +29,10 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
+.text-outline-red {
+  -webkit-text-stroke: 1px #ac4444;
+}
+
 main {
   width: 100%;
   padding: 0 1rem;
