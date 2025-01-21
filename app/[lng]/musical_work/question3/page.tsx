@@ -43,7 +43,7 @@ const ContractBuilder3 = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm pt-20">
+        <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm ">
           <p className="pl-5 text-[#FFFFFF] text-[1.5rem] pt-5">{t("p1")}</p>
           <form className="flex flex-col pl-5 pt-5">
             <input
@@ -58,13 +58,17 @@ const ContractBuilder3 = ({
         </div>
         <div className=" p-8 py-1 pt-20">
           <div className="w-4/5">
-            <p className=" font-roboto_light text-[#696969]">{t("p2")}</p>
-            <h3 className="text-base font-bold mb-2 font-roboto_bold">
+            <p className=" font-roboto_light text-[#696969] text-[0px] sm:text-[16px]">
+              {t("p2")}
+            </p>
+            <h3 className="font-bold mb-2 font-roboto_bold text-[0px] sm:text-[16px]">
               {t("h3")}
             </h3>
-            <p className=" font-roboto">
+            <p className=" font-roboto text-[0px] sm:text-[16px]">
               {t("p3")}{" "}
-              <span className="text-[#AC4444] font-rubik">{song}</span>
+              <span className="text-[#AC4444] font-rubik text-[0px] sm:text-[16px]">
+                {song}
+              </span>
             </p>
           </div>
         </div>
@@ -73,14 +77,11 @@ const ContractBuilder3 = ({
         <div className="inline-flex gap-20">
           <button
             onClick={() => push("/musical_work/question2")}
-            className=" w-fit sm:bg-black bg-[#AC444475]"
+            className=" w-fit bg-[#AC444475]"
           >
             {t("back")}
           </button>
-          <button
-            onClick={handleSubmit}
-            className=" w-fit sm:bg-black bg-[#AC444475]"
-          >
+          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
             {t("submit")}
           </button>
         </div>

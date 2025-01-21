@@ -17,11 +17,10 @@ const Payment = ({
   const query = useSearchParams();
   const paid = query.get("success");
   const pages = useDynamicPageStore((state) => state.pages);
-  console.log("pages:", pages);
-  const emails = Object.keys(pages).map((id) => {
+  const emails: string[] = [];
+  Object.keys(pages).map((id) => {
     const email = pages[Number(id)]?.email;
-    console.log(`id: ${id}, email: ${email}`);
-    return email;
+    emails.push(email);
   });
   console.log("emails:", emails);
 
@@ -29,7 +28,7 @@ const Payment = ({
 
   useEffect(() => {
     if (paid === "true") {
-      setMessage(t("1") + emails.join(", "));
+      setMessage(t("1"));
     } else {
       setMessage(t("2"));
     }

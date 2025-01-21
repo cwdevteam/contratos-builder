@@ -7,6 +7,7 @@
   "question": "Would you like to vote when making business decisions or designate an administrator?",
   "vote": "VOTE",
   "admin": "DESIGNATE ADMIN",
+  "skip": "SKIP",
   "p1": "Your contract has yet to be completed. Continue to fill out the decision tree.",
   "confused": "Confused with this bit too? read here.",
   "submit": "Submit",

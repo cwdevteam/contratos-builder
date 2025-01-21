@@ -87,7 +87,6 @@ const Success = ({
     sendEmail(songName);
     downloadUnsignedTrue();
   };
-
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
@@ -117,8 +116,7 @@ const Success = ({
           </div>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center font-share p-0">
-          <p className="text-lg sm:text-xl mb-8 font-share">{t("congrats")}</p>
-          <h4 className="text-base sm:text-lg font-share">{t("lawyer")}</h4>
+          <p className="text-base sm:text-lg font-share">{t("lawyer")}</p>
         </div>
       </main>
     </div>

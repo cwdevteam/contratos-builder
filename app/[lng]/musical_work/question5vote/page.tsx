@@ -47,7 +47,7 @@ const ContractBuilder5Vote = ({
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 pt-20 font-roboto_light">
+          <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
           <h4 className="text-base sm:text-lg font-bold mb-2 pt-5 font-roboto_bold">
@@ -69,7 +69,7 @@ const ContractBuilder5Vote = ({
       </main>
       <footer className="mt-8 flex flex-col gap-4">
         <a
-          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
+          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base mx-auto sm:mx-0"
           href="#"
           onClick={() => push("/popups/moreInfoVoting")}
         >
@@ -78,14 +78,11 @@ const ContractBuilder5Vote = ({
         <div className="inline-flex gap-20">
           <button
             onClick={() => push("/musical_work/question4")}
-            className=" w-fit sm:bg-black bg-[#AC444475]"
+            className=" w-fit bg-[#AC444475]"
           >
             {t("back")}
           </button>
-          <button
-            onClick={handleSubmit}
-            className=" w-fit sm:bg-black bg-[#AC444475]"
-          >
+          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
             {t("submit")}
           </button>
         </div>
