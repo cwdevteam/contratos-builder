@@ -191,7 +191,7 @@ function ContractBuilder1({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="items-center gap-2 underline underline-offset-4">
+              <a className="items-center gap-2 underline underline-offset-4 mx-auto">
                 {t("if-confused")}
               </a>
             }
