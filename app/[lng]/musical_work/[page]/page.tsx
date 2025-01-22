@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
+import useQuestion2 from "../../store/useQuestion2";
 import useDynamicPageStore from "../../store/use[page]";
 import { useTranslation } from "@/app/i18n/client";
 
@@ -18,7 +19,7 @@ const DynamicPage = ({
   const pageNumber = Number(useParams1.page);
   const pageCount = Number(searchParams.get("pageCount"));
   const lastSplit = Number(searchParams.get("split"));
-  const estimated_split = (100 / pageCount).toFixed(2);
+  const song = useQuestion2((state) => state.song);
 
   // Get page data from the Zustand store
   const pageData = useDynamicPageStore(
@@ -110,138 +111,116 @@ const DynamicPage = ({
   };
 
   return (
-    <div className=" p-4 sm:p-8 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          {/* Previous question buttons */}
-          <div className="mb-4">
-            <button
-              onClick={() => router.push("/question1")}
-              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
-            >
-              {t("back1")}
-            </button>
-            <button
-              onClick={() => router.push("/musical_work/question2")}
-              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
-            >
-              {t("back2")}
-            </button>
-            <button
-              onClick={() => router.push("/musical_work/question3")}
-              className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
-            >
-              {t("back3")}
-            </button>
-
-            {Array.from({ length: pageNumber - 1 }, (_, i) => (
-              <button
-                key={i + 1}
-                onClick={() =>
-                  router.push(`/musical_work/${i + 1}?pageCount=${pageCount}`)
-                }
-                className="text-xs text-gray-500 w-full border-0 relative text-start border-none"
-              >
-                {t("contributor")} {i + 1}
-              </button>
-            ))}
-          </div>
-          <h2 className="text-lg sm:text-xl mb-4">
+    <div className="flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row pt-10">
+        <div className="w-full">
+          <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-xs sm:text-sm mb-2 block">
+              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                 {t("name")}
               </label>
               <input
                 type="text"
                 value={legalName}
                 onChange={handleNameChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
             <div>
-              <label className="text-xs sm:text-sm mb-2 block">
+              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                 {t("email")}
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
-            <div>
-              <label className="text-xs sm:text-sm mb-2 block">
-                {t("type")}
-              </label>
-              <select
-                name="type"
-                id="cont"
-                value={contributorType}
-                className="bg-black w-full sm:w-1/2"
-                onChange={handleContributorChange}
-                required
-              >
-                <option value=""></option>
-                <option value={t("lyrics")}>{t("lyrics")}</option>
-                <option value={t("music")}>{t("music")}</option>
-                <option value={t("both2")}>{t("both")}</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-xs sm:text-sm mb-2 block">
-                {t("split")}
-              </label>
-              <input
-                type="number"
-                max="100"
-                placeholder={String(estimated_split)}
-                onChange={handleSplitChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2"
-                required
-              />
+            <div className="flex flex-row">
+              <div className="w-full sm:w-[38.5%]">
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                  {t("type")}
+                </label>
+                <select
+                  name="type"
+                  id="cont"
+                  value={contributorType}
+                  className="bg-black p-2 size-10 w-full font-rubik"
+                  onChange={handleContributorChange}
+                  required
+                >
+                  <option value=""></option>
+                  <option value={t("lyrics")}>{t("lyrics")}</option>
+                  <option value={t("music")}>{t("music")}</option>
+                  <option value={t("both2")}>{t("both")}</option>
+                </select>
+              </div>
+              <div className="">
+                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                  {t("split")}
+                </label>
+                <input
+                  type="number"
+                  max="100"
+                  onChange={handleSplitChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
             </div>
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4">{t("p1")}</p>
-          <h3 className="text-base sm:text-lg font-bold mb-2"></h3>
-          <p className="text-sm sm:text-base mb-4">{t("p3")}</p>
-          <h3 className="text-base sm:text-lg font-bold mb-2">
+        <div className="w-full">
+          <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
+            {t("p1")}
+          </p>
+          <h3 className="text-base mb-2 font-roboto_bold">{t("p2")}</h3>
+          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+            {t("p3")}
+            <span className="text-[#AC4444] font-rubik"> {song}</span>
+          </p>
+          <h3 className="text-base mb-2 font-roboto_bold">
             {t("contributor")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("name2")}:{" "}
-            <span className="text-red-500 text-lg">{legalName}</span>
+            <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base">
-            {t("email2")}: <span className="text-red-500 text-lg">{email}</span>
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("email2")}:{" "}
+            <span className="text-[#AC4444] font-rubik">{email}</span>
           </p>
-          <p className="text-sm sm:text-base">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("contribution2")}:{" "}
-            <span className="text-red-500 text-lg">{contributorType}</span>
+            <span className="text-[#AC4444] font-rubik ">
+              {contributorType}
+            </span>
           </p>
-          <p className="text-sm sm:text-base">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("split2")}:{" "}
-            <span className="text-red-500 text-lg" id="split"></span>
+            <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
+      <footer className="flex flex-col gap-6 row-start-3">
         <p
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <button
-          onClick={handleNextPage}
-          className=" text-white py-2 px-4 rounded-lg w-full"
-        >
-          {t("next")}
-        </button>
+        <div className="inline-flex relative bottom-0 left-[19rem] justify-between sm:justify-normal sm:gap-20">
+          <button
+            onClick={handleNextPage}
+            className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
+          >
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );

@@ -14,16 +14,34 @@
   }
 }
 
+.modal {
+  background: #000000;
+  border-radius: 8px;
+  padding: 20px;
+  height: 25%;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.popup-overlay {
+  background: rgba(255, 255, 255, 0);
+}
+
+.text-outline-red {
+  -webkit-text-stroke: 1px #ac4444;
+}
+
 main {
   width: 100%;
   padding: 0 1rem;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   main {
-    width: 80%;
+    /* width: 80%; */
     text-align: left;
   }
 }
@@ -40,6 +58,10 @@ html {
   text-align: left;
 }
 
+p {
+  line-height: 1.25em;
+}
+
 button {
   display: block;
   border: 2px solid rgba(225, 133, 131, 1);
@@ -47,7 +69,6 @@ button {
   font-size: 1.125rem;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
-  margin-top: 2.5rem;
   text-align: center;
 }
 
@@ -68,6 +89,7 @@ a {
 
   position: relative;
   top: 4px;
+  border-radius: 0;
 }
 
 input:checked {
@@ -98,7 +120,6 @@ input:checked {
   top: 1rem;
   right: 1rem;
   background-color: transparent;
-  border: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -106,11 +127,19 @@ input:checked {
 select {
   border: solid thin;
   border-color: white;
-  border-radius: 2%;
+  border-radius: 0.5rem;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }

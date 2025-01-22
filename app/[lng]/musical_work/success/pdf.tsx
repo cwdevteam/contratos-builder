@@ -403,7 +403,8 @@ const PDF = (isClicked: boolean) => {
       }
     });
     const pdfBlob = doc.output("blob");
-    doc.save("unsignedContract.pdf");
+    const docTitle = "Splits+" + song + ".pdf";
+    doc.save(docTitle);
 
     const JWT = process.env.NEXT_PUBLIC_PINATA_JWT;
     async function pinFileToIPFS() {
