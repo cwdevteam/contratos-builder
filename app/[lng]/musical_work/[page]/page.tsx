@@ -208,17 +208,19 @@ const DynamicPage = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
+      <footer className="flex flex-col gap-6 row-start-3">
         <p
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <button
-          onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
-        >
-          {t("submit")}
-        </button>
+        <div className="inline-flex relative bottom-0 left-[19rem] justify-between sm:justify-normal sm:gap-20">
+          <button
+            onClick={handleNextPage}
+            className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
+          >
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );

@@ -21,7 +21,7 @@ export default function Home({
   const [isOpen2, setIsOpen2] = useState(false);
 
   return (
-    <div className="flex flex-col items-center md:items-start pl-10 pt-20  p-2 w-full sm:w-3/5">
+    <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5">
       <section className="w-full flex flex-col gap-5">
         <p className="md:text-[32px] text-[20px] font-share tracking-[-0.05rem] text-start">
           {t("h3-1")}
@@ -39,7 +39,7 @@ export default function Home({
           <li className="pb-2">{t("li3")}</li>
         </ol>
       </section>
-      <footer className="mt-8 flex flex-col gap-4 text-start pt-4">
+      <footer className="mt-8 flex flex-col text-start pt-4">
         <p className="font-rubik text-black text-outline-red text-center text-[35px] sm:text-[0px] px-0">
           {t("control")}
         </p>
