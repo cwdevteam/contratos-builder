@@ -1,17 +1,18 @@
 {
-    "back1": "¿Que tipo de contrato quieres crear?",
-    "p1": "¿Cuál es el nombre de la canción?",
-    "label1":"Composición",
-    "label2":"Master",
-    "p2": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
-    "h3": "1.0 Identificación de la Obra Musical",
-    "p3": "Las partes contratantes han colaborado en la autoría y composición de la Obra Musical titulada",
-    "h32":"1.0 Identificación grabación Master",
-    "p4":"Las partes contratantes han colaborado en la grabación y producción de la Grabación Master titulada",
-    "p5":" que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
-    "submit": "Enviar",
+  "back1": "¿Que tipo de contrato quieres crear?",
+  "p1": "¿Cuál es el nombre de la canción?",
+  "label1": "Composición",
+  "label2": "Master",
+  "p2": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
+  "h3": "1.0 Identificación de la Obra Musical",
+  "p3": "Las partes contratantes han colaborado en la autoría y composición de la Obra Musical titulada",
+  "h32": "1.0 Identificación grabación Master",
+  "p4": "Las partes contratantes han colaborado en la grabación y producción de la Grabación Master titulada",
+  "p5": " que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
+  "submit": "Siguiente",
+  "back": "Atrás",
 
-    "popups":{
-      "1":"Specifying the name of a song or musical work in contracts, particularly when a master recording is also involved, is crucial for ensuring clarity and preventing confusion. Multiple versions of a song, such as remixes, live performances, or covers, can exist, and without clear identification, it may lead to disputes over royalties, rights, and ownership. By defining the exact version, the contract ensures proper royalty allocation and protects the rights of creators and performers."
-    }
+  "popups": {
+    "1": "Specifying the name of a song or musical work in contracts, particularly when a master recording is also involved, is crucial for ensuring clarity and preventing confusion. Multiple versions of a song, such as remixes, live performances, or covers, can exist, and without clear identification, it may lead to disputes over royalties, rights, and ownership. By defining the exact version, the contract ensures proper royalty allocation and protects the rights of creators and performers."
   }
+}

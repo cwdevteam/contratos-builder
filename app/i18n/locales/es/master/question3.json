@@ -1,10 +1,11 @@
 {
-    "back1": "¿Que tipo de contrato quieres crear?",
-    "back2": "¿Cuál es el nombre de la canción?",
-    "p1": "¿Cuantos colaboradores son dueños de un porcentaje del Máster?",
-    "p2": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
-    "h3": "1.0 Identificación grabación Master",
-    "p3": "Las partes contratantes han colaborado en la grabación y producción de la Grabación Master titulada ",
-    "p4":" que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
-    "submit": "Enviar"
-  }
+  "back1": "¿Que tipo de contrato quieres crear?",
+  "back2": "¿Cuál es el nombre de la canción?",
+  "p1": "¿Cuantos colaboradores son dueños de un porcentaje del Máster?",
+  "p2": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
+  "h3": "1.0 Identificación grabación Master",
+  "p3": "Las partes contratantes han colaborado en la grabación y producción de la Grabación Master titulada ",
+  "p4": " que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
+  "submit": "Siguiente",
+  "back": "Atrás"
+}
