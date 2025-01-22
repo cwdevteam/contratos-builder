@@ -4,7 +4,7 @@ import Image from "next/image";
 import mesaImage from "./public/images/mesa_logo.png";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+// import LanguageSwitcher from "../components/LanguageSwitcher";
 import { useTranslation } from "../i18n";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -38,9 +38,7 @@ export default async function RootLayout({
             <Image src={mesaImage} width={190} height={60} alt="M"></Image>
             <p className="float-left text-[32px]"></p>
           </div>
-          <div>
-            <LanguageSwitcher />
-          </div>
+          <div>{/* <LanguageSwitcher /> */}</div>
           <div className="text-right text-xs w-[17rem]">
             <p className="text-2xl font-black font-rubik">MUSIC SPLITS</p>
             <div className="font-share text-center">
