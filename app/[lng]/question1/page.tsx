@@ -92,7 +92,7 @@ function ContractBuilder1({
                       {t("read-more")}
                     </a>
                   }
-                  position="right center"
+                  position="center center"
                   modal
                   nested
                   className="popup"
@@ -196,7 +196,7 @@ function ContractBuilder1({
                 {t("if-confused")}
               </a>
             }
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"

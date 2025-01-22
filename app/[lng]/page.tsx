@@ -49,7 +49,7 @@ export default function Home({
         {!isOpen2 && (
           <Popup
             trigger={<button>{t("get-started")}</button>}
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"
@@ -152,7 +152,7 @@ export default function Home({
                 {t("confused")}
               </a>
             }
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"
