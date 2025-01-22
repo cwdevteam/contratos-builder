@@ -213,7 +213,7 @@ const DynamicPage = ({
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-[19rem] justify-between sm:justify-normal sm:gap-20">
+        <div className="inline-flex relative bottom-0 left-0 justify-between sm:justify-normal sm:gap-20">
           <button
             onClick={handleNextPage}
             className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"

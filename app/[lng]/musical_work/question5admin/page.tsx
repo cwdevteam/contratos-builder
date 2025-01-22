@@ -57,7 +57,7 @@ const ContractBuilder5Admin = ({
         </div>
       </main>
       <a
-        className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
+        className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base pb-5"
         href="#"
         onClick={() => push("/popups/moreInfoAdmin")}
       >
