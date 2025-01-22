@@ -100,7 +100,12 @@ function ContractBuilder1({
                 >
                   <div
                     className="modal border-2 border-white"
-                    style={{ height: "60vh", overflowY: "scroll" }}
+                    style={{
+                      height: "80vh",
+                      width: "90vw",
+                      maxWidth: "600px",
+                      overflowY: "scroll",
+                    }}
                   >
                     <div className=" p-4 sm:p-8 flex flex-col justify-between">
                       <main className="flex flex-col gap-6 sm:gap-8">
@@ -204,7 +209,12 @@ function ContractBuilder1({
           >
             <div
               className="modal border-2 border-white"
-              style={{ height: "60vh", overflowY: "scroll" }}
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
             >
               <p className="py-5">{t("popups.1")}</p>
               <ol>

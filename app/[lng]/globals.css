@@ -2,36 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-.modal {
-  background: #000000;
-  border-radius: 8px;
-  padding: 20px;
-  height: 25%;
-  max-width: 500px;
-  width: 90%;
-  position: relative;
-}
-
-.popup-overlay {
-  background: rgba(255, 255, 255, 0);
-}
-
-.text-outline-red {
-  -webkit-text-stroke: 1px #ac4444;
-}
-
 main {
   width: 100%;
   padding: 0 1rem;
@@ -58,8 +28,9 @@ html {
   text-align: left;
 }
 
-p {
-  line-height: 1.25em;
+a {
+  text-align: left;
+  color: rgba(49, 103, 180, 1);
 }
 
 button {
@@ -72,9 +43,8 @@ button {
   text-align: center;
 }
 
-a {
-  text-align: left;
-  color: rgba(49, 103, 180, 1);
+p {
+  line-height: 1.25em;
 }
 
 .radio {
@@ -96,6 +66,16 @@ input:checked {
   border: 8px solid white;
 }
 
+.modal {
+  background: #000000;
+  border-radius: 8px;
+  padding: 20px;
+  height: 25%;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -110,6 +90,7 @@ input:checked {
   color: white;
   padding: 1rem;
   overflow-y: auto;
+  margin: auto;
 }
 
 .popup_button {
@@ -124,10 +105,29 @@ input:checked {
   cursor: pointer;
 }
 
+.popup-overlay {
+  background: rgba(255, 255, 255, 0);
+}
+
 select {
   border: solid thin;
   border-color: white;
   border-radius: 0.5rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+.text-outline-red {
+  -webkit-text-stroke: 1px #ac4444;
 }
 
 @layer utilities {

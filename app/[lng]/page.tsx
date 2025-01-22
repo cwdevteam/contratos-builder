@@ -160,7 +160,12 @@ export default function Home({
           >
             <div
               className="modal border-2 border-white"
-              style={{ height: "60vh", overflowY: "scroll" }}
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
             >
               <p>{t("popups.1")}</p>
               <ul>
