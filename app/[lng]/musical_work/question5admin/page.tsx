@@ -30,14 +30,12 @@ const ContractBuilder5Admin = ({
   };
 
   return (
-    <div className=" p-4 sm:p-8 flex flex-col justify-between">
+    <div className="sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <h1 className="text-lg sm:text-xl mb-4 font-share w-3/5 py-5">
-            {t("name")}
-          </h1>
+          <h1 className="text-lg sm:text-xl font-share w-3/5">{t("name")}</h1>
           <form className="flex flex-col">
-            <label className="text-xs mb-2 font-share">{t("name-list")}</label>
+            <label className="text-xs font-share">{t("name-list")}</label>
             <input
               type="text"
               onChange={handleNameChange}
@@ -45,11 +43,11 @@ const ContractBuilder5Admin = ({
             />
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
+        <div className="w-full sm:w-1/2 sm:p-8">
+          <p className="text-gray-500 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
-          <h4 className="text-base sm:text-lg font-bold mb-2 font-roboto_bold ">
+          <h4 className="text-base sm:text-lg font-bold font-roboto_bold ">
             {t("4.0")}
           </h4>
           <p className="text-xs sm:text-sm font-roboto_thin w-4/5 pt-5">
@@ -58,17 +56,15 @@ const ContractBuilder5Admin = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <div className="pt-10 w-4/5 mx-auto sm:mx-0">
-          <a
-            className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
-            href="#"
-            onClick={() => push("/popups/moreInfoAdmin")}
-          >
-            {t("confused")}
-          </a>
-        </div>
-        <div className="inline-flex gap-20">
+      <a
+        className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
+        href="#"
+        onClick={() => push("/popups/moreInfoAdmin")}
+      >
+        {t("confused")}
+      </a>
+      <footer className="flex flex-col gap-6 row-start-3">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
           <button
             onClick={() => push("/musical_work/question4")}
             className=" w-fit bg-[#AC444475]"

@@ -192,7 +192,7 @@ function ContractBuilder1({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="items-center gap-2 underline underline-offset-4 mx-auto sm:mx-0">
+              <a className="items-center gap-2 underline underline-offset-4 mx-auto sm:mx-0 pb-5">
                 {t("if-confused")}
               </a>
             }
@@ -233,7 +233,7 @@ function ContractBuilder1({
           </Popup>
         )}
 
-        <div className="inline-flex gap-20">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
           <button onClick={() => push("/")} className=" w-fit  bg-[#AC444475]">
             {t("back")}
           </button>

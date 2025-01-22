@@ -65,8 +65,8 @@ const ContractBuilder2 = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <div className="inline-flex gap-20">
+      <footer className="flex flex-col gap-6 row-start-3">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
           <button
             onClick={() => push("/question1")}
             className=" w-fit bg-[#AC444475]"

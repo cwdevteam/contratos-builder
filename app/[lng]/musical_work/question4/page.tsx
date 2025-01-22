@@ -86,7 +86,7 @@ const ContractBuilder4 = ({
           <p className="text-gray-500 mb-4  font-share">{t("p1")}</p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
+      <footer className="flex flex-col gap-6 row-start-3">
         {!isOpen && (
           <Popup
             trigger={
@@ -94,7 +94,7 @@ const ContractBuilder4 = ({
                 {t("confused")}
               </a>
             }
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"
@@ -133,7 +133,7 @@ const ContractBuilder4 = ({
             </div>
           </Popup>
         )}
-        <div className="inline-flex gap-20">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
           <button
             onClick={() => push(`/musical_work/question3`)}
             className=" w-fit bg-[#AC444475]"
