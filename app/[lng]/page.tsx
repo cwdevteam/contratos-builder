@@ -84,53 +84,6 @@ export default function Home({
                     <br />
                     {t("3")}
                     <br />
-                    <ol className="list-decimal list-inside pl-4">
-                      <li className="pl-2">
-                        {t("4")}
-                        <br />
-                        <span>{t("5")}</span>
-                      </li>
-                      <li className="pl-2">
-                        {t("6")}
-                        <br />
-                        <span>{t("7")}</span>
-                      </li>
-                    </ol>
-                    <br />
-                    {t("8")}
-                    <br />
-                    {t("9")}
-                    <br />
-                    <ul className="list-disc list-inside">
-                      <li>
-                        {t("10")}
-                        <br />
-                        <br />
-                      </li>
-                      <li>
-                        {t("11")}
-                        <br />
-                        <br />
-                      </li>
-                      <li>
-                        {t("12")}
-                        <br />
-                        <br />
-                      </li>
-                      <li>
-                        {t("13")}
-                        <br />
-                        <br />
-                      </li>
-                    </ul>
-                    {t("14")}
-                    <br />
-                    {t("15")}
-                    <br />
-                    {t("16")}
-                    <br />
-                    {t("17")}
-                    <br />
                     <div className="flex justify-end">
                       <button
                         onClick={() => push(`/${lng}/question1`)}

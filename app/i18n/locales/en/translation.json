@@ -29,22 +29,7 @@
     "11": "Summary",
     "12": "By self-publishing and self-distributing, you keep all the creative and financial control over your music but take on the added responsibility of managing rights, royalties, promotion, distribution logistics and financial distribution. You need to be well-organized and either learn how to handle these aspects, hire professionals or use online tools to assist you."
   },
-  "1": "Disclaimer for BOTH Track Contract Builder",
-  "2": "Important Notice: Please Read Before Proceeding",
-  "3": "The BOTH Track contract builder is designed exclusively for agreements where the metadata for the songwriting rights (composition) and the master recording rights (recorded performance) are identical. This means that:",
-  "4": "Ownership Structures:",
-  "5": "All participants in the contract must have the same ownership percentages across both the songwriting and master recording rights. If the ownership structures differ between these two rights (e.g., different stakeholders or varying splits), this path is not suitable for your needs, we recommend you sign 1 songwriting contract and 1 master recording contract.",
-  "6": "Participants:",
-  "7": "Every individual or entity listed in the contract must contribute to, or own a stake in, both the songwriting and master recording rights. This includes co-writers, producers, artists, and other contributors. The tool assumes unified participation and does not account for complexities where parties may have involvement in only one aspect of the rights.",
-  "8": "Why This Matters:",
-  "9": "The metadata for both the songwriting and master recording includes key information such as:",
-  "10": "Ownership percentages",
-  "11": "Participant roles (e.g., writer, producer, performer)",
-  "12": "Copyright registrations",
-  "13": "Licenses and royalties",
-  "14": "By aligning this data, the BOTH Track approach simplifies rights management for tracks where both categories are inseparably unified.",
-  "15": "Warning: Using this tool for contracts with differing metadata between songwriting and master recording rights may result in incomplete, inaccurate, or invalid agreements, potentially leading to disputes or legal complications.",
-  "16": "If your project involves different ownership structures or participants between the songwriting and the master recording, we recommend consulting a qualified legal professional or using a more tailored contract solution.",
-  "17": "By proceeding, you acknowledge and accept these terms.",
-  "18": "Proceed"
+  "1": "DISCLAIMER: Our intention is to provide a self-help platform. We provide a draft of a contract that should be meticulously reviewed by each of the parties willing to reach an agreement. The information provided in this service is provided for your private use and does not constitute legal advice. We do not review the accuracy or legal sufficiency of the information you provide to us, draw legal conclusions, provide opinions on its use, or apply the law to the facts of your situation.",
+  "2": "If you do not understand the terms or consequences of the draft we provide you, or need legal advice for a specific issue, we recommend that you consult with a licensed attorney. The draft provided by this service does not substitute for legal advice from a qualified attorney licensed to practice in an appropriate jurisdiction.",
+  "3": "This draft is limited to general principles of copyright law. If you are interested in learning more about how the MESA system can help you, please contact us at contratos@mesawallet.io"
 }
