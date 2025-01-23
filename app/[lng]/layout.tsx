@@ -40,8 +40,10 @@ export default async function RootLayout({
           </div>
           <div>{/* <LanguageSwitcher /> */}</div>
           <div className="text-right text-xs w-[17rem]">
-            <p className="text-2xl font-black font-rubik">MUSIC SPLITS</p>
-            <div className="font-share text-center">
+            <p className="text-2xl font-black font-rubik text-[16px] sm:text-[24px]">
+              MUSIC SPLITS
+            </p>
+            <div className="font-share sm:text-center">
               {t("contract-builder")}
             </div>
           </div>
