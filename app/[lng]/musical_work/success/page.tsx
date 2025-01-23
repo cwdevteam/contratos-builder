@@ -70,6 +70,11 @@ const Success = ({
     sendEmail(songName);
   };
 
+  const handleDocusign = () => {
+    router.push(`/${lng}/musical_work/docusign_choice`);
+    downloadUnsignedTrue();
+  };
+
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
@@ -88,10 +93,7 @@ const Success = ({
               {t("download-unsigned")}
             </button>
             <button
-              onClick={() => {
-                router.push(`/${lng}/musical_work/docusign_choice`),
-                  downloadUnsignedTrue();
-              }}
+              onClick={handleDocusign}
               className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
             >
               {t("send-docusign")}
