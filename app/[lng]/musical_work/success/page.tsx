@@ -88,13 +88,13 @@ const Success = ({
           <div className="flex flex-col gap-4">
             <button
               onClick={handleFreeDownload}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik py-1"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik py-1 button-height"
             >
               {t("download-unsigned")}
             </button>
             <button
               onClick={handleDocusign}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 button-height"
             >
               {t("send-docusign")}
             </button>

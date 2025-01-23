@@ -43,6 +43,10 @@ button {
   text-align: center;
 }
 
+.button-height {
+  height: 15%;
+}
+
 p {
   line-height: 1.25em;
 }
