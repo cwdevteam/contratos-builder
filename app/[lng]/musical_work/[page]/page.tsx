@@ -155,7 +155,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row gap-5">
               <div className="w-full sm:w-[38.5%]">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("type")}
@@ -174,7 +174,7 @@ const DynamicPage = ({
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
               </div>
-              <div className="">
+              <div className="sm:w-[38.5%]">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
@@ -226,7 +226,7 @@ const DynamicPage = ({
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-0 justify-between sm:justify-normal sm:gap-20 gap-5">
+        <div className="inline-flex relative bottom-0 left-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[15%]">
           <button
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
@@ -235,7 +235,7 @@ const DynamicPage = ({
           </button>
           <button
             onClick={handleNextPage}
-            className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
+            className="text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("submit")}
           </button>
