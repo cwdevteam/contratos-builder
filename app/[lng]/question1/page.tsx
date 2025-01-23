@@ -48,7 +48,7 @@ function ContractBuilder1({
   const date = new Date().toLocaleDateString();
 
   return (
-    <div className="sm:p-8 flex flex-col justify-between max-h-screen">
+    <div className="p-4 sm:p-8 flex flex-col justify-between max-h-screen">
       <main className="flex flex-col sm:flex-row sm:gap-8 pt-10">
         <div className="sm:w-1/2 py-4 sm:py-10">
           <p className=" mb-4 font-share text-[1.5rem] w-full">{t("p1")}</p>
@@ -243,7 +243,7 @@ function ContractBuilder1({
           </Popup>
         )}
 
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 gap-5 pt-[20%] sm:pt-[10%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[20%] sm:pt-[10%]">
           <button
             onClick={() => push("/")}
             className=" w-[15%]  bg-[#AC444475] flex-1 sm:flex-none"

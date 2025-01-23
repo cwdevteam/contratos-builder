@@ -21,7 +21,7 @@ export default function Home({
   const [isOpen2, setIsOpen2] = useState(false);
 
   return (
-    <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5">
+    <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5 sm:mx-auto">
       <section className="w-full flex flex-col gap-5">
         <p className="md:text-[32px] text-[20px] font-share tracking-[-0.05rem] text-start">
           {t("h3-1")}
@@ -101,7 +101,7 @@ export default function Home({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="font-share text-2xl text-link underline text-center text-[15px]">
+              <a className="font-share text-2xl text-link underline text-center text-[18px] pt-2">
                 {t("confused")}
               </a>
             }

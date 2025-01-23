@@ -41,7 +41,7 @@ const ContractBuilder3 = ({
   const { t } = useTranslation(lng, "musical_work/question3");
 
   return (
-    <div className="sm:p-8 flex flex-col justify-between">
+    <div className="p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm ">
           <p className="text-[#FFFFFF] text-[1.5rem] pt-10">{t("p1")}</p>

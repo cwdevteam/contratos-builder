@@ -124,7 +124,7 @@ const DynamicPage = ({
   };
 
   return (
-    <div className="flex flex-col justify-between">
+    <div className="p-4 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row pt-7">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
@@ -226,7 +226,7 @@ const DynamicPage = ({
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[15%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[15%]">
           <button
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
