@@ -78,7 +78,7 @@ const Success = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
-        <div className="w-full py-4 sm:py-10">
+        <div className="w-full sm:w-1/2 py-4 sm:py-10 mx-auto">
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center font-share p-0">
             {t("congrats")}
           </h1>
@@ -103,7 +103,7 @@ const Success = ({
             </a>
           </div>
         </div>
-        <p className="text-base sm:text-lg font-share">{t("lawyer")}</p>
+        <p className="text-base sm:text-lg font-share mx-auto">{t("lawyer")}</p>
       </main>
     </div>
   );
