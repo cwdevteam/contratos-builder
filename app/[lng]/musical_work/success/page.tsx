@@ -23,7 +23,7 @@ const Success = ({
 }) => {
   const router = useRouter();
 
-  const downloadUnsignedTrue = PDF(true);
+  //const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
   let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
@@ -75,18 +75,19 @@ const Success = ({
     sendEmail(songName);
   };
 
-  const handleCheckout = async () => {
-    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
-    const response = await fetch(`../api/checkout_sessions`, {
-      method: "POST",
-    });
-    const data = await response.json();
-    if (data.url) {
-      router.push(data.url);
-    }
-    sendEmail(songName);
-    downloadUnsignedTrue();
-  };
+  // const handleCheckout = async () => {
+  //   cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+  //   const response = await fetch(`../api/checkout_sessions`, {
+  //     method: "POST",
+  //   });
+  //   const data = await response.json();
+  //   if (data.url) {
+  //     router.push(data.url);
+  //   }
+  //   sendEmail(songName);
+  //   downloadUnsignedTrue();
+  // };
+
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">

@@ -13,20 +13,6 @@ import { loadStripe } from "@stripe/stripe-js";
 
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-React.useEffect(() => {
-  // Check to see if this is a redirect back from Checkout
-  const query = new URLSearchParams(window.location.search);
-  if (query.get("success")) {
-    console.log("Order placed! You will receive an email confirmation.");
-  }
-
-  if (query.get("canceled")) {
-    console.log(
-      "Order canceled -- continue to shop around and checkout when you’re ready."
-    );
-  }
-}, []);
-
 const DocusignChoice = ({
   params,
 }: {
@@ -42,6 +28,20 @@ const DocusignChoice = ({
   const downloadUnsignedTrue = PDF(false);
   let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
+
+  React.useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("success")) {
+      console.log("Order placed! You will receive an email confirmation.");
+    }
+
+    if (query.get("canceled")) {
+      console.log(
+        "Order canceled -- continue to shop around and checkout when you’re ready."
+      );
+    }
+  }, []);
 
   const sendEmail = async (songName: string) => {
     try {
