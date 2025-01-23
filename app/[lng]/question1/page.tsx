@@ -179,7 +179,7 @@ function ContractBuilder1({
           </form>
         </div>
         <div className="font-roboto_bold">
-          <p className="text-[0px] sm:text-[16px] pb-5 text-gray-500 font-roboto_light ">
+          <p className="text-[0px] sm:text-[16px] pb-5 text-gray-500 font-roboto_light pt-0">
             {t("p2")}
           </p>
           <p className="p-5 pl-0">

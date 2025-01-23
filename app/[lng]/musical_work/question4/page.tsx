@@ -56,7 +56,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("vote")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("vote")}</span>
             </label>
             <label className="flex items-center font-rubik">
               <input
@@ -67,7 +67,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("admin")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("admin")}</span>
             </label>
             <label className="flex items-center font-rubik">
               <input
@@ -78,7 +78,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("skip")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("skip")}</span>
             </label>
           </form>
         </div>

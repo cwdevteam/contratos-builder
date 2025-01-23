@@ -125,14 +125,14 @@ const DynamicPage = ({
 
   return (
     <div className="flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pt-10">
+      <main className="flex flex-col sm:flex-row pt-7">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm mb-2 block font-share">
                 {t("name")}
               </label>
               <input
@@ -144,7 +144,7 @@ const DynamicPage = ({
               />
             </div>
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm mb-2 block font-share">
                 {t("email")}
               </label>
               <input
@@ -157,7 +157,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-5">
               <div className="w-full sm:w-[38.5%]">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("type")}
                 </label>
                 <select
@@ -175,7 +175,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="sm:w-[38.5%]">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
                 <input
@@ -189,7 +189,7 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full">
+        <div className="w-full sm:pt-7">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>

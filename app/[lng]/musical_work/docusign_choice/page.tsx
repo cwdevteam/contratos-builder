@@ -110,7 +110,7 @@ const DocusignChoice = ({
           <div className="">
             <p className="font-rubik">Summary</p>
             <hr className="w-full" />
-            <p className="font-share">
+            <p className="font-share text-right">
               Subtotal $<span className="font-rubik">2.00</span>
             </p>
             <p className="font-share text-right">
