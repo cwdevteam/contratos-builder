@@ -18,7 +18,7 @@ const Success = ({
 }) => {
   const router = useRouter();
 
-  //const downloadUnsignedTrue = PDF(true);
+  const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
   let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
@@ -72,7 +72,7 @@ const Success = ({
 
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+      <main className="flex flex-col gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center font-share p-0">
             {t("congrats")}
@@ -83,14 +83,15 @@ const Success = ({
           <div className="flex flex-col gap-4">
             <button
               onClick={handleFreeDownload}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 py-1"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik py-1"
             >
               {t("download-unsigned")}
             </button>
             <button
-              onClick={() =>
-                router.push(`/${lng}/musical_work/docusign_choice`)
-              }
+              onClick={() => {
+                router.push(`/${lng}/musical_work/docusign_choice`),
+                  downloadUnsignedTrue();
+              }}
               className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
             >
               {t("send-docusign")}
