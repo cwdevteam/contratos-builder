@@ -3,16 +3,11 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import PDF from "./pdf";
-import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "@/app/i18n/client";
 import useQuestion1 from "../../store/useQuestion1";
 
 import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
-
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const Success = ({
   params,
@@ -75,19 +70,6 @@ const Success = ({
     sendEmail(songName);
   };
 
-  // const handleCheckout = async () => {
-  //   cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
-  //   const response = await fetch(`../api/checkout_sessions`, {
-  //     method: "POST",
-  //   });
-  //   const data = await response.json();
-  //   if (data.url) {
-  //     router.push(data.url);
-  //   }
-  //   sendEmail(songName);
-  //   downloadUnsignedTrue();
-  // };
-
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
@@ -101,7 +83,7 @@ const Success = ({
           <div className="flex flex-col gap-4">
             <button
               onClick={handleFreeDownload}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 py-1"
             >
               {t("download-unsigned")}
             </button>

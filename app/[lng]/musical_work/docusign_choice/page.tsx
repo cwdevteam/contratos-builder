@@ -101,7 +101,7 @@ const DocusignChoice = ({
           ></Image>
           <p className="font-share w-[90%] sm:w-2/5 mx-auto">{t("1")}</p>
         </div>
-        <div className="flex flex-row pt-10 justify-center gap-10">
+        <div className="flex flex-row pt-10 justify-center gap-5">
           <div className="">
             <p className="font-rubik">{t("2")}</p>
             <hr className="w-full" />
@@ -110,7 +110,7 @@ const DocusignChoice = ({
           <div className="">
             <p className="font-rubik">Summary</p>
             <hr className="w-full" />
-            <p className="font-share text-right">
+            <p className="font-share">
               Subtotal $<span className="font-rubik">2.00</span>
             </p>
             <p className="font-share text-right">
