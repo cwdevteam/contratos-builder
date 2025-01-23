@@ -105,7 +105,9 @@ const Success = ({
               {t("download-unsigned")}
             </button>
             <button
-              onClick={handleCheckout}
+              onClick={() =>
+                router.push(`/${lng}/musical_work/docusign_choice`)
+              }
               className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
             >
               {t("send-docusign")}
