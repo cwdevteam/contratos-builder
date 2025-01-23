@@ -10,6 +10,8 @@ import PDF from "../../musical_work/success/pdf";
 import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
 import { loadStripe } from "@stripe/stripe-js";
+import Popup from "reactjs-popup";
+import { useState } from "react";
 
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -28,6 +30,7 @@ const DocusignChoice = ({
   const downloadUnsignedTrue = PDF(false);
   let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -126,9 +129,53 @@ const DocusignChoice = ({
             {t("5")}
           </button>
           <br />
+
+          {!isOpen2 && (
+            <Popup
+              trigger={
+                <a onClick={handleCheckout} className="underline mx-auto">
+                  {t("6")}
+                </a>
+              }
+              position="center center"
+              modal
+              nested
+              className="popup"
+              closeOnDocumentClick
+            >
+              <div
+                className="modal border-2 border-white"
+                style={{
+                  height: "80vh",
+                  width: "90vw",
+                  maxWidth: "600px",
+                  overflowY: "scroll",
+                }}
+              >
+                <div className=" p-4 sm:p-8 flex flex-col justify-between">
+                  <main className="flex flex-col gap-6 sm:gap-8">
+                    <p className="font-share text-center">{t("8")}</p>
+                    <button
+                      onClick={() => {
+                        setIsOpen2(true);
+                        setTimeout(() => {
+                          setIsOpen2(false);
+                        }, 200);
+                      }}
+                      className="popup_button text-white hover:text-gray-300"
+                    >
+                      &times;
+                    </button>
+                  </main>
+                </div>
+              </div>
+            </Popup>
+          )}
+
+          <br />
           <a
             onClick={() => push("/musical_work/success")}
-            className="underline mx-auto"
+            className="underline mx-auto text-grey-500"
           >
             {t("7")}
           </a>
