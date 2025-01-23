@@ -103,9 +103,7 @@ const Success = ({
             </a>
           </div>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center font-share p-0">
-          <p className="text-base sm:text-lg font-share">{t("lawyer")}</p>
-        </div>
+        <p className="text-base sm:text-lg font-share">{t("lawyer")}</p>
       </main>
     </div>
   );
