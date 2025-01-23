@@ -11,6 +11,7 @@ const DynamicPage = ({
 }: {
   params: {
     lng: string;
+    page: string;
   };
 }) => {
   const router = useRouter();
@@ -37,7 +38,7 @@ const DynamicPage = ({
     pageData.splitTotal || 0
   );
   const resetPages = useDynamicPageStore((state) => state.resetPages);
-  const { lng } = params;
+  const { lng, page } = params;
   const { t } = useTranslation(lng, "musical_work/dynamic");
 
   useEffect(() => {
@@ -107,6 +108,18 @@ const DynamicPage = ({
             : `/musical_work/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`
         );
       }
+    }
+  };
+
+  const handleBackPage = () => {
+    const previousPage = parseInt(page) - 1;
+    if (previousPage > 0) {
+      setSplitTotal(splitTotal - split);
+      router.push(
+        `/musical_work/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
+      );
+    } else {
+      router.push(`/musical_work/question3`);
     }
   };
 
@@ -214,6 +227,9 @@ const DynamicPage = ({
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
         <div className="inline-flex relative bottom-0 left-0 justify-between sm:justify-normal sm:gap-20">
+          <button onClick={handleBackPage} className=" w-fit bg-[#AC444475]">
+            {t("back")}
+          </button>
           <button
             onClick={handleNextPage}
             className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
