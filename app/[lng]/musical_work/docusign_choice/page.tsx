@@ -122,10 +122,7 @@ const DocusignChoice = ({
       </main>
       <footer className="flex flex-col gap-6 pt-10">
         <div className="relative bottom-0 mx-auto text-center">
-          <button
-            onClick={() => push("/musical_work/success")}
-            className=" w-fit"
-          >
+          <button onClick={handleCheckout} className=" w-fit">
             {t("5")}
           </button>
           <br />
