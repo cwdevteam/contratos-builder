@@ -115,7 +115,7 @@ const PDF = (isClicked: boolean) => {
       line6,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split6, x / 2, y + 10);
+    doc.text(split6, x / 2, y);
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -141,7 +141,7 @@ const PDF = (isClicked: boolean) => {
     );
     doc.text("b.", x / 2, y + 10);
     doc.text(split9, x / 2 + 10, y + 10);
-    y = getY(y, 40);
+    y = getY(y, 25);
 
     //different section based on vote or admin
     if (voteSelection == "VOTE") {
@@ -393,12 +393,12 @@ const PDF = (isClicked: boolean) => {
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
         doc.text(t("legalName", { name }), x, y);
-        doc.line(x + 25, y + 2, x + 155, y + 2);
+        doc.line(x + 25, y + 1, x + 155, y + 1);
         y = getY(y, 5);
         doc.text(t("signature"), x, y);
-        doc.line(x + 20, y + 2, x + 70, y + 2);
+        doc.line(x + 15, y + 1, x + 70, y + 1);
         doc.text(t("signatureDate", { date }), x + 85, y);
-        doc.line(x + 95, y + 2, x + 135, y + 2);
+        doc.line(x + 95, y + 1, x + 135, y + 1);
         y = getY(y, 15);
       }
     });
