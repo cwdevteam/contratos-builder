@@ -185,6 +185,8 @@ const PDF = (isClicked: boolean) => {
       doc.text("c.", x / 2, y + 10);
       doc.text(split10, x / 2 + 10, y + 10);
       y = getY(y, 65);
+    } else {
+      y = getY(y, 10);
     }
 
     doc.setFont("Palatino Linotype", "bold");
