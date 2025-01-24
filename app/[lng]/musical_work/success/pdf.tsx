@@ -82,10 +82,6 @@ const PDF = (isClicked: boolean) => {
         names.push(name);
         doc.text(t("legalName", { name }), x, y);
         y = getY(y, 5);
-        const email = pageData.email;
-        emails.push(email);
-        doc.text(t("email", { email }), x, y);
-        y = getY(y, 5);
         const contributorType = pageData.contributorType;
         doc.text(t("contributionType", { contributorType }), x, y);
         y = getY(y, 5);
@@ -383,7 +379,7 @@ const PDF = (isClicked: boolean) => {
 
     doc.text(t("signatures"), x, y);
     y = getY(y, 15);
-    x /= 2;
+
     Object.keys(pages).forEach((id) => {
       const pageData = pages[Number(id)];
       if (pageData.legalName != "") {
