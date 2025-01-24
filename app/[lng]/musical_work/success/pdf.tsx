@@ -17,7 +17,8 @@ const getX = (text: string) => {
   const pageWidth = doc.internal.pageSize.getWidth();
   const width = doc.getTextWidth(text);
   x = (pageWidth - width) / 2;
-  return Math.abs(x);
+  //return Math.abs(x);
+  return 50;
 };
 
 const PDF = (isClicked: boolean) => {
@@ -141,7 +142,7 @@ const PDF = (isClicked: boolean) => {
     );
     doc.text("b.", x / 2, y + 10);
     doc.text(split9, x / 2 + 10, y + 10);
-    y = getY(y, 25);
+    y = getY(y, 40);
 
     //different section based on vote or admin
     if (voteSelection == "VOTE") {
@@ -180,7 +181,7 @@ const PDF = (isClicked: boolean) => {
       doc.text("iii.", x / 2 + 10, y + 10);
       doc.text(split13, x / 2 + 20, y + 10);
       y = getY(y, 25);
-    } else {
+    } else if (voteSelection == "ADMIN") {
       const line10 = t("adminDesignation", { adminName });
       const split10 = doc.splitTextToSize(
         line10,
