@@ -107,7 +107,7 @@ const PDF = (isClicked: boolean) => {
       line3,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split3, x, y);
+    doc.text(split3, x / 2, y);
     y = getY(y, 15);
 
     const line6 = t("contributionAcknowledgement");
@@ -115,7 +115,7 @@ const PDF = (isClicked: boolean) => {
       line6,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split6, x, y + 10);
+    doc.text(split6, x / 2, y + 10);
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -206,7 +206,7 @@ const PDF = (isClicked: boolean) => {
     );
     doc.text("a.", x, y);
     doc.text(split16, x + 10, y);
-    y = getY(y, 45);
+    y = getY(y, 35);
 
     const line17 = t("royaltyCollection");
     const split17 = doc.splitTextToSize(
@@ -224,7 +224,7 @@ const PDF = (isClicked: boolean) => {
     );
     doc.text("c.", x, y);
     doc.text(split18, x + 10, y);
-    y = getY(y, 40);
+    y = getY(y, 20);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -393,12 +393,12 @@ const PDF = (isClicked: boolean) => {
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
         doc.text(t("legalName", { name }), x, y);
-        doc.line(x + 25, y, x + 155, y);
+        doc.line(x + 25, y + 2, x + 155, y + 2);
         y = getY(y, 5);
         doc.text(t("signature"), x, y);
-        doc.line(x + 20, y, x + 70, y + 5);
+        doc.line(x + 20, y + 2, x + 70, y + 2);
         doc.text(t("signatureDate", { date }), x + 85, y);
-        doc.line(x + 95, y, x + 135, y + 5);
+        doc.line(x + 95, y + 2, x + 135, y + 2);
         y = getY(y, 15);
       }
     });
