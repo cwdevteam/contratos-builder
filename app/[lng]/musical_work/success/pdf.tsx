@@ -12,13 +12,13 @@ import { supabase } from "../../../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
 
 const getX = (text: string) => {
-  let x = 0;
+  let x = 50;
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.getWidth();
   const width = doc.getTextWidth(text);
   x = (pageWidth - width) / 2;
   //return Math.abs(x);
-  return 50;
+  return x;
 };
 
 const PDF = (isClicked: boolean) => {
