@@ -12,7 +12,7 @@ import { supabase } from "../../../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
 
 const getX = (text: string) => {
-  let x = 0;
+  let x = 50;
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.getWidth();
   const width = doc.getTextWidth(text);
@@ -70,6 +70,32 @@ const PDF = (isClicked: boolean) => {
     doc.text(line1, x, y);
     y = getY(y, 15);
 
+    //useDynamicPageStore
+    x = 30;
+    Object.keys(pages).forEach((id) => {
+      const pageData = pages[Number(id)];
+      if (pageData.legalName != "") {
+        doc.setFont("Palatino Linotype", "bold");
+        doc.text(t("6", { id }), x, y);
+        y = getY(y, 5);
+        doc.setFont("Palatino Linotype", "normal");
+        const name = pageData.legalName;
+        names.push(name);
+        doc.text(t("7", { name }), x, y);
+        y = getY(y, 5);
+        const email = pageData.email;
+        emails.push(email);
+        doc.text(t("9", { email }), x, y);
+        y = getY(y, 5);
+        const contributorType = pageData.contributorType;
+        doc.text(t("10", { contributorType }), x, y);
+        y = getY(y, 5);
+        const split = pageData.split;
+        doc.text(t("11", { split }), x, y);
+        y = getY(y, 15);
+      }
+    });
+
     doc.setFont("Palatino Linotype", "bold");
     const line2 = t("3");
     x = getX(line2);
@@ -108,32 +134,6 @@ const PDF = (isClicked: boolean) => {
     );
     doc.text(split6, x / 2, y + 10);
     y = getY(y, 30);
-
-    //useDynamicPageStore
-    x = 30;
-    Object.keys(pages).forEach((id) => {
-      const pageData = pages[Number(id)];
-      if (pageData.legalName != "") {
-        doc.setFont("Palatino Linotype", "bold");
-        doc.text(t("6", { id }), x, y);
-        y = getY(y, 5);
-        doc.setFont("Palatino Linotype", "normal");
-        const name = pageData.legalName;
-        names.push(name);
-        doc.text(t("7", { name }), x, y);
-        y = getY(y, 5);
-        const email = pageData.email;
-        emails.push(email);
-        doc.text(t("9", { email }), x, y);
-        y = getY(y, 5);
-        const contributorType = pageData.contributorType;
-        doc.text(t("10", { contributorType }), x, y);
-        y = getY(y, 5);
-        const split = pageData.split;
-        doc.text(t("11", { split }), x, y);
-        y = getY(y, 15);
-      }
-    });
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -214,6 +214,15 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text("c.", x / 2, y + 10);
       doc.text(split10, x / 2 + 10, y + 10);
+      y = getY(y, 65);
+
+      const line10a = t("19a");
+      const split10a = doc.splitTextToSize(
+        line10a,
+        doc.internal.pageSize.getWidth() * 0.6
+      );
+      doc.text("-", x, y + 10);
+      doc.text(split10a, x / 2 + 10, y + 10);
       y = getY(y, 65);
     }
 
