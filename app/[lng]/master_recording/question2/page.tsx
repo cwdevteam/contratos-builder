@@ -72,8 +72,8 @@ const ContractBuilder2 = ({
           </form>
         </div>
 
-        <div className="w-full sm:w-1/2 p-4 pt-20">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4 font-roboto_light">
+        <div className="w-full sm:w-1/2">
+          <p className="text-[0px] sm:text-sm text-gray-500 mb-4 font-roboto_light">
             {t("p2")}
           </p>
 
@@ -81,7 +81,8 @@ const ContractBuilder2 = ({
             {t("h3")}
           </h3>
           <p className="text-sm sm:text-base font-roboto">
-            {t("p3")}{" "}
+            {t("p3")}
+            {": "}
             <span className="text-[#AC4444] font-rubik">
               {song ? song : " "}
             </span>
@@ -92,7 +93,8 @@ const ContractBuilder2 = ({
             {t("h32")}
           </h3>
           <p className="text-sm sm:text-base font-roboto">
-            {t("p4")}{" "}
+            {t("p4")}
+            {""}
             <span className="text-[#AC4444] font-rubik">
               {recording ? recording : " "}
             </span>
@@ -101,7 +103,7 @@ const ContractBuilder2 = ({
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3 mb-2">
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[25%] sm:pt-[10%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[10%] sm:pt-[15%]">
           <button
             onClick={() => push("/question1")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "

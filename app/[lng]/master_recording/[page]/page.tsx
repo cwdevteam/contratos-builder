@@ -116,7 +116,7 @@ const DynamicPage = ({
         const nextPage = pageNumber + 1;
         router.push(
           pageNumber >= pageCount
-            ? `/master_recording/question4?pageCount=${pageCount}`
+            ? `/master_recording/question4?pageCount=${pageCount}&split=${lastSplit}`
             : `/master_recording/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`
         );
       }
@@ -125,7 +125,7 @@ const DynamicPage = ({
 
   return (
     <div className="p-4 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pt-7">
+      <main className="flex flex-col sm:flex-row">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
@@ -195,9 +195,10 @@ const DynamicPage = ({
             {t("p1")}
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">{t("p2")}</h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("p3")}
             <span className="text-[#AC4444] font-rubik"> {recording}</span>
+            {t("p4")}
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">
             {t("contributor")} {pageNumber}:

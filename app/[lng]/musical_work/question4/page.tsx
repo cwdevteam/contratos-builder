@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import useQuestion4 from "../../store/useQuestion4";
 import { useTranslation } from "@/app/i18n/client";
 import Popup from "reactjs-popup";
@@ -19,6 +19,8 @@ const ContractBuilder4 = ({
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/question4");
+  const pageCount = useSearchParams().get("pageCount");
+  const lastSplit = Number(useSearchParams().get("split"));
 
   const updateVoteSelection = useQuestion4(
     (state) => state.updateVoteSelection
@@ -140,7 +142,13 @@ const ContractBuilder4 = ({
         )}
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[10%]">
           <button
-            onClick={() => push(`/musical_work/question3`)}
+            onClick={() =>
+              push(
+                `/musical_work/${pageCount}?pageCount=${pageCount}&split=${
+                  100 - lastSplit
+                }`
+              )
+            }
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}

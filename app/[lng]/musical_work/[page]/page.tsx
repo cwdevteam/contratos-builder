@@ -104,7 +104,7 @@ const DynamicPage = ({
         const nextPage = pageNumber + 1;
         router.push(
           pageNumber >= pageCount
-            ? `/musical_work/question4?pageCount=${pageCount}`
+            ? `/musical_work/question4?pageCount=${pageCount}&split=${lastSplit}`
             : `/musical_work/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`
         );
       }
