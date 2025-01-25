@@ -254,7 +254,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split18, x / 2, y);
-    y = getY(y, 40);
+    y = getY(y, 35);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -415,7 +415,7 @@ const PDF = (isClicked: boolean) => {
         doc.line(x + 27, y + 1, x + 150, y + 1);
         y = getY(y, 5);
         doc.text(t("44"), x, y);
-        doc.line(x, y + 1, x + 80, y + 1);
+        doc.line(x + 10, y + 1, x + 80, y + 1);
         doc.text(t("45", { date }), x + 85, y);
         doc.line(x + 95, y + 1, x + 132, y + 1);
         y = getY(y, 15);
