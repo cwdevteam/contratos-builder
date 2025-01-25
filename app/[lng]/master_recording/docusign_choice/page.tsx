@@ -25,7 +25,7 @@ const DocusignChoice = ({
   const { push } = useRouter();
 
   const { lng } = params;
-  const { t } = useTranslation(lng, "musical/docusign_choice");
+  const { t } = useTranslation(lng, "musical_work/docusign_choice");
 
   const downloadUnsignedTrue = PDF(false);
   let cid = useQuestion1((state) => state.cid);

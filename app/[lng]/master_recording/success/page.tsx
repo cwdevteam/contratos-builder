@@ -23,7 +23,7 @@ const Success = ({
   let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const { lng } = params;
-  const { t } = useTranslation(lng, "master_recording/success");
+  const { t } = useTranslation(lng, "master/success");
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
