@@ -51,7 +51,7 @@ const PDF = (isClicked: boolean) => {
     let y = 20;
 
     doc.setFont("Palatino Linotype", "bold");
-    doc.setFontSize(15);
+    doc.setFontSize(11);
 
     const title = t("1");
     const splitTitle = doc.splitTextToSize(
@@ -109,13 +109,13 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     x = getX(split3);
-    doc.text(split3, x, y);
+    doc.text(split3, 30, y);
     y = getY(y, 15);
 
     doc.setFont("Palatino Linotype", "bold");
     const line4 = t("4a");
     x = getX(line4);
-    doc.text(line4, x / 2, y);
+    doc.text(line4, 30, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
@@ -124,7 +124,7 @@ const PDF = (isClicked: boolean) => {
       line5,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split5, x / 2, y);
+    doc.text(split5, 30, y);
     y = getY(y, 10);
 
     const line6 = t("5");
@@ -132,7 +132,7 @@ const PDF = (isClicked: boolean) => {
       line6,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split6, x / 2, y + 10);
+    doc.text(split6, 30, y + 10);
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
