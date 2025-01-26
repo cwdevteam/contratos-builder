@@ -108,7 +108,7 @@ const PDF = (isClicked: boolean) => {
       line3,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    x = getX(line3);
+    x = getX(split3);
     doc.text(split3, x, y);
     y = getY(y, 15);
 
