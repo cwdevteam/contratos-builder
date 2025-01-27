@@ -6,7 +6,7 @@ import { useTranslation } from "@/app/i18n/client";
 import Image from "next/image";
 import docusignImage from "../../public/images/docusign.png";
 import useQuestion1 from "../../store/useQuestion1";
-//import PDF from "../../master_recording/success/pdf";
+import PDF from "../../master_recording/success/pdf";
 import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
 import { loadStripe } from "@stripe/stripe-js";
@@ -27,7 +27,7 @@ const DocusignChoice = ({
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/docusign_choice");
 
-  //const downloadUnsignedTrue = PDF(false);
+  const downloadUnsignedTrue = PDF(false);
   let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -81,7 +81,7 @@ const DocusignChoice = ({
       push(data.url);
     }
     sendEmail(songName);
-    //downloadUnsignedTrue();
+    downloadUnsignedTrue();
   };
 
   return (

@@ -69,6 +69,7 @@ const Success = ({
     downloadUnsignedFalse();
     cid = cid;
     sendEmail(songName);
+    document.getElementById("ipfs")!.innerText = "View contract on IPFS";
   };
 
   const handleDocusign = () => {
@@ -99,9 +100,7 @@ const Success = ({
             >
               {t("send-docusign")}
             </button>
-            <a id="ipfs" className="text-white" href={cid}>
-              View contrat on IPFS
-            </a>
+            <a id="ipfs" className="text-center" href={cid}></a>
           </div>
         </div>
         <p className="text-base sm:text-lg font-share mx-auto">{t("lawyer")}</p>

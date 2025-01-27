@@ -20,7 +20,8 @@ const Success = ({
 
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
-  let cid = useQuestion1((state) => state.cid);
+  let cid =
+    "https://mesa.mypinata.cloud/ipfs/" + useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/success");
@@ -66,8 +67,9 @@ const Success = ({
 
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
-    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+    cid = cid;
     sendEmail(songName);
+    document.getElementById("ipfs")!.innerText = "View contract on IPFS";
   };
 
   const handleDocusign = () => {
@@ -98,9 +100,7 @@ const Success = ({
             >
               {t("send-docusign")}
             </button>
-            <a id="ipfs" className="text-white">
-              {cid}
-            </a>
+            <a id="ipfs" className="text-center" href={cid}></a>
           </div>
         </div>
         <p className="text-base sm:text-lg font-share mx-auto">{t("lawyer")}</p>
