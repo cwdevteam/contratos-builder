@@ -82,6 +82,10 @@ const PDF = (isClicked: boolean) => {
         names.push(name);
         doc.text(t("legalName", { name }), x, y);
         y = getY(y, 5);
+        const email = pageData.email;
+        emails.push(email);
+        doc.text(t("9", { email }), x, y);
+        y = getY(y, 5);
         const contributorType = pageData.contributorType;
         doc.text(t("contributionType", { contributorType }), x, y);
         y = getY(y, 5);
