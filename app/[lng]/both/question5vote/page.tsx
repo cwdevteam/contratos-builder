@@ -47,7 +47,7 @@ const ContractBuilder5Vote = ({
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 pt-20 font-roboto_light text-[0px] sm:text-[16px]">
+          <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
           <h4 className="text-base sm:text-lg font-bold mb-2 pt-5 font-roboto_bold">
@@ -76,7 +76,7 @@ const ContractBuilder5Vote = ({
         >
           {t("confused")}
         </a>
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:mt-[5%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:mt-[3%]">
           <button
             onClick={() => push("/both/question4")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
