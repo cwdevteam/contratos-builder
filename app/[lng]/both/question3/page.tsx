@@ -44,8 +44,8 @@ const ContractBuilder3 = ({
   return (
     <div className="p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm pt-20">
-          <p className="text-[#FFFFFF] text-[1.5rem] pt-10">{t("p1")}</p>
+        <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm">
+          <p className="text-[#FFFFFF] text-[1.5rem]">{t("p1")}</p>
           <form className="flex flex-col pt-5">
             <input
               type="number"
@@ -57,7 +57,7 @@ const ContractBuilder3 = ({
             />
           </form>
         </div>
-        <div className="py-1 pt-10">
+        <div className="py-1">
           <div className="w-4/5">
             <p className="font-roboto_light text-[#696969] text-[0px] sm:text-[16px]">
               {t("p2")}
