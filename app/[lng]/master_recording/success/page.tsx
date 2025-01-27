@@ -25,6 +25,9 @@ const Success = ({
   const { lng } = params;
   const { t } = useTranslation(lng, "master/success");
 
+  console.log("PDF(true):", downloadUnsignedTrue);
+  console.log("PDF(false):", downloadUnsignedFalse);
+
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
