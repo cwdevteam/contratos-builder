@@ -90,7 +90,7 @@ const ContractBuilder4 = ({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base m-auto sm:m-0 pb-5">
+              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base m-auto sm:m-0 pb-5 pl-4">
                 {t("confused")}
               </a>
             }

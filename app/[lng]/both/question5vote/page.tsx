@@ -70,7 +70,7 @@ const ContractBuilder5Vote = ({
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
         <a
-          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base mt-4"
+          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base mt-4 pl-4"
           href="#"
           onClick={() => push("/popups/moreInfoVoting")}
         >

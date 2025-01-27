@@ -61,7 +61,7 @@ const ContractBuilder5Admin = ({
       </main>
       <footer className="flex flex-col gap-6 row-start-3  pt-[3%] sm:pt-[9%]">
         <a
-          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
+          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base pl-4"
           href="#"
           onClick={() => push("/popups/moreInfoAdmin")}
         >

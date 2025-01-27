@@ -3,16 +3,11 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import PDF from "./pdf";
-import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "@/app/i18n/client";
 import useQuestion1 from "../../store/useQuestion1";
 
 import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
-
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const Success = ({
   params,
@@ -22,7 +17,8 @@ const Success = ({
   };
 }) => {
   const router = useRouter();
-  const downloadUnsignedTrue = PDF(true);
+
+  //const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
   let cid =
     "https://mesa.mypinata.cloud/ipfs/" + useQuestion1((state) => state.cid);
@@ -76,17 +72,9 @@ const Success = ({
     document.getElementById("ipfs")!.innerText = "View contract on IPFS";
   };
 
-  const handleCheckout = async () => {
-    cid = cid;
-    const response = await fetch(`../api/checkout_sessions`, {
-      method: "POST",
-    });
-    const data = await response.json();
-    if (data.url) {
-      router.push(data.url);
-    }
-    sendEmail(songName);
-    downloadUnsignedTrue();
+  const handleDocusign = () => {
+    router.push(`/${lng}/master_recording/docusign_choice`);
+    //downloadUnsignedTrue();
   };
 
   return (
@@ -107,7 +95,7 @@ const Success = ({
               {t("download-unsigned")}
             </button>
             <button
-              onClick={handleCheckout}
+              onClick={handleDocusign}
               className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 button-height"
             >
               {t("send-docusign")}
