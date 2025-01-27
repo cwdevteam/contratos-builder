@@ -72,7 +72,7 @@ const ContractBuilder2 = ({
           </form>
         </div>
 
-        <div className="w-full sm:w-1/2 p-4 pt-20">
+        <div className="w-full sm:w-1/2">
           <p className="text-xs sm:text-sm text-gray-500 mb-4 font-roboto_light">
             {t("p2")}
           </p>
@@ -87,7 +87,7 @@ const ContractBuilder2 = ({
             </span>
           </p>
           <br />
-          <h3 className="text-base sm:text-lg font-bold mb-2 font-roboto_bold">
+          <h3 className="text-base font-bold mb-2 font-roboto_bold">
             {t("h32")}
           </h3>
           <p className="text-sm sm:text-base font-roboto">

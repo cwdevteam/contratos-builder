@@ -24,7 +24,8 @@ const Success = ({
   const router = useRouter();
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
-  let cid = useQuestion1((state) => state.cid);
+  let cid =
+    "https://mesa.mypinata.cloud/ipfs/" + useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const { lng } = params;
   const { t } = useTranslation(lng, "both/success");
@@ -70,12 +71,13 @@ const Success = ({
 
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
-    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+    cid = cid;
     sendEmail(songName);
+    document.getElementById("ipfs")!.innerText = "View contract on IPFS";
   };
 
   const handleCheckout = async () => {
-    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+    cid = cid;
     const response = await fetch(`../api/checkout_sessions`, {
       method: "POST",
     });
@@ -89,8 +91,8 @@ const Success = ({
 
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="w-full sm:w-1/2 py-4 sm:py-10">
+      <main className="flex flex-col gap-6 sm:gap-8">
+        <div className="w-full sm:w-1/2 py-4 sm:py-10 mx-auto">
           <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center font-share p-0">
             {t("congrats")}
           </h1>
@@ -100,25 +102,20 @@ const Success = ({
           <div className="flex flex-col gap-4">
             <button
               onClick={handleFreeDownload}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik py-1 button-height"
             >
               {t("download-unsigned")}
             </button>
             <button
               onClick={handleCheckout}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0"
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 button-height"
             >
               {t("send-docusign")}
             </button>
-            <a id="ipfs" className="text-white">
-              {cid}
-            </a>
+            <a id="ipfs" className="text-center" href={cid}></a>
           </div>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center">
-          <p className="text-lg sm:text-xl mb-8 font-share">{t("congrats")}</p>
-          <h4 className="text-base sm:text-lg font-share">{t("lawyer")}</h4>
-        </div>
+        <p className="text-base sm:text-lg font-share mx-auto">{t("lawyer")}</p>
       </main>
     </div>
   );

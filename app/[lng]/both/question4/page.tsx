@@ -43,7 +43,9 @@ const ContractBuilder4 = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <h4 className="mb-4 pt-5 font-share font-[2rem]">{t("question")}</h4>
+          <h4 className="mb-4 pt-5 font-share text-[1.5rem]">
+            {t("question")}
+          </h4>
           <form className="flex flex-col gap-2">
             <label className="flex items-center font-rubik">
               <input
@@ -54,7 +56,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("vote")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("vote")}</span>
             </label>
             <label className="flex items-center font-rubik">
               <input
@@ -65,14 +67,23 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("admin")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("admin")}</span>
+            </label>
+            <label className="flex items-center font-rubik">
+              <input
+                type="radio"
+                name="type"
+                className="radio mr-2"
+                value="SKIP"
+                onChange={handleRadioChange}
+                required
+              />
+              <span className="text-sm sm:text-base mt-2">{t("skip")}</span>
             </label>
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 font-roboto_light pt-20">
-            {t("p1")}
-          </p>
+        <div className="w-full sm:w-1/2 sm:p-8">
+          <p className="text-gray-500 mb-4 font-share">{t("p1")}</p>
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
@@ -98,32 +109,32 @@ const ContractBuilder4 = ({
                 overflowY: "scroll",
               }}
             >
-              <div className="popup flex-col">
-                <p>{t("popups.1")}</p>
-                <a
-                  className="items-center gap-2 hover:underline hover:underline-offset-4"
-                  onClick={() => push("/popups/moreInfoVoting")}
-                >
-                  {t("popups.2")}
-                </a>
-                <a
-                  className="items-center gap-2 hover:underline hover:underline-offset-4"
-                  onClick={() => push("/popups/moreInfoAdmin")}
-                >
-                  {t("popups.3")}
-                </a>
-                <button
-                  onClick={() => {
-                    setIsOpen(true);
-                    setTimeout(() => {
-                      setIsOpen(false);
-                    }, 200);
-                  }}
-                  className="popup_button text-white hover:text-gray-300"
-                >
-                  &times;
-                </button>
-              </div>
+              <p>{t("popups.1")}</p>
+              <br />
+              <a
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                onClick={() => push("/popups/moreInfoVoting")}
+              >
+                {t("popups.2")}
+              </a>
+              <br />
+              <a
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                onClick={() => push("/popups/moreInfoAdmin")}
+              >
+                {t("popups.3")}
+              </a>
+              <button
+                onClick={() => {
+                  setIsOpen(true);
+                  setTimeout(() => {
+                    setIsOpen(false);
+                  }, 200);
+                }}
+                className="popup_button text-white hover:text-gray-300"
+              >
+                &times;
+              </button>
             </div>
           </Popup>
         )}
