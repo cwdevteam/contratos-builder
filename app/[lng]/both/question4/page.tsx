@@ -142,7 +142,7 @@ const ContractBuilder4 = ({
           <button
             onClick={() =>
               push(
-                `/master_recording/${pageCount}?pageCount=${pageCount}&split=${
+                `/both/${pageCount}?pageCount=${pageCount}&split=${
                   100 - lastSplit
                 }`
               )

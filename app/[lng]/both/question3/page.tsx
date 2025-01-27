@@ -21,7 +21,7 @@ const ContractBuilder3 = ({
 
   const searchParams = useSearchParams();
   const song = searchParams.get("song")!;
-  const recording = searchParams.get("recording")!;
+  //const recording = searchParams.get("recording")!;
 
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question3");
@@ -78,7 +78,7 @@ const ContractBuilder3 = ({
             <p className="font-roboto text-[0px] sm:text-[16px]">
               {t("p4")} {t("p5")}
               <span className="text-[#AC4444] font-rubik text-[0px] sm:text-[16px]">
-                {recording}
+                {song}
               </span>
             </p>
           </div>
@@ -87,7 +87,7 @@ const ContractBuilder3 = ({
       <footer className="flex flex-col gap-6 row-start-3">
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[65%] sm:pt-[20%]">
           <button
-            onClick={() => push("/master_recording/question2")}
+            onClick={() => push("/both/question2")}
             className="w-[15%] bg-[#AC444475] flex-1 sm:flex-none"
           >
             {t("back")}

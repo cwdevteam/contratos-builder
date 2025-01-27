@@ -107,10 +107,10 @@ const DynamicPage = ({
     if (previousPage > 0) {
       setSplitTotal(splitTotal - split);
       router.push(
-        `/master_recording/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
+        `/both/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/master_recording/question3`);
+      router.push(`/both/question3`);
     }
   };
 
@@ -145,7 +145,7 @@ const DynamicPage = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row">
         <div className="w-full">
-          <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
+          <h2 className="text-[1.5rem] sm:text-xl font-share">
             {t("contributor")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
@@ -175,8 +175,8 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row">
-              <div className="w-2/5">
+            <div className="flex sm:flex-row flex-col gap-5">
+              <div className="w-3/5">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   {t("type")}
                 </label>
@@ -184,7 +184,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-[90%] font-rubik"
+                  className="bg-black p-2 size-10 w-[140%] sm:w-full font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
@@ -194,7 +194,7 @@ const DynamicPage = ({
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
               </div>
-              <div className="w-2/5">
+              <div className="w-3/5">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   {t("type2")}
                 </label>
@@ -202,7 +202,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={masterContributorType}
-                  className="bg-black w-fit size-10 w-[90%] font-rubik"
+                  className="bg-black size-10 w-fit font-rubik"
                   onChange={handleMasterContributorChange}
                   required
                 >
@@ -213,7 +213,7 @@ const DynamicPage = ({
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
               </div>
-              <div className="w-1/5">
+              <div className="w-2/5">
                 <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
                   Split (%)
                 </label>
@@ -229,40 +229,51 @@ const DynamicPage = ({
           </form>
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="sm:text-sm text-gray-500 mb-4 font-roboto_thin">
+          <p className="sm:text-sm text-gray-500 sm:mb-4 font-roboto_thin text-[0px]">
             {t("p1")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">{t("type")}</h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <h3 className="mb-2 font-roboto_bold text-[0px] sm:text-base">
+            {t("type")}
+          </h3>
+          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
             {t("p3")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">
+          <h3 className=" text-[0px] sm:text-base sm:mb-2 font-roboto_bold">
             {t("contributor")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
             {t("name2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{legalName}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {legalName}
+            </span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
             {t("email2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{email}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {email}
+            </span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
             {t("contribution")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{contributorType}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {contributorType}
+            </span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
             {t("split2")}:
-            <span className="text-[#AC4444] font-rubik" id="split2"></span>
+            <span
+              className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
+              id="split2"
+            ></span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
             {t("contribution2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {" "}
               {masterContributorType}
             </span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
             {t("split3")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split3"></span>
           </p>
@@ -271,7 +282,7 @@ const DynamicPage = ({
       <footer className="flex flex-col gap-6 row-start-3">
         <p
           id="wrongSplits"
-          className="text-red-500 text-lg text-sm sm:text-base"
+          className="text-[#AC4444] text-lg text-sm sm:text-base"
         ></p>
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5">
           <button
@@ -282,7 +293,7 @@ const DynamicPage = ({
           </button>
           <button
             onClick={handleNextPage}
-            className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
+            className=" w-[15%] text-white py-2 px-4 relative bg-[#AC444475] flex-1 sm:flex-none"
           >
             {t("submit")}
           </button>
