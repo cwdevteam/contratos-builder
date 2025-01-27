@@ -64,7 +64,6 @@ const PDF = (isClicked: boolean) => {
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "normal");
-    doc.setFontSize(11);
     const line1 = t("2", { date });
     x = 50;
     doc.text(line1, x, y);
