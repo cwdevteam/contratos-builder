@@ -20,7 +20,8 @@ const Success = ({
 
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
-  let cid = useQuestion1((state) => state.cid);
+  let cid =
+    "https://mesa.mypinata.cloud/ipfs/" + useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const { lng } = params;
   const { t } = useTranslation(lng, "master/success");
@@ -66,13 +67,13 @@ const Success = ({
 
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
-    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+    cid = cid;
     sendEmail(songName);
   };
 
   const handleDocusign = () => {
     router.push(`/${lng}/master_recording/docusign_choice`);
-    downloadUnsignedTrue();
+    //downloadUnsignedTrue();
   };
 
   return (
@@ -98,8 +99,8 @@ const Success = ({
             >
               {t("send-docusign")}
             </button>
-            <a id="ipfs" className="text-white">
-              {cid}
+            <a id="ipfs" className="text-white" href={cid}>
+              View contrat on IPFS
             </a>
           </div>
         </div>
