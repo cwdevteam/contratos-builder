@@ -67,7 +67,7 @@ const Success = ({
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
-    //sendEmail(songName);
+    sendEmail(songName);
   };
 
   const handleDocusign = () => {
