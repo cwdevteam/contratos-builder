@@ -8,8 +8,8 @@
   "contributionType": "Contribución (Letra, música o ambas): {{contributorType}}",
   "ownershipPercentage": "Porcentaje de propiedad: {{split}}%",
 
-  "workIdentification": "1. Identificación de la Obra Musical",
-  "workTitle": "Las partes contratantes han colaborado en la autoría y composición de la Obra Musical titulada \"{{song}}\"",
+  "workIdentification": "1. Partes e Identificación de la Obra Musical",
+  "workTitle": "Las partes contratantes han colaborado, reconocen y aceptan su contribución en la autoría o composición de la obra musical titulada \"{{song}}\".",
   "contributionAcknowledgement": "Las partes reconocen y aceptan su contribución a la autoría o composición de la Obra Musical y acuerdan la distribución de la propiedad de derechos de autor como se indica a continuación:",
 
   "rightsAndDuties": "2. Derechos y deberes de las partes",

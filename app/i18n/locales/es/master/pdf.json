@@ -5,8 +5,8 @@
   "3": "1. Identificación de la Obra Musical",
   "4": "Las partes contratantes realizarán y fijarán una interpretación de la canción u Obra Musical titulada \"{{song}}\"",
 
-  "4a": "2. Identificación de la Grabación Maestra",
-  "4b": "Las partes contratantes han colaborado en la grabación y producción de la Obra fonográfica o Grabación Maestra titulada “{{recording}}”, que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
+  "4a": "2. Identificación de la Obra Fonográfica o Grabación Master",
+  "4b": "Las partes contratantes han colaborado en la grabación y producción de la Grabación Master u Obra Fonográfica titulada “{{recording}}”, y reconocen y aceptan su contribución que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
   "5": "Las partes reconocen y aceptan su contribución a la grabación y producción de la Obra Fonográfica, también denominada Grabación Master, y acuerdan la distribución de la propiedad como sigue:",
 
   "6": "Colaborador {{id}}",

@@ -110,13 +110,13 @@ const PDF = (isClicked: boolean) => {
     doc.text(split3, x / 2, y);
     y = getY(y, 15);
 
-    const line6 = t("contributionAcknowledgement");
-    const split6 = doc.splitTextToSize(
-      line6,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split6, x / 2, y);
-    y = getY(y, 30);
+    // const line6 = t("contributionAcknowledgement");
+    // const split6 = doc.splitTextToSize(
+    //   line6,
+    //   doc.internal.pageSize.getWidth() * 0.6
+    // );
+    // doc.text(split6, x / 2, y);
+    // y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
