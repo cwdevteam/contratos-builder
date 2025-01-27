@@ -14,7 +14,7 @@ const ContractBuilder2 = ({
 }) => {
   const { push } = useRouter();
   const updateSong = useQuestion2((state) => state.updateSong);
-  const updateRecording = useQuestion2((state) => state.updateRecording);
+  //const updateRecording = useQuestion2((state) => state.updateRecording);
   const [song, setSelectedOptionSong] = useState("");
   //const [recording, setRecording] = useState("");
   const { lng } = params;
