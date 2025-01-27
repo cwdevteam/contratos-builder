@@ -20,7 +20,7 @@ const Success = ({
 
   const downloadUnsignedTrue = PDF(true);
   const downloadUnsignedFalse = PDF(false);
-  const cid = useQuestion1((state) => state.cid);
+  let cid = useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const { lng } = params;
   const { t } = useTranslation(lng, "master/success");
@@ -66,7 +66,7 @@ const Success = ({
 
   const handleFreeDownload = () => {
     downloadUnsignedFalse();
-    //cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
+    cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     sendEmail(songName);
   };
 
