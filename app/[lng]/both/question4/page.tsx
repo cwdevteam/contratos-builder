@@ -1,42 +1,10 @@
 "use client";
 
 import React, { Suspense, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import useQuestion4 from "../../store/useQuestion4";
 import { useTranslation } from "@/app/i18n/client";
-
-interface PopupProps {
-  onClose: () => void;
-  params: {
-    lng: string;
-  };
-}
-
-const Popup = ({ onClose, params }: PopupProps) => {
-  const { push } = useRouter();
-  const { lng } = params;
-  const { t } = useTranslation(lng, "both/question4");
-  return (
-    <div className="popup flex-col">
-      <p>{t("popups.1")}</p>
-      <a
-        className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push("/popups/moreInfoVoting")}
-      >
-        {t("popups.2")}
-      </a>
-      <a
-        className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push("/popups/moreInfoAdmin")}
-      >
-        {t("popups.3")}
-      </a>
-      <button onClick={onClose} className="popup_button">
-        x
-      </button>
-    </div>
-  );
-};
+import Popup from "reactjs-popup";
 
 const ContractBuilder4 = ({
   params,
@@ -47,18 +15,16 @@ const ContractBuilder4 = ({
 }) => {
   const { push } = useRouter();
 
-  const [showPopup, setShowPopup] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question4");
+  const pageCount = useSearchParams().get("pageCount");
+  const lastSplit = Number(useSearchParams().get("split"));
 
   const updateVoteSelection = useQuestion4(
     (state) => state.updateVoteSelection
   );
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
@@ -109,17 +75,67 @@ const ContractBuilder4 = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <a
-          className="underline underline-offset-4 text-sm sm:text-base text-[#3167B4];"
-          href="#"
-          onClick={togglePopup}
-        >
-          {t("confused")}
-        </a>
-        <div className="inline-flex gap-20">
+      <footer className="flex flex-col gap-6 row-start-3">
+        {!isOpen && (
+          <Popup
+            trigger={
+              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base m-auto sm:m-0 pb-5">
+                {t("confused")}
+              </a>
+            }
+            position="center center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
+            >
+              <div className="popup flex-col">
+                <p>{t("popups.1")}</p>
+                <a
+                  className="items-center gap-2 hover:underline hover:underline-offset-4"
+                  onClick={() => push("/popups/moreInfoVoting")}
+                >
+                  {t("popups.2")}
+                </a>
+                <a
+                  className="items-center gap-2 hover:underline hover:underline-offset-4"
+                  onClick={() => push("/popups/moreInfoAdmin")}
+                >
+                  {t("popups.3")}
+                </a>
+                <button
+                  onClick={() => {
+                    setIsOpen(true);
+                    setTimeout(() => {
+                      setIsOpen(false);
+                    }, 200);
+                  }}
+                  className="popup_button text-white hover:text-gray-300"
+                >
+                  &times;
+                </button>
+              </div>
+            </div>
+          </Popup>
+        )}
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[10%]">
           <button
-            onClick={() => push("/both/question3")}
+            onClick={() =>
+              push(
+                `/master_recording/${pageCount}?pageCount=${pageCount}&split=${
+                  100 - lastSplit
+                }`
+              )
+            }
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
@@ -131,9 +147,6 @@ const ContractBuilder4 = ({
             {t("submit")}
           </button>
         </div>
-        {showPopup && (
-          <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
-        )}
       </footer>
     </div>
   );

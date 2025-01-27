@@ -10,6 +10,7 @@ const DynamicPage = ({
 }: {
   params: {
     lng: string;
+    page: string;
   };
 }) => {
   const router = useRouter();
@@ -38,7 +39,7 @@ const DynamicPage = ({
     pageData.splitTotal || 0
   );
   const resetPages = useDynamicPageStore((state) => state.resetPages);
-  const { lng } = params;
+  const { lng, page } = params;
   const { t } = useTranslation(lng, "both/dynamic");
 
   useEffect(() => {
@@ -98,6 +99,18 @@ const DynamicPage = ({
     if (value >= 0) {
       document.getElementById("split2")!.innerHTML = String(value);
       document.getElementById("split3")!.innerHTML = String(value);
+    }
+  };
+
+  const handleBackPage = () => {
+    const previousPage = parseInt(page) - 1;
+    if (previousPage > 0) {
+      setSplitTotal(splitTotal - split);
+      router.push(
+        `/master_recording/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
+      );
+    } else {
+      router.push(`/master_recording/question3`);
     }
   };
 
@@ -255,14 +268,25 @@ const DynamicPage = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <p id="wrongSplits" className="text-[#AC4444] font-rubik"></p>
-        <button
-          onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
-        >
-          {t("submit")}
-        </button>
+      <footer className="flex flex-col gap-6 row-start-3">
+        <p
+          id="wrongSplits"
+          className="text-red-500 text-lg text-sm sm:text-base"
+        ></p>
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[12%]">
+          <button
+            onClick={handleBackPage}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
+            {t("back")}
+          </button>
+          <button
+            onClick={handleNextPage}
+            className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
+          >
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );

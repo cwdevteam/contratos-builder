@@ -69,10 +69,10 @@ const ContractBuilder5Admin = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <div className="inline-flex gap-20">
+      <footer className="flex flex-col gap-6 row-start-3  pt-[3%] sm:pt-[9%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pl-4">
           <button
-            onClick={() => push("/both/question4")}
+            onClick={() => push("/master_recording/question4")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
