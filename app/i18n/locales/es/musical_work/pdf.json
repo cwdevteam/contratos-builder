@@ -4,6 +4,7 @@
 
   "collaborator": "Colaborador {{id}}",
   "legalName": "Nombre Legal: {{name}}",
+  "9": "Dirección de Correo Electrónico: {{email}}",
   "contributionType": "Contribución (Letra, música o ambas): {{contributorType}}",
   "ownershipPercentage": "Porcentaje de propiedad: {{split}}%",
 
