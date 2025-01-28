@@ -41,10 +41,10 @@ const ContractBuilder3 = ({
   const { t } = useTranslation(lng, "musical_work/question3");
 
   return (
-    <div className="sm:p-8 flex flex-col justify-between">
+    <div className="p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm ">
-          <p className="text-[#FFFFFF] text-[1.5rem] pt-5">{t("p1")}</p>
+          <p className="text-[#FFFFFF] text-[1.5rem] pt-10">{t("p1")}</p>
           <form className="flex flex-col pt-5">
             <input
               type="number"
@@ -56,7 +56,7 @@ const ContractBuilder3 = ({
             />
           </form>
         </div>
-        <div className="py-1 pt-20">
+        <div className="py-1 pt-10">
           <div className="w-4/5">
             <p className=" font-roboto_light text-[#696969] text-[0px] sm:text-[16px]">
               {t("p2")}
@@ -74,14 +74,17 @@ const ContractBuilder3 = ({
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[65%] sm:pt-[25%]">
           <button
             onClick={() => push("/musical_work/question2")}
-            className=" w-fit bg-[#AC444475]"
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
             {t("submit")}
           </button>
         </div>

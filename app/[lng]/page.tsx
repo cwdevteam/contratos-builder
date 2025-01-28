@@ -21,7 +21,7 @@ export default function Home({
   const [isOpen2, setIsOpen2] = useState(false);
 
   return (
-    <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5">
+    <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5 sm:mx-auto">
       <section className="w-full flex flex-col gap-5">
         <p className="md:text-[32px] text-[20px] font-share tracking-[-0.05rem] text-start">
           {t("h3-1")}
@@ -49,7 +49,7 @@ export default function Home({
         {!isOpen2 && (
           <Popup
             trigger={<button>{t("get-started")}</button>}
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"
@@ -84,53 +84,6 @@ export default function Home({
                     <br />
                     {t("3")}
                     <br />
-                    <ol className="list-decimal list-inside pl-4">
-                      <li className="pl-2">
-                        {t("4")}
-                        <br />
-                        <span>{t("5")}</span>
-                      </li>
-                      <li className="pl-2">
-                        {t("6")}
-                        <br />
-                        <span>{t("7")}</span>
-                      </li>
-                    </ol>
-                    <br />
-                    {t("8")}
-                    <br />
-                    {t("9")}
-                    <br />
-                    <ul className="list-disc list-inside">
-                      <li>
-                        {t("10")}
-                        <br />
-                        <br />
-                      </li>
-                      <li>
-                        {t("11")}
-                        <br />
-                        <br />
-                      </li>
-                      <li>
-                        {t("12")}
-                        <br />
-                        <br />
-                      </li>
-                      <li>
-                        {t("13")}
-                        <br />
-                        <br />
-                      </li>
-                    </ul>
-                    {t("14")}
-                    <br />
-                    {t("15")}
-                    <br />
-                    {t("16")}
-                    <br />
-                    {t("17")}
-                    <br />
                     <div className="flex justify-end">
                       <button
                         onClick={() => push(`/${lng}/question1`)}
@@ -148,11 +101,11 @@ export default function Home({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="font-share text-2xl text-link underline text-center text-[15px]">
+              <a className="font-share text-2xl text-link underline text-center text-[18px] pt-2">
                 {t("confused")}
               </a>
             }
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"
@@ -160,7 +113,12 @@ export default function Home({
           >
             <div
               className="modal border-2 border-white"
-              style={{ height: "60vh", overflowY: "scroll" }}
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
             >
               <p>{t("popups.1")}</p>
               <ul>

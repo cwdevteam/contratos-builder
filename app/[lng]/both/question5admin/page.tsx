@@ -32,12 +32,10 @@ const ContractBuilder5Admin = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <h1 className="text-lg sm:text-xl mb-4 font-share py-5">
-            {t("name")}
-          </h1>
+        <div className="w-full sm:w-1/2 sm:py-10">
+          <h1 className="text-lg sm:text-xl mb-4 font-share">{t("name")}</h1>
           <form className="flex flex-col">
-            <label className="text-xs sm:text-sm mb-2 font-share pb-5">
+            <label className="text-xs sm:text-sm mb-2 font-share">
               {t("name-list")}
             </label>
             <input
@@ -46,18 +44,10 @@ const ContractBuilder5Admin = ({
               className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-4/5 p-2 font-rubik"
             />
           </form>
-          <div className="pt-10 w-4/5">
-            <a
-              className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
-              href="#"
-              onClick={() => push("/popups/moreInfoAdmin")}
-            >
-              {t("confused")}
-            </a>
-          </div>
+          <div className="w-4/5"></div>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4 font-roboto_light pt-20">
+        <div className="w-full sm:w-1/2  sm:p-8">
+          <p className="text-[0px] sm:text-sm text-gray-500 mb-4 font-roboto_light">
             {t("p1")}
           </p>
           <h4 className="text-base sm:text-lg font-roboto_bold mb-2">
@@ -69,15 +59,25 @@ const ContractBuilder5Admin = ({
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <div className="inline-flex gap-20">
+      <footer className="flex flex-col gap-6 row-start-3  pt-[3%] sm:pt-[9%]">
+        <a
+          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base pl-4"
+          href="#"
+          onClick={() => push("/popups/moreInfoAdmin")}
+        >
+          {t("confused")}
+        </a>
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pl-4">
           <button
             onClick={() => push("/both/question4")}
-            className=" w-fit bg-[#AC444475]"
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
             {t("submit")}
           </button>
         </div>

@@ -11,6 +11,7 @@ const DynamicPage = ({
 }: {
   params: {
     lng: string;
+    page: string;
   };
 }) => {
   const router = useRouter();
@@ -37,7 +38,7 @@ const DynamicPage = ({
     pageData.splitTotal || 0
   );
   const resetPages = useDynamicPageStore((state) => state.resetPages);
-  const { lng } = params;
+  const { lng, page } = params;
   const { t } = useTranslation(lng, "master/dynamic");
 
   useEffect(() => {
@@ -84,6 +85,18 @@ const DynamicPage = ({
     }
   };
 
+  const handleBackPage = () => {
+    const previousPage = parseInt(page) - 1;
+    if (previousPage > 0) {
+      setSplitTotal(splitTotal - split);
+      router.push(
+        `/master_recording/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
+      );
+    } else {
+      router.push(`/master_recording/question3`);
+    }
+  };
+
   const handleNextPage = () => {
     if (pageNumber >= pageCount && splitTotal !== 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
@@ -103,7 +116,7 @@ const DynamicPage = ({
         const nextPage = pageNumber + 1;
         router.push(
           pageNumber >= pageCount
-            ? `/master_recording/question4?pageCount=${pageCount}`
+            ? `/master_recording/question4?pageCount=${pageCount}&split=${lastSplit}`
             : `/master_recording/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`
         );
       }
@@ -111,40 +124,40 @@ const DynamicPage = ({
   };
 
   return (
-    <div className=" p-4 sm:p-8 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pl-10 pt-10">
+    <div className="p-4 flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm mb-2 block font-share">
                 {t("name")}
               </label>
               <input
                 type="text"
                 value={legalName}
                 onChange={handleNameChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm mb-2 block font-share">
                 {t("email")}
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
-            <div className="flex flex-row">
-              <div>
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+            <div className="flex flex-row gap-5">
+              <div className="w-full sm:w-[38.5%]">
+                <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("type")}
                 </label>
                 <select
@@ -153,6 +166,7 @@ const DynamicPage = ({
                   value={contributorType}
                   className="bg-black p-2 size-10 w-full font-rubik"
                   onChange={handleContributorChange}
+                  required
                 >
                   <option value=""></option>
                   <option value={t("artist")}>{t("artist")}</option>
@@ -161,8 +175,8 @@ const DynamicPage = ({
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
               </div>
-              <div className="pl-10">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <div className="sm:w-[38.5%]">
+                <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
                 <input
@@ -176,43 +190,58 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="sm:text-sm text-gray-500 mb-4 font-roboto_thin">
+        <div className="w-full sm:pt-7">
+          <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">{t("p2")}</h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
-            {t("p3", { title: recording })}
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("p3")}
+            <span className="text-[#AC4444] font-rubik"> {recording}</span>
+            {t("p4")}
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">
             {t("contributor")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("name2")}:{" "}
             <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("email2")}:{" "}
             <span className="text-[#AC4444] font-rubik">{email}</span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <p className="text-sm sm:text-base font-roboto_light">
             {t("contribution2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{contributorType}</span>
+            <span className="text-[#AC4444] font-rubik ">
+              {contributorType}
+            </span>
           </p>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
-            {t("split")}:{" "}
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("split2")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <p id="wrongSplits" className="text-[#AC4444] font-rubik"></p>
-        <button
-          onClick={handleNextPage}
-          className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
-        >
-          {t("submit")}
-        </button>
+      <footer className="flex flex-col gap-6 row-start-3">
+        <p
+          id="wrongSplits"
+          className="text-red-500 text-lg text-sm sm:text-base"
+        ></p>
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[12%]">
+          <button
+            onClick={handleBackPage}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
+            {t("back")}
+          </button>
+          <button
+            onClick={handleNextPage}
+            className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
+          >
+            {t("submit")}
+          </button>
+        </div>
       </footer>
     </div>
   );

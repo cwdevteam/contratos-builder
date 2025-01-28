@@ -49,31 +49,34 @@ const ContractBuilder2 = ({
             />
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 pt-20">
+        <div className="w-full sm:w-1/2 pt-5">
           <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p2")}
           </p>
-          <h3 className="text-base font-bold mb-2 font-roboto_bold">
+          <h3 className="text-base font-bold mb-2 font-roboto_bold text-[20px]">
             {t("h3")}
           </h3>
-          <p className="text-sm sm:text-base font-share">
+          <p className="text-sm sm:text-base font-share text-[22px]">
             {t("p3")}{" "}
-            <span className="text-[#AC4444] font-rubik">
+            <span className="text-[#AC4444] font-rubik text-[20px]">
               {song ? song : " "}
             </span>
             .
           </p>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3">
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
+      <footer className="flex flex-col gap-6 row-start-3 mb-2">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[40%] sm:pt-[25%]">
           <button
             onClick={() => push("/question1")}
-            className=" w-fit bg-[#AC444475]"
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
             {t("submit")}
           </button>
         </div>

@@ -14,9 +14,9 @@ const ContractBuilder2 = ({
 }) => {
   const { push } = useRouter();
   const updateSong = useQuestion2((state) => state.updateSong);
-  const updateRecording = useQuestion2((state) => state.updateRecording);
+  //const updateRecording = useQuestion2((state) => state.updateRecording);
   const [song, setSelectedOptionSong] = useState("");
-  const [recording, setRecording] = useState("");
+  //const [recording, setRecording] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question2");
 
@@ -24,23 +24,22 @@ const ContractBuilder2 = ({
     setSelectedOptionSong(event.target.value);
   };
 
-  const handleRecordingChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setRecording(event.target.value);
-  };
+  // const handleRecordingChange = (
+  //   event: React.ChangeEvent<HTMLInputElement>
+  // ) => {
+  //   setRecording(event.target.value);
+  // };
 
   const handleSubmit = () => {
     updateSong(song);
-    updateRecording(recording);
-    if (song != "" && recording != "") {
+    //updateRecording(recording);
+    if (song != "") {
       push(`/both/question3?${query}`);
     }
   };
 
   const query = new URLSearchParams({
     song,
-    recording,
   }).toString();
 
   return (
@@ -59,21 +58,21 @@ const ContractBuilder2 = ({
               className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2 font-rubik p-2"
               required
             />
-            <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0 pt-5 ">
+            {/* <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0 pt-5 ">
               {t("label2")}
-            </label>
-            <input
+            </label> */}
+            {/* <input
               type="text"
               name="type"
               onChange={handleRecordingChange}
               className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2 font-rubik p-2"
               required
-            />
+            /> */}
           </form>
         </div>
 
-        <div className="w-full sm:w-1/2 p-4 pt-20">
-          <p className="text-xs sm:text-sm text-gray-500 mb-4 font-roboto_light">
+        <div className="w-full sm:w-1/2">
+          <p className="sm:text-sm text-gray-500 mb-4 font-roboto_light text-[0px]">
             {t("p2")}
           </p>
 
@@ -87,26 +86,31 @@ const ContractBuilder2 = ({
             </span>
           </p>
           <br />
-          <h3 className="text-base sm:text-lg font-bold mb-2 font-roboto_bold">
+          <h3 className="text-base font-bold mb-2 font-roboto_bold">
             {t("h32")}
           </h3>
           <p className="text-sm sm:text-base font-roboto">
-            {t("p4")}{" "}
+            {t("p4")}
+            {""}
             <span className="text-[#AC4444] font-rubik">
-              {recording ? recording : " "}
+              {song ? song : " "}
             </span>
+            {t("p4b")}
           </p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <div className="inline-flex gap-20">
+      <footer className="flex flex-col gap-6 row-start-3 mb-2">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[10%] sm:pt-[20%]">
           <button
             onClick={() => push("/question1")}
-            className=" w-fit bg-[#AC444475]"
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
             {t("submit")}
           </button>
         </div>

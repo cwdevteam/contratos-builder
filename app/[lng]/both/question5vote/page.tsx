@@ -33,8 +33,8 @@ const ContractBuilder5Vote = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-        <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <h1 className="text-lg sm:text-xl mb-4 font-share w-4/5 pt-5">
+        <div className="w-full sm:w-1/2 sm:py-10">
+          <h1 className="text-lg sm:text-xl mb-4 font-share w-full">
             {t("percent")}
           </h1>
           <form className="flex flex-col">
@@ -46,11 +46,11 @@ const ContractBuilder5Vote = ({
             />
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 pt-20 font-roboto_light">
+        <div className="w-full sm:w-1/2 sm:p-8">
+          <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
-          <h4 className="text-base sm:text-lg font-bold mb-2 pt-5 font-roboto_bold">
+          <h4 className="text-base sm:text-lg font-bold mb-2 font-roboto_bold">
             {t("2.0")}
           </h4>
           <p className="text-xs sm:text-sm mb-4 font-roboto_thin">
@@ -68,22 +68,25 @@ const ContractBuilder5Vote = ({
           </ol>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
+      <footer className="flex flex-col gap-6 row-start-3">
         <a
-          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base"
+          className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base mt-4 pl-4"
           href="#"
           onClick={() => push("/popups/moreInfoVoting")}
         >
           {t("confused")}
         </a>
-        <div className="inline-flex gap-20">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:mt-[3%]">
           <button
             onClick={() => push("/both/question4")}
-            className=" w-fit bg-[#AC444475]"
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
             {t("submit")}
           </button>
         </div>
@@ -101,7 +104,7 @@ const WrappedContractBuilder5Vote = ({
 }) => {
   const { lng } = params;
   return (
-    <Suspense fallback={<div>...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <ContractBuilder5Vote params={{ lng: lng }} />
     </Suspense>
   );
