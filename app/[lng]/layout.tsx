@@ -35,7 +35,9 @@ export default async function RootLayout({
       <body>
         <header className="flex items-center justify-between h-20 px-4">
           <div className="flex items-center space-x-2">
-            <Image src={mesaImage} width={190} height={60} alt="M"></Image>
+            <a href="/" className="focus:outline-none">
+              <Image src={mesaImage} width={190} height={60} alt="M"></Image>
+            </a>
             <p className="float-left text-[32px]"></p>
           </div>
           <div>{/* <LanguageSwitcher /> */}</div>
