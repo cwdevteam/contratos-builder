@@ -192,7 +192,7 @@ const PDF = (isClicked: boolean) => {
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
     const line15 = t("distributionMonetization");
-    x = getX(line15);
+    //x = getX(line15);
     doc.text(line15, x, y);
     y = getY(y, 10);
 
