@@ -21,7 +21,7 @@ const ContractBuilder3 = ({
 
   const searchParams = useSearchParams();
   const song = searchParams.get("song")!;
-  const recording = searchParams.get("recording")!;
+  //const recording = searchParams.get("recording")!;
 
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question3");
@@ -42,11 +42,11 @@ const ContractBuilder3 = ({
   };
 
   return (
-    <div className=" flex flex-col justify-between pl-5">
-      <main className="flex flex-col sm:flex-row">
-        <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm pt-20">
-          <p className="pl-5 text-[#FFFFFF] text-[1.5rem] pt-5">{t("p1")}</p>
-          <form className="flex flex-col pl-5 pt-5">
+    <div className="p-4 sm:p-8 flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+        <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm">
+          <p className="text-[#FFFFFF] text-[1.5rem]">{t("p1")}</p>
+          <form className="flex flex-col pt-5">
             <input
               type="number"
               name="type"
@@ -57,36 +57,45 @@ const ContractBuilder3 = ({
             />
           </form>
         </div>
-        <div className=" p-8 py-1 pt-20">
+        <div className="py-1">
           <div className="w-4/5">
-            <p className=" font-roboto_light text-[#696969]">{t("p2")}</p>
-            <h3 className="text-base font-bold mb-2 font-roboto_bold">
+            <p className="font-roboto_light text-[#696969] text-[0px] sm:text-[16px]">
+              {t("p2")}
+            </p>
+            <h3 className="font-bold mb-2 font-roboto_bold text-[0px] sm:text-[16px]">
               {t("h3")}
             </h3>
-            <p className="font-roboto">
+            <p className="font-roboto text-[0px] sm:text-[16px]">
               {t("p3")}{" "}
-              <span className="text-[#AC4444] font-rubik">{song}</span>
+              <span className="text-[#AC4444] font-rubik text-[0px] sm:text-[16px]">
+                {song}
+              </span>
             </p>
             <br />
-            <h3 className="text-base font-bold mb-2 font-roboto_bold">
+            <h3 className="font-bold mb-2 font-roboto_bold text-[0px] sm:text-[16px]">
               {t("h32")}
             </h3>
-            <p className="font-roboto">
+            <p className="font-roboto text-[0px] sm:text-[16px]">
               {t("p4")} {t("p5")}
-              <span className="text-[#AC4444] font-rubik">{recording}</span>
+              <span className="text-[#AC4444] font-rubik text-[0px] sm:text-[16px]">
+                {song}
+              </span>
             </p>
           </div>
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
-        <div className="inline-flex gap-20">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[65%] sm:pt-[20%]">
           <button
             onClick={() => push("/both/question2")}
-            className=" w-fit bg-[#AC444475]"
+            className="w-[15%] bg-[#AC444475] flex-1 sm:flex-none"
           >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className="w-[15%] bg-[#AC444475] flex-1 sm:flex-none"
+          >
             {t("submit")}
           </button>
         </div>

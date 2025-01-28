@@ -48,7 +48,7 @@ function ContractBuilder1({
   const date = new Date().toLocaleDateString();
 
   return (
-    <div className="sm:p-8 flex flex-col justify-between">
+    <div className="p-4 sm:p-8 flex flex-col justify-between max-h-screen">
       <main className="flex flex-col sm:flex-row sm:gap-8 pt-10">
         <div className="sm:w-1/2 py-4 sm:py-10">
           <p className=" mb-4 font-share text-[1.5rem] w-full">{t("p1")}</p>
@@ -92,7 +92,7 @@ function ContractBuilder1({
                       {t("read-more")}
                     </a>
                   }
-                  position="right center"
+                  position="center center"
                   modal
                   nested
                   className="popup"
@@ -100,7 +100,12 @@ function ContractBuilder1({
                 >
                   <div
                     className="modal border-2 border-white"
-                    style={{ height: "60vh", overflowY: "scroll" }}
+                    style={{
+                      height: "80vh",
+                      width: "90vw",
+                      maxWidth: "600px",
+                      overflowY: "scroll",
+                    }}
                   >
                     <div className=" p-4 sm:p-8 flex flex-col justify-between">
                       <main className="flex flex-col gap-6 sm:gap-8">
@@ -173,8 +178,8 @@ function ContractBuilder1({
             </label>
           </form>
         </div>
-        <div className=" p-8 font-roboto_bold">
-          <p className="text-[0px] sm:text-[16px] pb-5 text-gray-500 font-roboto_light ">
+        <div className="font-roboto_bold">
+          <p className="text-[0px] sm:text-[16px] pb-5 text-gray-500 font-roboto_light pt-0">
             {t("p2")}
           </p>
           <p className="p-5 pl-0">
@@ -192,11 +197,11 @@ function ContractBuilder1({
         {!isOpen && (
           <Popup
             trigger={
-              <a className="items-center gap-2 underline underline-offset-4 mx-auto sm:mx-0 pb-5">
+              <a className="items-center gap-2 underline underline-offset-4 p-4 sm:mx-0 pb-5">
                 {t("if-confused")}
               </a>
             }
-            position="right center"
+            position="center center"
             modal
             nested
             className="popup"
@@ -204,7 +209,12 @@ function ContractBuilder1({
           >
             <div
               className="modal border-2 border-white"
-              style={{ height: "60vh", overflowY: "scroll" }}
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
             >
               <p className="py-5">{t("popups.1")}</p>
               <ol>
@@ -233,11 +243,17 @@ function ContractBuilder1({
           </Popup>
         )}
 
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20">
-          <button onClick={() => push("/")} className=" w-fit  bg-[#AC444475]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 pt-[20%] sm:pt-[10%]">
+          <button
+            onClick={() => push("/")}
+            className=" w-[15%]  bg-[#AC444475] flex-1 sm:flex-none"
+          >
             {t("back")}
           </button>
-          <button onClick={handleSubmit} className=" w-fit  bg-[#AC444475]">
+          <button
+            onClick={handleSubmit}
+            className=" w-[15%]  bg-[#AC444475] flex-1 sm:flex-none"
+          >
             {t("submit")}
           </button>
         </div>

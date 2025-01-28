@@ -1,42 +1,10 @@
 "use client";
 
 import React, { Suspense, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import useQuestion4 from "../../store/useQuestion4";
 import { useTranslation } from "@/app/i18n/client";
-
-interface PopupProps {
-  onClose: () => void;
-  params: {
-    lng: string;
-  };
-}
-
-const Popup = ({ onClose, params }: PopupProps) => {
-  const { push } = useRouter();
-  const { lng } = params;
-  const { t } = useTranslation(lng, "both/question4");
-  return (
-    <div className="popup flex-col">
-      <p>{t("popups.1")}</p>
-      <a
-        className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push("/popups/moreInfoVoting")}
-      >
-        {t("popups.2")}
-      </a>
-      <a
-        className="items-center gap-2 hover:underline hover:underline-offset-4"
-        onClick={() => push("/popups/moreInfoAdmin")}
-      >
-        {t("popups.3")}
-      </a>
-      <button onClick={onClose} className="popup_button">
-        x
-      </button>
-    </div>
-  );
-};
+import Popup from "reactjs-popup";
 
 const ContractBuilder4 = ({
   params,
@@ -47,18 +15,16 @@ const ContractBuilder4 = ({
 }) => {
   const { push } = useRouter();
 
-  const [showPopup, setShowPopup] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question4");
+  const pageCount = useSearchParams().get("pageCount");
+  const lastSplit = Number(useSearchParams().get("split"));
 
   const updateVoteSelection = useQuestion4(
     (state) => state.updateVoteSelection
   );
-
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
@@ -77,7 +43,9 @@ const ContractBuilder4 = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
-          <h4 className="mb-4 pt-5 font-share font-[2rem]">{t("question")}</h4>
+          <h4 className="mb-4 pt-5 font-share text-[1.5rem]">
+            {t("question")}
+          </h4>
           <form className="flex flex-col gap-2">
             <label className="flex items-center font-rubik">
               <input
@@ -88,7 +56,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("vote")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("vote")}</span>
             </label>
             <label className="flex items-center font-rubik">
               <input
@@ -99,38 +67,97 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base">{t("admin")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("admin")}</span>
+            </label>
+            <label className="flex items-center font-rubik">
+              <input
+                type="radio"
+                name="type"
+                className="radio mr-2"
+                value="SKIP"
+                onChange={handleRadioChange}
+                required
+              />
+              <span className="text-sm sm:text-base mt-2">{t("skip")}</span>
             </label>
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
-          <p className="text-gray-500 mb-4 font-roboto_light pt-20">
-            {t("p1")}
-          </p>
+        <div className="w-full sm:w-1/2 sm:p-8">
+          <p className="text-gray-500 mb-4 font-share">{t("p1")}</p>
         </div>
       </main>
-      <footer className="mt-8 flex flex-col gap-4">
-        <a
-          className="underline underline-offset-4 text-sm sm:text-base text-[#3167B4];"
-          href="#"
-          onClick={togglePopup}
-        >
-          {t("confused")}
-        </a>
-        <div className="inline-flex gap-20">
+      <footer className="flex flex-col gap-6 row-start-3">
+        {!isOpen && (
+          <Popup
+            trigger={
+              <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base m-auto sm:m-0 pb-5 pl-4">
+                {t("confused")}
+              </a>
+            }
+            position="center center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
+            >
+              <p>{t("popups.1")}</p>
+              <br />
+              <a
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                onClick={() => push("/popups/moreInfoVoting")}
+              >
+                {t("popups.2")}
+              </a>
+              <br />
+              <a
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                onClick={() => push("/popups/moreInfoAdmin")}
+              >
+                {t("popups.3")}
+              </a>
+              <button
+                onClick={() => {
+                  setIsOpen(true);
+                  setTimeout(() => {
+                    setIsOpen(false);
+                  }, 200);
+                }}
+                className="popup_button text-white hover:text-gray-300"
+              >
+                &times;
+              </button>
+            </div>
+          </Popup>
+        )}
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[10%]">
           <button
-            onClick={() => push("/both/question3")}
-            className=" w-fit bg-[#AC444475]"
+            onClick={() =>
+              push(
+                `/both/${pageCount}?pageCount=${pageCount}&split=${
+                  100 - lastSplit
+                }`
+              )
+            }
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
             {t("back")}
           </button>
-          <button onClick={findNextPage} className=" w-fit bg-[#AC444475]">
+          <button
+            onClick={findNextPage}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
             {t("submit")}
           </button>
         </div>
-        {showPopup && (
-          <Popup onClose={() => setShowPopup(false)} params={{ lng: lng }} />
-        )}
       </footer>
     </div>
   );

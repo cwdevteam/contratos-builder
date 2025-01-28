@@ -11,6 +11,7 @@ const DynamicPage = ({
 }: {
   params: {
     lng: string;
+    page: string;
   };
 }) => {
   const router = useRouter();
@@ -37,7 +38,7 @@ const DynamicPage = ({
     pageData.splitTotal || 0
   );
   const resetPages = useDynamicPageStore((state) => state.resetPages);
-  const { lng } = params;
+  const { lng, page } = params;
   const { t } = useTranslation(lng, "musical_work/dynamic");
 
   useEffect(() => {
@@ -103,23 +104,35 @@ const DynamicPage = ({
         const nextPage = pageNumber + 1;
         router.push(
           pageNumber >= pageCount
-            ? `/musical_work/question4?pageCount=${pageCount}`
+            ? `/musical_work/question4?pageCount=${pageCount}&split=${lastSplit}`
             : `/musical_work/${nextPage}?pageCount=${pageCount}&split=${splitTotal}`
         );
       }
     }
   };
 
+  const handleBackPage = () => {
+    const previousPage = parseInt(page) - 1;
+    if (previousPage > 0) {
+      setSplitTotal(splitTotal - split);
+      router.push(
+        `/musical_work/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
+      );
+    } else {
+      router.push(`/musical_work/question3`);
+    }
+  };
+
   return (
-    <div className="flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pt-10">
+    <div className="p-4 flex flex-col justify-between">
+      <main className="flex flex-col sm:flex-row pt-7">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributor")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm mb-2 block font-share">
                 {t("name")}
               </label>
               <input
@@ -131,7 +144,7 @@ const DynamicPage = ({
               />
             </div>
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm mb-2 block font-share">
                 {t("email")}
               </label>
               <input
@@ -142,9 +155,9 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row gap-5">
               <div className="w-full sm:w-[38.5%]">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+                <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("type")}
                 </label>
                 <select
@@ -161,8 +174,8 @@ const DynamicPage = ({
                   <option value={t("both2")}>{t("both")}</option>
                 </select>
               </div>
-              <div className="">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <div className="sm:w-[38.5%]">
+                <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("split")}
                 </label>
                 <input
@@ -176,7 +189,7 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full">
+        <div className="w-full sm:pt-7">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("p1")}
           </p>
@@ -213,10 +226,16 @@ const DynamicPage = ({
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-[19rem] justify-between sm:justify-normal sm:gap-20">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[15%]">
+          <button
+            onClick={handleBackPage}
+            className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
+          >
+            {t("back")}
+          </button>
           <button
             onClick={handleNextPage}
-            className="text-white py-2 px-4 rounded  transition-colors w-fit relative bg-[#AC444475]"
+            className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
           >
             {t("submit")}
           </button>
