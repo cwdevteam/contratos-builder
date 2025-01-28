@@ -98,7 +98,7 @@ const PDF = (isClicked: boolean) => {
     doc.setFont("Palatino Linotype", "bold");
     const line2 = t("workIdentification");
     //x = getX(line2);
-    doc.text(line2, x / 2, y);
+    doc.text(line2, x, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
@@ -107,7 +107,7 @@ const PDF = (isClicked: boolean) => {
       line3,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split3, x / 2, y);
+    doc.text(split3, x, y);
     y = getY(y, 15);
 
     // const line6 = t("contributionAcknowledgement");
@@ -122,7 +122,7 @@ const PDF = (isClicked: boolean) => {
     doc.setFontSize(11);
     const line7 = t("rightsAndDuties");
     x = getX(line7);
-    doc.text(line7, x / 2, y);
+    doc.text(line7, x / 2 - 10, y);
 
     doc.setFont("Palatino Linotype", "normal");
     const line8 = t("mutualAssignment");
@@ -130,7 +130,7 @@ const PDF = (isClicked: boolean) => {
       line8,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split8, x / 2, y + 10);
+    doc.text(split8, x / 2 - 10, y + 10);
     y = getY(y, 30);
 
     const line9 = t("jointWork");
@@ -138,7 +138,7 @@ const PDF = (isClicked: boolean) => {
       line9,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split9, x / 2, y + 10);
+    doc.text(split9, x / 2 - 10, y + 10);
     y = getY(y, 25);
 
     //different section based on vote or admin
