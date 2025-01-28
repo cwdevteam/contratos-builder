@@ -138,7 +138,7 @@ const PDF = (isClicked: boolean) => {
       line9,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split9, x / 2 - 10, y + 10);
+    doc.text(split9, x, y + 10);
     y = getY(y, 25);
 
     //different section based on vote or admin
@@ -148,7 +148,7 @@ const PDF = (isClicked: boolean) => {
         line10,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text(split10, x / 2, y + 10);
+      doc.text(split10, x, y + 10);
       y = getY(y, 15);
 
       const line11 = t("derivativeWorks");
@@ -156,8 +156,8 @@ const PDF = (isClicked: boolean) => {
         line11,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("-", x / 2 + 10, y + 10);
-      doc.text(split11, x / 2 + 20, y + 10);
+      doc.text("-", x, y + 10);
+      doc.text(split11, x + 3, y + 10);
       y = getY(y, 10);
 
       const line12 = t("editWork");
@@ -165,8 +165,8 @@ const PDF = (isClicked: boolean) => {
         line12,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("-", x / 2 + 10, y + 10);
-      doc.text(split12, x / 2 + 20, y + 10);
+      doc.text("-", x, y + 10);
+      doc.text(split12, x + 3, y + 10);
       y = getY(y, 15);
 
       const line13 = t("exploitName");
@@ -174,8 +174,8 @@ const PDF = (isClicked: boolean) => {
         line13,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("-", x / 2 + 10, y + 10);
-      doc.text(split13, x / 2 + 20, y + 10);
+      doc.text("-", x, y + 10);
+      doc.text(split13, x + 3, y + 10);
       y = getY(y, 25);
     } else if (voteSelection == "ADMIN") {
       const line10 = t("adminDesignation", { adminName });
@@ -183,7 +183,7 @@ const PDF = (isClicked: boolean) => {
         line10,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text(split10, x / 2, y + 10);
+      doc.text(split10, x, y + 10);
       y = getY(y, 65);
     } else {
       y = getY(y, 10);
