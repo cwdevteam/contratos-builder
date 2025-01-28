@@ -97,7 +97,7 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     const line2 = t("workIdentification");
-    x = getX(line2);
+    //x = getX(line2);
     doc.text(line2, x / 2, y);
     y = getY(y, 10);
 
@@ -130,8 +130,7 @@ const PDF = (isClicked: boolean) => {
       line8,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x / 2, y + 10);
-    doc.text(split8, x / 2 + 10, y + 10);
+    doc.text(split8, x / 2, y + 10);
     y = getY(y, 30);
 
     const line9 = t("jointWork");
@@ -139,8 +138,7 @@ const PDF = (isClicked: boolean) => {
       line9,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("b.", x / 2, y + 10);
-    doc.text(split9, x / 2 + 10, y + 10);
+    doc.text(split9, x / 2, y + 10);
     y = getY(y, 25);
 
     //different section based on vote or admin
@@ -150,8 +148,7 @@ const PDF = (isClicked: boolean) => {
         line10,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("c.", x / 2, y + 10);
-      doc.text(split10, x / 2 + 10, y + 10);
+      doc.text(split10, x / 2, y + 10);
       y = getY(y, 15);
 
       const line11 = t("derivativeWorks");
@@ -159,7 +156,7 @@ const PDF = (isClicked: boolean) => {
         line11,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("i.", x / 2 + 10, y + 10);
+      doc.text("-", x / 2 + 10, y + 10);
       doc.text(split11, x / 2 + 20, y + 10);
       y = getY(y, 10);
 
@@ -168,7 +165,7 @@ const PDF = (isClicked: boolean) => {
         line12,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("ii.", x / 2 + 10, y + 10);
+      doc.text("-", x / 2 + 10, y + 10);
       doc.text(split12, x / 2 + 20, y + 10);
       y = getY(y, 15);
 
@@ -177,7 +174,7 @@ const PDF = (isClicked: boolean) => {
         line13,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("iii.", x / 2 + 10, y + 10);
+      doc.text("-", x / 2 + 10, y + 10);
       doc.text(split13, x / 2 + 20, y + 10);
       y = getY(y, 25);
     } else if (voteSelection == "ADMIN") {
@@ -186,8 +183,7 @@ const PDF = (isClicked: boolean) => {
         line10,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("c.", x / 2, y + 10);
-      doc.text(split10, x / 2 + 10, y + 10);
+      doc.text(split10, x / 2, y + 10);
       y = getY(y, 65);
     } else {
       y = getY(y, 10);
@@ -206,8 +202,7 @@ const PDF = (isClicked: boolean) => {
       line16,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split16, x + 10, y);
+    doc.text(split16, x, y);
     y = getY(y, 35);
 
     const line17 = t("royaltyCollection");
@@ -215,8 +210,7 @@ const PDF = (isClicked: boolean) => {
       line17,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("b.", x, y);
-    doc.text(split17, x + 10, y);
+    doc.text(split17, x, y);
     y = getY(y, 30);
 
     const line18 = t("thirdPartyPayments");
@@ -224,8 +218,7 @@ const PDF = (isClicked: boolean) => {
       line18,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("c.", x, y);
-    doc.text(split18, x + 10, y);
+    doc.text(split18, x, y);
     y = getY(y, 20);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -240,8 +233,7 @@ const PDF = (isClicked: boolean) => {
       line20,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split20, x + 10, y);
+    doc.text(split20, x, y);
     y = getY(y, 25);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -256,8 +248,7 @@ const PDF = (isClicked: boolean) => {
       line22,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split22, x + 10, y);
+    doc.text(split22, x, y);
     y = getY(y, 50);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -272,8 +263,7 @@ const PDF = (isClicked: boolean) => {
       line24,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split24, x + 10, y);
+    doc.text(split24, x, y);
     y = getY(y, 40);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -288,8 +278,7 @@ const PDF = (isClicked: boolean) => {
       line26,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split26, x + 10, y);
+    doc.text(split26, x, y);
     y = getY(y, 20);
 
     const line27 = t("originalContributions");
@@ -297,8 +286,7 @@ const PDF = (isClicked: boolean) => {
       line27,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("b.", x, y);
-    doc.text(split27, x + 10, y);
+    doc.text(split27, x, y);
     y = getY(y, 15);
 
     const line28 = t("thirdPartyClaims");
@@ -306,8 +294,7 @@ const PDF = (isClicked: boolean) => {
       line28,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("c.", x, y);
-    doc.text(split28, x + 10, y);
+    doc.text(split28, x, y);
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -322,8 +309,7 @@ const PDF = (isClicked: boolean) => {
       line30,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split30, x + 10, y);
+    doc.text(split30, x, y);
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -338,8 +324,7 @@ const PDF = (isClicked: boolean) => {
       line32,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split32, x + 10, y);
+    doc.text(split32, x, y);
     y = getY(y, 35);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -354,8 +339,7 @@ const PDF = (isClicked: boolean) => {
       line34,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split34, x + 10, y);
+    doc.text(split34, x, y);
     y = getY(y, 20);
 
     doc.setFont("Palatino Linotype", "bold");
@@ -370,8 +354,7 @@ const PDF = (isClicked: boolean) => {
       line36,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x, y);
-    doc.text(split36, x + 10, y);
+    doc.text(split36, x, y);
     y = getY(y, 20);
 
     const line37 = t("agreementValidity");
@@ -379,8 +362,7 @@ const PDF = (isClicked: boolean) => {
       line37,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("b.", x, y);
-    doc.text(split37, x + 10, y);
+    doc.text(split37, x, y);
     y = getY(y, 30);
 
     doc.text(t("signatures"), x, y);
