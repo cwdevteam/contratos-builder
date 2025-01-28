@@ -109,7 +109,7 @@ const PDF = (isClicked: boolean) => {
     );
     x = getX(line3);
     doc.text(split3, 30, y);
-    y = getY(y, 25);
+    y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "bold");
     const line4 = t("4a");
@@ -124,7 +124,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split5, 30, y);
-    y = getY(y, 10);
+    y = getY(y, 25);
 
     // const line6 = t("5");
     // const split6 = doc.splitTextToSize(
@@ -172,7 +172,7 @@ const PDF = (isClicked: boolean) => {
         line11,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("i.", x / 2, y + 10);
+      doc.text("-", x / 2, y + 10);
       doc.text(split11, x / 2 + 20, y + 10);
       y = getY(y, 10);
 
@@ -181,7 +181,7 @@ const PDF = (isClicked: boolean) => {
         line12,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("ii.", x / 2, y + 10);
+      doc.text("-", x / 2, y + 10);
       doc.text(split12, x / 2 + 20, y + 10);
       y = getY(y, 10);
 
@@ -190,7 +190,7 @@ const PDF = (isClicked: boolean) => {
         line13,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("iii.", x / 2, y + 10);
+      doc.text("-", x / 2, y + 10);
       doc.text(split13, x / 2 + 20, y + 10);
       y = getY(y, 15);
 
@@ -199,7 +199,7 @@ const PDF = (isClicked: boolean) => {
         line14,
         doc.internal.pageSize.getWidth() * 0.6
       );
-      doc.text("iv.", x / 2, y + 10);
+      doc.text("-", x / 2, y + 10);
       doc.text(split14, x / 2 + 20, y + 10);
       y = getY(y, 35);
     } else if (voteSelection == "ADMIN") {
