@@ -209,7 +209,7 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split10, x / 2, y + 10);
-      y = getY(y, 65);
+      y = getY(y, 30);
 
       const line10a = t("19a");
       const split10a = doc.splitTextToSize(
@@ -218,7 +218,7 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text("-", x, y + 10);
       doc.text(split10a, x / 2, y + 10);
-      y = getY(y, 65);
+      y = getY(y, 45);
     } else {
       y = getY(y, 10);
     }
