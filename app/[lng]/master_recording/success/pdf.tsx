@@ -109,7 +109,7 @@ const PDF = (isClicked: boolean) => {
     );
     x = getX(line3);
     doc.text(split3, 30, y);
-    y = getY(y, 15);
+    y = getY(y, 25);
 
     doc.setFont("Palatino Linotype", "bold");
     const line4 = t("4a");
@@ -226,7 +226,7 @@ const PDF = (isClicked: boolean) => {
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
     const line15 = t("20");
-    x = getX(line15);
+    //x = getX(line15);
     doc.text(line15, x / 2, y);
     y = getY(y, 10);
 
