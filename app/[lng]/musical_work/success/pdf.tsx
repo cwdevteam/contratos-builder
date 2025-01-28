@@ -121,8 +121,8 @@ const PDF = (isClicked: boolean) => {
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
     const line7 = t("rightsAndDuties");
-    x = getX(line7);
-    doc.text(line7, x / 2 - 10, y);
+    //x = getX(line7);
+    doc.text(line7, x, y);
 
     doc.setFont("Palatino Linotype", "normal");
     const line8 = t("mutualAssignment");
@@ -130,7 +130,7 @@ const PDF = (isClicked: boolean) => {
       line8,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text(split8, x / 2 - 10, y + 10);
+    doc.text(split8, x, y + 10);
     y = getY(y, 30);
 
     const line9 = t("jointWork");
