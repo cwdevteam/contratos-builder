@@ -37,6 +37,9 @@ const ContractBuilder4 = ({
     } else if (selectedOption == "ADMIN") {
       push("/both/question5admin");
     }
+    else{
+      push('/both/success')
+    }
   };
 
   return (
