@@ -70,30 +70,6 @@ const PDF = (isClicked: boolean) => {
     doc.text(line1, x, y);
     y = y = getY(y, 15);
 
-    doc.setFont("Palatino Linotype", "bold");
-    const line2 = t("3");
-    x = getX(line2);
-    doc.text(line2, x / 2, y);
-    y = getY(y, 10);
-
-    doc.setFont("Palatino Linotype", "normal");
-    const line3 = t("4", { song });
-    const split3 = doc.splitTextToSize(
-      line3,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    x = getX(line3);
-    doc.text(split3, x, y);
-    y = getY(y, 15);
-
-    const line3_5 = t("5a");
-    const split3_5 = doc.splitTextToSize(
-      line3_5,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split3_5, x, y + 10);
-    y = getY(y, 30);
-
     //list collaborator info
     x = 30;
     Object.keys(pages).forEach((id) => {
@@ -121,6 +97,30 @@ const PDF = (isClicked: boolean) => {
     });
 
     doc.setFont("Palatino Linotype", "bold");
+    const line2 = t("3");
+    x = getX(line2);
+    doc.text(line2, x / 2, y);
+    y = getY(y, 10);
+
+    doc.setFont("Palatino Linotype", "normal");
+    const line3 = t("4", { song });
+    const split3 = doc.splitTextToSize(
+      line3,
+      doc.internal.pageSize.getWidth() * 0.6
+    );
+    x = getX(line3);
+    doc.text(split3, x, y);
+    y = getY(y, 15);
+
+    // const line3_5 = t("5a");
+    // const split3_5 = doc.splitTextToSize(
+    //   line3_5,
+    //   doc.internal.pageSize.getWidth() * 0.6
+    // );
+    // doc.text(split3_5, x, y + 10);
+    // y = getY(y, 30);
+
+    doc.setFont("Palatino Linotype", "bold");
     const line4 = t("4a");
     x = getX(line4);
     doc.text(line4, x / 2, y);
@@ -135,13 +135,13 @@ const PDF = (isClicked: boolean) => {
     doc.text(split5, x / 2, y);
     y = getY(y, 10);
 
-    const line6 = t("5b");
-    const split6 = doc.splitTextToSize(
-      line6,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split6, x / 2, y + 10);
-    y = getY(y, 30);
+    // const line6 = t("5b");
+    // const split6 = doc.splitTextToSize(
+    //   line6,
+    //   doc.internal.pageSize.getWidth() * 0.6
+    // );
+    // doc.text(split6, x / 2, y + 10);
+    // y = getY(y, 30);
 
     //useDynamicPageStore
     x = x / 2;
@@ -408,26 +408,26 @@ const PDF = (isClicked: boolean) => {
     doc.setFontSize(11);
     const line25 = t("30");
     doc.text(line25, x / 2, y);
-    y = getY(y, 10);
+    y = getY(y, 45);
 
-    doc.setFont("Palatino Linotype", "normal");
-    const line26 = t("31");
-    const split26 = doc.splitTextToSize(
-      line26,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text("a.", x / 2, y);
-    doc.text(split26, x / 2 + 10, y);
-    y = getY(y, 20);
+    // doc.setFont("Palatino Linotype", "normal");
+    // const line26 = t("31");
+    // const split26 = doc.splitTextToSize(
+    //   line26,
+    //   doc.internal.pageSize.getWidth() * 0.6
+    // );
+    // doc.text("a.", x / 2, y);
+    // doc.text(split26, x / 2 + 10, y);
+    // y = getY(y, 20);
 
-    const line27 = t("32");
-    const split27 = doc.splitTextToSize(
-      line27,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text("b.", x / 2, y);
-    doc.text(split27, x / 2 + 10, y);
-    y = getY(y, 15);
+    // const line27 = t("32");
+    // const split27 = doc.splitTextToSize(
+    //   line27,
+    //   doc.internal.pageSize.getWidth() * 0.6
+    // );
+    // doc.text("b.", x / 2, y);
+    // doc.text(split27, x / 2 + 10, y);
+    // y = getY(y, 15);
 
     const line28 = t("33");
     const split28 = doc.splitTextToSize(
