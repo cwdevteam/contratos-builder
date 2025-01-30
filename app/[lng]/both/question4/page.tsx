@@ -38,7 +38,7 @@ const ContractBuilder4 = ({
       push("/both/question5admin");
     }
     else{
-      push('both/success')
+      push('/both/success')
     }
   };
 
