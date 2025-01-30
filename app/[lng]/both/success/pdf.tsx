@@ -152,7 +152,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split8, x , y + 10);
-    y = getY(y, 30);
+    y = getY(y, 35);
 
     const line9 = t("14");
     const split9 = doc.splitTextToSize(
@@ -160,7 +160,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split9, x, y + 10);
-    y = getY(y, 25);
+    y = getY(y, 30);
 
     //different section based on vote or admin
     if (voteSelection == "VOTE") {
@@ -214,7 +214,7 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split9_5, x, y + 10);
-      y = getY(y, 25);
+      y = getY(y, 30);
 
       const line10 = t("14b", { percent });
       const split10 = doc.splitTextToSize(
@@ -347,7 +347,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split22, x, y);
-    y = getY(y, 50);
+    y = getY(y, 55);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -376,8 +376,7 @@ const PDF = (isClicked: boolean) => {
       line26,
       doc.internal.pageSize.getWidth() * 0.6
     );
-    doc.text("a.", x / 2, y);
-    doc.text(split26, x / 2 + 10, y);
+    doc.text(split26, x, y);
     y = getY(y, 50);
 
     // const line27 = t("32");
@@ -467,7 +466,6 @@ const PDF = (isClicked: boolean) => {
 
     doc.text(t("43"), x, y);
     y = getY(y, 15);
-    x /= 2;
     Object.keys(pages).forEach((id) => {
       const pageData = pages[Number(id)];
       if (pageData.legalName != "") {
