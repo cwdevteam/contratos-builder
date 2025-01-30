@@ -23,7 +23,7 @@ const getX = (text: string) => {
 const PDF = (isClicked: boolean) => {
   const date = useQuestion1((state) => state.date);
   const song = useQuestion2((state) => state.song);
-  const recording = useQuestion2((state) => state.recording);
+  //const recording = useQuestion2((state) => state.recording);
   const voteSelection = useQuestion4((state) => state.voteSelection);
   const pages = useDynamicPageStore((state) => state.pages);
   const adminName = useQuestion5Admin((state) => state.adminName);
@@ -86,7 +86,8 @@ const PDF = (isClicked: boolean) => {
         doc.text(t("9", { email }), x, y);
         y = getY(y, 5);
         const contributorType = pageData.contributorType;
-        doc.text(t("10", { contributorType }), x, y);
+        const masterContributorType = pageData.masterContributorType;
+        doc.text(t("10", { contributorType, masterContributorType }), x, y);
         y = getY(y, 5);
         const split = pageData.split;
         doc.text(t("11", { split }), x, y);
@@ -122,13 +123,13 @@ const PDF = (isClicked: boolean) => {
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line5 = t("4b", { recording });
+    const line5 = t("4b", { song });
     const split5 = doc.splitTextToSize(
       line5,
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split5, x, y);
-    y = getY(y, 10);
+    y = getY(y, 20);
 
     // const line6 = t("5b");
     // const split6 = doc.splitTextToSize(
@@ -258,7 +259,7 @@ const PDF = (isClicked: boolean) => {
       doc.text("-", x + 10, y + 10);
       doc.text(split14, x + 20, y + 10);
       y = getY(y, 30);
-    } else {
+    } else if(voteSelection == "ADMIN") {
       const line10 = t("19a", { adminName });
       const split10 = doc.splitTextToSize(
         line10,
@@ -273,7 +274,7 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split11, x, y + 10);
-      y = getY(y, 40);
+      y = getY(y, 30);
 
       const line12 = t("19c", { adminName });
       const split12 = doc.splitTextToSize(
@@ -282,6 +283,9 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text(split12, x, y + 10);
       y = getY(y, 60);
+    }
+    else{
+      y = getY(y,10)
     }
 
     doc.setFont("Palatino Linotype", "bold");
@@ -364,17 +368,17 @@ const PDF = (isClicked: boolean) => {
     doc.setFontSize(11);
     const line25 = t("30");
     doc.text(line25, x, y);
-    y = getY(y, 45);
+    y = getY(y, 10);
 
-    // doc.setFont("Palatino Linotype", "normal");
-    // const line26 = t("31");
-    // const split26 = doc.splitTextToSize(
-    //   line26,
-    //   doc.internal.pageSize.getWidth() * 0.6
-    // );
-    // doc.text("a.", x / 2, y);
-    // doc.text(split26, x / 2 + 10, y);
-    // y = getY(y, 20);
+    doc.setFont("Palatino Linotype", "normal");
+    const line26 = t("31");
+    const split26 = doc.splitTextToSize(
+      line26,
+      doc.internal.pageSize.getWidth() * 0.6
+    );
+    doc.text("a.", x / 2, y);
+    doc.text(split26, x / 2 + 10, y);
+    y = getY(y, 50);
 
     // const line27 = t("32");
     // const split27 = doc.splitTextToSize(
@@ -385,13 +389,13 @@ const PDF = (isClicked: boolean) => {
     // doc.text(split27, x / 2 + 10, y);
     // y = getY(y, 15);
 
-    const line28 = t("33");
-    const split28 = doc.splitTextToSize(
-      line28,
-      doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split28, x, y);
-    y = getY(y, 30);
+    // const line28 = t("33");
+    // const split28 = doc.splitTextToSize(
+    //   line28,
+    //   doc.internal.pageSize.getWidth() * 0.6
+    // );
+    // doc.text(split28, x, y);
+    // y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -473,12 +477,12 @@ const PDF = (isClicked: boolean) => {
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
         doc.text(t("7", { name }), x, y);
-        doc.line(x + 30, y, x + 150, y);
+        doc.line(x + 30, y+1, x + 150, y+1);
         y = getY(y, 5);
         doc.text(t("44"), x, y);
-        doc.line(x + 30, y, x + 80, y);
+        doc.line(x + 30, y+1, x + 80, y+1);
         doc.text(t("45", { date }), x + 85, y);
-        doc.line(x + 95, y, x + 130, y);
+        doc.line(x + 95, y+1, x + 130, y+1);
         y = getY(y, 15);
       }
     });

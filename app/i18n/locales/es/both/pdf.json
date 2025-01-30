@@ -6,7 +6,7 @@
     "4":"Las partes contratantes han colaborado, reconocen y aceptan su contribución en la autoría o composición de la obra musical titulada \"{{song}}\".",
     
     "4a":"2. Identificación de la Obra Fonográfica o Grabación Master",
-    "4b":"Las partes contratantes han colaborado en la grabación y producción de la Grabación Master u Obra Fonográfica titulada “{{recording}}”, y reconocen y aceptan su contribución que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
+    "4b":"Las partes contratantes han colaborado en la grabación y producción de la Grabación Master u Obra Fonográfica titulada “{{song}}”, y reconocen y aceptan su contribución que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
     "5a":"Las partes reconocen y aceptan su contribución a la autoría o composición de la obra musical y acuerdan la distribución de la propiedad de los derechos de autor de la siguiente manera:",
     "5b":"Las partes reconocen y aceptan su contribución a la grabación y producción de la Grabación Master y acuerdan la distribución de la propiedad como sigue:",
     
@@ -14,7 +14,7 @@
     "7":"Nombre Legal: {{name}}",
     "8":"Nombre Artístico: ",
     "9":"Dirección de Correo Electrónico: {{email}}",
-    "10":"Contribución: {{contributorType}}",
+    "10":"Contribución: {{contributorType}}, {{masterContributorType}}",
     "11":"Porcentaje de propiedad: {{split}}%",
     
     "12":"3. Derechos y deberes de las partes",
@@ -37,7 +37,7 @@
     
     "20":"4. Distribución y monetización de las obras",
     "21":"Las partes acuerdan y aceptan que buscarán y seleccionarán un distribuidor o agregador competitivo, que será responsable de poner las obras a disposición del público y de recolectar y pagar los respectivos derechos a cada uno de los propietarios de derechos de autor de la Obra Musical y la Grabación Maestra según las proporciones indicadas en las cláusulas 1 y 2 de este contrato.",
-    "22":"Las partes acuerdan que buscarán un distribuidor que recaude de manera profesional y responsable los derechos por la explotación comercial de la Obra Musical y la Grabación Maestra en los usos respectivos conocidos y por conocer . Dicho distribuidor pagará a cada propietario de derechos de autor en las proporciones acordadas en las cláusulas 1 y 2 de este contrato. En caso de que las obras no hayan sido distribuidas con un agregador que ofrezca el servicio de pagos directos a cada uno de los propietarios de derechos de autor, la parte o el administrador que reciba cualquier suma de dinero en concepto de regalías pertenecientes a otra de las partes deberá pagarla dentro de catorce (14) días en la cuenta bancaria respectiva.",
+    "22":"Las partes acuerdan que buscarán un distribuidor que recaude de manera profesional y responsable los derechos por la explotación comercial de la Obra Musical y la Grabación Maestra en los usos respectivos conocidos y por conocer. Dicho distribuidor pagará a cada propietario de derechos de autor en las proporciones acordadas en las cláusulas 1 y 2 de este contrato. En caso de que las obras no hayan sido distribuidas con un agregador que ofrezca el servicio de pagos directos a cada uno de los propietarios de derechos de autor, la parte o el administrador que reciba cualquier suma de dinero en concepto de regalías pertenecientes a otra de las partes deberá pagarla dentro de catorce (14) días en la cuenta bancaria respectiva.",
     "23":"En caso de que el administrador o cualquiera de las partes reciba dinero de un tercero atribuible a la explotación comercial de la Obra Musical o la Grabación Maestra, como licencias de sincronización u otro tipo, el administrador o la parte que reciba el dinero deberá pagar a las otras partes las regalías correspondientes al prorrateo de su participación en la propiedad de los derechos de autor, a más tardar catorce días después de recibir el dinero.",
     
     "24":"5. Créditos",
