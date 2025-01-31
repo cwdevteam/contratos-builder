@@ -126,13 +126,13 @@ const DocusignChoice = ({
         </div>
       </main>
       <footer className="flex flex-col gap-6 pt-10">
-        <div className="relative bottom-0 mx-auto text-center">
+        <div className="relative bottom-0 mx-auto text-center justify-center">
           <button onClick={handleCheckout} className=" w-fit">
             {t("5")}
           </button>
           <br/>
           <Checkout productId='bc349f65-4114-43a3-8950-1b1acfd99c43' > 
-            <CheckoutButton coinbaseBranded className="size-[5%] w-[15%] mx-auto"/>
+            <CheckoutButton coinbaseBranded className="size-[5%] w-[50%] mx-auto"/>
             <CheckoutStatus />
           </Checkout>
           <br />
