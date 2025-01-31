@@ -125,7 +125,7 @@ const DocusignChoice = ({
           </div>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 pt-10">
+      <footer className="flex flex-col pt-10">
         <div className="relative bottom-0 mx-auto text-center justify-center">
           <button onClick={handleCheckout} className=" w-fit">
             {t("5")}
