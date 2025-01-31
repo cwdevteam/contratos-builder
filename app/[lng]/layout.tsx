@@ -9,6 +9,8 @@ import { useTranslation } from "../i18n";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
+import { Providers } from './providers'; 
+
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
@@ -50,8 +52,8 @@ export default async function RootLayout({
             </div>
           </div>
         </header>
-        <hr className="w-full absolute" />
-        {children}
+        <hr className="w-full absolute" /> 
+        <Providers>{children}</Providers>
         <SpeedInsights />
         <Analytics />
         <Image
