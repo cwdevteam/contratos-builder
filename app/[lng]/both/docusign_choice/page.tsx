@@ -132,7 +132,7 @@ const DocusignChoice = ({
           </button>
           <br />
           <Checkout productId='bc349f65-4114-43a3-8950-1b1acfd99c43' > 
-            <CheckoutButton text="Pay with crypto" className="size-[5%] w-[20%] mx-auto"/>
+            <CheckoutButton text="Pay with crypto" className="size-[5%] w-fit mx-auto"/>
             <CheckoutStatus />
           </Checkout>
           <br/>
