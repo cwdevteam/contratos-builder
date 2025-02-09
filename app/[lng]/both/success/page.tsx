@@ -111,6 +111,7 @@ const Success = ({
             <a id="ipfs" className="text-center" href={cid}></a>
           </div>
           <div>
+          <label className="pt-5">Opcionalmente, pruebe en una jurisdicción diferente.</label>
           <select
             name="type"
             id="cont"
@@ -123,6 +124,13 @@ const Success = ({
             <option value="Colombia">Colombia</option>
             <option value="France">France</option>
           </select>
+          <button
+              onClick={handleFreeDownload}
+              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 button-height"
+            >
+              Intentar
+            
+          </button>
           </div>
         </div>
         <p className="text-base sm:text-lg font-share mx-auto">{t("lawyer")}</p>
