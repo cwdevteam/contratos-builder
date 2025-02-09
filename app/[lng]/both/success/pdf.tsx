@@ -20,7 +20,7 @@ const getX = (text: string) => {
   return Math.abs(x);
 };
 
-const PDF = (isClicked: boolean) => {
+const PDF = (isClicked: boolean, jurisdiction:string) => {
   const date = useQuestion1((state) => state.date);
   const song = useQuestion2((state) => state.song);
   const recording = useQuestion2((state) => state.recording);
@@ -575,6 +575,7 @@ const PDF = (isClicked: boolean) => {
               names: names,
               download_clicked: isClicked,
               ipfs_cid: cid, // Store CID
+              jurisdiction: jurisdiction,
               path: "both "+voteSelection,
             },
           ]);
