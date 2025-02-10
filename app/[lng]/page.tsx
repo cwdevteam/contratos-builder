@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { languages, fallbackLng } from "../i18n/settings";
+//import { languages, fallbackLng } from "../i18n/settings";
 import { useTranslation } from "../i18n/client";
 import Popup from "reactjs-popup";
 
