@@ -14,11 +14,26 @@ export default function Home({
   };
 }) {
   let { lng } = params;
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
+  //if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { push } = useRouter();
   const { t } = useTranslation(lng);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+  const [lang, setLang] = useState('');
+
+  const changePopup = () =>{
+    setIsOpen2(true);
+    setTimeout(() => {
+      setIsOpen2(false);    
+    }, 200);
+    document.getElementById('popup3')?.click()
+  }
+
+  const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    lng = event.target.value;
+    setLang(lng);
+  };
 
   return (
     <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5 sm:mx-auto">
@@ -86,7 +101,7 @@ export default function Home({
                     <br />
                     <div className="flex justify-end">
                       <button
-                        onClick={() => push(`/${lng}/question1`)}
+                        onClick={changePopup}
                         className="border-none bg-[#82828270]"
                       >
                         {t("proceed")}&rarr;
@@ -98,6 +113,70 @@ export default function Home({
             </div>
           </Popup>
         )}
+
+
+        {!isOpen3&& (
+          <Popup
+            trigger={<button id="popup3" className="invisible"></button>}
+            position="center center"
+            modal
+            nested
+            className="popup"
+            closeOnDocumentClick
+          >
+            <div
+              className="modal border-2 border-white"
+              style={{
+                height: "80vh",
+                width: "90vw",
+                maxWidth: "600px",
+                overflowY: "scroll",
+              }}
+            >
+              <div className=" p-4 sm:p-8 flex flex-col justify-between">
+                <main className="flex flex-col gap-6 sm:gap-8 text-center">
+                  <button
+                    onClick={() => {
+                      setIsOpen3(true);
+                      setTimeout(() => {
+                        setIsOpen3(false);
+                      }, 200);
+                    }}
+                    className="popup_button text-white hover:text-gray-300"
+                  >
+                    &times;
+                  </button>
+                  <p className="text-sm sm:text-base space-y-4 font-roboto text-xl">
+                    {t("4")}
+                  </p>
+                  <select
+                  name="type"
+                  id="cont"
+                  value={lang}
+                  className="bg-black p-2 size-10 w-[140%] sm:w-full font-rubik"
+                  onChange={handleLangChange}
+                  required
+                >
+                  <option value="">Choose Language</option>
+                  <option value="en">English</option>
+                  <option value="es">Español</option>
+                </select>
+                  <div className="flex justify-end">
+                      <button
+                        onClick={() => push(`/${lang}/question1`)}
+                        className="border-none bg-[#82828270] absolute right-7 bottom-7"
+                      >
+                        {t("proceed")}&rarr;
+                      </button>
+                    </div>
+                </main>
+              </div>
+            </div>
+          </Popup>
+        )}
+
+
+
         {!isOpen && (
           <Popup
             trigger={
