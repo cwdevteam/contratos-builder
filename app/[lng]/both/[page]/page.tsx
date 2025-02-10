@@ -175,9 +175,9 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex sm:flex-row flex-col gap-5">
+            <div className="flex sm:flex-row flex-col gap-7 w-full">
               <div className="w-3/5">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
+                <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
                   {t("type")}
                 </label>
                 <select
@@ -195,7 +195,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="w-3/5">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
+                <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
                   {t("type2")}
                 </label>
                 <select
@@ -214,7 +214,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="w-2/5">
-                <label className="text-[.5rem] sm:text-sm mb-2 block font-share w-fit">
+                <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
                   Split (%)
                 </label>
                 <input
