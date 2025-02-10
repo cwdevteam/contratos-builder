@@ -427,6 +427,7 @@ const PDF = (isClicked: boolean) => {
               names: names,
               download_clicked: isClicked,
               ipfs_cid: cid, // Store CID
+              path: "composition "+voteSelection,
             },
           ]);
 

@@ -258,6 +258,7 @@ function ContractBuilder1({
           </button>
         </div>
       </footer>
+      
     </div>
   );
 }
