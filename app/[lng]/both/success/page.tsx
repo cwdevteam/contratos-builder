@@ -3,7 +3,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import PDF from "./pdf";
-import { useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import useQuestion1 from "../../store/useQuestion1";
 
@@ -18,10 +17,9 @@ const Success = ({
   };
 }) => {
   const router = useRouter();
-  const [jurisdiction, setJurisdiction] = useState("");
 
   //const downloadUnsignedTrue = PDF(true);
-  const downloadUnsignedFalse = PDF(false,jurisdiction);
+  const downloadUnsignedFalse = PDF(false);
   let cid =
     "https://mesa.mypinata.cloud/ipfs/" + useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
@@ -79,12 +77,6 @@ const Success = ({
     //downloadUnsignedTrue();
   };
 
-  const handleJurisdictionChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    setJurisdiction(event.target.value);
-  };
-
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col gap-6 sm:gap-8">
@@ -109,28 +101,6 @@ const Success = ({
               {t("send-docusign")}
             </button>
             <a id="ipfs" className="text-center" href={cid}></a>
-          </div>
-          <div>
-          <label className="pt-5">Opcionalmente, pruebe en una jurisdicción diferente.</label>
-          <select
-            name="type"
-            id="cont"
-            className="bg-black p-2 size-10 w-[140%] sm:w-full font-rubik"
-            onChange={handleJurisdictionChange}
-            required
-          >
-            <option value=""></option>
-            <option value="USA">United States</option>
-            <option value="Colombia">Colombia</option>
-            <option value="France">France</option>
-          </select>
-          <button
-              onClick={handleFreeDownload}
-              className=" text-white py-2 px-4 rounded  transition-colors font-rubik p-0 button-height"
-            >
-              Intentar
-            
-          </button>
           </div>
         </div>
         <p className="text-base sm:text-lg font-share mx-auto">{t("lawyer")}</p>
