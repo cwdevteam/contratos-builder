@@ -157,7 +157,7 @@ export default function Home({
                   onChange={handleLangChange}
                   required
                 >
-                  <option value="">Choose Language</option>
+                  <option value="">ose {t('5')}</option>
                   <option value="en">English</option>
                   <option value="es">Español</option>
                 </select>
