@@ -89,7 +89,7 @@ const DynamicPage = ({
     if (pageNumber >= pageCount && splitTotal !== 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        "Splits need to add to 100% to be valid. You need " +
+        t("splitHelp") + ". You need " +
         splitNeeded +
         " instead of " +
         split;
@@ -128,12 +128,12 @@ const DynamicPage = ({
       <main className="flex flex-col sm:flex-row pt-7">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
-            {t("contributor")} {pageNumber}
+            {t("contributorLabel")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
               <label className="text-[.5rem] text-sm mb-2 block font-share">
-                {t("name")}
+                {t("legalNameLabel")}
               </label>
               <input
                 type="text"
@@ -145,7 +145,7 @@ const DynamicPage = ({
             </div>
             <div>
               <label className="text-[.5rem] text-sm mb-2 block font-share">
-                {t("email")}
+                {t("emailLabel")}
               </label>
               <input
                 type="email"
@@ -158,7 +158,7 @@ const DynamicPage = ({
             <div className="flex flex-row gap-5">
               <div className="w-full sm:w-[38.5%]">
                 <label className="text-[.5rem] text-sm mb-2 block font-share">
-                  {t("type")}
+                  {t("contributionTypeLabel")}
                 </label>
                 <select
                   name="type"
@@ -169,14 +169,14 @@ const DynamicPage = ({
                   required
                 >
                   <option value=""></option>
-                  <option value={t("lyrics")}>{t("lyrics")}</option>
-                  <option value={t("music")}>{t("music")}</option>
-                  <option value={t("both2")}>{t("both")}</option>
+                  <option value={t("lyricsOption")}>{t("lyricsOption")}</option>
+                  <option value={t("musicOption")}>{t("musicOption")}</option>
+                  <option value={t("bothMusicAndLyricsOption")}>{t("bothOption")}</option>
                 </select>
               </div>
               <div className="sm:w-[38.5%]">
                 <label className="text-[.5rem] text-sm mb-2 block font-share">
-                  {t("split")}
+                  {t("splitPercentageLabel")}
                 </label>
                 <input
                   type="number"
@@ -191,32 +191,32 @@ const DynamicPage = ({
         </div>
         <div className="w-full sm:pt-7">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
-            {t("p1")}
+            {t("incompleteContractMessage")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">{t("p2")}</h3>
+          <h3 className="text-base mb-2 font-roboto_bold">{t("musicWorkIdentification")}</h3>
           <p className="text-sm sm:text-base mb-4 font-roboto_light">
-            {t("p3")}
+            {t("acknowledgementMessage")}
             <span className="text-[#AC4444] font-rubik"> {song}</span>
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">
-            {t("contributor")} {pageNumber}:
+            {t("contributorLabel")} {pageNumber}:
           </h3>
           <p className="text-sm sm:text-base font-roboto_light">
-            {t("name2")}:{" "}
+            {t("legalNameSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
           <p className="text-sm sm:text-base font-roboto_light">
-            {t("email2")}:{" "}
+            {t("emailSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{email}</span>
           </p>
           <p className="text-sm sm:text-base font-roboto_light">
-            {t("contribution2")}:{" "}
+            {t("contributionSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik ">
               {contributorType}
             </span>
           </p>
           <p className="text-sm sm:text-base font-roboto_light">
-            {t("split2")}:{" "}
+            {t("ownershipPercentageSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
         </div>
@@ -231,13 +231,13 @@ const DynamicPage = ({
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("back")}
+            {t("backButton")}
           </button>
           <button
             onClick={handleNextPage}
             className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
           >
-            {t("submit")}
+            {t("submitButton")}
           </button>
         </div>
       </footer>
