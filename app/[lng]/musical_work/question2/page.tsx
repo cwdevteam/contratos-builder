@@ -38,7 +38,7 @@ const ContractBuilder2 = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10 border-none">
-          <p className="text-[1.5rem] mb-4 font-share">{t("p1")}</p>
+          <p className="text-[1.5rem] mb-4 font-share">{t("songNameQuestion")}</p>
           <form className="flex flex-col">
             <input
               type="text"
@@ -51,13 +51,13 @@ const ContractBuilder2 = ({
         </div>
         <div className="w-full sm:w-1/2 pt-5">
           <p className="text-gray-500 mb-4 font-roboto_light text-[0px] sm:text-[16px]">
-            {t("p2")}
+            {t("incompleteContractMessage")}
           </p>
           <h3 className="text-base font-bold mb-2 font-roboto_bold text-[20px]">
-            {t("h3")}
+            {t("musicWorkIdentificationHeader")}
           </h3>
           <p className="text-sm sm:text-base font-share text-[22px]">
-            {t("p3")}{" "}
+            {t("collaborationStatement")}{" "}
             <span className="text-[#AC4444] font-rubik text-[20px]">
               {song ? song : " "}
             </span>
@@ -71,13 +71,13 @@ const ContractBuilder2 = ({
             onClick={() => push("/question1")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("back")}
+            {t("backButton")}
           </button>
           <button
             onClick={handleSubmit}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("submit")}
+            {t("nextButton")}
           </button>
         </div>
       </footer>
