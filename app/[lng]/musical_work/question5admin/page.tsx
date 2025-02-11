@@ -34,10 +34,10 @@ const ContractBuilder5Admin = ({
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <h1 className="text-lg sm:text-xl font-share w-4/5 pb-5">
-            {t("name")}
+            {t("adminName")}
           </h1>
           <form className="flex flex-col">
-            <label className="text-xs font-share pb-2">{t("name-list")}</label>
+            <label className="text-xs font-share pb-2">{t("adminNameList")}</label>
             <input
               type="text"
               onChange={handleNameChange}
@@ -47,14 +47,14 @@ const ContractBuilder5Admin = ({
         </div>
         <div className="w-full sm:w-1/2 sm:p-8">
           <p className="text-gray-500 font-roboto_light text-[0px] sm:text-[16px]">
-            {t("p1")}
+            {t("incompleteContract")}
           </p>
           <h4 className="text-base sm:text-lg font-bold font-roboto_bold ">
-            {t("4.0")}
+            {t("adminDesignationTitle")}
           </h4>
           <p className="text-xs sm:text-sm font-roboto_thin w-4/5 pt-5">
-            {t("p2")} <span className="text-[#AC4444] font-rubik">{name}</span>
-            {t("p3")}
+            {t("adminDesignationIntro")} <span className="text-[#AC4444] font-rubik">{name}</span>
+            {t("adminDesignationDetails")}
           </p>
         </div>
       </main>
@@ -65,7 +65,7 @@ const ContractBuilder5Admin = ({
           href="#"
           onClick={() => push("/popups/moreInfoAdmin")}
         >
-          {t("confused")}
+          {t("needHelp")}
         </a>
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pl-4">
           <button
