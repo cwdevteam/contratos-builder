@@ -33,9 +33,9 @@ const ContractBuilder5Admin = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 sm:py-10">
-          <h1 className="text-lg sm:text-xl font-share">{t("name")}</h1>
+          <h1 className="text-lg sm:text-xl font-share">{t("questionAdminName")}</h1>
           <form className="flex flex-col">
-            <label className="text-xs font-share py-2">{t("name-list")}</label>
+            <label className="text-xs font-share py-2">{t("adminNameList")}</label>
             <input
               type="text"
               onChange={handleNameChange}
@@ -48,25 +48,25 @@ const ContractBuilder5Admin = ({
               href="#"
               onClick={() => push("/popups/moreInfoAdmin")}
             >
-              {t("confused")}
+              {t("helpLinkText")}
             </a>
           </div>
         </div>
         <div className="w-full sm:w-1/2 sm:p-8">
           <p className="sm:text-sm text-gray-500 font-roboto_light text-[0px]">
-            {t("p1")}
+            {t("incompleteContractMessage")}
           </p>
-          <h4 className="text-base sm:text-lg font-roboto_bold">{t("4.0")}</h4>
+          <h4 className="text-base sm:text-lg font-roboto_bold">{t("adminDesignationTitle")}</h4>
           <p className="font-roboto_thin">
-            {t("p2")} <span className="text-[#AC4444] font-rubik">{name}</span>
-            {t("p3")}
+            {t("adminDesignationIntro")} <span className="text-[#AC4444] font-rubik">{name}</span>
+            {t("adminDesignationDetails")}
           </p>
           <a
             className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base visible sm:invisible "
             href="#"
             onClick={() => push("/popups/moreInfoAdmin")}
           >
-            {t("confused")}
+            {t("helpLinkText")}
           </a>
         </div>
       </main>
@@ -76,13 +76,13 @@ const ContractBuilder5Admin = ({
             onClick={() => push("/master_recording/question4")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("back")}
+            {t("backButton")}
           </button>
           <button
             onClick={handleSubmit}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("submit")}
+            {t("submitButton")}
           </button>
         </div>
       </footer>
