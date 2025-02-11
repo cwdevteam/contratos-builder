@@ -1,8 +1,8 @@
 {
-  "back1": "¿Qué tipo de contrato quieres crear?",
-  "congrats": "¡Felicitaciones Estás protegiendo tu arte!",
-  "draft-created": "Contrato creado!",
-  "download-unsigned": "Descargar Versión Gratis",
-  "send-docusign": "Siguiente a colaboradores a traves de docusign",
-  "lawyer": "Recuerda revisar el contrato con tu abogado y tus colegas, adaptarlo si es necesario y firmarlo."
+  "contractTypePrompt": "¿Qué tipo de contrato quieres crear?",
+  "congratulationsMessage": "¡Felicitaciones Estás protegiendo tu arte!",
+  "draftCreatedMessage": "Contrato creado!",
+  "downloadUnsignedVersion": "Descargar Versión Gratis",
+  "sendToDocusign": "Siguiente a colaboradores a traves de docusign",
+  "lawyerReminder": "Recuerda revisar el contrato con tu abogado y tus colegas, adaptarlo si es necesario y firmarlo."
 }
