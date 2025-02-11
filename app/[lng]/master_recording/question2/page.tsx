@@ -18,7 +18,7 @@ const ContractBuilder2 = ({
   const [song, setSelectedOptionSong] = useState("");
   const [recording, setRecording] = useState("");
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question2");
+  const { t } = useTranslation(lng, "master_recording/question2");
 
   const handleSongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionSong(event.target.value);

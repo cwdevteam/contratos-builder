@@ -24,7 +24,7 @@ const Success = ({
     "https://mesa.mypinata.cloud/ipfs/" + useQuestion1((state) => state.cid);
   const songName = useQuestion2((state) => state.song);
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/success");
+  const { t } = useTranslation(lng, "master_recording/success");
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout

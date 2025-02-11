@@ -39,7 +39,7 @@ const DynamicPage = ({
   );
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const { lng, page } = params;
-  const { t } = useTranslation(lng, "master/dynamic");
+  const { t } = useTranslation(lng, "master_recording/dynamic");
 
   useEffect(() => {
     resetPages(pageNumber); // Reset all stored info

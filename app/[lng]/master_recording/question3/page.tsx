@@ -23,7 +23,7 @@ const ContractBuilder3 = ({
   const song = searchParams.get("recording")!;
 
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question3");
+  const { t } = useTranslation(lng, "master_recording/question3");
 
   const handleContributorsChange = (
     event: React.ChangeEvent<HTMLInputElement>

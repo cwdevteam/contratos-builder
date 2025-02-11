@@ -17,7 +17,7 @@ const ContractBuilder5Vote = ({
   const [percent, setPercent] = useState("");
   const updatePercent = useQuestion5Vote((state) => state.updatePercent);
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question5vote");
+  const { t } = useTranslation(lng, "master_recording/question5vote");
 
   const handlePercentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPercent(event.target.value);

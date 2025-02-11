@@ -28,7 +28,7 @@ const PDF = (isClicked: boolean) => {
   const pages = useDynamicPageStore((state) => state.pages);
   const adminName = useQuestion5Admin((state) => state.adminName);
   const percent = useQuestion5Vote((state) => state.percent);
-  const { t } = useTranslation("master/pdf");
+  const { t } = useTranslation("master_recording/pdf");
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];

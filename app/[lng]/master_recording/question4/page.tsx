@@ -18,7 +18,7 @@ const ContractBuilder4 = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question4");
+  const { t } = useTranslation(lng, "master_recording/question4");
   const pageCount = useSearchParams().get("pageCount");
   const lastSplit = Number(useSearchParams().get("split"));
 
