@@ -97,8 +97,8 @@ const DynamicPage = ({
     setSplit(value);
     setSplitTotal(value + lastSplit);
     if (value >= 0) {
-      document.getElementById("split2")!.innerHTML = String(value);
-      document.getElementById("split3")!.innerHTML = String(value);
+      document.getElementById("ownershipPercentage")!.innerHTML = String(value);
+      document.getElementById("productionPercentage")!.innerHTML = String(value);
     }
   };
 
@@ -260,10 +260,10 @@ const DynamicPage = ({
             </span>
           </p>
           <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("split2")}:
+            {t("ownershipPercentage")}:
             <span
               className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
-              id="split2"
+              id="ownershipPercentage"
             ></span>
           </p>
           <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
@@ -274,8 +274,8 @@ const DynamicPage = ({
             </span>
           </p>
           <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("split3")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="split3"></span>
+            {t("productionPercentage")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="productionPercentage"></span>
           </p>
         </div>
       </main>
