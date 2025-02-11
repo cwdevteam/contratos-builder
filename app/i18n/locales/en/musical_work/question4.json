@@ -1,20 +1,20 @@
 {
-  "split-help": "Splits need to add to 100% to be valid",
-  "back1": "What type of splits contract would you like to create?",
-  "back2": "What is the name of the song?",
-  "back3": "How many collaborators contributed to writing the song?",
+  "splitHelp": "Splits need to add to 100% to be valid",
+  "backToContractType": "What type of splits contract would you like to create?",
+  "backToSongName": "What is the name of the song?",
+  "backToCollaborators": "How many collaborators contributed to writing the song?",
   "contributor": "Contributor",
-  "question": "Would you like to vote when making business decisions or designate an administrator?",
-  "vote": "VOTE",
-  "admin": "DESIGNATE ADMIN",
-  "skip": "SKIP",
-  "p1": "Your contract has yet to be completed. Continue to fill out the decision tree.",
-  "confused": "Confused with this bit too? read here.",
-  "submit": "Submit",
-  "back": "Back",
+  "businessDecisionQuestion": "Would you like to vote when making business decisions or designate an administrator?",
+  "voteOption": "VOTE",
+  "adminOption": "DESIGNATE ADMIN",
+  "skipOption": "SKIP",
+  "skipDescription": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "confusedHelp": "Confused with this bit too? read here.",
+  "submitButton": "Submit",
+  "backButton": "Back",
   "popups": {
-    "1": "Voting ensures that each business decision is consulted with all of the copyright owners. Designating an administrator ensures faster decision making, but less consultation with copyright owners. However, administrators also have responsibilities and a duty to properly represent the interests of the copyright owners.",
-    "2": "Still not clear about voting? read here.",
-    "3": "Still not clear about designating an admin? read here."
+    "votingInfo": "Voting ensures that each business decision is consulted with all of the copyright owners. Designating an administrator ensures faster decision making, but less consultation with copyright owners. However, administrators also have responsibilities and a duty to properly represent the interests of the copyright owners.",
+    "moreInfoVoting": "Still not clear about voting? read here.",
+    "moreInfoAdmin": "Still not clear about designating an admin? read here."
   }
 }
