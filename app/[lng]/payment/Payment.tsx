@@ -3,7 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useDynamicPageStore from "../store/use[page]";
+import useQuestion2 from "../store/useQuestion2";
 import { useTranslation } from "@/app/i18n/client";
+import { NextResponse } from "next/server";
 
 const Payment = ({
   params,
@@ -17,6 +19,7 @@ const Payment = ({
   const query = useSearchParams();
   const paid = query.get("success");
   const pages = useDynamicPageStore((state) => state.pages);
+  const song = useQuestion2((state)=> state.song)
   const emails: string[] = [];
   Object.keys(pages).map((id) => {
     const email = pages[Number(id)]?.email;
@@ -26,13 +29,42 @@ const Payment = ({
 
   const [message, setMessage] = useState("");
 
+
+  const sendEmail = async (songName: string) => {
+    try {
+      const response = await fetch(`/${lng}/api/sendPaid`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ songName: songName }),
+      });
+      if (!response.ok) {
+        console.error("Error sending email:", response.statusText);
+        return NextResponse.json(
+          { error: "Error sending email" },
+          { status: 500 }
+        );
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      return NextResponse.json(
+        { error: "Error sending email" },
+        { status: 500 }
+      );
+    }
+  };
+
   useEffect(() => {
     if (paid === "true") {
       setMessage(t("1"));
+      sendEmail(song);
     } else {
       setMessage(t("2"));
     }
   }, [paid, emails]);
+
+
 
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">

@@ -20,5 +20,6 @@
   "emailShortLabel": "Email",
   "contributionShortLabel": "Contribución",
   "ownershipPercentageLabel": "Porcentaje de propiedad",
-  "submitButtonLabel": "Siguiente"
+  "submitButtonLabel": "Siguiente",
+  "backButton": "Atrás"
 }

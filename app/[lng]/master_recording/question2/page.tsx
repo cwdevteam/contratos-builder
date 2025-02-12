@@ -82,7 +82,7 @@ const ContractBuilder2 = ({
           </h3>
           <p className="text-sm sm:text-base font-roboto">
             {t("musicWorkIdentificationText")}
-            {": "}
+            {" "}
             <span className="text-[#AC4444] font-rubik">
               {song ? song : " "}
             </span>

@@ -233,7 +233,7 @@ const DynamicPage = ({
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("back")}
+            {t("backButton")}
           </button>
           <button
             onClick={handleNextPage}

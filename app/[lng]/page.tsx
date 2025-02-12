@@ -153,7 +153,7 @@ export default function Home({
                   name="type"
                   id="cont"
                   value={lang}
-                  className="bg-black p-2 size-10 w-[140%] sm:w-full font-rubik"
+                  className="bg-black p-2 size-10 w-full font-rubik"
                   onChange={handleLangChange}
                   required
                 >
