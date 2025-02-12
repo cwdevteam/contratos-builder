@@ -7,7 +7,6 @@ import Image from "next/image";
 import docusignImage from "../../public/images/docusign.png";
 import useQuestion1 from "../../store/useQuestion1";
 import PDF from "../../musical_work/success/pdf";
-import { NextResponse } from "next/server";
 import useQuestion2 from "../../store/useQuestion2";
 import { loadStripe } from "@stripe/stripe-js";
 import Popup from "reactjs-popup";
@@ -48,31 +47,6 @@ const DocusignChoice = ({
     }
   }, []);
 
-  const sendEmail = async (songName: string) => {
-    try {
-      const response = await fetch(`/${lng}/api/sendDocusign`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ songName: songName }),
-      });
-      if (!response.ok) {
-        console.error("Error sending email:", response.statusText);
-        return NextResponse.json(
-          { error: "Error sending email" },
-          { status: 500 }
-        );
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      return NextResponse.json(
-        { error: "Error sending email" },
-        { status: 500 }
-      );
-    }
-  };
-
   const handleCheckout = async () => {
     cid = "https://mesa.mypinata.cloud/ipfs/" + cid;
     const response = await fetch(`../api/checkout_sessions`, {
@@ -82,7 +56,7 @@ const DocusignChoice = ({
     if (data.url) {
       push(data.url);
     }
-    sendEmail(songName);
+    //sendEmail(songName);
     downloadUnsignedTrue();
   };
 
