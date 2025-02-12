@@ -118,10 +118,7 @@ const DynamicPage = ({
     if (pageNumber >= pageCount && splitTotal !== 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        "Splits need to add to 100% to be valid. You need " +
-        splitNeeded +
-        " instead of " +
-        split;
+        t("splitHelp") + " " + t("splitNeeded") + " " + splitNeeded + " " + t("insteadOf") + " " + split;
     } else {
       if (
         legalName != "" &&
@@ -146,12 +143,12 @@ const DynamicPage = ({
       <main className="flex flex-col sm:flex-row">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl font-share">
-            {t("contributor")} {pageNumber}
+            {t("collaborator")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
               <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
-                {t("name")}
+                {t("legalNameShort")}
               </label>
               <input
                 type="text"
@@ -164,7 +161,7 @@ const DynamicPage = ({
             </div>
             <div>
               <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
-                {t("email")}
+                {t("emailShort")}
               </label>
               <input
                 type="email"
@@ -178,7 +175,7 @@ const DynamicPage = ({
             <div className="flex sm:flex-row flex-col gap-7 w-full">
               <div className="w-3/5">
                 <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
-                  {t("type")}
+                  {t("compositionContributionType")}
                 </label>
                 <select
                   name="type"
@@ -191,12 +188,12 @@ const DynamicPage = ({
                   <option value=""></option>
                   <option value={t("lyrics")}>{t("lyrics")}</option>
                   <option value={t("music")}>{t("music")}</option>
-                  <option value={t("both2")}>{t("both")}</option>
+                  <option value={t("both")}>{t("both")}</option>
                 </select>
               </div>
               <div className="w-3/5">
                 <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
-                  {t("type2")}
+                  {t("masterContributionType")}
                 </label>
                 <select
                   name="type"
@@ -209,13 +206,13 @@ const DynamicPage = ({
                   <option value=""></option>
                   <option value={t("artist")}>{t("artist")}</option>
                   <option value={t("producer")}>{t("producer")}</option>
-                  <option value={t("exec")}>{t("exec")}</option>
+                  <option value={t("executiveProducer")}>{t("executiveProducer")}</option>
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
               </div>
               <div className="w-2/5">
                 <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
-                  Split (%)
+                  {t("splitPercentage")}
                 </label>
                 <input
                   type="number"
@@ -230,31 +227,31 @@ const DynamicPage = ({
         </div>
         <div className="w-full sm:w-1/2 p-4 sm:p-8">
           <p className="sm:text-sm text-gray-500 sm:mb-4 font-roboto_thin text-[0px]">
-            {t("p1")}
+            {t("musicWorkIdentification")}
           </p>
           <h3 className="mb-2 font-roboto_bold text-[0px] sm:text-base">
-            {t("type")}
+            {t("compositionContributionType")}
           </h3>
           <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
-            {t("p3")}
+            {t("contributionAcknowledgement")}
           </p>
           <h3 className=" text-[0px] sm:text-base sm:mb-2 font-roboto_bold">
-            {t("contributor")} {pageNumber}:
+            {t("collaborator")} {pageNumber}:
           </h3>
           <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
-            {t("name2")}:{" "}
+            {t("legalNameShort")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {legalName}
             </span>
           </p>
           <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
-            {t("email2")}:{" "}
+            {t("emailShort")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {email}
             </span>
           </p>
           <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("contribution")}:{" "}
+            {t("compositionContributionType")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {contributorType}
             </span>
@@ -267,7 +264,7 @@ const DynamicPage = ({
             ></span>
           </p>
           <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("contribution2")}:{" "}
+            {t("masterContributionType")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {" "}
               {masterContributorType}
@@ -295,7 +292,7 @@ const DynamicPage = ({
             onClick={handleNextPage}
             className=" w-[15%] text-white py-2 px-4 relative bg-[#AC444475] flex-1 sm:flex-none"
           >
-            {t("submit")}
+            {t("next")}
           </button>
         </div>
       </footer>
