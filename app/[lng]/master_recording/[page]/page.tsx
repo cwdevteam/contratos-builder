@@ -196,7 +196,7 @@ const DynamicPage = ({
           </p>
           <h3 className="text-base mb-2 font-roboto_bold">{t("masterRecordingIdentification")}</h3>
           <p className="text-sm sm:text-base font-roboto_light">
-            {t("contractPartiesAcknowledgement")}
+            {t("contractPartiesAcknowledgement", {recording})}
             <span className="text-[#AC4444] font-rubik"> {recording}</span>
             {t("contractPartiesAcknowledgementSuffix")}
           </p>
@@ -237,7 +237,7 @@ const DynamicPage = ({
           </button>
           <button
             onClick={handleNextPage}
-            className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
+            className=" w-[15%] text-white py-2 px-4 relative bg-[#AC444475] flex-1 sm:flex-none"
           >
             {t("submitButtonLabel")}
           </button>

@@ -235,7 +235,7 @@ const DynamicPage = ({
           </button>
           <button
             onClick={handleNextPage}
-            className=" w-[15%] text-white py-2 px-4  w-fit relative bg-[#AC444475] flex-1 sm:flex-none"
+            className=" w-[15%] text-white py-2 px-4 relative bg-[#AC444475] flex-1 sm:flex-none"
           >
             {t("submitButton")}
           </button>

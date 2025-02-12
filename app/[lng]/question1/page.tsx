@@ -19,7 +19,7 @@ function ContractBuilder1({
   const { push } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(t("option_songwriting"));
+  const [selectedOption, setSelectedOption] = useState('');
   const [selectedDate, setSelectedDate] = useState("");
 
   const updateSplit = useQuestion1((state) => state.updateSplit);

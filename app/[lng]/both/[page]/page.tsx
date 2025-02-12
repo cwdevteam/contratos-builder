@@ -225,7 +225,7 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 sm:p-8">
+        <div className="w-full sm:w-1/2 p-4 ">
           <p className="sm:text-sm text-gray-500 sm:mb-4 font-roboto_thin text-[0px]">
             {t("musicWorkIdentification")}
           </p>
