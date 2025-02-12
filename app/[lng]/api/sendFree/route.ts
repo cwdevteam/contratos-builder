@@ -14,7 +14,7 @@ export async function POST(request: Request) {
         "andres@mesawallet.io",
         "thomas@mesawallet.io",
       ],
-      subject: "Contract Payment Successful",
+      subject: "Free Contract Download Successful",
       react: EmailTemplate({ songName }),
     });
 

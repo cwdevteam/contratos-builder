@@ -42,7 +42,7 @@ const Success = ({
 
   const sendEmail = async (songName: string) => {
     try {
-      const response = await fetch(`/${lng}/api/send`, {
+      const response = await fetch(`/${lng}/api/sendFree`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
