@@ -1,0 +1,11 @@
+{
+    "jurisdiction":"[Opcional] Seleccione la jurisdicción legal para este contrato.",
+    "if-usa":"If in the United States, specify the state only.",
+    "yet-to-complete":"Su contrato aún no se ha completado. Continúe completando el árbol de decisiones.",
+    "dispute":"Resolución de Controversias",
+    "jurisdiction-statement":"Cualquier controversia se tratará a través del diálogo entre las partes. En caso de no ser posible, se buscará agotar un mecanismo de resolución alternativa de conflictos, y en caso de no resolverse, se someterá a los jueces competentes bajo las leyes de  ",
+    "read-here":"Si necesitas ayúda, presiona aquí.",
+    "submit":"Empezar",
+    "back":"Atrás",
+    "more-info":"La jurisdicción determina el marco legal bajo el cual se regirá este acuerdo. Escoja el país donde usted reside o donde es probable que sea usado este contrato. Esta pregunta es opcional ya que, en caso de dejarse en blanco, el documento puede ser usado como una guía y ser adaptado a cualquier jurisdicción. Sin embargo, especificar la jurisdicción, asegura que el acuerdo sea regido por las leyes locales y provee claridad en caso de disputas."
+}

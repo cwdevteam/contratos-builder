@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-//import { languages, fallbackLng } from "../i18n/settings";
+import useJurisdiction from "./store/useJurisdiction";
 import { useTranslation } from "../i18n/client";
 import Popup from "reactjs-popup";
 
@@ -22,6 +22,8 @@ export default function Home({
   const [isOpen3, setIsOpen3] = useState(false);
   const [lang, setLang] = useState('');
 
+  const updateLanguage = useJurisdiction((state) => state.updateLanguage);
+
   const changePopup = () =>{
     setIsOpen2(true);
     setTimeout(() => {
@@ -34,6 +36,11 @@ export default function Home({
     lng = event.target.value;
     setLang(lng);
   };
+  
+  const handleSubmit = () =>{
+      updateLanguage(lang);
+      push(`/${lang}/jurisdiction`)
+  }
 
   return (
     <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5 sm:mx-auto">
@@ -163,7 +170,7 @@ export default function Home({
                 </select>
                   <div className="flex justify-end">
                       <button
-                        onClick={() => push(`/${lang}/question1`)}
+                        onClick={handleSubmit}
                         className="border-none bg-[#82828270] absolute right-7 bottom-7"
                       >
                         {t("proceed-button")}&rarr;

@@ -1,0 +1,11 @@
+{
+    "jurisdiction":"[Optional] Which jurisdiction should this contract follow?",
+    "if-usa":"If in the United States, specify the state only.",
+    "yet-to-complete":"Your contract has yet to be completed. Continue to fill out the decision tree.",
+    "dispute":"Dispute Settlement",
+    "jurisdiction-statement":"Any controversy will be dealt with through dialogue between the parties. Failing this, they will seek to exhaust an alternative dispute resolution mechanism, and failing this, they will submit it to the competent judges under the laws in ",
+    "read-here":"if confused, read here.",
+    "submit":"Submit",
+    "back":"Back",
+    "more-info":"The jurisdiction is the legal authority under which the contract will be enforced. Choose the region where the contract is most likely to be used or where you reside. This question is optional because, if left unanswered, the contract will default to a general template that can be adapted for most jurisdictions. However, specifying a jurisdiction ensures the contract aligns with local laws and provides clarity in case of disputes."
+}
