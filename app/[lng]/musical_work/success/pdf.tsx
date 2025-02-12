@@ -7,6 +7,7 @@ import useQuestion4 from "../../store/useQuestion4";
 import useDynamicPageStore from "../../store/use[page]";
 import useQuestion5Admin from "../../store/useQuestion5Admin";
 import useQuestion5Vote from "../../store/useQuestion5Vote";
+import useJurisdiction from "../../store/useJurisdiction";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../../../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
@@ -28,6 +29,8 @@ const PDF = (isClicked: boolean) => {
   const pages = useDynamicPageStore((state) => state.pages);
   const adminName = useQuestion5Admin((state) => state.adminName);
   const percent = useQuestion5Vote((state) => state.percent);
+  const language = useJurisdiction((state) => state.language);
+  const jurisdiction = useJurisdiction((state) => state.jurisdiction);
   const { t } = useTranslation("musical_work/pdf");
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
@@ -427,6 +430,8 @@ const PDF = (isClicked: boolean) => {
               names: names,
               download_clicked: isClicked,
               ipfs_cid: cid, // Store CID
+              jurisdiction:jurisdiction,
+              language:language,
               path: "composition "+voteSelection,
             },
           ]);
