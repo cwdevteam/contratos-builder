@@ -28,7 +28,7 @@ const PDF = (isClicked: boolean) => {
   const pages = useDynamicPageStore((state) => state.pages);
   const adminName = useQuestion5Admin((state) => state.adminName);
   const percent = useQuestion5Vote((state) => state.percent);
-  const { t } = useTranslation("master/pdf");
+  const { t } = useTranslation("master_recording/pdf");
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
@@ -53,7 +53,7 @@ const PDF = (isClicked: boolean) => {
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
 
-    const title = t("1");
+    const title = t("title");
     const splitTitle = doc.splitTextToSize(
       title,
       doc.internal.pageSize.getWidth() * 0.6
@@ -64,7 +64,7 @@ const PDF = (isClicked: boolean) => {
     y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line1 = t("2", { date });
+    const line1 = t("agreement_date", { date });
     x = 50;
     doc.text(line1, x, y);
     y = getY(y, 15);
@@ -75,34 +75,34 @@ const PDF = (isClicked: boolean) => {
       const pageData = pages[Number(id)];
       if (pageData.legalName != "") {
         doc.setFont("Palatino Linotype", "bold");
-        doc.text(t("6", { id }), x, y);
+        doc.text(t("collaborator_id", { id }), x, y);
         y = getY(y, 5);
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
         names.push(name);
-        doc.text(t("7", { name }), x, y);
+        doc.text(t("legal_name", { name }), x, y);
         y = getY(y, 5);
         const email = pageData.email;
         emails.push(email);
-        doc.text(t("9", { email }), x, y);
+        doc.text(t("email_address", { email }), x, y);
         y = getY(y, 5);
         const contributorType = pageData.contributorType;
-        doc.text(t("10", { contributorType }), x, y);
+        doc.text(t("contribution_type", { contributorType }), x, y);
         y = getY(y, 5);
         const split = pageData.split;
-        doc.text(t("11", { split }), x, y);
+        doc.text(t("ownership_percentage", { split }), x, y);
         y = getY(y, 15);
       }
     });
 
     doc.setFont("Palatino Linotype", "bold");
-    const line2 = t("3");
+    const line2 = t("musical_work_identification");
     x = getX(line2);
     doc.text(line2, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line3 = t("4", { song });
+    const line3 = t("musical_work_details", { song });
     const split3 = doc.splitTextToSize(
       line3,
       doc.internal.pageSize.getWidth() * 0.6
@@ -112,13 +112,13 @@ const PDF = (isClicked: boolean) => {
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "bold");
-    const line4 = t("4a");
+    const line4 = t("recording_identification");
     x = getX(line4);
     doc.text(line4, 30, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line5 = t("4b", { recording });
+    const line5 = t("recording_details", { recording });
     const split5 = doc.splitTextToSize(
       line5,
       doc.internal.pageSize.getWidth() * 0.6
@@ -136,12 +136,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line7 = t("12");
+    const line7 = t("rights_and_duties");
     x = getX(line7);
     doc.text(line7, x / 2, y);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line8 = t("13");
+    const line8 = t("mutual_assignment");
     const split8 = doc.splitTextToSize(
       line8,
       doc.internal.pageSize.getWidth() * 0.6
@@ -149,7 +149,7 @@ const PDF = (isClicked: boolean) => {
     doc.text(split8, x / 2, y + 10);
     y = getY(y, 30);
 
-    const line9 = t("14");
+    const line9 = t("joint_work");
     const split9 = doc.splitTextToSize(
       line9,
       doc.internal.pageSize.getWidth() * 0.6
@@ -159,7 +159,7 @@ const PDF = (isClicked: boolean) => {
 
     //different section based on vote or admin
     if (voteSelection == "VOTE") {
-      const line10 = t("15", { percent });
+      const line10 = t("authorization_requirement", { percent });
       const split10 = doc.splitTextToSize(
         line10,
         doc.internal.pageSize.getWidth() * 0.6
@@ -167,7 +167,7 @@ const PDF = (isClicked: boolean) => {
       doc.text(split10, x / 2, y + 10);
       y = getY(y, 15);
 
-      const line11 = t("16");
+      const line11 = t("exploitation_restriction");
       const split11 = doc.splitTextToSize(
         line11,
         doc.internal.pageSize.getWidth() * 0.6
@@ -176,7 +176,7 @@ const PDF = (isClicked: boolean) => {
       doc.text(split11, x / 2 + 20, y + 10);
       y = getY(y, 10);
 
-      const line12 = t("17");
+      const line12 = t("modification_restriction");
       const split12 = doc.splitTextToSize(
         line12,
         doc.internal.pageSize.getWidth() * 0.6
@@ -185,7 +185,7 @@ const PDF = (isClicked: boolean) => {
       doc.text(split12, x / 2 + 20, y + 10);
       y = getY(y, 10);
 
-      const line13 = t("18");
+      const line13 = t("commercial_exploitation_restriction");
       const split13 = doc.splitTextToSize(
         line13,
         doc.internal.pageSize.getWidth() * 0.6
@@ -194,7 +194,7 @@ const PDF = (isClicked: boolean) => {
       doc.text(split13, x / 2 + 20, y + 10);
       y = getY(y, 15);
 
-      const line14 = t("18a");
+      const line14 = t("licensing_restriction");
       const split14 = doc.splitTextToSize(
         line14,
         doc.internal.pageSize.getWidth() * 0.6
@@ -203,7 +203,7 @@ const PDF = (isClicked: boolean) => {
       doc.text(split14, x / 2 + 20, y + 10);
       y = getY(y, 35);
     } else if (voteSelection == "ADMIN") {
-      const line10 = t("19", { adminName });
+      const line10 = t("admin_designation", { adminName });
       const split10 = doc.splitTextToSize(
         line10,
         doc.internal.pageSize.getWidth() * 0.6
@@ -211,7 +211,7 @@ const PDF = (isClicked: boolean) => {
       doc.text(split10, x / 2, y + 10);
       y = getY(y, 30);
 
-      const line10a = t("19a");
+      const line10a = t("admin_responsibilities");
       const split10a = doc.splitTextToSize(
         line10a,
         doc.internal.pageSize.getWidth() * 0.6
@@ -225,13 +225,13 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line15 = t("20");
+    const line15 = t("distribution_and_monetization");
     //x = getX(line15);
     doc.text(line15, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line16 = t("21");
+    const line16 = t("distributor_selection");
     const split16 = doc.splitTextToSize(
       line16,
       doc.internal.pageSize.getWidth() * 0.6
@@ -239,7 +239,7 @@ const PDF = (isClicked: boolean) => {
     doc.text(split16, x / 2, y);
     y = getY(y, 25);
 
-    const line17 = t("22");
+    const line17 = t("royalty_collection");
     const split17 = doc.splitTextToSize(
       line17,
       doc.internal.pageSize.getWidth() * 0.6
@@ -247,7 +247,7 @@ const PDF = (isClicked: boolean) => {
     doc.text(split17, x / 2, y);
     y = getY(y, 50);
 
-    const line18 = t("23");
+    const line18 = t("third_party_payments");
     const split18 = doc.splitTextToSize(
       line18,
       doc.internal.pageSize.getWidth() * 0.6
@@ -257,12 +257,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line19 = t("24");
+    const line19 = t("credits");
     doc.text(line19, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line20 = t("25");
+    const line20 = t("credit_presentation");
     const split20 = doc.splitTextToSize(
       line20,
       doc.internal.pageSize.getWidth() * 0.6
@@ -272,12 +272,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line21 = t("26");
+    const line21 = t("artist_license");
     doc.text(line21, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line22 = t("27");
+    const line22 = t("license_details");
     const split22 = doc.splitTextToSize(
       line22,
       doc.internal.pageSize.getWidth() * 0.6
@@ -287,12 +287,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line23 = t("28");
+    const line23 = t("accounting");
     doc.text(line23, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line24 = t("29");
+    const line24 = t("audit_rights");
     const split24 = doc.splitTextToSize(
       line24,
       doc.internal.pageSize.getWidth() * 0.6
@@ -302,12 +302,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line25 = t("30");
+    const line25 = t("full_capacity");
     doc.text(line25, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line26 = t("31");
+    const line26 = t("capacity_declaration");
     const split26 = doc.splitTextToSize(
       line26,
       doc.internal.pageSize.getWidth() * 0.6
@@ -315,7 +315,7 @@ const PDF = (isClicked: boolean) => {
     doc.text(split26, x / 2, y);
     y = getY(y, 20);
 
-    const line27 = t("32");
+    const line27 = t("original_contributions");
     const split27 = doc.splitTextToSize(
       line27,
       doc.internal.pageSize.getWidth() * 0.6
@@ -323,7 +323,7 @@ const PDF = (isClicked: boolean) => {
     doc.text(split27, x / 2, y);
     y = getY(y, 15);
 
-    const line28 = t("33");
+    const line28 = t("indemnity");
     const split28 = doc.splitTextToSize(
       line28,
       doc.internal.pageSize.getWidth() * 0.6
@@ -333,12 +333,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line29 = t("34");
+    const line29 = t("full_autonomy");
     doc.text(line29, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line30 = t("35");
+    const line30 = t("autonomy_declaration");
     const split30 = doc.splitTextToSize(
       line30,
       doc.internal.pageSize.getWidth() * 0.6
@@ -348,12 +348,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line31 = t("36");
+    const line31 = t("right_of_first_refusal");
     doc.text(line31, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line32 = t("37");
+    const line32 = t("first_refusal_details");
     const split32 = doc.splitTextToSize(
       line32,
       doc.internal.pageSize.getWidth() * 0.6
@@ -363,12 +363,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line33 = t("38");
+    const line33 = t("notices");
     doc.text(line33, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line34 = t("39");
+    const line34 = t("notice_details");
     const split34 = doc.splitTextToSize(
       line34,
       doc.internal.pageSize.getWidth() * 0.6
@@ -378,12 +378,12 @@ const PDF = (isClicked: boolean) => {
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
-    const line35 = t("40");
+    const line35 = t("dispute_settlement");
     doc.text(line35, x / 2, y);
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line36 = t("41");
+    const line36 = t("dispute_resolution");
     const split36 = doc.splitTextToSize(
       line36,
       doc.internal.pageSize.getWidth() * 0.6
@@ -391,7 +391,7 @@ const PDF = (isClicked: boolean) => {
     doc.text(split36, x / 2, y);
     y = getY(y, 20);
 
-    const line37 = t("42");
+    const line37 = t("agreement_validity");
     const split37 = doc.splitTextToSize(
       line37,
       doc.internal.pageSize.getWidth() * 0.6
@@ -399,23 +399,23 @@ const PDF = (isClicked: boolean) => {
     doc.text(split37, x / 2, y);
     y = getY(y, 30);
 
-    doc.text(t("43"), x, y);
+    doc.text(t("signatures"), x, y);
     y = getY(y, 15);
     x /= 2;
     Object.keys(pages).forEach((id) => {
       const pageData = pages[Number(id)];
       if (pageData.legalName != "") {
         doc.setFont("Palatino Linotype", "bold");
-        doc.text(t("6", { id }), x, y);
+        doc.text(t("collaborator_id", { id }), x, y);
         y = getY(y, 5);
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
-        doc.text(t("7", { name }), x, y);
+        doc.text(t("legal_name", { name }), x, y);
         doc.line(x + 27, y + 1, x + 150, y + 1);
         y = getY(y, 5);
-        doc.text(t("44"), x, y);
+        doc.text(t("signature"), x, y);
         doc.line(x + 10, y + 1, x + 80, y + 1);
-        doc.text(t("45", { date }), x + 85, y);
+        doc.text(t("signature_date", { date }), x + 85, y);
         doc.line(x + 95, y + 1, x + 132, y + 1);
         y = getY(y, 15);
       }

@@ -23,7 +23,7 @@ const ContractBuilder3 = ({
   const song = searchParams.get("recording")!;
 
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question3");
+  const { t } = useTranslation(lng, "master_recording/question3");
 
   const handleContributorsChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -44,7 +44,7 @@ const ContractBuilder3 = ({
     <div className="p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm ">
-          <p className="text-[#FFFFFF] text-[1.5rem] pt-10">{t("p1")}</p>
+          <p className="text-[#FFFFFF] text-[1.5rem] pt-10">{t("collaboratorsCountQuestion")}</p>
           <form className="flex flex-col pt-5">
             <input
               type="number"
@@ -59,13 +59,13 @@ const ContractBuilder3 = ({
         <div className="py-1 pt-10">
           <div className="w-4/5">
             <p className=" font-roboto_light text-[#696969] text-[0px] sm:text-[16px]">
-              {t("p2")}
+              {t("incompleteContractMessage")}
             </p>
             <h3 className="font-bold mb-2 font-roboto_bold text-[0px] sm:text-[16px]">
-              {t("h3")}
+              {t("masterRecordingIdentification")}
             </h3>
             <p className=" font-roboto text-[0px] sm:text-[16px]">
-              {t("p3")}{" "}
+              {t("collaborationDescription")}{" "}
               <span className="text-[#AC4444] font-rubik text-[0px] sm:text-[16px]">
                 {song}
               </span>
@@ -79,13 +79,13 @@ const ContractBuilder3 = ({
             onClick={() => push("/master_recording/question2")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("back")}
+            {t("backButton")}
           </button>
           <button
             onClick={handleSubmit}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("submit")}
+            {t("nextButton")}
           </button>
         </div>
       </footer>

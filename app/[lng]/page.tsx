@@ -39,31 +39,31 @@ export default function Home({
     <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5 sm:mx-auto">
       <section className="w-full flex flex-col gap-5">
         <p className="md:text-[32px] text-[20px] font-share tracking-[-0.05rem] text-start">
-          {t("h3-1")}
+          {t("welcome-message-part1")}
           <span className="font-rubik">{t("mesa")}</span>
-          {t("h3-2")}
+          {t("welcome-message-part2")}
         </p>
         <p className="md:text-[24px] text-[16px] text-2xl font-share tracking-[-0.05rem] text-start">
           {t("intro")}
           <br />
-          {t("li-title")}
+          {t("contract-eligibility-title")}
         </p>
         <ol className="list-disc pl-6 text-sm sm:text-base text-start md:text-[24px] text-[16px] font-share tracking-[-0.05rem] pt-4">
-          <li className="pb-2">{t("li1")}</li>
-          <li className="pb-2"> {t("li2")}</li>
-          <li className="pb-2">{t("li3")}</li>
+          <li className="pb-2">{t("eligibility-condition1")}</li>
+          <li className="pb-2"> {t("eligibility-condition2")}</li>
+          <li className="pb-2">{t("eligibility-condition3")}</li>
         </ol>
       </section>
       <footer className="mt-8 flex flex-col text-start pt-4">
         <p className="font-rubik text-black text-outline-red text-center text-[35px] sm:text-[0px] px-0">
-          {t("control")}
+          {t("control-your")}
         </p>
         <span className="text-white font-rubik text-center text-[35px] sm:text-[0px]">
           {t("music")}
         </span>
         {!isOpen2 && (
           <Popup
-            trigger={<button>{t("get-started")}</button>}
+            trigger={<button>{t("get-started-button")}</button>}
             position="center center"
             modal
             nested
@@ -93,18 +93,18 @@ export default function Home({
                     &times;
                   </button>
                   <p className="text-sm sm:text-base space-y-4 font-roboto">
-                    {t("1")}
+                    {t("disclaimer1")}
                     <br />
-                    {t("2")}
+                    {t("disclaimer2")}
                     <br />
-                    {t("3")}
+                    {t("disclaimer3")}
                     <br />
                     <div className="flex justify-end">
                       <button
                         onClick={changePopup}
                         className="border-none bg-[#82828270]"
                       >
-                        {t("proceed")}&rarr;
+                        {t("proceed-button")}&rarr;
                       </button>
                     </div>
                   </p>
@@ -147,7 +147,7 @@ export default function Home({
                     &times;
                   </button>
                   <p className="text-sm sm:text-base space-y-4 font-roboto text-xl">
-                    {t("4")}
+                    {t("language-question")}
                   </p>
                   <select
                   name="type"
@@ -157,7 +157,7 @@ export default function Home({
                   onChange={handleLangChange}
                   required
                 >
-                  <option value="">{t('5')}</option>
+                  <option value="">{t('choose-language')}</option>
                   <option value="en">English</option>
                   <option value="es">Español</option>
                 </select>
@@ -166,7 +166,7 @@ export default function Home({
                         onClick={() => push(`/${lang}/question1`)}
                         className="border-none bg-[#82828270] absolute right-7 bottom-7"
                       >
-                        {t("proceed")}&rarr;
+                        {t("proceed-button")}&rarr;
                       </button>
                     </div>
                 </main>
@@ -181,7 +181,7 @@ export default function Home({
           <Popup
             trigger={
               <a className="font-share text-2xl text-link underline text-center text-[18px] pt-2">
-                {t("confused")}
+                {t("confused-link")}
               </a>
             }
             position="center center"
@@ -199,38 +199,38 @@ export default function Home({
                 overflowY: "scroll",
               }}
             >
-              <p>{t("popups.1")}</p>
+              <p>{t("popups.self-publishing-distribution-info")}</p>
               <ul>
                 <li>
-                  {t("popups.2")}
+                  {t("popups.self-publishing-title")}
                   <br />
-                  {t("popups.3")}
+                  {t("popups.what-is-publishing")}
                   <br />
-                  {t("popups.4")}
+                  {t("popups.publishing-info")}
                 </li>
                 <br />
                 <li>
-                  {t("popups.5")}
+                  {t("popups.self-distribution-title")}
                   <br />
-                  {t("popups.6")}
+                  {t("popups.what-is-distribution")}
                   <br />
-                  {t("popups.7")}
+                  {t("popups.distribution-info")}
                 </li>
                 <br />
                 <li>
-                  {t("popups.8")}
+                  {t("popups.legal-responsibilities-title")}
                   <br />
                   <ol className="list-disc pl-5">
-                    <li>{t("popups.9")}</li>
+                    <li>{t("popups.contracts-licensing-info")}</li>
                     <br />
-                    <li>{t("popups.10")}</li>
+                    <li>{t("popups.copyright-registration-info")}</li>
                   </ol>
                   <br />
                 </li>
               </ul>
-              {t("popups.11")}
+              {t("popups.summary-title")}
               <br />
-              <p>{t("popups.12")}</p>
+              <p>{t("popups.self-publishing-distribution-summary")}</p>
               <button
                 onClick={() => {
                   setIsOpen(true);

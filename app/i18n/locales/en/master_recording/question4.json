@@ -1,0 +1,21 @@
+{
+  "splitHelp": "Splits need to add to 100% to be valid",
+  "questionTypeOfContract": "What type of splits contract would you like to create?",
+  "questionSongName": "What is the name of the song?",
+  "questionNumberOfContributors": "How many collaborators contributed to writing the song?",
+  "contributor": "Contributor",
+  "questionBusinessDecision": "Would you like to vote when making business decisions or designate an administrator?",
+  "optionVote": "VOTE",
+  "optionAdmin": "DESIGNATE ADMIN",
+  "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "confused": "Confused with this bit too? read here.",
+  "submit": "Submit",
+  "back": "Back",
+  "skip": "Skip",
+
+  "popups": {
+    "votingExplanation": "Voting ensures that each business decision is consulted with all of the copyright owners. Designating an administrator ensures faster decision making, but less consultation with copyright owners. However, administrators also have responsibilities and a duty to properly represent the interests of the copyright owners.",
+    "moreInfoVoting": "Still not clear about voting? read here.",
+    "moreInfoAdmin": "Still not clear about designating an admin? read here."
+  }
+}

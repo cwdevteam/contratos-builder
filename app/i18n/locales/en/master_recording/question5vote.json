@@ -1,0 +1,19 @@
+{
+  "contractTypeQuestion": "What type of splits contract would you like to create?",
+  "songNameQuestion": "What is the name of the song?",
+  "collaboratorsQuestion": "How many collaborators contributed to writing the song?",
+  "contributorLabel": "Contributor",
+  "adminOrVoteQuestion": "Vote or designate admin?",
+  "ownershipPercentageQuestion": "What percentage of ownership is necessary to make business decisions about the master recording?",
+  "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "rightsAndDutiesTitle": "2.0 Rights and Duties of the Parties",
+  "legalActionsRestriction": "None of the parties may perform legally relevant acts on the Sound Recording without the written authorization of the ",
+  "ownershipDetails": "of the ownership, such as but not limited to the following:",
+  "licenseAuthorization": "Exploiting the musical performance of the other contributors in a manner different from that set in the Master copy.",
+  "editPermission": "Edit, alter, or modify the performance of the parts, except for formatting purposes.",
+  "nameExploitationRestriction": "Commercially exploiting the sound recording in a manner that directly or indirectly suggests approval or endorsement of a product or service other than the sound recording itself.",
+  "exclusiveLicenseRestriction": "Grant exclusive or non-exclusive licenses on the sound recording to third parties.",
+  "moreInfoLink": "Still not clear about voting? read here.",
+  "backButton": "Back",
+  "submitButton": "Submit"
+}

@@ -18,7 +18,7 @@ const ContractBuilder2 = ({
   const [song, setSelectedOptionSong] = useState("");
   const [recording, setRecording] = useState("");
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question2");
+  const { t } = useTranslation(lng, "master_recording/question2");
 
   const handleSongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionSong(event.target.value);
@@ -47,10 +47,10 @@ const ContractBuilder2 = ({
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10 border-none">
-          <p className="text-[1.5rem] mb-4 font-share">{t("p1")}</p>
+          <p className="text-[1.5rem] mb-4 font-share">{t("songNameQuestion")}</p>
           <form className="flex flex-col">
             <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0">
-              {t("label1")}
+              {t("compositionLabel")}
             </label>
             <input
               type="text"
@@ -60,7 +60,7 @@ const ContractBuilder2 = ({
               required
             />
             <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0 pt-5 ">
-              {t("label2")}
+              {t("masterLabel")}
             </label>
             <input
               type="text"
@@ -74,14 +74,14 @@ const ContractBuilder2 = ({
 
         <div className="w-full sm:w-1/2">
           <p className="text-[0px] sm:text-sm text-gray-500 mb-4 font-roboto_light">
-            {t("p2")}
+            {t("incompleteContractMessage")}
           </p>
 
           <h3 className="text-base font-bold mb-2 font-roboto_bold">
-            {t("h3")}
+            {t("musicWorkIdentificationHeader")}
           </h3>
           <p className="text-sm sm:text-base font-roboto">
-            {t("p3")}
+            {t("musicWorkIdentificationText")}
             {": "}
             <span className="text-[#AC4444] font-rubik">
               {song ? song : " "}
@@ -90,15 +90,15 @@ const ContractBuilder2 = ({
           </p>
           <br />
           <h3 className="text-base font-bold mb-2 font-roboto_bold">
-            {t("h32")}
+            {t("masterRecordingIdentificationHeader")}
           </h3>
           <p className="text-sm sm:text-base font-roboto">
-            {t("p4")}
+            {t("masterRecordingIdentificationText")}
             {""}
             <span className="text-[#AC4444] font-rubik">
               {recording ? recording : " "}
             </span>
-            {t("p5")}
+            {t("masterRecordingClauseText")}
           </p>
         </div>
       </main>
@@ -108,13 +108,13 @@ const ContractBuilder2 = ({
             onClick={() => push("/question1")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("back")}
+            {t("backButton")}
           </button>
           <button
             onClick={handleSubmit}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
           >
-            {t("submit")}
+            {t("nextButton")}
           </button>
         </div>
       </footer>

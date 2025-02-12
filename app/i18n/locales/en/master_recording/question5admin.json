@@ -1,0 +1,17 @@
+{
+  "splitHelp": "Splits need to add to 100% to be valid",
+  "questionTypeOfContract": "What type of splits contract would you like to create?",
+  "questionSongName": "What is the name of the song?",
+  "questionNumberOfCollaborators": "How many collaborators contributed to writing the song?",
+  "contributor": "Contributor",
+  "questionAdminOrVote": "Vote or designate admin?",
+  "questionAdminName": "What is the name(s) of the designated administrator?",
+  "adminNameList": "Legal Name (First Last) | Separate names by commas",
+  "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "adminDesignationTitle": "4.0 Designation of an administrator",
+  "adminDesignationIntro": "By means of the present contract, the parties recognize, accept, and declare that they designate ",
+  "adminDesignationDetails": " as the representative in charge of making the decisions related to the commercial exploitation of the Master recording agreement. The designated person will make their best effort to achieve the greatest commercial benefit of the work, which includes but is not limited to: offering licenses to the market, working with companies, music distributors, record labels or synchronizations. The representative is NOT authorized to sell or dispose of the copyright ownership of the musical work and the recording, they can only offer licenses of use. The sale of copyrights is an exclusive faculty of each owner.",
+  "helpLinkText": "Still not clear about designating an admin? read here.",
+  "backButton": "Back",
+  "submitButton": "Submit"
+}

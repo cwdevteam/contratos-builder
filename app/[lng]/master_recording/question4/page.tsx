@@ -18,7 +18,7 @@ const ContractBuilder4 = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
-  const { t } = useTranslation(lng, "master/question4");
+  const { t } = useTranslation(lng, "master_recording/question4");
   const pageCount = useSearchParams().get("pageCount");
   const lastSplit = Number(useSearchParams().get("split"));
 
@@ -46,7 +46,7 @@ const ContractBuilder4 = ({
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">
         <div className="w-full sm:w-1/2 py-4 sm:py-10">
           <h4 className="mb-4 pt-5 font-share text-[1.5rem]">
-            {t("question")}
+            {t("questionBusinessDecision")}
           </h4>
           <form className="flex flex-col gap-2">
             <label className="flex items-center font-rubik">
@@ -58,7 +58,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base mt-2">{t("vote")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("optionVote")}</span>
             </label>
             <label className="flex items-center font-rubik">
               <input
@@ -69,7 +69,7 @@ const ContractBuilder4 = ({
                 onChange={handleRadioChange}
                 required
               />
-              <span className="text-sm sm:text-base mt-2">{t("admin")}</span>
+              <span className="text-sm sm:text-base mt-2">{t("optionAdmin")}</span>
             </label>
             <label className="flex items-center font-rubik">
               <input
@@ -85,7 +85,7 @@ const ContractBuilder4 = ({
           </form>
         </div>
         <div className="w-full sm:w-1/2 sm:p-8">
-          <p className="text-gray-500 mb-4  font-share">{t("p1")}</p>
+          <p className="text-gray-500 mb-4  font-share">{t("incompleteContractMessage")}</p>
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
@@ -111,20 +111,20 @@ const ContractBuilder4 = ({
                 overflowY: "scroll",
               }}
             >
-              <p>{t("popups.1")}</p>
+              <p>{t("popups.votingExplanation")}</p>
               <br />
               <a
                 className="items-center gap-2 hover:underline hover:underline-offset-4"
                 onClick={() => push("/popups/moreInfoVoting")}
               >
-                {t("popups.2")}
+                {t("popups.moreInfoVoting")}
               </a>
               <br />
               <a
                 className="items-center gap-2 hover:underline hover:underline-offset-4"
                 onClick={() => push("/popups/moreInfoAdmin")}
               >
-                {t("popups.3")}
+                {t("popups.moreInfoAdmin")}
               </a>
               <button
                 onClick={() => {

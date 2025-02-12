@@ -19,7 +19,7 @@ function ContractBuilder1({
   const { push } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(t("li1"));
+  const [selectedOption, setSelectedOption] = useState('');
   const [selectedDate, setSelectedDate] = useState("");
 
   const updateSplit = useQuestion1((state) => state.updateSplit);
@@ -36,11 +36,11 @@ function ContractBuilder1({
   const handleSubmit = () => {
     updateSplit(selectedOption);
     updateDate(selectedDate);
-    if (selectedOption == t("li1")) {
+    if (selectedOption == t("option_songwriting")) {
       push("/musical_work/question2");
-    } else if (selectedOption == t("li2")) {
+    } else if (selectedOption == t("option_master_recording")) {
       push("master_recording/question2");
-    } else if (selectedOption == t("li3")) {
+    } else if (selectedOption == t("option_both")) {
       push("both/question2");
     }
   };
@@ -51,7 +51,7 @@ function ContractBuilder1({
     <div className="p-4 sm:p-8 flex flex-col justify-between max-h-screen">
       <main className="flex flex-col sm:flex-row sm:gap-8 pt-10">
         <div className="sm:w-1/2 py-4 sm:py-10">
-          <p className=" mb-4 font-share text-[1.5rem] w-full">{t("p1")}</p>
+          <p className=" mb-4 font-share text-[1.5rem] w-full">{t("question_prompt")}</p>
           <form className="flex flex-col font-rubik items-start">
             <label className="p-2">
               <input
@@ -59,11 +59,11 @@ function ContractBuilder1({
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id={t("li1")}
+                id={t("option_songwriting")}
                 required
                 //defaultChecked
               />
-              {t("li1")}
+              {t("option_songwriting")}
             </label>
             <label className="p-2">
               <input
@@ -71,9 +71,9 @@ function ContractBuilder1({
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id={t("li2")}
+                id={t("option_master_recording")}
               />
-              {t("li2")}
+              {t("option_master_recording")}
             </label>
             <label className="p-2">
               <input
@@ -81,15 +81,15 @@ function ContractBuilder1({
                 name="type"
                 onChange={handleRadioChange}
                 className="radio"
-                id={t("li3")}
+                id={t("option_both")}
               />
-              {t("li3")}
+              {t("option_both")}
 
               {!isOpen2 && (
                 <Popup
                   trigger={
                     <a className="items-center gap-2 underline underline-offset-4 font-share">
-                      {t("read-more")}
+                      {t("read_more")}
                     </a>
                   }
                   position="center center"
@@ -110,53 +110,53 @@ function ContractBuilder1({
                     <div className=" p-4 sm:p-8 flex flex-col justify-between">
                       <main className="flex flex-col gap-6 sm:gap-8">
                         <p className="text-sm sm:text-base space-y-4 font-roboto">
-                          {t("1")}
+                          {t("disclaimer_both")}
                           <br />
-                          {t("2")}
+                          {t("important_notice")}
                           <br />
-                          {t("3")}
+                          {t("both_track_intro")}
                           <br />
                           <ol className="list-decimal list-inside">
                             <li>
-                              {t("4")}
+                              {t("ownership_structures")}
                               <br />
-                              <span>{t("5")}</span>
+                              <span>{t("ownership_details")}</span>
                             </li>
                             <li>
-                              {t("6")}
+                              {t("participants")}
                               <br />
-                              <span>{t("7")}</span>
+                              <span>{t("participants_details")}</span>
                             </li>
                           </ol>
-                          {t("8")}
+                          {t("why_important")}
                           <br />
-                          {t("9")}
+                          {t("metadata_details")}
                           <br />
                           <ul className="list-disc list-inside">
                             <li>
-                              {t("10")}
+                              {t("ownership_percentages")}
                               <br />
                             </li>
                             <li>
-                              {t("11")}
+                              {t("participant_roles")}
                               <br />
                             </li>
                             <li>
-                              {t("12")}
+                              {t("copyright_registrations")}
                               <br />
                             </li>
                             <li>
-                              {t("13")}
+                              {t("licenses_royalties")}
                               <br />
                             </li>
                           </ul>
-                          {t("14")}
+                          {t("both_track_summary")}
                           <br />
-                          {t("15")}
+                          {t("warning")}
                           <br />
-                          {t("16")}
+                          {t("consult_legal")}
                           <br />
-                          {t("17")}
+                          {t("acknowledgement")}
                           <br />
                         </p>
                         <button
@@ -180,13 +180,13 @@ function ContractBuilder1({
         </div>
         <div className="font-roboto_bold">
           <p className="text-[0px] sm:text-[16px] pb-5 text-gray-500 font-roboto_light pt-0">
-            {t("p2")}
+            {t("incomplete_contract_notice")}
           </p>
           <p className="p-5 pl-0">
-            {t("p3", { selectedOption: selectedOption })}
+            {t("copyright_agreement", { selectedOption: selectedOption })}
           </p>
           <p className="font-roboto_thin">
-            {t("p4")}{" "}
+            {t("agreement_date")}{" "}
             <span className="text-[#AC4444] text-lg font-rubik">
               {selectedDate ? selectedDate : " "}
             </span>
@@ -198,7 +198,7 @@ function ContractBuilder1({
           <Popup
             trigger={
               <a className="items-center gap-2 underline underline-offset-4 p-4 sm:mx-0 pb-5">
-                {t("if-confused")}
+                {t("confusion_help")}
               </a>
             }
             position="center center"
@@ -216,18 +216,17 @@ function ContractBuilder1({
                 overflowY: "scroll",
               }}
             >
-              <p className="py-5">{t("popups.1")}</p>
+              <p className="py-5">{t("popups.popup_intro")}</p>
               <ol>
                 <li className="py-5">
                   {" "}
-                  <b>{t("popups.2")}</b> {t("popups.3")}
+                  <b>{t("popups.popup_composition_rights")}</b> {t("popups.popup_composition_details")}
                 </li>
                 <li className="py-5">
-                  <b>{t("popups.4")}</b>
+                  <b>{t("popups.popup_master_rights")}</b> {t("popups.popup_master_details")}
                 </li>
               </ol>
-              <p>{t("popups.5")}</p>
-              <p className="pt-5">{t("popups.6")}</p>
+              <p>{t("popups.popup_summary")}</p>
               <button
                 onClick={() => {
                   setIsOpen(true);
@@ -248,13 +247,13 @@ function ContractBuilder1({
             onClick={() => push("/")}
             className=" w-[15%]  bg-[#AC444475] flex-1 sm:flex-none"
           >
-            {t("back")}
+            {t("back_button")}
           </button>
           <button
             onClick={handleSubmit}
             className=" w-[15%]  bg-[#AC444475] flex-1 sm:flex-none"
           >
-            {t("submit")}
+            {t("submit_button")}
           </button>
         </div>
       </footer>

@@ -1,0 +1,17 @@
+{
+  "splitHelp": "Splits need to add to 100% to be valid",
+  "questionTypeOfContract": "¿Qué tipo de contrato quieres crear?",
+  "questionSongName": "¿Cuál es el nombre de la canción?",
+  "questionNumberOfCollaborators": "¿Cuantas personas colaboraron al escribir la canción?",
+  "contributor": "Colaborador",
+  "questionAdminOrVote": "¿Designar administrador o votar?",
+  "questionAdminName": "¿Cuál es el nombre(s) del administrador designado?",
+  "adminNameList": "Nombre Legal (Nombre y Apellido) | Separalos por comas en caso que sean mas de 1",
+  "incompleteContractMessage": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
+  "adminDesignationTitle": "4. Designación de Administrador",
+  "adminDesignationIntro": "Mediante el presente contrato, las partes reconocen, aceptan y declaran que designan a ",
+  "adminDesignationDetails": " como el representante encargado de tomar decisiones relacionadas con la explotación comercial de la Obra Musical. La persona designada hará su mejor esfuerzo para lograr el mayor beneficio comercial de la obra, lo cual incluye, pero no se limita a: ofrecer licencias, trabajar con editoriales, distribuidores musicales, discográficas o para sincronizaciones. El representante NO está autorizado para vender o disponer de la propiedad de derechos de autor de la Obra Musical y la grabación; solo puede ofrecer licencias de uso. La venta de derechos de autor es una facultad exclusiva de cada propietario.",
+  "helpLinkText": "Lee aqui si necesitas ayuda",
+  "submitButton": "Siguiente",
+  "backButton": "Atrás"
+}

@@ -1,0 +1,66 @@
+{
+  "title": "Acuerdo de Propiedad de Derechos de Autor para Obra Fonográfica(Grabación Master), realizada como una obra en colaboración ",
+  "agreement_date": "Este acuerdo se celebra el {{date}} entre las siguientes partes:",
+
+  "musical_work_identification": "1. Identificación de la Obra Musical",
+  "musical_work_details": "Las partes contratantes realizarán y fijarán una interpretación de la canción u Obra Musical titulada \"{{song}}\"",
+
+  "recording_identification": "2. Identificación de la Obra Fonográfica o Grabación Master",
+  "recording_details": "Las partes contratantes han colaborado en la grabación y producción de la Grabación Master u Obra Fonográfica titulada “{{recording}}”, y reconocen y aceptan su contribución que fija una interpretación de la Obra Musical identificada en la cláusula 1 de este acuerdo.",
+  "ownership_distribution": "Las partes reconocen y aceptan su contribución a la grabación y producción de la Obra Fonográfica, también denominada Grabación Master, y acuerdan la distribución de la propiedad como sigue:",
+
+  "collaborator_id": "Colaborador {{id}}",
+  "legal_name": "Nombre Legal: {{name}}",
+  "artistic_name": "Nombre Artístico: ",
+  "email_address": "Dirección de Correo Electrónico: {{email}}",
+  "contribution_type": "Contribución: {{contributorType}}",
+  "ownership_percentage": "Porcentaje de propiedad: {{split}}%",
+
+  "rights_and_duties": "3. Derechos y deberes de las partes",
+  "mutual_assignment": "Las partes acuerdan y aceptan la asignación mutua de la propiedad de derechos de autor en las proporciones establecidas en este acuerdo para la Grabación Maestra. En consecuencia, cada una de las partes recibe para sí misma, en su patrimonio, a perpetuidad y para todo el territorio, todos los derechos, intereses y prerrogativas otorgados por la propiedad de derechos de autor de la obra mencionada, de acuerdo con la ley y el presente acuerdo.",
+  "joint_work": "Las partes acuerdan que la Grabación Maestra es una Obra en Colaboración  cuyas contribuciones no pueden separarse, o si pueden separarse, en todo caso son interdependientes y generan una obra única. La propiedad de la Grabación Maestra en colaboración se divide entre las Partes Contratantes en los porcentajes establecidos en la cláusula 2 del presente contrato.",
+
+  "authorization_requirement": "Ninguna de las partes podrá realizar actos legalmente relevantes sobre la Grabación Maestra sin la autorización por escrito del {{percent}}% de la propiedad, tales como, pero no limitados a:",
+  "exploitation_restriction": "Explotar la interpretación musical de las otras contribuciones de una manera diferente a la establecida en la copia maestra.",
+  "modification_restriction": "Editar, alterar o modificar la interpretación de las partes, salvo para fines de formato.",
+  "commercial_exploitation_restriction": "Explotar comercialmente la Grabación Maestra de una manera que sugiera directa o indirectamente la aprobación o respaldo de un producto o servicio distinto a la grabación de sonido misma.",
+  "licensing_restriction": "Otorgar licencias exclusivas o no exclusivas sobre la Grabación Maestra a terceros.",
+  "admin_designation": "Mediante el presente contrato, las partes reconocen, aceptan y declaran que designan a {{adminName}} como el representante encargado de tomar decisiones relacionadas con la explotación comercial de la Obra Fonográfica o Grabación Maestra. La persona designada hará su mejor esfuerzo para lograr el mayor beneficio comercial de las obras, lo cual incluye, pero no se limita a: ",
+  "admin_responsibilities": "Ofrecer licencias al mercado, trabajar con editoriales, distribuidores musicales, discográficas o para sincronizaciones. El representante NO está autorizado para vender o disponer de la propiedad de derechos de autor de la Grabación Maestra y la grabación; solo puede ofrecer licencias de uso. La venta de derechos de autor es una facultad exclusiva de cada propietario.",
+
+  "distribution_and_monetization": "4. Distribución y monetización de obras",
+  "distributor_selection": "Las partes acuerdan y aceptan que buscarán y seleccionarán un distribuidor o agregador competitivo, quien será responsable de poner las obras a disposición del público y recolectará y pagará las respectivas regalías a cada uno de los propietarios de derechos de autor de la Grabación Maestra según las proporciones indicadas en este contrato.",
+  "royalty_collection": "Las partes acuerdan que buscarán un distribuidor que recolecte de manera profesional y responsable las regalías por la explotación comercial de la Grabación Maestra en los respectivos usos conocidos y por conocer . Tal distribuidor pagará a cada propietario de derechos de autor en las proporciones acordadas en este contrato. En caso de que las obras no se hayan distribuido con un agregador que ofrezca el servicio de pagos directos a cada uno de los propietarios de derechos de autor, el administrador o la parte que reciba alguna suma de dinero por regalías pertenecientes a otra de las partes deberá pagarlas dentro de los 14 días en la cuenta bancaria respectiva.",
+  "third_party_payments": "En caso de que el administrador o cualquiera de las partes reciba dinero de cualquier tercero atribuible a la explotación comercial de la Grabación Maestra, como licencias de sincronización o de cualquier otro tipo, el administrador o la parte que reciba el dinero deberá pagar a las demás partes las regalías correspondientes a prorrata de su participación en la propiedad de los derechos de autor, a más tardar catorce días después de recibir el dinero.",
+
+  "credits": "5. Créditos",
+  "credit_presentation": "Los créditos de cada copropietario o colaborador se presentarán de acuerdo a su rol correspondiente en la Grabación Maestra, ya sea como músico de grabación, productor, etc., y mencionando su nombre legal o artístico, según se decida.",
+
+  "artist_license": "6. Licencia para artistas",
+  "license_details": "A cada copropietario se le otorga una licencia para utilizar los nombres de los artistas, retratos aprobados y material biográfico aprobado por cada una de las partes con el propósito exclusivo de promover y explotar comercialmente la Grabación Maestra. Cada parte tendrá el derecho de aprobar cualquier material biográfico o de identificación seleccionado o encargado por la otra, siempre que dicho consentimiento a los Materiales Biográficos no se retenga o retrase de manera irrazonable. En caso de retraso irrazonable, se considerará otorgada la aprobación dentro de los cinco (5) días hábiles a partir de la fecha en que los Materiales Biográficos sean recibidos por la parte requerida para otorgar la aprobación.",
+
+  "accounting": "7. Contabilidad",
+  "audit_rights": "Cada parte tiene el derecho de contratar un contador público certificado para auditar los libros y registros del administrador u otras partes únicamente para verificar la recepción y el pago de las cantidades de dinero derivadas de la Grabación Maestra. Este derecho de auditoría podrá ejercerse para verificar la precisión de dichos estados dos veces al año, a expensas exclusivas de la parte interesada y previa notificación escrita con al menos treinta (30) días de anticipación. Cualquier objeción relacionada con cualquier estado financiero debe presentarse a más tardar tres años después de la fecha de inspección.",
+
+  "full_capacity": "8. Capacidad plena e indemnización contra terceros",
+  "capacity_declaration": "Las partes reconocen y declaran que cada una de ellas tiene la capacidad para contratar y lo hace libremente, sin restricción o prohibición alguna, incluidas las derivadas de contratos de grabación, publicación o representación con cualquier tercero.",
+  "original_contributions": "Las partes también declaran que todas sus contribuciones a la Grabación Maestra son originales y no infringen los derechos económicos o morales ni los intereses de terceros.",
+  "indemnity": "Las partes acuerdan que en caso de cualquier reclamación por parte de terceros por derechos de autor o de otro tipo, la parte responsable mantendrá indemne a las partes no responsables de cualquier reclamación judicial o extrajudicial derivada de su contribución a la Grabación Maestra, o de su participación o cumplimiento de este contrato.",
+
+  "full_autonomy": "9. Autonomía plena y sin relación laboral",
+  "autonomy_declaration": "Las partes entienden, reconocen y declaran que no existe relación laboral entre ellas. Actúan como artistas independientes con plena autonomía administrativa y artística. Nada en este contrato se interpretará como una relación laboral, de sociedad o negocio, diferente a la colaboración entre artistas para la producción de una obra artística conjunta.",
+
+  "right_of_first_refusal": "10. Derecho de preferencia",
+  "first_refusal_details": "Las partes acuerdan que en el caso de que deseen vender, ceder o transferir su participación en los derechos de autor de la Grabación Maestra, otorgarán a las otras partes un derecho de preferencia o primera opción de compra a las demás partes del contrato, primero en una base prorrata, y luego de manera individual. En caso de que la opción de compra no sea ejercida por las otras partes, el vendedor podrá ofrecer libremente su participación en el mercado.",
+
+  "notices": "11. Notificaciones",
+  "notice_details": "Las partes serán notificadas de cualquier decisión, controversia, negociación o asunto relevante relacionado con este contrato, a través de correo electrónico o correo físico certificado a las direcciones físicas y electrónicas que aparecen al pie de su firma.",
+
+  "dispute_settlement": "12. Resolución de disputas",
+  "dispute_details": "Cualquier controversia se tratará mediante diálogo entre las partes. De no ser posible, buscarán agotar un mecanismo de resolución alternativa de disputas y, en su defecto, lo someterán a los jueces competentes bajo las leyes de Colombia.",
+  "agreement_modification": "Si alguna disposición de este Acuerdo es inválida, nula o no exigible, el resto del Acuerdo permanecerá en plena vigencia y efecto. Este Acuerdo no podrá modificarse de ninguna manera, excepto mediante un instrumento firmado por las partes. Este Acuerdo puede ser firmado en duplicado (y/o por fax y/o PDF), cada uno de los cuales se considerará original, pero todos juntos constituirán el Acuerdo.",
+
+  "signatures": "En testimonio de lo cual, los colaboradores firman:",
+  "signature": "Firma:",
+  "signature_date": "Fecha: {{date}}"
+}
