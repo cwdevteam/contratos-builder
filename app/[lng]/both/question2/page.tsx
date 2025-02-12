@@ -48,9 +48,6 @@ const ContractBuilder2 = ({
         <div className="w-full sm:w-1/2 py-4 sm:py-10 border-none">
           <p className="text-[1.5rem] mb-4 font-share">{t("songNameQuestion")}</p>
           <form className="flex flex-col">
-            <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0">
-              {t("compositionLabel")}
-            </label>
             <input
               type="text"
               name="type"
@@ -58,16 +55,6 @@ const ContractBuilder2 = ({
               className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2 font-rubik p-2"
               required
             />
-            {/* <label className="text-xs text-gray-500 w-full text-left mb-4 border-none py-0 pt-5 ">
-              {t("masterLabel")}
-            </label> */}
-            {/* <input
-              type="text"
-              name="type"
-              onChange={handleRecordingChange}
-              className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2 font-rubik p-2"
-              required
-            /> */}
           </form>
         </div>
 
