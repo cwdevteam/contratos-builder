@@ -29,15 +29,13 @@ function Jurisdiction({
 
   const updateJurisdiction = useJurisdiction((state) => state.updateJurisdiction);
 
-  const handleJurisdictionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setJurisdiction(event.target.id);
-    const value = event.target.id;
-    console.log(value);
-  };
+    const handleJurisdictionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setJurisdiction(event.target.value);
+    };
 
   const handleSubmit = () =>{
     updateJurisdiction(jurisdiction);
-    push(`${lng}/question1`)
+    push(`/${lng}/question1`)
   }
 
   return (
@@ -52,7 +50,6 @@ function Jurisdiction({
                 name="type"
                 onChange={handleJurisdictionChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
-                id={t("jurisdiction")}
                 required
                 //defaultChecked
               />
@@ -67,8 +64,9 @@ function Jurisdiction({
           <p className="font-roboto_thin">
             {t("jurisdiction-statement")}{" "}
             <span className="text-[#AC4444] text-lg font-rubik">
-              {jurisdiction ? jurisdiction : " "}
+              {jurisdiction}
             </span>
+            .
           </p>
         </div>
       </main>
