@@ -3,7 +3,7 @@
   "agreementDate": "This agreement is entered into on {{date}}  between the following parties:",
   "collaborator": "Collaborator {{id}}",
   "legalName": "Legal Name: {{name}}",
-  "emailAddress": "Dirección de Correo Electrónico: {{email}}",
+  "emailAddress": "Email Address: {{email}}",
   "contributionType": "Contribution (Lyrics, music, or both): {{contributorType}}",
   "ownershipPercentage": "Ownership Percentage: {{split}}%",
   "workIdentification": "1.     Musical Work Identification",
