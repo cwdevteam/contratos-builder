@@ -50,7 +50,7 @@
   "notificationMethod": "Las partes serán notificadas de cualquier decisión, controversia, negociación o asunto relevante relacionado con este contrato, a través de correo electrónico a las direcciones electrónicas que aparecen al pie de su firma.",
 
   "disputeResolution": "11. Resolución de disputas",
-  "disputeMechanism": "Cualquier controversia se tratará mediante diálogo entre las partes. De no ser posible, buscarán agotar un mecanismo de resolución alternativa de disputas y, en su defecto, lo someterán a los jueces competentes bajo las leyes de Colombia.",
+  "disputeMechanism": "Cualquier controversia se tratará mediante diálogo entre las partes. De no ser posible, buscarán agotar un mecanismo de resolución alternativa de disputas y, en su defecto, lo someterán a los jueces competentes bajo las leyes de {{jurisdiction}}.",
   "agreementValidity": "Si alguna disposición de este Acuerdo es inválida, nula o no exigible, el resto del Acuerdo permanecerá en plena vigencia y efecto. Este Acuerdo no podrá modificarse de ninguna manera, excepto mediante un instrumento firmado por las partes. Este Acuerdo puede ser firmado en duplicado (y/o por fax y/o PDF), cada uno de los cuales se considerará original, pero todos juntos constituirán el Acuerdo.",
 
   "signatures": "En testimonio de lo cual, los colaboradores firman:",

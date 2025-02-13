@@ -351,14 +351,18 @@ const PDF = (isClicked: boolean) => {
     doc.text(line35, x, y);
     y = getY(y, 10);
 
-    doc.setFont("Palatino Linotype", "normal");
-    const line36 = t("disputeMechanism");
-    const split36 = doc.splitTextToSize(
+    if(jurisdiction!=''){
+      doc.setFont("Palatino Linotype", "normal");
+      const line36 = t("disputeMechanism", {jurisdiction});
+      const split36 = doc.splitTextToSize(
       line36,
       doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split36, x, y);
-    y = getY(y, 20);
+      );
+      doc.text(split36, x, y);
+      y = getY(y, 20);
+
+    }
+    
 
     const line37 = t("agreementValidity");
     const split37 = doc.splitTextToSize(

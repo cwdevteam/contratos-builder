@@ -64,7 +64,7 @@
     "39":"Las partes serán notificadas de cualquier decisión, controversia, negociación o asunto relevante relacionado con este contrato, vía correo electrónico o correo físico certificado a las direcciones físicas y electrónicas que aparecen al pie de su firma.",
     
     "40":"12. Resolución de controversias",
-    "41":"Cualquier controversia se tratará a través del diálogo entre las partes. En caso de no ser posible, se buscará agotar un mecanismo de resolución alternativa de conflictos, y en caso de no resolverse, se someterá a los jueces competentes bajo las leyes de Colombia.",
+    "41":"Cualquier controversia se tratará a través del diálogo entre las partes. En caso de no ser posible, se buscará agotar un mecanismo de resolución alternativa de conflictos, y en caso de no resolverse, se someterá a los jueces competentes bajo las leyes de {{jurisdiction}}.",
     "42":"Si alguna disposición de este Acuerdo es inválida, nula o inaplicable, el resto del Acuerdo permanecerá en plena vigencia y efecto. Este Acuerdo no podrá modificarse de ninguna manera excepto mediante un instrumento firmado por las partes. Este Acuerdo puede firmarse en duplicado (y/o por fax y/o PDF), cada uno de los cuales se considerará un original, pero todos los cuales juntos constituirán el Acuerdo.",
     
     "43":"En fe de lo cual, los colaboradores firman:",

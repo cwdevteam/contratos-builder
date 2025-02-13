@@ -385,16 +385,20 @@ const PDF = (isClicked: boolean) => {
     doc.text(line35, x / 2, y);
     y = getY(y, 10);
 
-    doc.setFont("Palatino Linotype", "normal");
-    const line36 = t("dispute_resolution");
-    const split36 = doc.splitTextToSize(
+    if(jurisdiction!=''){
+      doc.setFont("Palatino Linotype", "normal");
+      const line36 = t("dispute_details", {jurisdiction});
+      const split36 = doc.splitTextToSize(
       line36,
       doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split36, x / 2, y);
-    y = getY(y, 20);
+      );
+      doc.text(split36, x / 2, y);
+      y = getY(y, 20);
 
-    const line37 = t("agreement_validity");
+    }
+    
+
+    const line37 = t("agreement_modification");
     const split37 = doc.splitTextToSize(
       line37,
       doc.internal.pageSize.getWidth() * 0.6
