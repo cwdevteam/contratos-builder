@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import useJurisdiction from "./store/useJurisdiction";
 import { useTranslation } from "../i18n/client";
 import Popup from "reactjs-popup";
+import jurisdictions from "./public/jurisdictions.json"
 
 export default function Home({
   params,
@@ -31,6 +32,10 @@ export default function Home({
   const handleJurisdictionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setJurisdiction(event.target.value);
   };
+
+  const filteredJurisdictions = jurisdictions.filter((j) =>
+    j.toLowerCase().includes(jurisdiction.toLowerCase())
+  );
 
   const changePopup = () =>{
     setIsOpen2(true);
@@ -191,8 +196,16 @@ export default function Home({
                       onChange={handleJurisdictionChange}
                       className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
                       required
+                      list="jurisdictions"
                     />
                     </label>
+                    {filteredJurisdictions.length > 0 && filteredJurisdictions.length <= 10 && (
+                    <datalist id="jurisdictions">
+                      {filteredJurisdictions.map((j, index) => (
+                        <option key={index} value={j} />
+                      ))}
+                    </datalist>
+                    )}
                     <h1 className="p-0">
                       {t("dispute")}
                     </h1>
