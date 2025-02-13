@@ -23,7 +23,7 @@ export default function Home({
   const [lang, setLang] = useState(lng);
   const [jurisdiction, setJurisdiction] = useState('');
 
-  let { t } = useTranslation(lang);
+  const { t } = useTranslation(lang);
 
   const updateLanguage = useJurisdiction((state) => state.updateLanguage);
   const updateJurisdiction = useJurisdiction((state) => state.updateJurisdiction);
