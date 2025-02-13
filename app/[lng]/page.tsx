@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useJurisdiction from "./store/useJurisdiction";
 import { useTranslation } from "../i18n/client";
@@ -44,10 +44,9 @@ export default function Home({
     setLang(lng);
   };
   
-  // ({t} = useTranslation(lang))
+  ({t} = useTranslation(lang))
 
   const handleSubmit = () =>{
-    console.log(lang,jurisdiction)
     updateLanguage(lang);
     updateJurisdiction(jurisdiction);
     push(`/${lang}/question1`)
