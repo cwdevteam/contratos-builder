@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import useJurisdiction from "./store/useJurisdiction";
 import { useTranslation } from "../i18n/client";
@@ -16,13 +16,14 @@ export default function Home({
   let { lng } = params;
   //if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { push } = useRouter();
-  let { t } = useTranslation(lng);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
   const [isOpen4, setIsOpen4] = useState(false);
-  const [lang, setLang] = useState('');
+  const [lang, setLang] = useState(lng);
   const [jurisdiction, setJurisdiction] = useState('');
+
+  let { t } = useTranslation(lang);
 
   const updateLanguage = useJurisdiction((state) => state.updateLanguage);
   const updateJurisdiction = useJurisdiction((state) => state.updateJurisdiction);
@@ -43,8 +44,12 @@ export default function Home({
     lng = event.target.value;
     setLang(lng);
   };
-  
-  ({t} = useTranslation(lang))
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLang(lang); // Update the language after some time
+    }, 2000);
+  }, []);
 
   const handleSubmit = () =>{
     updateLanguage(lang);
@@ -115,6 +120,7 @@ export default function Home({
                     <br />
                     {t("disclaimer3")}
                     <br />
+                    </p>
                     <div className="flex justify-end">
                       <button
                         onClick={changePopup}
@@ -123,7 +129,6 @@ export default function Home({
                         {t("proceed-button")}&rarr;
                       </button>
                     </div>
-                  </p>
                 </main>
               </div>
             </div>
@@ -149,7 +154,7 @@ export default function Home({
                 overflowY: "scroll",
               }}
             >
-              <div className=" p-4 sm:p-8 flex flex-col justify-between">
+              <div className=" p-4 sm:p-6 flex flex-col justify-between">
                 <main className="flex flex-col gap-3 sm:gap-5 text-center">
                   <button
                     onClick={() => {
