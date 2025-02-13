@@ -33,5 +33,15 @@
   "disclaimer2": "If you do not understand the terms or consequences of the draft we provide you, or need legal advice for a specific issue, we recommend that you consult with a licensed attorney. The draft provided by this service does not substitute for legal advice from a qualified attorney licensed to practice in an appropriate jurisdiction.",
   "disclaimer3": "This draft is limited to general principles of copyright law. If you are interested in learning more about how the MESA system can help you, please contact us at contratos@mesawallet.io",
   "language-question": "What language should the contract be in?",
-  "choose-language": "Choose Language:"
+  "choose-language": "Choose Language:",
+
+  "jurisdiction":"[Optional] Which jurisdiction should this contract follow?",
+  "if-usa":"If in the United States, specify the state only.",
+  "yet-to-complete":"Your contract has yet to be completed. Continue to fill out the decision tree.",
+  "dispute":"Dispute Settlement",
+  "jurisdiction-statement":"Any controversy will be dealt with through dialogue between the parties. Failing this, they will seek to exhaust an alternative dispute resolution mechanism, and failing this, they will submit it to the competent judges under the laws in ",
+  "read-here":"if confused, read here.",
+  "submit":"Submit",
+  "back":"Back",
+  "more-info":"The jurisdiction is the legal authority under which the contract will be enforced. Choose the region where the contract is most likely to be used or where you reside. This question is optional because, if left unanswered, the contract will default to a general template that can be adapted for most jurisdictions. However, specifying a jurisdiction ensures the contract aligns with local laws and provides clarity in case of disputes."
 }
