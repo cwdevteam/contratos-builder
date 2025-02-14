@@ -214,7 +214,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split17, x, y);
-    y = getY(y, 30);
+    y = getY(y, 45);
 
     const line18 = t("thirdPartyPayments");
     const split18 = doc.splitTextToSize(
@@ -222,7 +222,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split18, x, y);
-    y = getY(y, 20);
+    y = getY(y, 40);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -351,8 +351,8 @@ const PDF = (isClicked: boolean) => {
     doc.text(line35, x, y);
     y = getY(y, 10);
 
+    doc.setFont("Palatino Linotype", "normal");
     if(jurisdiction!=''){
-      doc.setFont("Palatino Linotype", "normal");
       const line36 = t("disputeMechanism", {jurisdiction});
       const split36 = doc.splitTextToSize(
       line36,

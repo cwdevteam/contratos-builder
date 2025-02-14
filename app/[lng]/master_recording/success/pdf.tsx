@@ -212,16 +212,16 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split10, x / 2, y + 10);
-      y = getY(y, 30);
+      y = getY(y, 60);
 
-      const line10a = t("admin_responsibilities");
-      const split10a = doc.splitTextToSize(
-        line10a,
-        doc.internal.pageSize.getWidth() * 0.6
-      );
-      doc.text("-", x, y + 10);
-      doc.text(split10a, x / 2, y + 10);
-      y = getY(y, 45);
+      // const line10a = t("admin_responsibilities");
+      // const split10a = doc.splitTextToSize(
+      //   line10a,
+      //   doc.internal.pageSize.getWidth() * 0.6
+      // );
+      // doc.text("-", x, y + 10);
+      // doc.text(split10a, x / 2, y + 10);
+      // y = getY(y, 45);
     } else {
       y = getY(y, 10);
     }
@@ -385,8 +385,8 @@ const PDF = (isClicked: boolean) => {
     doc.text(line35, x / 2, y);
     y = getY(y, 10);
 
+    doc.setFont("Palatino Linotype", "normal");
     if(jurisdiction!=''){
-      doc.setFont("Palatino Linotype", "normal");
       const line36 = t("dispute_details", {jurisdiction});
       const split36 = doc.splitTextToSize(
       line36,

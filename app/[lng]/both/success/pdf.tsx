@@ -62,7 +62,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     x = getX(title);
-    x /= 2;
+    //x /= 2;
     doc.text(splitTitle, x, y);
     y = getY(y, 30);
 
@@ -261,7 +261,7 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text("-", x + 10, y + 10);
       doc.text(split14, x + 20, y + 10);
-      y = getY(y, 30);
+      y = getY(y, 60);
     } else if(voteSelection == "ADMIN") {
       const line10 = t("19a", { adminName });
       const split10 = doc.splitTextToSize(
@@ -285,10 +285,10 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split12, x, y + 10);
-      y = getY(y, 60);
+      y = getY(y, 90);
     }
     else{
-      y = getY(y,10)
+      y = getY(y,20)
     }
 
     doc.setFont("Palatino Linotype", "bold");
@@ -450,8 +450,8 @@ const PDF = (isClicked: boolean) => {
     doc.text(line35, x, y);
     y = getY(y, 10);
 
+    doc.setFont("Palatino Linotype", "normal");
     if(jurisdiction!=''){
-      doc.setFont("Palatino Linotype", "normal");
       const line36 = t("41", {jurisdiction});
       const split36 = doc.splitTextToSize(
       line36,
