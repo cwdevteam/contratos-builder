@@ -4,7 +4,7 @@
   "questionSongName": "What is the name of the song?",
   "questionCollaboratorsCount": "How many collaborators contributed to writing the song?",
   "contributorLabel": "Contributor",
-  "legalNameLabel": "Legal Name (First Last)",
+  "legalNameLabel": "Legal name or Entity name",
   "emailLabel": "Email (example@mesawallet.io)",
   "contributionTypeLabel": "Type of contributor",
   "lyricsOption": "Lyrics",

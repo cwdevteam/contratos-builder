@@ -6,7 +6,7 @@
   "contributor": "Contributor",
   "questionAdminOrVote": "Vote or designate admin?",
   "questionAdminName": "What is the name(s) of the designated administrator?",
-  "adminNameList": "Legal Name (First Last) | Separate names by commas",
+  "adminNameList": "Legal name or Entity name | Separate names by commas",
   "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
   "adminDesignationTitle": "4.0 Designation of an administrator",
   "adminDesignationText1": "By means of the present contract, the parties recognize, accept, and declare that they designate ",
