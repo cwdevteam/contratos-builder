@@ -155,7 +155,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-8">
               <div className="w-full sm:w-[38.5%]">
                 <label className="text-[.5rem] text-sm mb-2 block font-share">
                   {t("contributionTypeLabel")}
@@ -164,14 +164,15 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-full font-rubik"
+                  className="bg-black p-2 size-10 w-fit font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
                   <option value=""></option>
                   <option value={t("lyricsOption")}>{t("lyricsOption")}</option>
                   <option value={t("musicOption")}>{t("musicOption")}</option>
-                  <option value={t("bothMusicAndLyricsOption")}>{t("bothOption")}</option>
+                  <option value={t("bothMusicAndLyricsOption")}>{t("bothMusicAndLyricsOption")}</option>
+                  <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
               <div className="sm:w-[38.5%]">

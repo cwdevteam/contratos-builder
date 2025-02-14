@@ -16,6 +16,7 @@
   "producer": "Producer",
   "executiveProducer": "Executive Producer",
   "engineer": "Engineer",
+  "publisher": "Publisher",
   "splitPercentage": "Split (%)",
   "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
   "musicWorkIdentification": "1.0 Music Work and Master Recording Identification",

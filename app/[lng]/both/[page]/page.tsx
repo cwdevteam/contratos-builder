@@ -188,7 +188,8 @@ const DynamicPage = ({
                   <option value=""></option>
                   <option value={t("lyrics")}>{t("lyrics")}</option>
                   <option value={t("music")}>{t("music")}</option>
-                  <option value={t("both")}>{t("both")}</option>
+                  <option value={t("musicAndLyrics")}>{t("musicAndLyrics")}</option>
+                  <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
               <div className="w-3/5">
