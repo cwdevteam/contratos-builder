@@ -250,7 +250,7 @@ const DynamicPage = ({
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("incompleteContractMessage")}
           </p>
-          <h3 className="text-base font-roboto_bold pt-5 text-[0px] sm:text-base">{t("masterRecordingIdentification")}</h3>
+          <h3 className=" font-roboto_bold pt-5 text-[0px] sm:text-base">{t("masterRecordingIdentification")}</h3>
           <div className="w-[90%]">
           <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("contractPartiesAcknowledgement", {recording})}
@@ -284,11 +284,11 @@ const DynamicPage = ({
               {contributorType}
             </span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light text-[0px] sm:text-base">
+          <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("ownershipPercentageLabel")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base" id="split"></span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light text-[0px] sm:text-base">
+          <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("address2")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{address}</span>
           </p>
