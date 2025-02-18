@@ -249,7 +249,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-[140%] sm:w-full font-rubik"
+                  className="bg-black p-2 size-10 sm:w-[140%] sm:w-full font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
@@ -268,7 +268,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={masterContributorType}
-                  className="bg-black size-10 w-fit font-rubik"
+                  className="bg-black size-10 sm:w-fit font-rubik"
                   onChange={handleMasterContributorChange}
                   required
                 >
