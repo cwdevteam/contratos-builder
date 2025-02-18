@@ -244,8 +244,8 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              </div>
-              <div>
+            </div>
+            <div>
               <label className="text-[.5rem] text-sm block font-share">
                 {t("address")}{t('optional')}
               </label>
