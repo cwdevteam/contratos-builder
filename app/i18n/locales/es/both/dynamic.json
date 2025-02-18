@@ -5,6 +5,7 @@
   "collaboratorsCountQuestion": "¿Cuantas personas colaboraron al escribir la canción?",
   "collaborator": "Colaborador",
   "legalName": "Nombre Legal (Nombre y Apellido)",
+  "aka":"AKA (opcional)",
   "email": "Email (ejemplo@mesawallet.io)",
   "compositionContributionType": "Tipo de contribución a la composición",
   "lyrics": "Letra",
@@ -14,7 +15,10 @@
   "publisher":"Editora",
   "masterContributionType": "Tipo de contribución a la grabación Master",
   "artist": "Artista",
-  "producer": "Productor",
+  "ipi":"# IPI (opcional)",
+  "address":"Dirección de residencia (opcional)",
+  "id":"# de identificación (opcional)",
+  "producer":"Editora (opcional",
   "executiveProducer": "Productor Ejecutivo",
   "engineer": "Ingeniero",
   "splitPercentage": "Split (%)",
@@ -28,5 +32,8 @@
   "recordingRole": "Rol en la grabación y producción",
   "productionPercentage": "Porcentaje de producción",
   "next": "Siguiente",
-  "back": "Atrás"
+  "back": "Atrás",
+  "idRight":"# identificación",
+  "ipiRight":"#IPI",
+  "prodRight":"Editora"
 }

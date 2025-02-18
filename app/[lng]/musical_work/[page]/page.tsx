@@ -37,6 +37,13 @@ const DynamicPage = ({
   const [splitTotal, setSplitTotal] = useState<number>(
     pageData.splitTotal || 0
   );
+
+  const [aka, setAka] = useState(pageData.aka || "");
+  const [ipi, setIpi] = useState(pageData.ipi || "");
+  const [address, setAddress] = useState(pageData.address || "");
+  const [id, setId] = useState(pageData.id || "");
+  const [producer, setProducer] = useState(pageData.producer || "");
+
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const { lng, page } = params;
   const { t } = useTranslation(lng, "musical_work/dynamic");
@@ -53,6 +60,11 @@ const DynamicPage = ({
       contributorType,
       split,
       splitTotal,
+      aka,
+      ipi,
+      address,
+      id,
+      producer,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -60,7 +72,7 @@ const DynamicPage = ({
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, splitTotal, pageNumber]);
+  }, [legalName, email, contributorType, split, splitTotal, pageNumber, aka, ipi, address, id, producer,]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -83,6 +95,27 @@ const DynamicPage = ({
     if (value >= 0) {
       document.getElementById("split")!.innerHTML = String(value);
     }
+  };
+
+  const handleAkaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setAka(value);
+  };
+  const handleIPIChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setIpi(value);
+  };
+  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setAddress(value);
+  };
+  const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setId(value);
+  };
+  const handleProducerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setProducer(event.target.value);
   };
 
   const handleNextPage = () => {
@@ -125,14 +158,14 @@ const DynamicPage = ({
 
   return (
     <div className="p-4 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pt-7">
+      <main className="flex flex-col sm:flex-row">
         <div className="w-full">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributorLabel")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm block font-share">
                 {t("legalNameLabel")}
               </label>
               <input
@@ -144,7 +177,19 @@ const DynamicPage = ({
               />
             </div>
             <div>
-              <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <label className="text-[.5rem] text-sm block font-share">
+                {t("aka")}
+              </label>
+              <input
+                type="text"
+                value={legalName}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-[.5rem] text-sm block font-share">
                 {t("emailLabel")}
               </label>
               <input
@@ -157,7 +202,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8">
               <div className="w-full sm:w-[38.5%]">
-                <label className="text-[.5rem] text-sm mb-2 block font-share">
+                <label className="text-[.5rem] text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -175,8 +220,19 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="sm:w-[38.5%]">
-                <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <div className="sm:w-[75%] ml-4">
+                <label className="text-[.5rem] text-sm block font-share">
+                  {t("ipi")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIPIChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              <div className="mr-8">
+                <label className="text-[.5rem] text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
                 <input
@@ -187,7 +243,43 @@ const DynamicPage = ({
                   required
                 />
               </div>
+              </div>
+              <div>
+              <label className="text-[.5rem] text-sm block font-share">
+                {t("address")}
+              </label>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddressChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
             </div>
+            <div className="flex flex-row gap-8">
+              <div className="">
+                <label className="text-[.5rem] text-sm block font-share">
+                  {t("id")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIdChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              <div className="mr-8">
+                <label className="text-[.5rem] text-sm block font-share">
+                  {t("producer")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleProducerChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              </div>
           </form>
         </div>
         <div className="w-full sm:pt-7">
@@ -220,14 +312,30 @@ const DynamicPage = ({
             {t("ownershipPercentageSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("address")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="address">{address}</span>
+          </p>
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("ipi")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="ipi">{ipi}</span>
+          </p>
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("id")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="id">{id}</span>
+          </p>
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("publisher")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="producer">{producer}</span>
+          </p>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3">
+      <footer className="flex flex-col gap-6 row-start-3 ml-4">
         <p
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[15%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5">
           <button
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
