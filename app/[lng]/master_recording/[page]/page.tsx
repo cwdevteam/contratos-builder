@@ -246,7 +246,7 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full sm:pt-7">
+        <div className="w-full sm:pt-7 text-[0px] sm:text-base">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("incompleteContractMessage")}
           </p>

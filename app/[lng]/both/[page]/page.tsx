@@ -173,7 +173,7 @@ const DynamicPage = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row">
-        <div className="w-[50%]">
+        <div className="sm:w-[50%]">
           <h2 className="text-[1.5rem] sm:text-xl font-share">
             {t("collaborator")} {pageNumber}
           </h2>
