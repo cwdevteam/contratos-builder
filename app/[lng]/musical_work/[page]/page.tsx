@@ -202,7 +202,7 @@ const DynamicPage = ({
               />
             </div>
             <div className="flex flex-row gap-8 w-full">
-              <div className="w-full">
+              <div className="">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
@@ -232,7 +232,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="">
+              <div className="mr-8">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
