@@ -203,14 +203,14 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8 sm:w-[82%]">
               <div className="">
-                <label className="text-[.5rem] sm:text-sm block font-share w-fit">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 sm:w-fit font-rubik"
+                  className="bg-black p-2 size-10 sm:w-fit w-full font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
