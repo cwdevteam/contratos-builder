@@ -246,51 +246,51 @@ const DynamicPage = ({
             </div>
           </form>
         </div>
-        <div className="w-full sm:pt-7 text-[0px] sm:text-base">
+        <div className="w-full sm:pt-7">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("incompleteContractMessage")}
           </p>
-          <h3 className="text-base font-roboto_bold pt-5">{t("masterRecordingIdentification")}</h3>
+          <h3 className="text-base font-roboto_bold pt-5 text-[0px] sm:text-base">{t("masterRecordingIdentification")}</h3>
           <div className="w-[90%]">
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("contractPartiesAcknowledgement", {recording})}
-            <span className="text-[#AC4444] font-rubik"> {recording}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base"> {recording}</span>
             {t("contractPartiesAcknowledgementSuffix")}
           </p>
-          <p className="text-sm sm:text-base font-roboto_light pt-1">{t('adk2')}</p>
+          <p className="font-roboto_light pt-1 text-[0px] sm:text-base">{t('adk2')}</p>
           </div>
-          <h3 className="text-base font-roboto_bold pt-5">
+          <h3 className=" font-roboto_bold pt-5 text-[0px] sm:text-base">
             {t("contributorLabel")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{legalName}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("aka2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{aka}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{aka}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("id2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{id}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{id}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{email}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{email}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("contributionShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik ">
+            <span className="text-[#AC4444] font-rubik  text-[0px] sm:text-base">
               {contributorType}
             </span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className="text-sm sm:text-base font-roboto_light text-[0px] sm:text-base">
             {t("ownershipPercentageLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="split"></span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base" id="split"></span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className="text-sm sm:text-base font-roboto_light text-[0px] sm:text-base">
             {t("address2")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{address}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{address}</span>
           </p>
         </div>
       </main>
