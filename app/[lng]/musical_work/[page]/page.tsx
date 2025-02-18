@@ -203,7 +203,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8 sm:w-[82%]">
               <div className="">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -222,7 +222,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
                 <input
@@ -233,7 +233,7 @@ const DynamicPage = ({
                 />
               </div>
               <div className="">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
                 <input
