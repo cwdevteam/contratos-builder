@@ -241,8 +241,8 @@ const DynamicPage = ({
               />
             </div>
             <div className="flex flex-row gap-7 w-full">
-              <div className="sm:w-3/5 w-full">
-                <label className="text-[.5rem] sm:text-[.6rem] block font-share w-fit">
+              <div className="sm:w-3/5">
+                <label className="text-[.5rem] sm:text-[.6rem] block font-share sm:w-fit">
                   {t("compositionContributionType")}
                 </label>
                 <select
@@ -261,7 +261,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="sm:w-3/5">
-                <label className="text-[.5rem] sm:text-[.6rem] block font-share w-fit">
+                <label className="text-[.5rem] sm:text-[.6rem] block font-share sm:w-fit">
                   {t("masterContributionType")}
                 </label>
                 <select
