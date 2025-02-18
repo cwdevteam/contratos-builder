@@ -194,8 +194,8 @@ const DynamicPage = ({
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("incompleteContractMessage")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">{t("musicWorkIdentification")}</h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <h3 className=" mb-2 font-roboto_bold text-[0px] sm:text-base">{t("musicWorkIdentification")}</h3>
+          <p className="mb-4 font-roboto_light text-[0px] sm:text-base">
             {t("acknowledgementMessage")}
             <span className="text-[#AC4444] font-rubik"> {song}</span>
           </p>
