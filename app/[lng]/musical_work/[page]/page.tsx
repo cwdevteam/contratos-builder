@@ -221,7 +221,7 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className=" ml-4">
+              <div className="">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
@@ -232,7 +232,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="mr-8">
+              <div className="">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
