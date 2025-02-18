@@ -274,7 +274,7 @@ const DynamicPage = ({
                 >
                   <option value=""></option>
                   <option value={t("artist")}>{t("artist")}</option>
-                  <option value={t("producer")}>{t("producer")}</option>
+                  <option value={t("prodRight")}>{t("prodRight")}</option>
                   <option value={t("executiveProducer")}>{t("executiveProducer")}</option>
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
@@ -320,59 +320,59 @@ const DynamicPage = ({
           <h3 className=" text-[0px] sm:text-base font-roboto_bold">
             {t("collaborator")} {pageNumber}:
           </h3>
-          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameShort")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {legalName}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             AKA:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {aka}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
-            {t("emailShort")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
-              {email}
-            </span>
-          </p>
-          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("idRight")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {id}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("ipiRight")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{ipi}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("emailShort")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {email}
+            </span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("compositionContributionType")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {contributorType}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ownershipPercentage")}:
             <span
               className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
               id="ownershipPercentage"
             ></span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("masterContributionType")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {" "}
               {masterContributorType}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("productionPercentage")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="productionPercentage"></span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("ipiRight")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{ipi}</span>
-          </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("prodRight")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="productionPercentage">{producer}</span>
           </p>

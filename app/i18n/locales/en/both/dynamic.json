@@ -5,7 +5,7 @@
   "collaboratorsCountQuestion": "How many collaborators contributed to writing the song?",
   "collaborator": "Collaborator",
   "legalName": "Legal name or Entity name",
-  "aka":"AKA (optional)",
+  "aka":"AKA (Artistic Name) (optional)",
   "email": "Email (example@mesawallet.io)",
   "compositionContributionType": "Type of composition contribution",
   "music": "Music",
@@ -14,8 +14,8 @@
   "musicAndLyrics": "Music and Lyrics",
   "ipi":"IPI # (optional)",
   "address":"Residential Address (optional)",
-  "id":"Identification # (optional)",
-  "producer":"Producer (optional)",
+  "id":"ID # (optional)",
+  "producer":"Publisher (optional)",
   "masterContributionType": "Type of master recording contribution",
   "artist": "Artist",
   "executiveProducer": "Executive Producer",
@@ -31,5 +31,8 @@
   "ownershipPercentage": "Ownership Percentage",
   "recordingRole": "Master Recording Contribution",
   "productionPercentage": "Ownership Percentage",
-  "next": "Submit"
+  "next": "Submit",
+  "idRight":"ID # ",
+  "ipiRight":"IPI #",
+  "prodRight":"Publisher"
 }
