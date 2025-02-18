@@ -115,7 +115,7 @@ const DynamicPage = ({
   };
   const handleProducerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setProducer(event.target.value);
+    setProducer(value);
   };
 
   const handleNextPage = () => {

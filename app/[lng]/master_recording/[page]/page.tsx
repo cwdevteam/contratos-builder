@@ -41,7 +41,6 @@ const DynamicPage = ({
   const [aka, setAka] = useState(pageData.aka || "");
   const [address, setAddress] = useState(pageData.address || "");
   const [id, setId] = useState(pageData.id || "");
-  const [producer, setProducer] = useState(pageData.producer || "");
 
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const { lng, page } = params;
@@ -62,7 +61,6 @@ const DynamicPage = ({
       aka,
       address,
       id,
-      producer,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -70,7 +68,7 @@ const DynamicPage = ({
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, splitTotal, pageNumber, aka, address, id, producer,]);
+  }, [legalName, email, contributorType, split, splitTotal, pageNumber, aka, address, id, ]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -106,10 +104,6 @@ const DynamicPage = ({
     const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setId(value);
-    };
-    const handleProducerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
-      setProducer(event.target.value);
     };
 
   const handleBackPage = () => {

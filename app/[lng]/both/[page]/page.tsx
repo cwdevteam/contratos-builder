@@ -41,7 +41,6 @@ const DynamicPage = ({
 
   const [aka, setAka] = useState(pageData.aka || "");
   const [ipi, setIpi] = useState(pageData.ipi || "");
-  const [address, setAddress] = useState(pageData.address || "");
   const [id, setId] = useState(pageData.id || "");
   const [producer, setProducer] = useState(pageData.producer || "");
 
@@ -65,7 +64,6 @@ const DynamicPage = ({
       splitTotal,
       aka,
       ipi,
-      address,
       id,
       producer,
     };
@@ -85,7 +83,6 @@ const DynamicPage = ({
     pageNumber,
     aka,
     ipi,
-    address,
     id,
     producer,
   ]);
@@ -127,10 +124,6 @@ const DynamicPage = ({
     const handleIPIChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setIpi(value);
-    };
-    const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
-      setAddress(value);
     };
     const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
