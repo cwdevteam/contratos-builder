@@ -165,7 +165,7 @@ const DynamicPage = ({
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("legalNameLabel")}
               </label>
               <input
@@ -178,7 +178,7 @@ const DynamicPage = ({
               />
             </div>
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("aka")} {t('optional')}
               </label>
               <input
@@ -190,7 +190,7 @@ const DynamicPage = ({
               />
             </div>
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailLabel")}
               </label>
               <input
@@ -203,7 +203,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8 sm:w-[82%]">
               <div className="">
-                <label className="text-[.5rem] sm:text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share w-fit">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -246,7 +246,7 @@ const DynamicPage = ({
               </div>
             </div>
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("address")}{t('optional')}
               </label>
               <input
@@ -259,7 +259,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8 w-[82%]">
               <div className="">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("id")}{t('optional')}
                 </label>
                 <input
@@ -270,7 +270,7 @@ const DynamicPage = ({
                 />
               </div>
               <div className="">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("producer")}{t('optional')}
                 </label>
                 <input
