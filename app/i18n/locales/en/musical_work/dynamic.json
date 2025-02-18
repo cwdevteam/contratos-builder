@@ -17,7 +17,7 @@
   "splitPercentageLabel": "Split (%)",
   "address":"Residential Address (optional)",
   "id":"Identification # (optional)",
-  "producer":"Producer (optional)",
+  "producer":"Publisher (optional)",
   "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
   "musicWorkIdentification": "1.0 Music Work Identification",
   "acknowledgementMessage": "The parties acknowledge and accept their contribution to the authorship or composition of the musical work and agree to the distribution of copyright ownership as follows:",

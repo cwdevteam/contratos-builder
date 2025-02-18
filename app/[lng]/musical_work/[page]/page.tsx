@@ -182,7 +182,7 @@ const DynamicPage = ({
               </label>
               <input
                 type="text"
-                value={legalName}
+                value={aka}
                 onChange={handleAkaChange}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
