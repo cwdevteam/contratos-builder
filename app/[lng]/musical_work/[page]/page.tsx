@@ -201,7 +201,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-8 w-[82%]">
+            <div className="flex flex-row gap-8 sm:w-[82%]">
               <div className="">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("contributionTypeLabel")}
@@ -210,7 +210,7 @@ const DynamicPage = ({
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-fit font-rubik"
+                  className="bg-black p-2 size-10 sm:w-fit font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
@@ -292,44 +292,44 @@ const DynamicPage = ({
             {t("acknowledgementMessage")}
             <span className="text-[#AC4444] font-rubik"> {song}</span>
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">
+          <h3 className=" text-[0px] sm:text-base mb-2 font-roboto_bold">
             {t("contributorLabel")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("aka")}:{" "}
             <span className="text-[#AC4444] font-rubik">{aka}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{email}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("contributionSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik ">
               {contributorType}
             </span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ownershipPercentageSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("address")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="address">{address}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ipi")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="ipi">{ipi}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("id")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="id">{id}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("publisher")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="producer">{producer}</span>
           </p>
