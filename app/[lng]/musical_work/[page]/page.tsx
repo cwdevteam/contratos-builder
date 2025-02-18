@@ -172,13 +172,14 @@ const DynamicPage = ({
                 type="text"
                 value={legalName}
                 onChange={handleNameChange}
+                placeholder={t('namePlaceholder')}
                 className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
                 required
               />
             </div>
             <div>
               <label className="text-[.5rem] text-sm block font-share">
-                {t("aka")}
+                {t("aka")} {t('optional')}
               </label>
               <input
                 type="text"
@@ -222,7 +223,7 @@ const DynamicPage = ({
               </div>
               <div className="sm:w-[75%] ml-4">
                 <label className="text-[.5rem] text-sm block font-share">
-                  {t("ipi")}
+                  {t("ipi")}{t('optional')}
                 </label>
                 <input
                   type="text"
@@ -246,7 +247,7 @@ const DynamicPage = ({
               </div>
               <div>
               <label className="text-[.5rem] text-sm block font-share">
-                {t("address")}
+                {t("address")}{t('optional')}
               </label>
               <input
                 type="text"
@@ -259,7 +260,7 @@ const DynamicPage = ({
             <div className="flex flex-row gap-8">
               <div className="">
                 <label className="text-[.5rem] text-sm block font-share">
-                  {t("id")}
+                  {t("id")}{t('optional')}
                 </label>
                 <input
                   type="text"
@@ -270,7 +271,7 @@ const DynamicPage = ({
               </div>
               <div className="mr-8">
                 <label className="text-[.5rem] text-sm block font-share">
-                  {t("producer")}
+                  {t("producer")}{t('optional')}
                 </label>
                 <input
                   type="text"
@@ -297,6 +298,10 @@ const DynamicPage = ({
           <p className="text-sm sm:text-base font-roboto_light">
             {t("legalNameSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{legalName}</span>
+          </p>
+          <p className="text-sm sm:text-base font-roboto_light">
+            {t("aka")}:{" "}
+            <span className="text-[#AC4444] font-rubik">{aka}</span>
           </p>
           <p className="text-sm sm:text-base font-roboto_light">
             {t("emailSummary")}:{" "}
