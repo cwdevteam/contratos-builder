@@ -203,7 +203,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-7">
+            <div className="flex flex-row gap-7 w-full">
               <div className="">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("id")}
@@ -261,7 +261,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="sm:w-3/5">
-                <label className="text-[.5rem] sm:text-[.6rem] block font-share sm:w-fit">
+                <label className="text-[.5rem] sm:text-[.6rem] block font-share sm:w-full">
                   {t("masterContributionType")}
                 </label>
                 <select
