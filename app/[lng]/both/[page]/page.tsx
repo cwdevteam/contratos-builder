@@ -43,6 +43,7 @@ const DynamicPage = ({
   const [ipi, setIpi] = useState(pageData.ipi || "");
   const [id, setId] = useState(pageData.id || "");
   const [producer, setProducer] = useState(pageData.producer || "");
+    const [address, setAddress] = useState(pageData.address || "");
 
 
   const resetPages = useDynamicPageStore((state) => state.resetPages);
@@ -66,6 +67,7 @@ const DynamicPage = ({
       ipi,
       id,
       producer,
+      address,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -85,6 +87,7 @@ const DynamicPage = ({
     ipi,
     id,
     producer,
+    address,
   ]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -133,6 +136,10 @@ const DynamicPage = ({
       const value = event.target.value;
       setProducer(value);
     };
+    const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setAddress(value);
+    };
 
   const handleBackPage = () => {
     const previousPage = parseInt(page) - 1;
@@ -147,7 +154,7 @@ const DynamicPage = ({
   };
 
   const handleNextPage = () => {
-    if (pageNumber >= pageCount && splitTotal !== 100) {
+    if (pageNumber >= pageCount && splitTotal != 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
         t("splitHelp") + " " + t("splitNeeded") + " " + splitNeeded + " " + t("insteadOf") + " " + split;
@@ -191,42 +198,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div>
-              <label className="text-[.5rem] text-sm block font-share">
-                {t("aka")}
-              </label>
-              <input
-                type="text"
-                value={aka}
-                onChange={handleAkaChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
-                required
-              />
-            </div>
-            <div className="flex sm:flex-row flex-col">
-              <div className="sm:w-[90%]">
-                <label className="text-[.5rem] text-sm block font-share">
-                  {t("id")}
-                </label>
-                <input
-                  type="text"
-                  onChange={handleIdChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
-                  required
-                />
-              </div>
-              <div className="sm:w-full sm:pl-8">
-                <label className="text-[.5rem] text-sm block font-share">
-                  {t("ipi")}
-                </label>
-                <input
-                  type="text"
-                  onChange={handleIPIChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
-                  required
-                />
-              </div>
-            </div>
+            
             <div>
               <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailShort")}
@@ -305,6 +277,54 @@ const DynamicPage = ({
                 />
               </div>
               </div>
+              <div>
+              <label className="text-[.5rem] text-sm block font-share">
+                {t("aka")}
+              </label>
+              <input
+                type="text"
+                value={aka}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                required
+              />
+            </div>
+            <div className="flex sm:flex-row flex-col">
+              <div className="sm:w-[90%]">
+                <label className="text-[.5rem] text-sm block font-share">
+                  {t("id")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIdChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              <div className="sm:w-full sm:pl-8">
+                <label className="text-[.5rem] text-sm block font-share">
+                  {t("ipi")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIPIChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label className="text-[.5rem] text-sm block font-share">
+                {t("address")}
+              </label>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddressChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+            </div>
           </form>
         </div>
         <div className="w-full sm:w-1/2 pl-4">
@@ -326,6 +346,38 @@ const DynamicPage = ({
               {legalName}
             </span>
           </p>
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("emailShort")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {email}
+            </span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("compositionContributionType")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {contributorType}
+            </span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("masterContributionType")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {" "}
+              {masterContributorType}
+            </span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("ownershipPercentage")}:
+            <span
+              className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
+              id="ownershipPercentage"
+            ></span>
+          </p>
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("prodRight")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{producer}</span>
+          </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             AKA:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
@@ -341,40 +393,6 @@ const DynamicPage = ({
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ipiRight")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="productionPercentage">{ipi}</span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("emailShort")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
-              {email}
-            </span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("compositionContributionType")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
-              {contributorType}
-            </span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("ownershipPercentage")}:
-            <span
-              className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
-              id="ownershipPercentage"
-            ></span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("masterContributionType")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
-              {" "}
-              {masterContributorType}
-            </span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("productionPercentage")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage"></span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("prodRight")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{producer}</span>
           </p>
         </div>
       </main>

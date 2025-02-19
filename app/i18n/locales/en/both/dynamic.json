@@ -13,7 +13,7 @@
   "both": "Both",
   "musicAndLyrics": "Music and Lyrics",
   "ipi":"IPI # (optional)",
-  "address":"Residential Address (optional)",
+  "address":"Address (optional)",
   "id":"ID # (optional)",
   "producer":"Publisher (optional)",
   "masterContributionType": "Type of master recording contribution",
