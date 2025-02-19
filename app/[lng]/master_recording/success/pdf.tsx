@@ -212,7 +212,11 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split10, x / 2, y + 10);
-      y = getY(y, 60);
+      if(language=='en'){
+        y = getY(y, 60);
+      }else{
+        y = getY(y, 40);
+      }
 
       // const line10a = t("admin_responsibilities");
       // const split10a = doc.splitTextToSize(
@@ -248,7 +252,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split17, x / 2, y);
-    y = getY(y, 50);
+    y = getY(y, 45);
 
     const line18 = t("third_party_payments");
     const split18 = doc.splitTextToSize(
