@@ -203,7 +203,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8 sm:w-[82%]">
               <div className="">
-                <label className="text-[.5rem] sm:text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share w-fit">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
