@@ -179,7 +179,7 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text("-", x, y + 10);
       doc.text(split13, x + 3, y + 10);
-      y = getY(y, 25);
+      y = getY(y, 35);
     } else if (voteSelection == "ADMIN") {
       const line10 = t("adminDesignation", { adminName });
       const split10 = doc.splitTextToSize(
@@ -214,7 +214,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split17, x, y);
-    y = getY(y, 45);
+    y = getY(y, 40);
 
     const line18 = t("thirdPartyPayments");
     const split18 = doc.splitTextToSize(
@@ -222,7 +222,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split18, x, y);
-    y = getY(y, 40);
+    y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
