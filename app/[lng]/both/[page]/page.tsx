@@ -266,7 +266,7 @@ const DynamicPage = ({
                 />
               </div>
               <div className="sm:w-full sm:pl-8">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("producer")}
                 </label>
                 <input
