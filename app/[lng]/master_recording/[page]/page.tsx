@@ -153,7 +153,7 @@ const DynamicPage = ({
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("legalNameLabel")}
               </label>
               <input
@@ -166,7 +166,7 @@ const DynamicPage = ({
             </div>
             
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailLabel")}
               </label>
               <input
@@ -179,7 +179,7 @@ const DynamicPage = ({
             </div>
             <div className="flex flex-row gap-8 w-full">
               <div className="w-full sm:w-fit">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -198,7 +198,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="sm:w-[37%]">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
                 <input
@@ -211,7 +211,7 @@ const DynamicPage = ({
               </div>
             </div>
             <div>
-            <label className="text-[.5rem] text-sm block font-share">
+            <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("aka")}
               </label>
               <input
@@ -223,7 +223,7 @@ const DynamicPage = ({
               />
               </div>
               <div>
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("id")}
                 </label>
                 <input
@@ -234,7 +234,7 @@ const DynamicPage = ({
                 />
               </div>
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("address")}
               </label>
               <input

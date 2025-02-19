@@ -210,7 +210,7 @@ const DynamicPage = ({
                 </select>
               </div>
               <div className="">
-                <label className="text-[.5rem] sm:text-sm block font-share">
+                <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
                 <input
@@ -221,7 +221,7 @@ const DynamicPage = ({
                 />
               </div>
               <div className="">
-                <label className="text-[.5rem] sm:text-sm block font-share">
+                <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
                 <input
