@@ -34,5 +34,6 @@
   "next": "Submit",
   "idRight":"ID # ",
   "ipiRight":"IPI #",
-  "prodRight":"Publisher"
+  "prodRight":"Publisher",
+  "back":"Back"
 }

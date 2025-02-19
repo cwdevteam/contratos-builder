@@ -27,5 +27,6 @@
   "emailShortLabel": "Email Address",
   "contributionShortLabel": "Contribution",
   "ownershipPercentageLabel": "Ownership Percentage",
-  "submitButtonLabel": "Submit"
+  "submitButtonLabel": "Submit",
+  "backButton":"Back"
 }
