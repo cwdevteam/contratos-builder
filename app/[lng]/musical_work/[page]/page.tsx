@@ -176,18 +176,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div>
-              <label className="text-[.5rem] sm:text-sm block font-share">
-                {t("aka")} {t('optional')}
-              </label>
-              <input
-                type="text"
-                value={aka}
-                onChange={handleAkaChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
-                required
-              />
-            </div>
+           
             <div>
               <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailLabel")}
@@ -246,6 +235,18 @@ const DynamicPage = ({
             </div>
             <div>
               <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("aka")} {t('optional')}
+              </label>
+              <input
+                type="text"
+                value={aka}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("address")}{t('optional')}
               </label>
               <input
@@ -298,10 +299,7 @@ const DynamicPage = ({
             {t("legalNameSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("aka")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{aka}</span>
-          </p>
+          
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{email}</span>
@@ -316,13 +314,14 @@ const DynamicPage = ({
             {t("ownershipPercentageSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("address")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="address">{address}</span>
-          </p>
+          
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ipi")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="ipi">{ipi}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("aka")}:{" "}
+            <span className="text-[#AC4444] font-rubik">{aka}</span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("id")}:{" "}
@@ -331,6 +330,10 @@ const DynamicPage = ({
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("publisher")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="producer">{producer}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("address")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="address">{address}</span>
           </p>
         </div>
       </main>
