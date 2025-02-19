@@ -203,8 +203,8 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-7 w-full">
-              <div className="">
+            <div className="flex sm:flex-row flex-col">
+              <div className="sm:w-[90%]">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("id")}
                 </label>
@@ -215,7 +215,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="">
+              <div className="sm:w-full sm:pl-8">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("ipi")}
                 </label>
@@ -240,8 +240,8 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-7 w-full">
-              <div className="sm:w-3/5">
+            <div className="flex sm:flex-row flex-col">
+              <div className="sm:w-[90%]">
                 <label className="text-[.5rem] sm:text-[.6rem] block font-share sm:w-fit">
                   {t("compositionContributionType")}
                 </label>
@@ -260,15 +260,15 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="sm:w-3/5">
-                <label className="text-[.5rem] sm:text-[.6rem] block font-share sm:w-full">
+              <div className="sm:w-full sm:pl-8">
+                <label className="text-[.5rem] sm:text-[.6rem] block font-share">
                   {t("masterContributionType")}
                 </label>
                 <select
                   name="type"
                   id="cont"
                   value={masterContributorType}
-                  className="bg-black size-10 w-full sm:w-fit font-rubik"
+                  className="bg-black size-10 w-full font-rubik"
                   onChange={handleMasterContributorChange}
                   required
                 >
@@ -289,7 +289,7 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
                   required
                 />
               </div>
