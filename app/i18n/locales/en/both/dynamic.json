@@ -4,7 +4,7 @@
   "songNameQuestion": "What is the name of the song?",
   "collaboratorsCountQuestion": "How many collaborators contributed to writing the song?",
   "collaborator": "Collaborator",
-  "legalName": "Legal name or Entity name",
+  "legalName": "Legal name (First or Last)",
   "aka":"AKA (Artistic Name) (optional)",
   "email": "Email (example@mesawallet.io)",
   "compositionContributionType": "Type of composition contribution",
