@@ -219,7 +219,7 @@ const DynamicPage = ({
                   <option value={t("engineerOption")}>{t("engineerOption")}</option>
                 </select>
               </div>
-              <div className="w-[43.5%]">
+              <div className="sm:w-[37%]">
                 <label className="text-[.5rem] text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
