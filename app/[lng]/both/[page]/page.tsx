@@ -278,7 +278,7 @@ const DynamicPage = ({
               </div>
               </div>
               <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("aka")}
               </label>
               <input
@@ -291,7 +291,7 @@ const DynamicPage = ({
             </div>
             <div className="flex sm:flex-row flex-col">
               <div className="sm:w-[90%]">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("id")}
                 </label>
                 <input
@@ -302,7 +302,7 @@ const DynamicPage = ({
                 />
               </div>
               <div className="sm:w-full sm:pl-8">
-                <label className="text-[.5rem] text-sm block font-share">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("ipi")}
                 </label>
                 <input
@@ -314,7 +314,7 @@ const DynamicPage = ({
               </div>
             </div>
             <div>
-              <label className="text-[.5rem] text-sm block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("address")}
               </label>
               <input
