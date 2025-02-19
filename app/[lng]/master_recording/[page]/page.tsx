@@ -164,29 +164,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div>
-            <label className="text-[.5rem] text-sm block font-share">
-                {t("aka")}
-              </label>
-              <input
-                type="text"
-                value={aka}
-                onChange={handleAkaChange}
-                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
-                required
-              />
-              </div>
-              <div>
-                <label className="text-[.5rem] text-sm block font-share">
-                  {t("id")}
-                </label>
-                <input
-                  type="text"
-                  onChange={handleIdChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
-                  required
-                />
-              </div>
+            
             <div>
               <label className="text-[.5rem] text-sm block font-share">
                 {t("emailLabel")}
@@ -233,6 +211,29 @@ const DynamicPage = ({
               </div>
             </div>
             <div>
+            <label className="text-[.5rem] text-sm block font-share">
+                {t("aka")}
+              </label>
+              <input
+                type="text"
+                value={aka}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+              </div>
+              <div>
+                <label className="text-[.5rem] text-sm block font-share">
+                  {t("id")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIdChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                  required
+                />
+              </div>
+            <div>
               <label className="text-[.5rem] text-sm block font-share">
                 {t("address")}
               </label>
@@ -266,14 +267,7 @@ const DynamicPage = ({
             {t("legalNameShortLabel")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{legalName}</span>
           </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("aka2")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{aka}</span>
-          </p>
-          <p className=" text-[0px] sm:text-base font-roboto_light">
-            {t("id2")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{id}</span>
-          </p>
+          
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailShortLabel")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{email}</span>
@@ -287,6 +281,14 @@ const DynamicPage = ({
           <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("ownershipPercentageLabel")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base" id="split"></span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("aka2")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{aka}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("id2")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{id}</span>
           </p>
           <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("address2")}:{" "}
