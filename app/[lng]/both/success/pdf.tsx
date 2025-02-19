@@ -62,7 +62,6 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     x = getX(title);
-    //x /= 2;
     doc.text(splitTitle, x, y);
     y = getY(y, 30);
 
@@ -70,7 +69,7 @@ const PDF = (isClicked: boolean) => {
     doc.setFontSize(11);
     const line1 = t("2", { date });
     doc.text(line1, x, y);
-    y = y = getY(y, 15);
+    y = getY(y, 15);
 
     //list collaborator info
     Object.keys(pages).forEach((id) => {
@@ -261,7 +260,7 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text("-", x + 10, y + 10);
       doc.text(split14, x + 20, y + 10);
-      y = getY(y, 60);
+      y = getY(y, 25);
     } else if(voteSelection == "ADMIN") {
       const line10 = t("19a", { adminName });
       const split10 = doc.splitTextToSize(
@@ -285,10 +284,10 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split12, x, y + 10);
-      y = getY(y, 90);
+      y = getY(y, 55);
     }
     else{
-      y = getY(y,20)
+      y = getY(y,10)
     }
 
     doc.setFont("Palatino Linotype", "bold");
@@ -380,7 +379,12 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split26, x, y);
-    y = getY(y, 50);
+    if(language=='en'){
+      y = getY(y,25);
+    }else{
+      y = getY(y, 50);
+    }
+    
 
     // const line27 = t("32");
     // const split27 = doc.splitTextToSize(
