@@ -7,6 +7,11 @@
   "emailAddress": "Dirección de Correo Electrónico: {{email}}",
   "contributionType": "Contribución (Letra, música o ambas): {{contributorType}}",
   "ownershipPercentage": "Porcentaje de propiedad: {{split}}%",
+  "aka":"AKA: {{aka}}",
+  "ipi":"# IPI: {{ipi}}",
+  "address":"Dirección de residencia: {{address}}",
+  "id":"# ID: {{idNum}}",
+  "publisher":"Editora: {{publisher}}",
 
   "workIdentification": "1. Partes e Identificación de la Obra Musical",
   "workTitle": "Las partes contratantes han colaborado, reconocen y aceptan su contribución en la autoría o composición de la obra musical titulada \"{{song}}\".",

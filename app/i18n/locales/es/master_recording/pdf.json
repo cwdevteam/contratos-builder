@@ -15,6 +15,11 @@
   "email_address": "Dirección de Correo Electrónico: {{email}}",
   "contribution_type": "Contribución: {{contributorType}}",
   "ownership_percentage": "Porcentaje de propiedad: {{split}}%",
+  "aka":"AKA: {{aka}}",
+  "ipi":"# IPI: {{ipi}}",
+  "address":"Dirección de residencia: {{address}}",
+  "id":"# ID: {{idNum}}",
+  "publisher":"Editora: {{publisher}}",
 
   "rights_and_duties": "3. Derechos y deberes de las partes",
   "mutual_assignment": "Las partes acuerdan y aceptan la asignación mutua de la propiedad de derechos de autor en las proporciones establecidas en este acuerdo para la Grabación Maestra. En consecuencia, cada una de las partes recibe para sí misma, en su patrimonio, a perpetuidad y para todo el territorio, todos los derechos, intereses y prerrogativas otorgados por la propiedad de derechos de autor de la obra mencionada, de acuerdo con la ley y el presente acuerdo.",

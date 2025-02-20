@@ -35,8 +35,8 @@ const PDF = (isClicked: boolean) => {
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
-  const aka: string[] = [];
-  const address: string[] = [];
+  const akas: string[] = [];
+  const addresses: string[] = [];
   const ids: string[] = [];
 
   const generatePDF = async () => {
@@ -97,11 +97,27 @@ const PDF = (isClicked: boolean) => {
         y = getY(y, 5);
         const split = pageData.split;
         doc.text(t("ownership_percentage", { split }), x, y);
-        y = getY(y, 15);
+        y = getY(y, 5);
 
-        aka.push(pageData.aka);
-        address.push(pageData.address);
-        ids.push(pageData.id);
+        const aka = pageData.aka;
+        if(aka!=''){
+          doc.text(t("aka", { aka }), x, y);
+          y = getY(y, 5);
+        }
+        akas.push(aka.toString());
+        const address = pageData.address;
+        if(address!=''){
+        doc.text(t("address", { address }), x, y);
+        y = getY(y, 5);
+        }
+        addresses.push(address);
+        const idNum = pageData.id;
+        if(idNum!=''){
+        doc.text(t("id", { idNum }), x, y);
+        y = getY(y, 5);
+        }
+        ids.push(id);
+        y = getY(y,10);
       }
     });
 
@@ -484,8 +500,8 @@ const PDF = (isClicked: boolean) => {
               jurisdiction:jurisdiction,
               language:language,
               path: "master "+voteSelection,
-              aka: aka,
-              address: address,
+              aka: akas,
+              address: addresses,
               ids: ids,
             },
           ]);

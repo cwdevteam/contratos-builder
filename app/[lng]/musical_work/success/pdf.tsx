@@ -35,11 +35,11 @@ const PDF = (isClicked: boolean) => {
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
-  const aka: string[] = [];
-  const ipi: string[] = [];
-  const address: string[] = [];
+  const akas: string[] = [];
+  const ipis: string[] = [];
+  const addresses: string[] = [];
   const ids: string[] = [];
-  const producer: string[] = [];
+  const publishers: string[] = [];
 
   const generatePDF = async () => {
     const doc = new jsPDF();
@@ -99,12 +99,38 @@ const PDF = (isClicked: boolean) => {
         y = getY(y, 5);
         const split = pageData.split;
         doc.text(t("ownershipPercentage", { split }), x, y);
-        y = getY(y, 15);
-        aka.push(pageData.aka);
-        ipi.push(pageData.ipi);
-        address.push(pageData.address);
-        ids.push(pageData.id);
-        producer.push(pageData.producer);
+        y = getY(y, 5);
+        const aka = pageData.aka;
+        if(aka!=''){
+          doc.text(t("aka", { aka }), x, y);
+          y = getY(y, 5);
+        }
+        akas.push(aka.toString());
+        const ipi = pageData.ipi;
+        if(ipi!=''){
+        doc.text(t("ipi", { ipi }), x, y);
+        y = getY(y, 5);
+        }
+        ipis.push(ipi);
+        const address = pageData.address;
+        if(address!=''){
+        doc.text(t("address", { address }), x, y);
+        y = getY(y, 5);
+        }
+        addresses.push(address);
+        const idNum = pageData.id;
+        if(idNum!=''){
+        doc.text(t("id", { idNum }), x, y);
+        y = getY(y, 5);
+        }
+        ids.push(id);
+        const publisher = pageData.producer;
+        if(publisher!=''){
+        doc.text(t("publisher", { publisher }), x, y);
+        y = getY(y, 5);
+        }
+        publishers.push(publisher);
+        y = getY(y,10);
       }
     });
 
@@ -447,11 +473,11 @@ const PDF = (isClicked: boolean) => {
               jurisdiction:jurisdiction,
               language:language,
               path: "composition "+voteSelection,
-              aka: aka,
-              ipi: ipi,
-              address: address,
+              aka: akas,
+              ipi: ipis,
+              address: addresses,
               ids: ids,
-              producer: producer,
+              publishers: publishers,
 
             },
           ]);
