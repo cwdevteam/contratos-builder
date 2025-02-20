@@ -35,6 +35,11 @@ const PDF = (isClicked: boolean) => {
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
+  const aka: string[] = [];
+  const ipi: string[] = [];
+  const address: string[] = [];
+  const ids: string[] = [];
+  const producer: string[] = [];
 
   const generatePDF = async () => {
     const doc = new jsPDF();
@@ -94,6 +99,11 @@ const PDF = (isClicked: boolean) => {
         const split = pageData.split;
         doc.text(t("11", { split }), x, y);
         y = getY(y, 15);
+        aka.push(pageData.aka);
+        ipi.push(pageData.ipi);
+        address.push(pageData.address);
+        ids.push(pageData.id);
+        producer.push(pageData.producer);
       }
     });
 
@@ -541,6 +551,11 @@ const PDF = (isClicked: boolean) => {
               jurisdiction:jurisdiction,
               language:language,
               path: "both "+voteSelection,
+              aka: aka,
+              ipi: ipi,
+              address: address,
+              ids: ids,
+              producer: producer,
             },
           ]);
 

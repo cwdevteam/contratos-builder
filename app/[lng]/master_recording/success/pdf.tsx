@@ -35,6 +35,9 @@ const PDF = (isClicked: boolean) => {
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
+  const aka: string[] = [];
+  const address: string[] = [];
+  const ids: string[] = [];
 
   const generatePDF = async () => {
     const doc = new jsPDF();
@@ -95,6 +98,10 @@ const PDF = (isClicked: boolean) => {
         const split = pageData.split;
         doc.text(t("ownership_percentage", { split }), x, y);
         y = getY(y, 15);
+
+        aka.push(pageData.aka);
+        address.push(pageData.address);
+        ids.push(pageData.id);
       }
     });
 
@@ -477,6 +484,9 @@ const PDF = (isClicked: boolean) => {
               jurisdiction:jurisdiction,
               language:language,
               path: "master "+voteSelection,
+              aka: aka,
+              address: address,
+              ids: ids,
             },
           ]);
 
