@@ -157,9 +157,9 @@ const DynamicPage = ({
   };
 
   return (
-    <div className="p-4 flex flex-col justify-between">
+    <div className="p-4 justify-between">
       <main className="flex flex-col sm:flex-row">
-        <div className="w-full">
+        <div className="w-[120%]">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributorLabel")} {pageNumber}
           </h2>
@@ -189,9 +189,9 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-8 sm:w-[82%]">
-              <div className="w-fit">
-                <label className="text-[.4rem] sm:text-sm block font-share w-fit">
+            <div className="flex flex-row gap-8 sm:w-[87%]">
+              <div className="">
+                <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -209,14 +209,14 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="">
+              <div className="sm:w-[83.3%]">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
                 <input
                   type="text"
                   onChange={handleIPIChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-full"
                   required
                 />
               </div>
@@ -228,14 +228,14 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-full"
                   required
                 />
               </div>
             </div>
             <div>
               <label className="text-[.5rem] sm:text-sm block font-share">
-                {t("aka")} {t('optional')}
+                {t("aka")}{t('optional')}
               </label>
               <input
                 type="text"
@@ -257,7 +257,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-8 sm:w-[82%]">
+            <div className="flex flex-row gap-8 sm:w-[87%]">
               <div className="">
                 <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("id")}{t('optional')}
