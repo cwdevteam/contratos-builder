@@ -51,10 +51,6 @@ const ContractBuilder2 = ({
     }
   };
 
-  const query = new URLSearchParams({
-    song,
-  }).toString();
-
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row gap-6 sm:gap-8">

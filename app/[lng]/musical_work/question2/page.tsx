@@ -40,10 +40,6 @@ const ContractBuilder2 = ({
     }
   };
 
-  const query = new URLSearchParams({
-    song,
-  }).toString();
-
   const { lng } = params;
   const { t } = useTranslation(lng, "musical_work/question2");
 
