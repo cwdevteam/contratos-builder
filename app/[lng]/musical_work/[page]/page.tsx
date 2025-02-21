@@ -189,16 +189,16 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 sm:w-[87%]">
-              <div className="flex-1">
-                <label className="text-[.4rem] sm:text-sm block font-share">
+            <div className="flex flex-col sm:flex-row gap-8 sm:w-[87%]">
+              <div className="w-fit">
+                <label className="text-[.4rem] sm:text-sm block font-share w-fit">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 sm:w-full w-full font-rubik"
+                  className="bg-black p-2 size-10 size-10 sm:w-fit w-full font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
@@ -209,7 +209,7 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="flex-1">
+              <div className="sm:flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
@@ -220,7 +220,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="flex-1">
+              <div className="sm:flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
@@ -228,7 +228,7 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-full"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-[49%]"
                   required
                 />
               </div>
