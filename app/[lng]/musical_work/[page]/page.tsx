@@ -158,7 +158,7 @@ const DynamicPage = ({
 
   return (
     <div className="p-4 justify-between">
-      <main className="flex flex-col sm:flex-row mr-8 sm:mr-0">
+      <main className="flex flex-col sm:flex-row">
         <div className="w-[120%]">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributorLabel")} {pageNumber}
@@ -209,7 +209,7 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="sm:w-[83.3%]">
+              <div className="sm:flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
@@ -220,7 +220,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="">
+              <div className="sm:flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
@@ -228,7 +228,7 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-full"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-[49%]"
                   required
                 />
               </div>
@@ -257,7 +257,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-8 sm:w-[87%]">
+            <div className="flex flex-row gap-8 sm:w-[75%]">
               <div className="">
                 <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("id")}{t('optional')}
