@@ -43,7 +43,7 @@ const PDF = (isClicked: boolean) => {
     const doc = new jsPDF();
 
     const getY = (y: number, inc: number) => {
-      if (y > 240) {
+      if (y > 230) {
         //new page is needed
         doc.addPage();
         return 30;
