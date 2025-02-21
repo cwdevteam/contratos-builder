@@ -158,7 +158,7 @@ const DynamicPage = ({
 
   return (
     <div className="p-4 justify-between">
-      <main className="flex flex-col sm:flex-row">
+      <main className="flex flex-col sm:flex-row m-8 sm:m-0">
         <div className="w-[120%]">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributorLabel")} {pageNumber}
