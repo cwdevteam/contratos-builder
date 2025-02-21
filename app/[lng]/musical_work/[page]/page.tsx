@@ -220,7 +220,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="flex-1 w-full">
+              <div className="flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
@@ -228,7 +228,7 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-[49%]"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-[49%] w-full"
                   required
                 />
               </div>
