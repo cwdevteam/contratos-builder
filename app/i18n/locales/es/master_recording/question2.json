@@ -4,6 +4,7 @@
   "compositionLabel": "Composición",
   "masterLabel": "Master",
   "incompleteContractMessage": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
+  "collaboratorsQuestion": "¿Cuantas personas colaboraron escribiendo la canción?",
   "musicWorkIdentificationHeader": "1.0 Identificación de la Obra Musical",
   "musicWorkIdentificationText": "Las partes contratantes realizarán y fijarán una interpretación de la canción u Obra Musical titulada ",
   "masterRecordingIdentificationHeader": "1.0 Identificación de la grabacion Master",

@@ -114,7 +114,7 @@ const DynamicPage = ({
         `/master_recording/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/master_recording/question3`);
+      router.push(`/master_recording/question2`);
     }
   };
 

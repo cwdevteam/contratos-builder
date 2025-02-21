@@ -149,7 +149,7 @@ const DynamicPage = ({
         `/both/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/both/question3`);
+      router.push(`/both/question2`);
     }
   };
 

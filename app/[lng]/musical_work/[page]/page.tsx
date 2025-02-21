@@ -152,7 +152,7 @@ const DynamicPage = ({
         `/musical_work/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/musical_work/question3`);
+      router.push(`/musical_work/question2`);
     }
   };
 
