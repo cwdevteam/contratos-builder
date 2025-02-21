@@ -19,7 +19,7 @@
   "ipi":"# IPI (opcional)",
   "address":"Dirección de residencia (opcional)",
   "id":"# de identificación (opcional)",
-  "producer":"Editora (opcional",
+  "producer":"Editora (opcional)",
   "executiveProducer": "Productor Ejecutivo",
   "engineer": "Ingeniero",
   "splitPercentage": "Split (%)",
@@ -36,5 +36,5 @@
   "back": "Atrás",
   "idRight":"# identificación",
   "ipiRight":"#IPI",
-  "prodRight":"Editora"
+  "prodRight":"Productor"
 }
