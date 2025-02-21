@@ -190,7 +190,7 @@ const DynamicPage = ({
               />
             </div>
             <div className="flex flex-col sm:flex-row gap-8 sm:w-[87%]">
-              <div className="w-fit">
+              <div className="flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share w-fit">
                   {t("contributionTypeLabel")}
                 </label>
@@ -209,7 +209,7 @@ const DynamicPage = ({
                   <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="sm:flex-1">
+              <div className="flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("ipi")}{t('optional')}
                 </label>
@@ -220,7 +220,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="sm:flex-1">
+              <div className="flex-1">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
@@ -257,7 +257,7 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-8 sm:w-[87%]">
+            <div className="flex flex-row gap-8 sm:w-[75%]">
               <div className="">
                 <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("id")}{t('optional')}
