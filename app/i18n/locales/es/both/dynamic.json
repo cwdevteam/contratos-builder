@@ -1,5 +1,6 @@
 {
   "splitHelp": "Splits deben sumar 100 para ser validos",
+  "splitHelp%": "No incluya el %",
   "contractTypeQuestion": "¿Qué tipo de contrato quieres crear?",
   "songNameQuestion": "¿Cuál es el nombre de la canción?",
   "collaboratorsCountQuestion": "¿Cuantas personas colaboraron al escribir la canción?",

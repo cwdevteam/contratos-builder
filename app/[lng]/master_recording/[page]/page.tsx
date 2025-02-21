@@ -119,7 +119,10 @@ const DynamicPage = ({
   };
 
   const handleNextPage = () => {
-    if (pageNumber >= pageCount && splitTotal != 100) {
+    if(split.toString().includes('%')){
+      document.getElementById("wrongSplits")!.innerHTML = t("splitHelp%");
+    }
+    else if (pageNumber >= pageCount && splitTotal != 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
         t("splitHelp") + ". You need " +
