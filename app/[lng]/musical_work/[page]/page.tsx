@@ -157,7 +157,7 @@ const DynamicPage = ({
   };
 
   return (
-    <div className="p-4 justify-between">
+    <div className="sm:p-4 justify-between">
       <main className="flex flex-col sm:flex-row">
         <div className="w-[120%]">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
@@ -228,7 +228,7 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-[49%]"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-[49%]"
                   required
                 />
               </div>
