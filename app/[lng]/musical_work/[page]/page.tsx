@@ -220,7 +220,7 @@ const DynamicPage = ({
                   required
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 w-full">
                 <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
