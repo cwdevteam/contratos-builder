@@ -190,8 +190,8 @@ const DynamicPage = ({
               />
             </div>
             <div className="flex flex-row gap-8 sm:w-[87%]">
-              <div className="">
-                <label className="text-[.4rem] sm:text-sm block font-share">
+              <div className="w-fit">
+                <label className="text-[.4rem] sm:text-sm block font-share w-fit">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -216,7 +216,7 @@ const DynamicPage = ({
                 <input
                   type="text"
                   onChange={handleIPIChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-full"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-full"
                   required
                 />
               </div>
@@ -228,7 +228,7 @@ const DynamicPage = ({
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-full"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-full"
                   required
                 />
               </div>
