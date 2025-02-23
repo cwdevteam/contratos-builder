@@ -125,10 +125,10 @@ const DynamicPage = ({
     else if (pageNumber >= pageCount && splitTotal != 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        t("splitHelp") + ". You need " +
-        splitNeeded +
-        " instead of " +
-        split;
+        t("splitHelp") + ": " +
+        splitTotal +
+        "/100" 
+        console.log(splitNeeded);
     } else {
       if (
         legalName != "" &&

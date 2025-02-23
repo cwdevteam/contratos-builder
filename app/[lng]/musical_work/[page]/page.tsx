@@ -126,8 +126,9 @@ const DynamicPage = ({
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
         t("splitHelp") + ": " +
-        splitNeeded +
+        splitTotal +
         "/100" 
+        console.log(splitNeeded);
     } else {
       if (
         legalName != "" &&
