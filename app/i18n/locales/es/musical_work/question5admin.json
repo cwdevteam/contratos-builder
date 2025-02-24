@@ -5,7 +5,7 @@
   "backToContributorCount": "¿Cuantas personas colaboraron al escribir la canción?",
   "contributor": "Colaborador",
   "backToAdminDecision": "¿Designar administrador o votar?",
-  "adminName": "¿Cuál es el nombre(s) del administrador designado?",
+  "adminName": "Cuál es el nombre(s) del administrador designado o de la empresa Editorial designada para administrar la composición?",
   "adminNameList": "Nombre Legal (Nombre y Apellido) | Separalos por comas en caso que sean mas de 1",
   "incompleteContract": "Tu contrato aú no está completo, continua llenando el arbol de decisiónes.",
   "adminDesignationTitle": "4. Designación de Administrador",

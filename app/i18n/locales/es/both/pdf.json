@@ -16,6 +16,11 @@
     "9":"Dirección de Correo Electrónico: {{email}}",
     "10":"Contribución: {{contributorType}}, {{masterContributorType}}",
     "11":"Porcentaje de propiedad: {{split}}%",
+    "aka":"AKA: {{aka}}",
+    "ipi":"# IPI: {{ipi}}",
+    "address":"Dirección de residencia: {{address}}",
+    "id":"# ID: {{idNum}}",
+    "publisher":"Editora: {{publisher}}",
     
     "12":"3. Derechos y deberes de las partes",
     "13":"Las partes acuerdan y aceptan la asignación mutua de la propiedad de derechos de autor en las proporciones establecidas en las cláusulas 1 y 2 de este acuerdo para la Obra Musical y la Grabación Maestra, respectivamente. En consecuencia, cada una de las partes recibe para sí, en su patrimonio, en perpetuidad y para todo el territorio, todos los derechos, intereses y prerrogativas otorgados por la propiedad de derechos de autor de las obras mencionadas, de acuerdo con la ley y el presente acuerdo.",
@@ -64,7 +69,7 @@
     "39":"Las partes serán notificadas de cualquier decisión, controversia, negociación o asunto relevante relacionado con este contrato, vía correo electrónico o correo físico certificado a las direcciones físicas y electrónicas que aparecen al pie de su firma.",
     
     "40":"12. Resolución de controversias",
-    "41":"Cualquier controversia se tratará a través del diálogo entre las partes. En caso de no ser posible, se buscará agotar un mecanismo de resolución alternativa de conflictos, y en caso de no resolverse, se someterá a los jueces competentes bajo las leyes de Colombia.",
+    "41":"Cualquier controversia se tratará a través del diálogo entre las partes. En caso de no ser posible, se buscará agotar un mecanismo de resolución alternativa de conflictos, y en caso de no resolverse, se someterá a los jueces competentes bajo las leyes de {{jurisdiction}}.",
     "42":"Si alguna disposición de este Acuerdo es inválida, nula o inaplicable, el resto del Acuerdo permanecerá en plena vigencia y efecto. Este Acuerdo no podrá modificarse de ninguna manera excepto mediante un instrumento firmado por las partes. Este Acuerdo puede firmarse en duplicado (y/o por fax y/o PDF), cada uno de los cuales se considerará un original, pero todos los cuales juntos constituirán el Acuerdo.",
     
     "43":"En fe de lo cual, los colaboradores firman:",

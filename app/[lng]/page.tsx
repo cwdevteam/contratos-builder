@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-//import { languages, fallbackLng } from "../i18n/settings";
+import useJurisdiction from "./store/useJurisdiction";
 import { useTranslation } from "../i18n/client";
 import Popup from "reactjs-popup";
+import jurisdictions from "./public/jurisdictions.json"
 
 export default function Home({
   params,
@@ -16,11 +17,25 @@ export default function Home({
   let { lng } = params;
   //if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { push } = useRouter();
-  const { t } = useTranslation(lng);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
-  const [lang, setLang] = useState('');
+  const [isOpen4, setIsOpen4] = useState(false);
+  const [lang, setLang] = useState(lng);
+  const [jurisdiction, setJurisdiction] = useState('');
+
+  const { t } = useTranslation(lang);
+
+  const updateLanguage = useJurisdiction((state) => state.updateLanguage);
+  const updateJurisdiction = useJurisdiction((state) => state.updateJurisdiction);
+
+  const handleJurisdictionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setJurisdiction(event.target.value);
+  };
+
+  const filteredJurisdictions = jurisdictions.filter((j) =>
+    j.toLowerCase().includes(jurisdiction.toLowerCase())
+  );
 
   const changePopup = () =>{
     setIsOpen2(true);
@@ -35,6 +50,17 @@ export default function Home({
     setLang(lng);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLang(lang); // Update the language after some time
+    }, 2000);
+  }, []);
+
+  const handleSubmit = () =>{
+    updateLanguage(lang);
+    updateJurisdiction(jurisdiction);
+    push(`/${lang}/question1`)
+  }
   return (
     <div className="flex flex-col items-center md:items-start pt-20  p-2 w-full sm:w-3/5 sm:mx-auto">
       <section className="w-full flex flex-col gap-5">
@@ -99,6 +125,7 @@ export default function Home({
                     <br />
                     {t("disclaimer3")}
                     <br />
+                    </p>
                     <div className="flex justify-end">
                       <button
                         onClick={changePopup}
@@ -107,7 +134,6 @@ export default function Home({
                         {t("proceed-button")}&rarr;
                       </button>
                     </div>
-                  </p>
                 </main>
               </div>
             </div>
@@ -133,8 +159,8 @@ export default function Home({
                 overflowY: "scroll",
               }}
             >
-              <div className=" p-4 sm:p-8 flex flex-col justify-between">
-                <main className="flex flex-col gap-6 sm:gap-8 text-center">
+              <div className=" p-4 sm:p-6 flex flex-col justify-between">
+                <main className="flex flex-col gap-3 sm:gap-5 text-center">
                   <button
                     onClick={() => {
                       setIsOpen3(true);
@@ -161,9 +187,78 @@ export default function Home({
                   <option value="en">English</option>
                   <option value="es">Español</option>
                 </select>
+
+                <p className="font-roboto text-[1rem] w-full pt-4 my-0">{t("jurisdiction")}</p>
+                <label className="py-0 text-[.6rem] text-gray-500 my-0" id="if-usa">{t('if-usa')}
+                    <input
+                      type="text"
+                      name="type"
+                      onChange={handleJurisdictionChange}
+                      className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                      required
+                      list="jurisdictions"
+                    />
+                    </label>
+                    {filteredJurisdictions.length > 0 && filteredJurisdictions.length <= 10 && (
+                    <datalist id="jurisdictions">
+                      {filteredJurisdictions.map((j, index) => (
+                        <option key={index} value={j} />
+                      ))}
+                    </datalist>
+                    )}
+                    <h1 className="p-0">
+                      {t("dispute")}
+                    </h1>
+                    <p className="font-roboto_thin p-0">
+                      {t("jurisdiction-statement")}{" "}
+                      <span className="text-[#AC4444] text-lg font-rubik">
+                        {jurisdiction}
+                      </span>
+                      .
+                    </p>
+
+
                   <div className="flex justify-end">
+                    {!isOpen4 && (
+                              <Popup
+                                trigger={
+                                  <a className="mx-auto underline underline-offset-4 pb-5 ">
+                                    {t("read-here")}
+                                  </a>
+                                }
+                                position="center center"
+                                modal
+                                nested
+                                className="popup"
+                                closeOnDocumentClick
+                              >
+                                <div
+                                  className="modal border-2 border-white"
+                                  style={{
+                                    height: "80vh",
+                                    width: "90vw",
+                                    maxWidth: "600px",
+                                    overflowY: "scroll",
+                                  }}
+                                >
+                                  <p className="pt-20">{t("more-info")}</p>
+                                  <button
+                                    onClick={() => {
+                                      setIsOpen4(true);
+                                      setTimeout(() => {
+                                        setIsOpen4(false);
+                                      }, 200);
+                                    }}
+                                    className="popup_button text-white hover:text-gray-300"
+                                  >
+                                    &times;
+                                  </button>
+                                </div>
+                              </Popup>
+                            )}
+
                       <button
-                        onClick={() => push(`/${lang}/question1`)}
+                        onClick={handleSubmit}
                         className="border-none bg-[#82828270] absolute right-7 bottom-7"
                       >
                         {t("proceed-button")}&rarr;

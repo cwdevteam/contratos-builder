@@ -5,6 +5,7 @@
   "masterLabel": "Recorded Version",
   "incompleteContractMessage": "Your contract has yet to be completed. Continue to fill out the decision tree.",
   "musicWorkIdentificationHeader": "1.0 Music Work Identification",
+  "collaboratorsQuestion": "How many collaborators contributed to writing the song?",
   "musicWorkIdentificationText": "The contracting parties have collaborated in the authorship and composition of the musical work titled",
   "masterRecordingIdentificationHeader": "1.0 Master Recording  Identification",
   "masterRecordingIdentificationText": "The contracting parties have collaborated in the recording and production of the sound recording titled \"",

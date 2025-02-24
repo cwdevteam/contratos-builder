@@ -10,7 +10,7 @@
   "eligibility-condition4": "La participantes del split de composicion y el de master deben ser los mismos.",
   "confused-link": "Si estás confundido, lee aqui",
   "get-started-button": "EMPIEZA",
-  "contract-builder-title": "Constructor de contratos",
+  "contract-builder": "Constructor de contratos",
   "control-your": "Controla tu",
   "music": "musica",
   "proceed-button": "Proceder",
@@ -33,5 +33,15 @@
   "disclaimer2": "Si no comprende los términos o las consecuencias del borrador que le brindamos, o necesita asesoramiento legal para un problema específico, le recomendamos que consulte con un abogado autorizado. El borrador proporcionado por este servicio no sustituye el asesoramiento legal de un abogado calificado con licencia para ejercer en una jurisdicción apropiada.",
   "disclaimer3": "Este borrador se limita a los principios generales de la ley de derechos de autor. Si está interesado en obtener más información sobre cómo el sistema MESA puede ayudarle, póngase en contacto con nosotros en contratos@mesawallet.io",
   "language-question": "En que idioma necesitas el contrato?",
-  "choose-language": "Escoja el idioma"
+  "choose-language": "Escoja el idioma",
+
+  "jurisdiction":"[Opcional] Seleccione la jurisdicción legal para este contrato.",
+  "if-usa":"",
+  "yet-to-complete":"Su contrato aún no se ha completado. Continúe completando el árbol de decisiones.",
+  "dispute":"Resolución de Controversias",
+  "jurisdiction-statement":"Cualquier controversia se tratará a través del diálogo entre las partes. En caso de no ser posible, se buscará agotar un mecanismo de resolución alternativa de conflictos, y en caso de no resolverse, se someterá a los jueces competentes bajo las leyes de  ",
+  "read-here":"Si necesitas ayúda, presiona aquí.",
+  "submit":"Empezar",
+  "back":"Atrás",
+  "more-info":"La jurisdicción determina el marco legal bajo el cual se regirá este acuerdo. Escoja el país donde usted reside o donde es probable que sea usado este contrato. Esta pregunta es opcional ya que, en caso de dejarse en blanco, el documento puede ser usado como una guía y ser adaptado a cualquier jurisdicción. Sin embargo, especificar la jurisdicción, asegura que el acuerdo sea regido por las leyes locales y provee claridad en caso de disputas."
 }

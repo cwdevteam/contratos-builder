@@ -7,6 +7,7 @@ import useQuestion4 from "../../store/useQuestion4";
 import useDynamicPageStore from "../../store/use[page]";
 import useQuestion5Admin from "../../store/useQuestion5Admin";
 import useQuestion5Vote from "../../store/useQuestion5Vote";
+import useJurisdiction from "../../store/useJurisdiction";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../../../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
@@ -28,10 +29,17 @@ const PDF = (isClicked: boolean) => {
   const pages = useDynamicPageStore((state) => state.pages);
   const adminName = useQuestion5Admin((state) => state.adminName);
   const percent = useQuestion5Vote((state) => state.percent);
+  const language = useJurisdiction((state) => state.language);
+  const jurisdiction = useJurisdiction((state) => state.jurisdiction);
   const { t } = useTranslation("musical_work/pdf");
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
+  const akas: string[] = [];
+  const ipis: string[] = [];
+  const addresses: string[] = [];
+  const ids: string[] = [];
+  const publishers: string[] = [];
 
   const generatePDF = async () => {
     const doc = new jsPDF();
@@ -91,7 +99,38 @@ const PDF = (isClicked: boolean) => {
         y = getY(y, 5);
         const split = pageData.split;
         doc.text(t("ownershipPercentage", { split }), x, y);
-        y = getY(y, 15);
+        y = getY(y, 5);
+        const aka = pageData.aka;
+        if(aka!=''){
+          doc.text(t("aka", { aka }), x, y);
+          y = getY(y, 5);
+        }
+        akas.push(aka.toString());
+        const ipi = pageData.ipi;
+        if(ipi!=''){
+        doc.text(t("ipi", { ipi }), x, y);
+        y = getY(y, 5);
+        }
+        ipis.push(ipi);
+        const address = pageData.address;
+        if(address!=''){
+        doc.text(t("address", { address }), x, y);
+        y = getY(y, 5);
+        }
+        addresses.push(address);
+        const idNum = pageData.id;
+        if(idNum!=''){
+        doc.text(t("id", { idNum }), x, y);
+        y = getY(y, 5);
+        }
+        ids.push(id);
+        const publisher = pageData.producer;
+        if(publisher!=''){
+        doc.text(t("publisher", { publisher }), x, y);
+        y = getY(y, 5);
+        }
+        publishers.push(publisher);
+        y = getY(y,10);
       }
     });
 
@@ -176,7 +215,7 @@ const PDF = (isClicked: boolean) => {
       );
       doc.text("-", x, y + 10);
       doc.text(split13, x + 3, y + 10);
-      y = getY(y, 25);
+      y = getY(y, 35);
     } else if (voteSelection == "ADMIN") {
       const line10 = t("adminDesignation", { adminName });
       const split10 = doc.splitTextToSize(
@@ -211,7 +250,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split17, x, y);
-    y = getY(y, 30);
+    y = getY(y, 40);
 
     const line18 = t("thirdPartyPayments");
     const split18 = doc.splitTextToSize(
@@ -219,7 +258,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split18, x, y);
-    y = getY(y, 20);
+    y = getY(y, 30);
 
     doc.setFont("Palatino Linotype", "bold");
     doc.setFontSize(11);
@@ -349,13 +388,17 @@ const PDF = (isClicked: boolean) => {
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line36 = t("disputeMechanism");
-    const split36 = doc.splitTextToSize(
+    if(jurisdiction!=''){
+      const line36 = t("disputeMechanism", {jurisdiction});
+      const split36 = doc.splitTextToSize(
       line36,
       doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split36, x, y);
-    y = getY(y, 20);
+      );
+      doc.text(split36, x, y);
+      y = getY(y, 20);
+
+    }
+    
 
     const line37 = t("agreementValidity");
     const split37 = doc.splitTextToSize(
@@ -427,7 +470,15 @@ const PDF = (isClicked: boolean) => {
               names: names,
               download_clicked: isClicked,
               ipfs_cid: cid, // Store CID
+              jurisdiction:jurisdiction,
+              language:language,
               path: "composition "+voteSelection,
+              aka: akas,
+              ipi: ipis,
+              address: addresses,
+              ids: ids,
+              publishers: publishers,
+
             },
           ]);
 

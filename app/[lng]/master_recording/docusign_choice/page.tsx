@@ -7,7 +7,6 @@ import Image from "next/image";
 import docusignImage from "../../public/images/docusign.png";
 import useQuestion1 from "../../store/useQuestion1";
 import PDF from "../../master_recording/success/pdf";
-import useQuestion2 from "../../store/useQuestion2";
 import { loadStripe } from "@stripe/stripe-js";
 import Popup from "reactjs-popup";
 import { useState } from "react";
@@ -30,7 +29,6 @@ const DocusignChoice = ({
 
   const downloadUnsignedTrue = PDF(false);
   let cid = useQuestion1((state) => state.cid);
-  const songName = useQuestion2((state) => state.song);
   const [isOpen2, setIsOpen2] = useState(false);
 
   React.useEffect(() => {

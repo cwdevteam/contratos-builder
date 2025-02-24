@@ -37,6 +37,13 @@ const DynamicPage = ({
   const [splitTotal, setSplitTotal] = useState<number>(
     pageData.splitTotal || 0
   );
+
+  const [aka, setAka] = useState(pageData.aka || "");
+  const [ipi, setIpi] = useState(pageData.ipi || "");
+  const [address, setAddress] = useState(pageData.address || "");
+  const [id, setId] = useState(pageData.id || "");
+  const [producer, setProducer] = useState(pageData.producer || "");
+
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const { lng, page } = params;
   const { t } = useTranslation(lng, "musical_work/dynamic");
@@ -53,6 +60,11 @@ const DynamicPage = ({
       contributorType,
       split,
       splitTotal,
+      aka,
+      ipi,
+      address,
+      id,
+      producer,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -60,7 +72,7 @@ const DynamicPage = ({
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, splitTotal, pageNumber]);
+  }, [legalName, email, contributorType, split, splitTotal, pageNumber, aka, ipi, address, id, producer,]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -85,14 +97,38 @@ const DynamicPage = ({
     }
   };
 
+  const handleAkaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setAka(value);
+  };
+  const handleIPIChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setIpi(value);
+  };
+  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setAddress(value);
+  };
+  const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setId(value);
+  };
+  const handleProducerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setProducer(value);
+  };
+
   const handleNextPage = () => {
-    if (pageNumber >= pageCount && splitTotal !== 100) {
+    if(split.toString().includes('%')){
+      document.getElementById("wrongSplits")!.innerHTML = t("splitHelp%");
+    }
+    else if (pageNumber >= pageCount && splitTotal != 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        t("splitHelp") + ". You need " +
-        splitNeeded +
-        " instead of " +
-        split;
+        t("splitHelp") + ": " +
+        splitTotal +
+        "/100" 
+        console.log(splitNeeded);
     } else {
       if (
         legalName != "" &&
@@ -119,20 +155,20 @@ const DynamicPage = ({
         `/musical_work/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/musical_work/question3`);
+      router.push(`/musical_work/question2`);
     }
   };
 
   return (
-    <div className="p-4 flex flex-col justify-between">
-      <main className="flex flex-col sm:flex-row pt-7">
-        <div className="w-full">
+    <div className="sm:p-4 justify-between">
+      <main className="flex flex-col sm:flex-row">
+        <div className="sm:w-[120%]">
           <h2 className="text-[1.5rem] sm:text-xl mb-4 font-share">
             {t("contributorLabel")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("legalNameLabel")}
               </label>
               <input
@@ -143,8 +179,9 @@ const DynamicPage = ({
                 required
               />
             </div>
+           
             <div>
-              <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailLabel")}
               </label>
               <input
@@ -155,78 +192,160 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-5">
-              <div className="w-full sm:w-[38.5%]">
-                <label className="text-[.5rem] text-sm mb-2 block font-share">
+            <div className="flex flex-col sm:flex-row gap-8 sm:w-[87%]">
+              <div className="flex-1">
+                <label className="text-[.4rem] sm:text-sm block font-share w-fit">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-full font-rubik"
+                  className="bg-black p-2 size-10 size-10 sm:w-fit w-full font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
                   <option value=""></option>
                   <option value={t("lyricsOption")}>{t("lyricsOption")}</option>
                   <option value={t("musicOption")}>{t("musicOption")}</option>
-                  <option value={t("bothMusicAndLyricsOption")}>{t("bothOption")}</option>
+                  <option value={t("bothMusicAndLyricsOption")}>{t("bothMusicAndLyricsOption")}</option>
+                  <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="sm:w-[38.5%]">
-                <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <div className="flex-1">
+                <label className="text-[.4rem] sm:text-sm block font-share">
+                  {t("ipi")}{t('optional')}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIPIChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik w-full"
+                  required
+                />
+              </div>
+              <div className="flex-1">
+                <label className="text-[.4rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
                 <input
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white p-2 font-rubik sm:w-[49%] w-full"
                   required
                 />
               </div>
             </div>
+            <div>
+              <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("aka")}{t('optional')}
+              </label>
+              <input
+                type="text"
+                value={aka}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("address")}{t('optional')}
+              </label>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddressChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+            </div>
+            <div className="flex flex-row gap-8 sm:w-[75%]">
+              <div className="">
+                <label className="text-[.5rem] sm:text-sm block font-share">
+                  {t("id")}{t('optional')}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIdChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              <div className="">
+                <label className="text-[.5rem] sm:text-sm block font-share">
+                  {t("producer")}{t('optional')}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleProducerChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              </div>
           </form>
         </div>
         <div className="w-full sm:pt-7">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("incompleteContractMessage")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">{t("musicWorkIdentification")}</h3>
-          <p className="text-sm sm:text-base mb-4 font-roboto_light">
+          <h3 className=" mb-2 font-roboto_bold text-[0px] sm:text-base">{t("musicWorkIdentification")}</h3>
+          <p className="mb-4 font-roboto_light text-[0px] sm:text-base">
             {t("acknowledgementMessage")}
             <span className="text-[#AC4444] font-rubik"> {song}</span>
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">
+          <h3 className=" text-[0px] sm:text-base mb-2 font-roboto_bold">
             {t("contributorLabel")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik">{email}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("contributionSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik ">
               {contributorType}
             </span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ownershipPercentageSummary")}:{" "}
             <span className="text-[#AC4444] font-rubik" id="split"></span>
           </p>
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("ipi")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="ipi">{ipi}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("aka")}:{" "}
+            <span className="text-[#AC4444] font-rubik">{aka}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("id")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="id">{id}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("publisher")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="producer">{producer}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("address")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="address">{address}</span>
+          </p>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3">
+      <footer className="flex flex-col gap-6 row-start-3 ml-4">
         <p
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[15%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5">
           <button
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "

@@ -7,6 +7,7 @@ import useQuestion4 from "../../store/useQuestion4";
 import useDynamicPageStore from "../../store/use[page]";
 import useQuestion5Admin from "../../store/useQuestion5Admin";
 import useQuestion5Vote from "../../store/useQuestion5Vote";
+import useJurisdiction from "../../store/useJurisdiction";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../../../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
@@ -28,10 +29,15 @@ const PDF = (isClicked: boolean) => {
   const pages = useDynamicPageStore((state) => state.pages);
   const adminName = useQuestion5Admin((state) => state.adminName);
   const percent = useQuestion5Vote((state) => state.percent);
+  const language = useJurisdiction((state) => state.language);
+  const jurisdiction = useJurisdiction((state) => state.jurisdiction);
   const { t } = useTranslation("master_recording/pdf");
   const setCid = useQuestion1((state) => state.setCid);
   const names: string[] = [];
   const emails: string[] = [];
+  const akas: string[] = [];
+  const addresses: string[] = [];
+  const ids: string[] = [];
 
   const generatePDF = async () => {
     const doc = new jsPDF();
@@ -91,7 +97,27 @@ const PDF = (isClicked: boolean) => {
         y = getY(y, 5);
         const split = pageData.split;
         doc.text(t("ownership_percentage", { split }), x, y);
-        y = getY(y, 15);
+        y = getY(y, 5);
+
+        const aka = pageData.aka;
+        if(aka!=''){
+          doc.text(t("aka", { aka }), x, y);
+          y = getY(y, 5);
+        }
+        akas.push(aka.toString());
+        const address = pageData.address;
+        if(address!=''){
+        doc.text(t("address", { address }), x, y);
+        y = getY(y, 5);
+        }
+        addresses.push(address);
+        const idNum = pageData.id;
+        if(idNum!=''){
+        doc.text(t("id", { idNum }), x, y);
+        y = getY(y, 5);
+        }
+        ids.push(id);
+        y = getY(y,10);
       }
     });
 
@@ -209,16 +235,20 @@ const PDF = (isClicked: boolean) => {
         doc.internal.pageSize.getWidth() * 0.6
       );
       doc.text(split10, x / 2, y + 10);
-      y = getY(y, 30);
+      if(language=='en'){
+        y = getY(y, 60);
+      }else{
+        y = getY(y, 40);
+      }
 
-      const line10a = t("admin_responsibilities");
-      const split10a = doc.splitTextToSize(
-        line10a,
-        doc.internal.pageSize.getWidth() * 0.6
-      );
-      doc.text("-", x, y + 10);
-      doc.text(split10a, x / 2, y + 10);
-      y = getY(y, 45);
+      // const line10a = t("admin_responsibilities");
+      // const split10a = doc.splitTextToSize(
+      //   line10a,
+      //   doc.internal.pageSize.getWidth() * 0.6
+      // );
+      // doc.text("-", x, y + 10);
+      // doc.text(split10a, x / 2, y + 10);
+      // y = getY(y, 45);
     } else {
       y = getY(y, 10);
     }
@@ -245,7 +275,7 @@ const PDF = (isClicked: boolean) => {
       doc.internal.pageSize.getWidth() * 0.6
     );
     doc.text(split17, x / 2, y);
-    y = getY(y, 50);
+    y = getY(y, 45);
 
     const line18 = t("third_party_payments");
     const split18 = doc.splitTextToSize(
@@ -383,15 +413,19 @@ const PDF = (isClicked: boolean) => {
     y = getY(y, 10);
 
     doc.setFont("Palatino Linotype", "normal");
-    const line36 = t("dispute_resolution");
-    const split36 = doc.splitTextToSize(
+    if(jurisdiction!=''){
+      const line36 = t("dispute_details", {jurisdiction});
+      const split36 = doc.splitTextToSize(
       line36,
       doc.internal.pageSize.getWidth() * 0.6
-    );
-    doc.text(split36, x / 2, y);
-    y = getY(y, 20);
+      );
+      doc.text(split36, x / 2, y);
+      y = getY(y, 20);
 
-    const line37 = t("agreement_validity");
+    }
+    
+
+    const line37 = t("agreement_modification");
     const split37 = doc.splitTextToSize(
       line37,
       doc.internal.pageSize.getWidth() * 0.6
@@ -463,7 +497,12 @@ const PDF = (isClicked: boolean) => {
               names: names,
               download_clicked: isClicked,
               ipfs_cid: cid, // Store CID
+              jurisdiction:jurisdiction,
+              language:language,
               path: "master "+voteSelection,
+              aka: akas,
+              address: addresses,
+              ids: ids,
             },
           ]);
 

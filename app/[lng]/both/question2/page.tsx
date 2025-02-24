@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import useQuestion2 from "../../store/useQuestion2";
+import useQuestion3 from "../../store/useQuestion3";
 import { useTranslation } from "@/app/i18n/client";
 
 const ContractBuilder2 = ({
@@ -19,9 +20,21 @@ const ContractBuilder2 = ({
   //const [recording, setRecording] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question2");
+  const updateContributorCount = useQuestion3(
+    (state) => state.updateContributorCount
+  );
+  const [pageCount, setPageCount] = useState<number | null>(null);
 
   const handleSongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOptionSong(event.target.value);
+  };
+
+  const handleContributorsChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const contributors = Number(event.target.value);
+    setPageCount(contributors)!;
+    updateContributorCount(contributors);
   };
 
   // const handleRecordingChange = (
@@ -33,14 +46,10 @@ const ContractBuilder2 = ({
   const handleSubmit = () => {
     updateSong(song);
     //updateRecording(recording);
-    if (song != "") {
-      push(`/both/question3?${query}`);
+    if (pageCount && pageCount > 0 && song!="") {
+      push(`/both/1?pageCount=${pageCount}`);
     }
   };
-
-  const query = new URLSearchParams({
-    song,
-  }).toString();
 
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
@@ -56,6 +65,19 @@ const ContractBuilder2 = ({
               required
             />
           </form>
+          <div className="text-[#696969] w-full text-left mb-4 border-none font-share text-sm ">
+          <p className="text-[#FFFFFF] text-[1.5rem] pt-10">{t("collaboratorsQuestion")}</p>
+          <form className="flex flex-col pt-5">
+            <input
+              type="number"
+              name="type"
+              onChange={handleContributorsChange}
+              min="1"
+              className="rounded-lg bg-black border border-white border-[.125rem] text-white focus:outline-none focus:ring-2 focus:ring-white w-[3rem] font-rubik p-1"
+              required
+            />
+          </form>
+        </div>
         </div>
 
         <div className="w-full sm:w-1/2">

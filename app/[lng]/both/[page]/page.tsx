@@ -38,6 +38,14 @@ const DynamicPage = ({
   const [splitTotal, setSplitTotal] = useState<number>(
     pageData.splitTotal || 0
   );
+
+  const [aka, setAka] = useState(pageData.aka || "");
+  const [ipi, setIpi] = useState(pageData.ipi || "");
+  const [id, setId] = useState(pageData.id || "");
+  const [producer, setProducer] = useState(pageData.producer || "");
+  const [address, setAddress] = useState(pageData.address || "");
+
+
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const { lng, page } = params;
   const { t } = useTranslation(lng, "both/dynamic");
@@ -55,6 +63,11 @@ const DynamicPage = ({
       masterContributorType,
       split,
       splitTotal,
+      aka,
+      ipi,
+      id,
+      producer,
+      address,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -70,6 +83,11 @@ const DynamicPage = ({
     split,
     splitTotal,
     pageNumber,
+    aka,
+    ipi,
+    id,
+    producer,
+    address,
   ]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,6 +120,27 @@ const DynamicPage = ({
     }
   };
 
+    const handleAkaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setAka(value);
+    };
+    const handleIPIChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setIpi(value);
+    };
+    const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setId(value);
+    };
+    const handleProducerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setProducer(value);
+    };
+    const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setAddress(value);
+    };
+
   const handleBackPage = () => {
     const previousPage = parseInt(page) - 1;
     if (previousPage > 0) {
@@ -110,15 +149,21 @@ const DynamicPage = ({
         `/both/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/both/question3`);
+      router.push(`/both/question2`);
     }
   };
 
   const handleNextPage = () => {
-    if (pageNumber >= pageCount && splitTotal !== 100) {
+    if(split.toString().includes('%')){
+      document.getElementById("wrongSplits")!.innerHTML = t("splitHelp%");
+    }
+    else if (pageNumber >= pageCount && splitTotal != 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        t("splitHelp") + " " + t("splitNeeded") + " " + splitNeeded + " " + t("insteadOf") + " " + split;
+        t("splitHelp") + ": " +
+        splitTotal +
+        "/100" 
+        console.log(splitNeeded);
     } else {
       if (
         legalName != "" &&
@@ -141,13 +186,13 @@ const DynamicPage = ({
   return (
     <div className=" p-4 sm:p-8 flex flex-col justify-between">
       <main className="flex flex-col sm:flex-row">
-        <div className="w-full">
+        <div className="sm:w-[50%]">
           <h2 className="text-[1.5rem] sm:text-xl font-share">
             {t("collaborator")} {pageNumber}
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("legalNameShort")}
               </label>
               <input
@@ -159,8 +204,9 @@ const DynamicPage = ({
                 required
               />
             </div>
+            
             <div>
-              <label className="text-[.5rem] sm:text-sm mb-2 block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailShort")}
               </label>
               <input
@@ -172,111 +218,191 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex sm:flex-row flex-col gap-7 w-full">
-              <div className="w-3/5">
-                <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
+            <div className="flex sm:flex-row flex-col">
+              <div className="sm:w-[90%]">
+                <label className="text-[.5rem] sm:text-sm block font-share sm:w-fit">
                   {t("compositionContributionType")}
                 </label>
                 <select
                   name="type"
                   id="cont"
                   value={contributorType}
-                  className="bg-black p-2 size-10 w-[140%] sm:w-full font-rubik"
+                  className="bg-black p-2 size-10 w-full sm:w-[140%] sm:w-full font-rubik"
                   onChange={handleContributorChange}
                   required
                 >
                   <option value=""></option>
                   <option value={t("lyrics")}>{t("lyrics")}</option>
                   <option value={t("music")}>{t("music")}</option>
-                  <option value={t("both")}>{t("both")}</option>
+                  <option value={t("musicAndLyrics")}>{t("musicAndLyrics")}</option>
+                  <option value={t("publisher")}>{t("publisher")}</option>
                 </select>
               </div>
-              <div className="w-3/5">
-                <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
+              <div className="sm:w-full sm:pl-8">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("masterContributionType")}
                 </label>
                 <select
                   name="type"
                   id="cont"
                   value={masterContributorType}
-                  className="bg-black size-10 w-fit font-rubik"
+                  className="bg-black size-10 w-full font-rubik"
                   onChange={handleMasterContributorChange}
                   required
                 >
                   <option value=""></option>
                   <option value={t("artist")}>{t("artist")}</option>
-                  <option value={t("producer")}>{t("producer")}</option>
+                  <option value={t("prodRight")}>{t("prodRight")}</option>
                   <option value={t("executiveProducer")}>{t("executiveProducer")}</option>
                   <option value={t("engineer")}>{t("engineer")}</option>
                 </select>
+                </div>
               </div>
-              <div className="w-2/5">
-                <label className="text-[.5rem] sm:text-[.6rem] mb-2 block font-share w-fit">
+              <div className="flex sm:flex-row flex-col">
+              <div className="sm:w-[90%]">
+                <label className="text-[.5rem] sm:text-sm block font-share w-fit">
                   {t("splitPercentage")}
                 </label>
                 <input
                   type="number"
                   max="100"
                   onChange={handleSplitChange}
-                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-1/2 p-2"
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              <div className="sm:w-full sm:pl-8">
+                <label className="text-[.5rem] sm:text-sm block font-share">
+                  {t("producer")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleProducerChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              </div>
+              <div>
+              <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("aka")}
+              </label>
+              <input
+                type="text"
+                value={aka}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                required
+              />
+            </div>
+            <div className="flex sm:flex-row flex-col">
+              <div className="sm:w-[90%]">
+                <label className="text-[.5rem] sm:text-sm block font-share">
+                  {t("id")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIdChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                  required
+                />
+              </div>
+              <div className="sm:w-full sm:pl-8">
+                <label className="text-[.5rem] sm:text-sm block font-share">
+                  {t("ipi")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIPIChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
                   required
                 />
               </div>
             </div>
+            <div>
+              <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("address")}
+              </label>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddressChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
+                required
+              />
+            </div>
           </form>
         </div>
-        <div className="w-full sm:w-1/2 p-4 ">
+        <div className="w-full sm:w-1/2 pl-4">
           <p className="sm:text-sm text-gray-500 sm:mb-4 font-roboto_thin text-[0px]">
             {t("musicWorkIdentification")}
           </p>
-          <h3 className="mb-2 font-roboto_bold text-[0px] sm:text-base">
+          <h3 className="font-roboto_bold text-[0px] sm:text-base">
             {t("compositionContributionType")}
           </h3>
           <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
             {t("contributionAcknowledgement")}
           </p>
-          <h3 className=" text-[0px] sm:text-base sm:mb-2 font-roboto_bold">
+          <h3 className=" text-[0px] sm:text-base font-roboto_bold">
             {t("collaborator")} {pageNumber}:
           </h3>
-          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameShort")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {legalName}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base sm:mb-4 font-roboto_light">
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailShort")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {email}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("compositionContributionType")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {contributorType}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("ownershipPercentage")}:
-            <span
-              className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
-              id="ownershipPercentage"
-            ></span>
-          </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("masterContributionType")}:{" "}
             <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
               {" "}
               {masterContributorType}
             </span>
           </p>
-          <p className=" text-[0px] sm:text-base mb-4 font-roboto_light">
-            {t("productionPercentage")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage"></span>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("ownershipPercentage")}:
+            <span
+              className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
+              id="ownershipPercentage"
+            ></span>
+          </p>
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("producer")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{producer}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            AKA:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {aka}
+            </span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("idRight")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+              {id}
+            </span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("ipiRight")}:{" "}
+            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{ipi}</span>
           </p>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3">
+      <footer className="flex flex-col gap-6 row-start-3 pl-4">
         <p
           id="wrongSplits"
           className="text-[#AC4444] text-lg text-sm sm:text-base"

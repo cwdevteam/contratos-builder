@@ -37,6 +37,11 @@ const DynamicPage = ({
   const [splitTotal, setSplitTotal] = useState<number>(
     pageData.splitTotal || 0
   );
+
+  const [aka, setAka] = useState(pageData.aka || "");
+  const [address, setAddress] = useState(pageData.address || "");
+  const [id, setId] = useState(pageData.id || "");
+
   const resetPages = useDynamicPageStore((state) => state.resetPages);
   const { lng, page } = params;
   const { t } = useTranslation(lng, "master_recording/dynamic");
@@ -53,6 +58,9 @@ const DynamicPage = ({
       contributorType,
       split,
       splitTotal,
+      aka,
+      address,
+      id,
     };
     useDynamicPageStore.setState((state) => ({
       pages: {
@@ -60,7 +68,7 @@ const DynamicPage = ({
         [pageNumber]: { ...state.pages[pageNumber], ...data },
       },
     }));
-  }, [legalName, email, contributorType, split, splitTotal, pageNumber]);
+  }, [legalName, email, contributorType, split, splitTotal, pageNumber, aka, address, id, ]);
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLegalName(event.target.value);
@@ -85,6 +93,19 @@ const DynamicPage = ({
     }
   };
 
+  const handleAkaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setAka(value);
+    };
+    const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setAddress(value);
+    };
+    const handleIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setId(value);
+    };
+
   const handleBackPage = () => {
     const previousPage = parseInt(page) - 1;
     if (previousPage > 0) {
@@ -93,18 +114,21 @@ const DynamicPage = ({
         `/master_recording/${previousPage}?pageCount=${pageCount}&split=${splitTotal}`
       );
     } else {
-      router.push(`/master_recording/question3`);
+      router.push(`/master_recording/question2`);
     }
   };
 
   const handleNextPage = () => {
-    if (pageNumber >= pageCount && splitTotal !== 100) {
+    if(split.toString().includes('%')){
+      document.getElementById("wrongSplits")!.innerHTML = t("splitHelp%");
+    }
+    else if (pageNumber >= pageCount && splitTotal != 100) {
       const splitNeeded = (100 - splitTotal + split).toFixed(2);
       document.getElementById("wrongSplits")!.innerHTML =
-        t("splitHelp") + ". You need " +
-        splitNeeded +
-        " instead of " +
-        split;
+        t("splitHelp") + ": " +
+        splitTotal +
+        "/100" 
+        console.log(splitNeeded);
     } else {
       if (
         legalName != "" &&
@@ -132,7 +156,7 @@ const DynamicPage = ({
           </h2>
           <form className="flex flex-col gap-4">
             <div>
-              <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("legalNameLabel")}
               </label>
               <input
@@ -143,8 +167,9 @@ const DynamicPage = ({
                 required
               />
             </div>
+            
             <div>
-              <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <label className="text-[.5rem] sm:text-sm block font-share">
                 {t("emailLabel")}
               </label>
               <input
@@ -155,9 +180,9 @@ const DynamicPage = ({
                 required
               />
             </div>
-            <div className="flex flex-row gap-5">
-              <div className="w-full sm:w-[38.5%]">
-                <label className="text-[.5rem] text-sm mb-2 block font-share">
+            <div className="flex flex-row gap-8 w-full">
+              <div className="w-full sm:w-fit">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("contributionTypeLabel")}
                 </label>
                 <select
@@ -175,8 +200,8 @@ const DynamicPage = ({
                   <option value={t("engineerOption")}>{t("engineerOption")}</option>
                 </select>
               </div>
-              <div className="sm:w-[38.5%]">
-                <label className="text-[.5rem] text-sm mb-2 block font-share">
+              <div className="sm:w-[37%]">
+                <label className="text-[.5rem] sm:text-sm block font-share">
                   {t("splitPercentageLabel")}
                 </label>
                 <input
@@ -188,38 +213,89 @@ const DynamicPage = ({
                 />
               </div>
             </div>
+            <div>
+            <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("aka")}
+              </label>
+              <input
+                type="text"
+                value={aka}
+                onChange={handleAkaChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+              </div>
+              <div>
+                <label className="text-[.5rem] sm:text-sm block font-share">
+                  {t("id")}
+                </label>
+                <input
+                  type="text"
+                  onChange={handleIdChange}
+                  className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                  required
+                />
+              </div>
+            <div>
+              <label className="text-[.5rem] sm:text-sm block font-share">
+                {t("address")}
+              </label>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddressChange}
+                className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl p-2 font-rubik"
+                required
+              />
+            </div>
           </form>
         </div>
         <div className="w-full sm:pt-7">
           <p className="text-gray-500 mb-4 font-roboto_thin text-[0px] sm:text-[16px]">
             {t("incompleteContractMessage")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">{t("masterRecordingIdentification")}</h3>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <h3 className=" font-roboto_bold pt-5 text-[0px] sm:text-base">{t("masterRecordingIdentification")}</h3>
+          <div className="w-[90%]">
+          <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("contractPartiesAcknowledgement", {recording})}
-            <span className="text-[#AC4444] font-rubik"> {recording}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base"> {recording}</span>
             {t("contractPartiesAcknowledgementSuffix")}
           </p>
-          <h3 className="text-base mb-2 font-roboto_bold">
+          <p className="font-roboto_light pt-1 text-[0px] sm:text-base">{t('adk2')}</p>
+          </div>
+          <h3 className=" font-roboto_bold pt-5 text-[0px] sm:text-base">
             {t("contributorLabel")} {pageNumber}:
           </h3>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{legalName}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{legalName}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik">{email}</span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{email}</span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("contributionShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik ">
+            <span className="text-[#AC4444] font-rubik  text-[0px] sm:text-base">
               {contributorType}
             </span>
           </p>
-          <p className="text-sm sm:text-base font-roboto_light">
+          <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("ownershipPercentageLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="split"></span>
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base" id="split"></span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("aka2")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{aka}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("id2")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{id}</span>
+          </p>
+          <p className=" font-roboto_light text-[0px] sm:text-base">
+            {t("address2")}:{" "}
+            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{address}</span>
           </p>
         </div>
       </main>
@@ -228,7 +304,7 @@ const DynamicPage = ({
           id="wrongSplits"
           className="text-red-500 text-lg text-sm sm:text-base"
         ></p>
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[12%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 ml-4">
           <button
             onClick={handleBackPage}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "

@@ -9,6 +9,11 @@ interface PageData {
   masterContributorType: string;//master recording contribution
   split: number;
   splitTotal: number;
+  aka:string;
+  ipi:string;
+  address:string;
+  id:string;
+  producer:string;
 }
 
 // storing over dynamic pages dynamic pages
@@ -44,6 +49,11 @@ const useDynamicPageStore = create<DynamicPageState>()(
                 masterContributorType: "",
                 split: 0,
                 splitTotal: 0,
+                aka:"",
+                ipi:"",
+                address:"",
+                id:"",
+                producer:"",
               };
             }
           });
