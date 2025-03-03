@@ -14,7 +14,7 @@
     "artistic_name": "Artistic Name:",
     "email_address": "Email Address: {{email}}",
     "contribution_type": "Contribution: {{contributorType}}",
-    "ownership_percentage": "Ownership Percentage: {{split}}%",
+    "ownership_percentage": "Master Recording Ownership Percentage: {{split}}%",
     "aka":"AKA: {{aka}}",
     "ipi":"IPI #: {{ipi}}",
     "address":"Address: {{address}}",

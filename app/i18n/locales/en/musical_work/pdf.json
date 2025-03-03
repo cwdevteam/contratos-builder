@@ -5,7 +5,7 @@
   "legalName": "Legal Name: {{name}}",
   "emailAddress": "Email Address: {{email}}",
   "contributionType": "Contribution (Lyrics, music, or both): {{contributorType}}",
-  "ownershipPercentage": "Ownership Percentage: {{split}}%",
+  "ownershipPercentage": "Musical Work Ownership Percentage: {{split}}%",
   "aka":"AKA: {{aka}}",
   "ipi":"IPI #: {{ipi}}",
   "address":"Address: {{address}}",
