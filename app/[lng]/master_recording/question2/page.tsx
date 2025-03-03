@@ -107,7 +107,7 @@ const ContractBuilder2 = ({
             <span className="text-[#AC4444] font-rubik">
               {song ? song : " "}
             </span>
-           ".
+           &quot;.
           </p>
           <br />
           <h3 className="text-base font-bold mb-2 font-roboto_bold">
