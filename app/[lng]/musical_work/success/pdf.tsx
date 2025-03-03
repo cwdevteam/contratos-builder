@@ -420,10 +420,10 @@ const PDF = (isClicked: boolean) => {
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
         doc.text(t("legalName", { name }), x, y);
-        doc.line(x + 25, y + 1, x + 155, y + 1);
+        doc.line(x + 20, y + 1, x + 155, y + 1);
         y = getY(y, 5);
         doc.text(t("signature"), x, y);
-        doc.line(x + 15, y + 1, x + 70, y + 1);
+        doc.line(x + 16, y + 1, x + 70, y + 1);
         doc.text(t("signatureDate", { date }), x + 85, y);
         doc.line(x + 95, y + 1, x + 135, y + 1);
         y = getY(y, 15);
