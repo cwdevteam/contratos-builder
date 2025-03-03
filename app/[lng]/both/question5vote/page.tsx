@@ -76,7 +76,7 @@ const ContractBuilder5Vote = ({
         >
           {t("confusedMessage")}
         </a>
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:mt-[3%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5">
           <button
             onClick={() => push("/both/question4")}
             className="  w-[15%]  bg-[#AC444475] flex-1 sm:flex-none "
