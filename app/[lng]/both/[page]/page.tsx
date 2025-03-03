@@ -382,7 +382,7 @@ const DynamicPage = ({
           
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("producer")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{producer}</span>
+            <span className="text-[#AC4444] font-rubik" >{producer}</span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             AKA:{" "}
@@ -398,7 +398,7 @@ const DynamicPage = ({
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ipiRight")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{ipi}</span>
+            <span className="text-[#AC4444] font-rubik">{ipi}</span>
           </p>
         </div>
       </main>
