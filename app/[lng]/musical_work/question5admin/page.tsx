@@ -59,7 +59,7 @@ const ContractBuilder5Admin = ({
         </div>
       </main>
 
-      <footer className="flex flex-col gap-6 row-start-3  pt-[3%] sm:pt-[9%]">
+      <footer className="flex flex-col gap-6 row-start-3">
         <a
           className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base py-5 pl-4"
           href="#"
