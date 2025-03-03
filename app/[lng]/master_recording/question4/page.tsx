@@ -140,7 +140,7 @@ const ContractBuilder4 = ({
             </div>
           </Popup>
         )}
-        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pt-[10%]">
+        <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5">
           <button
             onClick={() =>
               push(
