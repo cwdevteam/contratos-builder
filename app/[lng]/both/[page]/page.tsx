@@ -116,7 +116,7 @@ const DynamicPage = ({
     setSplitTotal(value + lastSplit);
     if (value >= 0) {
       document.getElementById("ownershipPercentage")!.innerHTML = String(value);
-      document.getElementById("productionPercentage")!.innerHTML = String(value);
+      //document.getElementById("productionPercentage")!.innerHTML = String(value);
     }
   };
 
