@@ -488,6 +488,8 @@ const PDF = (isClicked: boolean) => {
         const userId = uuidv4(); // Generate UUID here
 
         // Now post the userId and CID to Supabase
+        if(song!='test'){
+
         const { data: supabaseData, error } = await supabase
           .from("contracts") // Replace with your actual table name
           .insert([
@@ -511,6 +513,8 @@ const PDF = (isClicked: boolean) => {
         } else {
           console.log("Data stored in Supabase:", supabaseData);
         }
+      }
+
       } catch (error) {
         console.error(
           "Error during IPFS file pinning or Supabase storage:",
