@@ -444,14 +444,14 @@ const PDF = (isClicked: boolean) => {
         y = getY(y, 5);
         doc.setFont("Palatino Linotype", "normal");
         const name = pageData.legalName;
-        doc.text(t("legal_name", { name }), x, y);
-        doc.line(x + 20, y + 1, x + 150, y + 1);
+        doc.text(t("legal_name", { name }), x, y+5);
+        doc.line(x + 20, y + 6, x + 155, y + 6);
         y = getY(y, 5);
-        doc.text(t("signature"), x, y);
-        doc.line(x + 16, y + 1, x + 80, y + 1);
-        doc.text(t("signature_date", { date }), x + 85, y);
-        doc.line(x + 95, y + 1, x + 132, y + 1);
-        y = getY(y, 15);
+        doc.text(t("signature"), x, y+14);
+        doc.line(x + 16, y +15, x + 110, y + 15);
+        doc.text(t("signature_date", { date }), x + 115, y+14);
+        doc.line(x + 125, y + 15, x + 155, y + 15);
+        y = getY(y, 25);
       }
     });
 
