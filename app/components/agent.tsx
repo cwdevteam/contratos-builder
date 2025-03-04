@@ -16,7 +16,7 @@ export default function Agent(){
 
     const askAgent = async (message: string) => {
         try {
-            const response = await fetch('http://localhost:3000/en/api/pineconeAgent', {
+            const response = await fetch('https://contratos.mesawallet.io/en/api/pineconeAgent', {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export default function Agent(){
                     >
                 <div className=" p-4 sm:p-8 flex flex-col justify-between">
                     <label className="text-[.5rem] sm:text-sm block font-share">
-                        Ask our helpful agent something:
+                        If confused, ask your music AI agent:
                         </label>
                         <input
                         type="text"
@@ -84,6 +84,17 @@ export default function Agent(){
                     </button>
                     {agentAnswer}
                 </div>
+                <button
+                    onClick={() => {
+                    setIsOpen(true);
+                    setTimeout(() => {
+                        setIsOpen(false);
+                    }, 200);
+                    }}
+                    className="popup_button text-white hover:text-gray-300"
+                >
+                    &times;
+              </button>
                 </div>
             </Popup>
         )}
