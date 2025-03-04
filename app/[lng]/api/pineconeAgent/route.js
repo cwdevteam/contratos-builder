@@ -1,6 +1,6 @@
 import { Pinecone } from '@pinecone-database/pinecone'
 
-const pc = new Pinecone({ apiKey: 'pcsk_6e6f9h_UrxGSVzkifxtUWcKbWHUzc3Zz764r5xDR4NNLq2LbzAzz9ub2xZ1w1eM61Nt41B' });
+const pc = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
 
 export async function POST(request) {
     const { message } = await request.json();

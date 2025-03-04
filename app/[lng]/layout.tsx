@@ -8,6 +8,7 @@ import { languages } from "../i18n/settings";
 import { useTranslation } from "../i18n";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import Agent from "../components/agent";
 
 import { Providers } from './providers'; 
 
@@ -63,6 +64,7 @@ export default async function RootLayout({
           alt="M"
           className="relative bottom-0 left-1/2 transform -translate-x-1/2"
         ></Image>
+        <Agent/>
       </body>
     </html>
   );
