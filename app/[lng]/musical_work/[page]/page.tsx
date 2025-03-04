@@ -49,7 +49,7 @@ const DynamicPage = ({
   const { t } = useTranslation(lng, "musical_work/dynamic");
 
   useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info
+    resetPages(0); // Reset all stored info
   }, [pageNumber, resetPages]);
 
   // Update Zustand store only if inputs change
