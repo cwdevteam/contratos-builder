@@ -64,7 +64,7 @@ export default async function RootLayout({
           alt="M"
           className="relative bottom-0 left-1/2 transform -translate-x-1/2"
         ></Image>
-        <Agent/>
+        {/* <Agent/> */}
       </body>
     </html>
   );
