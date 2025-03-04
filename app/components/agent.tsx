@@ -16,7 +16,7 @@ export default function Agent(){
 
     const askAgent = async (message: string) => {
         try {
-            const response = await fetch('https://contratos.mesawallet.io/en/api/pineconeAgent', {
+            const response = await fetch('https://contract-builder-git-agent-mesa.vercel.app//en/api/pineconeAgent', {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",
