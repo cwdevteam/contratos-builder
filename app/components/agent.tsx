@@ -35,7 +35,12 @@ export default function Agent(){
                 }
             };
             const handleAgentButton = () => {
-                setAgentAnswer("generating answer...")
+                if(message==''){
+                    setMessage("What is an ipi number?")
+                }else{
+                    setAgentAnswer("generating answer...")
+                }
+                
                 askAgent(message);
               };
 
@@ -96,6 +101,7 @@ export default function Agent(){
                     &times;
               </button>
                 </div>
+
             </Popup>
         )}
         </div>
