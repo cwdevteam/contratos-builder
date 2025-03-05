@@ -16,7 +16,7 @@ export default function Agent(){
 
     const askAgent = async (message: string) => {
         try {
-            const response = await fetch('https://contract-builder-git-agent-mesa.vercel.app//en/api/pineconeAgent', {
+            const response = await fetch('https://contract-builder-git-agent-mesa.vercel.app/en/api/pineconeAgent', {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",
@@ -51,11 +51,11 @@ export default function Agent(){
                 position="bottom right"
                 modal
                 nested
-                className="agent_popup"
+                className=""
                 closeOnDocumentClick
                 >
                     <div
-                        className="modal border-2 border-white absolute right-0 bottom-0"
+                        className="modal border-2 border-white"
                         style={{
                         height: "80vh",
                         width: "90vw",
