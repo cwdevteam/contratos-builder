@@ -36,7 +36,7 @@ export default function Agent(){
             };
             const handleAgentButton = () => {
                 if(message==''){
-                    setMessage("What is an ipi number?")
+                    document.getElementById("noMessage")!.innerText = "Enter a question";
                 }else{
                     setAgentAnswer("generating answer...")
                 }
@@ -74,7 +74,7 @@ export default function Agent(){
                         </label>
                         <input
                         type="text"
-                        placeholder="What is an ipi number?"
+                        placeholder=""
                         value={message}
                         onChange={handleInputChange}
                         className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
@@ -89,6 +89,7 @@ export default function Agent(){
                     </button>
                     {agentAnswer}
                 </div>
+                <p id="noMessage" className="text-[#AC4444] text-center"></p>
                 <button
                     onClick={() => {
                     setIsOpen(true);
