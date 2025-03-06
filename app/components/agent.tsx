@@ -1,52 +1,16 @@
 "use client"
 
-import { NextResponse } from "next/server";
 import { useState } from "react";
 import Popup from "reactjs-popup";
 
 export default function Agent(){
-    //const message = "If I sample a song in my song, do I need to report this?";
-    const [message, setMessage] = useState("");
-    const [agentAnswer, setAgentAnswer] = useState("");
+
     const [isOpen, setIsOpen] = useState(false);
 
-      const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMessage(event.target.value);
-      };
-
-    const askAgent = async (message: string) => {
-        try {
-            const response = await fetch('https://contract-builder-git-agent-mesa.vercel.app/en/api/pineconeAgent', {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ message: message }),
-            });
-            const data = await response.json();
-            console.log(data.message.content);
-            setAgentAnswer(data.message.content);
-            } catch (error) {
-                console.error("Error with agent:", error);
-                return NextResponse.json(
-                    { error: "Error with agent" },
-                    { status: 500 }
-                );
-                }
-            };
-            const handleAgentButton = () => {
-                if(message==''){
-                    document.getElementById("noMessage")!.innerText = "Enter a question";
-                }else{
-                    setAgentAnswer("generating answer...")
-                }
-                
-                askAgent(message);
-              };
 
     return (
         <div>
-        {!isOpen && (
+            {!isOpen && (
                 <Popup
                 trigger={
                     <button className="font-share absolute right-0 bottom-0">
@@ -70,13 +34,24 @@ export default function Agent(){
                     >
                 <iframe
                     src="https://www.chatbase.co/chatbot-iframe/3pO14yLU-QxsoZ9ZTRXmW"
-                    width="100%"
+                    width="95%"
                     height="100%"
                 ></iframe>
+                <button
+                    onClick={() => {
+                    setIsOpen(true);
+                    setTimeout(() => {
+                        setIsOpen(false);
+                    }, 200);
+                    }}
+                    className="popup_button text-white hover:text-gray-300 absolute top-0 right-0"
+                >
+                    &times;
+                 </button>
                 </div>
 
-            </Popup>
-        )}
+                </Popup>
+            )}
         </div>
     );
 
