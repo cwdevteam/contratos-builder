@@ -13,13 +13,13 @@ export default function Agent(){
             {!isOpen && (
                 <Popup
                 trigger={
-                    <a className="font-share absolute right-0 bottom-0 underline">
+                    <a className="font-share underline absolute right-0">
                     If confused, ask the music industry know it all
                     </a>
                 }
                 position="top right"
                 nested
-                className=""
+                className="relative"
                 closeOnDocumentClick
                 >
                     <div

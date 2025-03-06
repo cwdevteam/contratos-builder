@@ -58,6 +58,9 @@ export default async function RootLayout({
         <Providers>{children}</Providers>
         <SpeedInsights />
         <Analytics />
+        <div className="relative">
+        <Agent/>
+        </div>
         <Image
           src={mesaImage}
           width={95}
@@ -65,7 +68,7 @@ export default async function RootLayout({
           alt="M"
           className="relative bottom-0 left-1/2 transform -translate-x-1/2"
         ></Image>
-        <Agent/>
+        
       </body>
     </html>
   );
