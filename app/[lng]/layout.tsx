@@ -33,6 +33,7 @@ export default async function RootLayout({
   const { lng } = await params; // eslint-disable-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng); // eslint-disable-line react-hooks/rules-of-hooks
 
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <body>

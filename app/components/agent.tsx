@@ -68,39 +68,11 @@ export default function Agent(){
                         overflowY: "scroll",
                         }}
                     >
-                <div className=" p-4 sm:p-8 flex flex-col justify-between">
-                    <label className="text-[.5rem] sm:text-sm block font-share">
-                        If confused, ask your music AI agent:
-                        </label>
-                        <input
-                        type="text"
-                        placeholder=""
-                        value={message}
-                        onChange={handleInputChange}
-                        className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
-                        required
-                        />
-        
-                    <button
-                        onClick={handleAgentButton}
-                        className=" text-white py-2 px-4 rounded  transition-colors font-rubik py-1 button-height"
-                    >
-                        Ask
-                    </button>
-                    {agentAnswer}
-                </div>
-                <p id="noMessage" className="text-[#AC4444] text-center"></p>
-                <button
-                    onClick={() => {
-                    setIsOpen(true);
-                    setTimeout(() => {
-                        setIsOpen(false);
-                    }, 200);
-                    }}
-                    className="popup_button text-white hover:text-gray-300"
-                >
-                    &times;
-              </button>
+                <iframe
+                    src="https://www.chatbase.co/chatbot-iframe/3pO14yLU-QxsoZ9ZTRXmW"
+                    width="100%"
+                    height="100%"
+                ></iframe>
                 </div>
 
             </Popup>
