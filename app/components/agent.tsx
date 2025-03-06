@@ -14,7 +14,7 @@ export default function Agent(){
                 <Popup
                 trigger={
                     <a className="font-share underline absolute sm:right-[10%] bottom-px sm:bottom-0 ">
-                    If confused, ask the music industry know it all
+                    If confused, ask our music industry agent
                     </a>
                 }
                 position="top right"
