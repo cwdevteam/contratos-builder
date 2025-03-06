@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useQuestion1 from "../store/useQuestion1";
 import { useTranslation } from "@/app/i18n/client";
-import Popup from "reactjs-popup";
+// import Popup from "reactjs-popup";
 
 function ContractBuilder1({
   params,
@@ -17,8 +17,8 @@ function ContractBuilder1({
   const { lng } = params;
   const { t } = useTranslation(lng, "question1");
   const { push } = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen2, setIsOpen2] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -85,7 +85,7 @@ function ContractBuilder1({
               />
               {t("option_both")}
 
-              {!isOpen2 && (
+              {/* {!isOpen2 && (
                 <Popup
                   trigger={
                     <a className="items-center gap-2 underline underline-offset-4 font-share">
@@ -174,7 +174,7 @@ function ContractBuilder1({
                     </div>
                   </div>
                 </Popup>
-              )}
+              )} */}
             </label>
           </form>
         </div>
@@ -194,7 +194,7 @@ function ContractBuilder1({
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
-        {!isOpen && (
+        {/* {!isOpen && (
           <Popup
             trigger={
               <a className="items-center gap-2 underline underline-offset-4 p-4 sm:mx-0 pb-5">
@@ -240,7 +240,7 @@ function ContractBuilder1({
               </button>
             </div>
           </Popup>
-        )}
+        )} */}
 
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 ">
           <button

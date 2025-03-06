@@ -17,10 +17,10 @@ export default function Home({
   let { lng } = params;
   //if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { push } = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
-  const [isOpen4, setIsOpen4] = useState(false);
+  // const [isOpen4, setIsOpen4] = useState(false);
   const [lang, setLang] = useState(lng);
   const [jurisdiction, setJurisdiction] = useState('');
 
@@ -219,7 +219,7 @@ export default function Home({
 
 
                   <div className="flex justify-end">
-                    {!isOpen4 && (
+                    {/* {!isOpen4 && (
                               <Popup
                                 trigger={
                                   <a className="mx-auto underline underline-offset-4 pb-5 ">
@@ -255,7 +255,7 @@ export default function Home({
                                   </button>
                                 </div>
                               </Popup>
-                            )}
+                            )} */}
 
                       <button
                         onClick={handleSubmit}
@@ -272,7 +272,7 @@ export default function Home({
 
 
 
-        {!isOpen && (
+        {/* {!isOpen && (
           <Popup
             trigger={
               <a className="font-share text-2xl text-link underline text-center text-[18px] pt-2">
@@ -339,7 +339,7 @@ export default function Home({
               </button>
             </div>
           </Popup>
-        )}
+        )} */}
       </footer>
     </div>
   );

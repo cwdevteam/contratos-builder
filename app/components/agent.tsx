@@ -13,9 +13,9 @@ export default function Agent(){
             {!isOpen && (
                 <Popup
                 trigger={
-                    <button className="font-share absolute right-0 bottom-0">
-                    ?
-                    </button>
+                    <a className="font-share absolute right-0 bottom-0 underline">
+                    If confused, ask the music industry know it all
+                    </a>
                 }
                 position="top right"
                 nested

@@ -4,7 +4,7 @@ import React, { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import useQuestion4 from "../../store/useQuestion4";
 import { useTranslation } from "@/app/i18n/client";
-import Popup from "reactjs-popup";
+//import Popup from "reactjs-popup";
 
 const ContractBuilder4 = ({
   params,
@@ -15,7 +15,7 @@ const ContractBuilder4 = ({
 }) => {
   const { push } = useRouter();
 
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const { lng } = params;
   const { t } = useTranslation(lng, "both/question4");
@@ -90,7 +90,7 @@ const ContractBuilder4 = ({
         </div>
       </main>
       <footer className="flex flex-col gap-6 row-start-3">
-        {!isOpen && (
+        {/* {!isOpen && (
           <Popup
             trigger={
               <a className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base m-auto sm:m-0 pb-5 pl-4">
@@ -140,7 +140,7 @@ const ContractBuilder4 = ({
               </button>
             </div>
           </Popup>
-        )}
+        )} */}
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5">
           <button
             onClick={() =>
