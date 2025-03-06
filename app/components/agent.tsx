@@ -13,7 +13,7 @@ export default function Agent(){
             {!isOpen && (
                 <Popup
                 trigger={
-                    <a className="font-share underline absolute right-0 bottom-px">
+                    <a className="font-share underline absolute sm:right-[10%] bottom-px sm:bottom-0 ">
                     If confused, ask the music industry know it all
                     </a>
                 }
