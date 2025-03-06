@@ -17,8 +17,7 @@ export default function Agent(){
                     ?
                     </button>
                 }
-                position="bottom right"
-                modal
+                position="top right"
                 nested
                 className=""
                 closeOnDocumentClick
