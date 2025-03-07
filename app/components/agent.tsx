@@ -1,10 +1,18 @@
 "use client"
 
 import { useState } from "react";
+import { useTranslation } from "../i18n/client";
 import Popup from "reactjs-popup";
 
-export default function Agent(){
-
+export default function Agent({
+    params,
+  }: {
+    params: {
+      lng: string;
+    };
+  }){
+    const { lng } = params;
+    const { t } = useTranslation(lng);
     const [isOpen, setIsOpen] = useState(false);
 
 
@@ -13,8 +21,8 @@ export default function Agent(){
             {!isOpen && (
                 <Popup
                 trigger={
-                    <a className="font-share underline relative content-center sm:absolute left-[5%] sm:left-[70%] bottom-0">
-                    If confused, ask our music industry agent
+                    <a className="font-share underline relative content-center sm:absolute left-[5%] sm:left-[60%] bottom-0">
+                    {t("agent")}
                     </a>
                 }
                 position="top right"
