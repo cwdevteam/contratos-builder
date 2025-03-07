@@ -43,13 +43,6 @@ const ContractBuilder5Admin = ({
             />
           </form>
           <div className=" w-4/5 sm:mt-[20%]">
-            <a
-              className="text-[#3167B4] underline underline-offset-4 sm:text-base text-[0px]"
-              href="#"
-              onClick={() => push("/popups/moreInfoAdmin")}
-            >
-              {t("helpLinkText")}
-            </a>
           </div>
         </div>
         <div className="w-full sm:w-1/2 sm:p-8">
@@ -61,16 +54,9 @@ const ContractBuilder5Admin = ({
             {t("adminDesignationIntro")} <span className="text-[#AC4444] font-rubik">{name}</span>
             {t("adminDesignationDetails")}
           </p>
-          <a
-            className="text-[#3167B4] underline underline-offset-4 text-sm sm:text-base visible sm:invisible "
-            href="#"
-            onClick={() => push("/popups/moreInfoAdmin")}
-          >
-            {t("helpLinkText")}
-          </a>
         </div>
       </main>
-      <footer className="flex flex-col gap-6 row-start-3  pt-[3%] sm:pt-[9%]">
+      <footer className="flex flex-col gap-6 row-start-3">
         <div className="inline-flex relative bottom-0 left-0 right-0 justify-between sm:justify-normal sm:gap-20 gap-5 sm:pl-4">
           <button
             onClick={() => push("/master_recording/question4")}

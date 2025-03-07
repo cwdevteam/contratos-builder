@@ -51,7 +51,7 @@ const DynamicPage = ({
   const { t } = useTranslation(lng, "both/dynamic");
 
   useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info
+    resetPages(0); // Reset all stored info
   }, [pageNumber, resetPages]);
 
   // Update Zustand store only if inputs change
@@ -111,12 +111,19 @@ const DynamicPage = ({
   };
 
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(event.target.value);
+    let value;
+    if(event.target.value.includes('%')){
+      value = Number(event.target.value.slice(0,-1));
+    }
+    else{
+      value = Number(event.target.value);
+    }
+    
     setSplit(value);
     setSplitTotal(value + lastSplit);
     if (value >= 0) {
       document.getElementById("ownershipPercentage")!.innerHTML = String(value);
-      document.getElementById("productionPercentage")!.innerHTML = String(value);
+      //document.getElementById("productionPercentage")!.innerHTML = String(value);
     }
   };
 
@@ -264,7 +271,7 @@ const DynamicPage = ({
                   {t("splitPercentage")}
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   max="100"
                   onChange={handleSplitChange}
                   className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
@@ -348,26 +355,26 @@ const DynamicPage = ({
           </h3>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameShort")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">
               {legalName}
             </span>
           </p>
           
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailShort")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">
               {email}
             </span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("compositionContributionType")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">
               {contributorType}
             </span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("masterContributionType")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">
               {" "}
               {masterContributorType}
             </span>
@@ -375,30 +382,34 @@ const DynamicPage = ({
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ownershipPercentage")}:
             <span
-              className="text-[#AC4444] font-rubik text-[0px] sm:text-base"
+              className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base"
               id="ownershipPercentage"
             ></span>
           </p>
           
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("producer")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{producer}</span>
+            <span className="text-[#AC4444] font-rubik_medium" >{producer}</span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             AKA:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">
               {aka}
             </span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("idRight")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">
               {id}
             </span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("ipiRight")}:{" "}
-            <span className="text-[#AC4444] font-rubik" id="productionPercentage">{ipi}</span>
+            <span className="text-[#AC4444] font-rubik_medium">{ipi}</span>
+          </p>
+          <p className=" text-[0px] sm:text-base font-roboto_light">
+            {t("addressRight")}:{" "}
+            <span className="text-[#AC4444] font-rubik_medium" id="address">{address}</span>
           </p>
         </div>
       </main>

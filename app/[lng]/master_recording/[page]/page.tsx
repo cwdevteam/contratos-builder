@@ -47,7 +47,7 @@ const DynamicPage = ({
   const { t } = useTranslation(lng, "master_recording/dynamic");
 
   useEffect(() => {
-    resetPages(pageNumber); // Reset all stored info
+    resetPages(0); // Reset all stored info
   }, [pageNumber, resetPages]);
 
   // Update Zustand store only if inputs change
@@ -85,7 +85,13 @@ const DynamicPage = ({
   };
 
   const handleSplitChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(event.target.value);
+    let value;
+    if(event.target.value.includes('%')){
+      value = Number(event.target.value.slice(0,-1));
+    }
+    else{
+      value = Number(event.target.value);
+    }
     setSplit(value);
     setSplitTotal(value + lastSplit);
     if (value >= 0) {
@@ -205,7 +211,7 @@ const DynamicPage = ({
                   {t("splitPercentageLabel")}
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   max="100"
                   onChange={handleSplitChange}
                   className="rounded-lg bg-black border border-white text-white focus:outline-none focus:ring-2 focus:ring-white w-full p-2 font-rubik"
@@ -258,7 +264,7 @@ const DynamicPage = ({
           <div className="w-[90%]">
           <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("contractPartiesAcknowledgement", {recording})}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base"> {recording}</span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base"> {recording}</span>
             {t("contractPartiesAcknowledgementSuffix")}
           </p>
           <p className="font-roboto_light pt-1 text-[0px] sm:text-base">{t('adk2')}</p>
@@ -268,34 +274,34 @@ const DynamicPage = ({
           </h3>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("legalNameShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{legalName}</span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">{legalName}</span>
           </p>
           
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("emailShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{email}</span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">{email}</span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("contributionShortLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik  text-[0px] sm:text-base">
+            <span className="text-[#AC4444] font-rubik_medium  text-[0px] sm:text-base">
               {contributorType}
             </span>
           </p>
           <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("ownershipPercentageLabel")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base" id="split"></span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base" id="split"></span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("aka2")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{aka}</span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">{aka}</span>
           </p>
           <p className=" text-[0px] sm:text-base font-roboto_light">
             {t("id2")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{id}</span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">{id}</span>
           </p>
           <p className=" font-roboto_light text-[0px] sm:text-base">
             {t("address2")}:{" "}
-            <span className="text-[#AC4444] font-rubik text-[0px] sm:text-base">{address}</span>
+            <span className="text-[#AC4444] font-rubik_medium text-[0px] sm:text-base">{address}</span>
           </p>
         </div>
       </main>

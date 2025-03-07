@@ -1,5 +1,7 @@
 "use client";
 
+//NOT USED (CONSOLIDATED W question2)
+
 import React, { Suspense, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
