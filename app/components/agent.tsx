@@ -25,9 +25,9 @@ export default function Agent(){
                     <div
                         className="modal border-2 border-white"
                         style={{
-                        height: "80vh",
+                        height: "60vh",
                         width: "90vw",
-                        maxWidth: "600px",
+                        maxWidth: "400px",
                         overflowY: "scroll",
                         }}
                     >
